@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+dependencies {
+    compile files('lib/resources.jar')
+    runtime files('lib/resources.jar')
+}
+
+defaultTasks 'jar'
+
+jar {
+    manifest {
+        attributes ('Main-Class': 'Mule')
+    }
+}
+
+processResources {
+    copy {
+        from 'lib'
+        into 'build/libs'
+    }
+}
