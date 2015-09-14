@@ -4,27 +4,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="game.GameConfigurationController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.GameConfigurationController">
   <children>
-    <MenuBar>
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Close" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Delete" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
+      <Label alignment="CENTER" prefHeight="43.0" prefWidth="600.0" text="M.U.L.E. Configuration" />
     <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
         <Label alignment="BOTTOM_RIGHT" prefHeight="55.0" prefWidth="132.0" text="Select a difficulty:" />
@@ -37,13 +19,17 @@
     <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
         <Label alignment="BOTTOM_RIGHT" prefHeight="58.0" prefWidth="137.0" text="Select a map type:" />
+            <Pane prefHeight="92.0" prefWidth="86.0" />
+            <RadioButton mnemonicParsing="false" prefHeight="93.0" prefWidth="110.0" text="Standard" />
+            <Pane prefHeight="92.0" prefWidth="16.0" />
+            <RadioButton mnemonicParsing="false" prefHeight="92.0" prefWidth="133.0" text="Random Hills" />
       </children>
     </HBox>
     <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
         <Label alignment="BOTTOM_RIGHT" prefHeight="48.0" prefWidth="209.0" text="Select the number of players:" />
         <Pane prefHeight="100.0" prefWidth="56.0" />
-        <Slider majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="1" prefHeight="130.0" prefWidth="90.0" showTickLabels="true" snapToTicks="true" />
+        <Slider majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="92.0" prefWidth="135.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
       </children>
     </HBox>
     <HBox prefHeight="100.0" prefWidth="200.0">
