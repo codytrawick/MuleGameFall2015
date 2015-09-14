@@ -55,7 +55,7 @@
             <Font size="18.0" />
           </font>
         </Label>
-        <Button fx:id="startButton" layoutX="280.0" layoutY="217.0" mnemonicParsing="false" onAction="#testWhip" text="Whip Mule" />
+        <Button fx:id="startButton" layoutX="280.0" layoutY="217.0" mnemonicParsing="false" onAction="#testWhip" text="Start Game" />
         <Button layoutX="280.0" layoutY="249.0" mnemonicParsing="false" text="Load Game" />
       </children>
     </AnchorPane>

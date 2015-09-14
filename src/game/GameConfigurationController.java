@@ -7,7 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 
-public class Controller implements GameScreen {
+public class GameConfigurationController implements GameScreen {
+
     Engine gameEngine;
 
     @FXML
@@ -17,24 +18,23 @@ public class Controller implements GameScreen {
     private URL location;
 
     @FXML
-    private Button startButton;
+    private Button confirmButton;
 
 
     @FXML
-    void testWhip(ActionEvent event) {
-        System.out.println("Test");
-        gameEngine.setScreen(Mule.GAME_CONFIGURATION);
+    void checkInputs(ActionEvent event) {
+        gameEngine.setScreen(Mule.PLAYER_CREATION_PAGE);
     }
 
     @FXML
     void initialize() {
-        assert startButton != null : "fx:id=\"startButton\" was not injected: check your FXML file 'startScreen.fxml'.";
+        assert confirmButton != null : "fx:id=\"confirmButton\" was not injected: check your FXML file 'gameConfig.fxml'.";
 
 
     }
 
-    @Override
     public void setEngine(Engine parent) {
         gameEngine = parent;
     }
+
 }

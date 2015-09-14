@@ -38,7 +38,7 @@ public class Engine extends StackPane {
                 getChildren().add(0, gameScreens.get(name));
             }
         } else {
-            System.out.print("oops");
+            System.out.print("Problem setting screen");
         }
     }
 }
