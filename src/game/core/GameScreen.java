@@ -1,6 +1,6 @@
-package game;
+package game.core;
 
-import javafx.scene.Scene;
+import game.core.Engine;
 
 /**
  * Created by Cody on 9/13/2015.

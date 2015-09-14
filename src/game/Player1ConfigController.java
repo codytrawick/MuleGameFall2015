@@ -2,6 +2,10 @@ package game;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import game.core.Engine;
+import game.core.GameScreen;
+import game.core.Mule;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

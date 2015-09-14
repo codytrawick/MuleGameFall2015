@@ -2,6 +2,9 @@ package game;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import game.core.Engine;
+import game.core.GameScreen;
 import javafx.fxml.FXML;
 import javafx.scene.control.Slider;
 import javafx.scene.input.DragEvent;

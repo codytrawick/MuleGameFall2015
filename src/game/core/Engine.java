@@ -1,4 +1,4 @@
-package game;
+package game.core;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
