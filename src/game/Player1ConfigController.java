@@ -23,7 +23,6 @@ public class Player1ConfigController implements GameScreen {
     @FXML
     private Button quitButton;
 
-
     @FXML
     void checkValues(ActionEvent event) {
         System.out.print("Cookie time");

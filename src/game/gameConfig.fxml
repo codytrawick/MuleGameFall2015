@@ -45,7 +45,7 @@
         <VBox prefHeight="92.0" prefWidth="162.0">
           <children>
             <Pane prefHeight="27.0" prefWidth="162.0" />
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Quit" />
+            <Button fx:id="quitButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#returnToTitle" text="Quit" />
           </children>
         </VBox>
       </children>

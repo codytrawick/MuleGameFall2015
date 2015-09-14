@@ -20,10 +20,17 @@ public class GameConfigurationController implements GameScreen {
     @FXML
     private Button confirmButton;
 
+    @FXML
+    private Button quitButton;
 
     @FXML
     void checkInputs(ActionEvent event) {
         gameEngine.setScreen(Mule.PLAYER_CREATION_PAGE);
+    }
+
+    @FXML
+    void returnToTitle(ActionEvent event) {
+        gameEngine.setScreen(Mule.WELCOME_PAGE);
     }
 
     @FXML
