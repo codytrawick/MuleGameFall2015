@@ -6,14 +6,24 @@ import java.util.ResourceBundle;
 import game.core.Engine;
 import game.core.GameScreen;
 import game.core.Mule;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
+import javafx.scene.control.ToggleGroup;
 
 
 public class GameConfigurationController implements GameScreen {
 
     Engine gameEngine;
+
+    @FXML
+    private ToggleGroup difficultyLevel;
+
+    @FXML
+    private ToggleGroup mapType;
 
     @FXML
     private ResourceBundle resources;
@@ -28,6 +38,9 @@ public class GameConfigurationController implements GameScreen {
     private Button quitButton;
 
     @FXML
+    private Slider playerNum;
+
+    @FXML
     void checkInputs(ActionEvent event) {
         gameEngine.setScreen(Mule.PLAYER_CREATION_PAGE);
     }
@@ -40,7 +53,12 @@ public class GameConfigurationController implements GameScreen {
     @FXML
     void initialize() {
         assert confirmButton != null : "fx:id=\"confirmButton\" was not injected: check your FXML file 'gameConfig.fxml'.";
-
+        playerNum.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                playerNum.setValue(newValue.intValue());
+            }
+        });
 
     }
 
