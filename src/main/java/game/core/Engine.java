@@ -7,15 +7,30 @@ import javafx.scene.layout.StackPane;
 import java.util.HashMap;
 
 /**
- * Created by Cody on 9/13/2015.
+ * This class represents our Game Engine. The Game Engine manages screens in the
+ * game and switches between them. Screens must be loaded before the game
+ * can display them.
+ *
+ * @author The SpecialFX
+ * @versoin 1.0
  */
 public class Engine extends StackPane {
     private HashMap<String, Node> gameScreens = new HashMap<String, Node>();
 
+    /**
+     * This method adds a loaded screen to our game.
+     * @param name The name of the screen
+     * @param screen The loaded screen
+     */
     private void addScreen(String name, Node screen) {
         gameScreens.put(name, screen);
     }
 
+    /**
+     * This method loads a screen to the game.
+     * @param name The name of the target screen
+     * @param fxlmresourceName The fxml file that controls the screen's layout
+     */
     public void loadScreen(String name, String fxlmresourceName) {
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -29,6 +44,10 @@ public class Engine extends StackPane {
         }
     }
 
+    /**
+     * This method displays a loaded screen and removes the old screen
+     * @param name The target screen to display
+     */
     public void setScreen(String name) {
         if (gameScreens.get(name) != null) {
             if (!getChildren().isEmpty()) {

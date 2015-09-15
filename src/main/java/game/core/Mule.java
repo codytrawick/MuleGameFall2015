@@ -1,5 +1,8 @@
-package game.core;/**
- * Created by Cody on 9/13/2015.
+package game.core;
+/**
+ * This is the  main class for our Game.
+ * This class will load all known screens and set the screen to the welcome
+ * screen.
  */
 
 import javafx.application.Application;
@@ -9,11 +12,11 @@ import javafx.stage.Stage;
 public class Mule extends Application {
 
     public static final String WELCOME_PAGE = "Start";
-    public static final String WELCOME_PAGE_FXML = "resources/startScreen.fxml";
+    public static final String WELCOME_PAGE_FXML = "/startScreen.fxml";
     public static final String PLAYER_CREATION_PAGE = "Players";
-    public static final String PLAYER_CREATION_PAGE_FXML = "resources/playerConfig.fxml";
+    public static final String PLAYER_CREATION_PAGE_FXML = "/playerConfig.fxml";
     public static final String GAME_CONFIGURATION = "Configuration Menu";
-    public static final String GAME_CONFIGURATION_FXML = "resources/gameConfig.fxml";
+    public static final String GAME_CONFIGURATION_FXML = "/gameConfig.fxml";
 
     public static void main(String[] args) {
         launch(args);

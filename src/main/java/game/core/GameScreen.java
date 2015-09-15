@@ -3,8 +3,9 @@ package game.core;
 import game.core.Engine;
 
 /**
- * Created by Cody on 9/13/2015.
+ * This interface allows a screen in our Game to have access to our engine
  */
 public interface GameScreen {
+
     void setEngine(Engine parent);
 }
