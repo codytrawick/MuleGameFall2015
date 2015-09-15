@@ -1,4 +1,4 @@
-package game;
+package game.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

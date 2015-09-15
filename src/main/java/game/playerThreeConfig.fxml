@@ -4,12 +4,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Player1ConfigController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.PlayerCreationController">
   <children>
-      <Label alignment="CENTER" prefHeight="42.0" prefWidth="602.0" text="Player 2 Configuration" />
+      <Label alignment="CENTER" prefHeight="42.0" prefWidth="602.0" text="Player 3 Configuration" />
     <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-        <Label alignment="CENTER" prefHeight="98.0" prefWidth="203.0" text="Select a name for Player 2:" />
+        <Label alignment="CENTER" prefHeight="98.0" prefWidth="203.0" text="Select a name for Player 3:" />
         <VBox prefHeight="200.0" prefWidth="100.0">
           <children>
             <Pane prefHeight="33.0" prefWidth="100.0" />
@@ -20,7 +20,7 @@
     </HBox>
     <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-        <Label alignment="BOTTOM_RIGHT" prefHeight="64.0" prefWidth="180.0" text="Select a race for Player 2:" />
+        <Label alignment="BOTTOM_RIGHT" prefHeight="64.0" prefWidth="180.0" text="Select a race for Player 3:" />
         <Pane prefHeight="100.0" prefWidth="49.0" />
         <GridPane>
           <children>
@@ -48,7 +48,7 @@
     </HBox>
     <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-        <Label alignment="BOTTOM_RIGHT" prefHeight="59.0" prefWidth="184.0" text="Select a color for Player 2:" />
+        <Label alignment="BOTTOM_RIGHT" prefHeight="59.0" prefWidth="184.0" text="Select a color for Player 3:" />
         <Pane prefHeight="100.0" prefWidth="68.0" />
         <GridPane>
           <children>

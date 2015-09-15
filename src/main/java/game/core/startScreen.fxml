@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="game.PlayerController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="game.controllers.MainScreenController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -50,13 +50,13 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="289.0" layoutY="14.0" style="&#10;" text="M.U.L.E." textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+        <Label alignment="CENTER" layoutX="289.0" layoutY="128.0" style="&#10;" text="M.U.L.E." textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
           <font>
             <Font size="18.0" />
           </font>
         </Label>
-        <Slider fx:id="playerCount" layoutX="250.0" layoutY="114.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="1" onDragDone="#updatePlayerCount" showTickLabels="true" showTickMarks="false" snapToTicks="true" />
-        <Text fx:id="numPlayers" layoutX="309.0" layoutY="230.0" scaleX="3.574907358390683" scaleY="4.69652471855115" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
+        <Button fx:id="startButton" layoutX="280.0" layoutY="217.0" mnemonicParsing="false" onAction="#testWhip" text="Start Game" />
+        <Button layoutX="280.0" layoutY="249.0" mnemonicParsing="false" text="Load Game" />
       </children>
     </AnchorPane>
   </children>

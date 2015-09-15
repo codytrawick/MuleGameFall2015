@@ -1,4 +1,4 @@
-package game;
+package game.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,7 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 
-public class Player1ConfigController implements GameScreen {
+public class PlayerCreationController implements GameScreen {
 
     Engine gameEngine;
 
