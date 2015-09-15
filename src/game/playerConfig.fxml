@@ -1,37 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Player1ConfigController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Player1ConfigController">
   <children>
-      <Label alignment="CENTER" prefHeight="42.0" prefWidth="602.0" text="Player Configuration" />
+      <HBox alignment="CENTER" prefHeight="57.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="42.0" prefWidth="87.0" text="Player">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="playerNumLabel" prefHeight="17.0" prefWidth="20.0" text="1">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
     <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-        <Label alignment="CENTER" prefHeight="98.0" prefWidth="203.0" text="Select a name for Player :" />
-        <VBox prefHeight="200.0" prefWidth="100.0">
-          <children>
-            <Pane prefHeight="33.0" prefWidth="100.0" />
-            <TextField prefHeight="20.0" prefWidth="100.0" />
-          </children>
-        </VBox>
+        <Label alignment="CENTER_RIGHT" prefHeight="98.0" prefWidth="203.0" text="Select a name for Player:" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="194.0">
+               <children>
+            <TextField alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="186.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextField>
+               </children>
+            </HBox>
       </children>
     </HBox>
-    <HBox prefHeight="100.0" prefWidth="200.0">
+    <HBox prefHeight="110.0" prefWidth="600.0">
       <children>
-        <Label alignment="BOTTOM_RIGHT" prefHeight="64.0" prefWidth="180.0" text="Select a race for Player :" />
+        <Label alignment="BOTTOM_RIGHT" prefHeight="64.0" prefWidth="197.0" text="Select a race for Player :" />
         <Pane prefHeight="100.0" prefWidth="49.0" />
         <GridPane>
           <children>
-            <RadioButton mnemonicParsing="false" text="Mechtron" />
-            <RadioButton mnemonicParsing="false" text="Gollumer" GridPane.columnIndex="1" />
-            <RadioButton mnemonicParsing="false" text="Packer" GridPane.columnIndex="2" />
-            <RadioButton mnemonicParsing="false" text="Bonzoid" GridPane.rowIndex="1" />
-            <RadioButton mnemonicParsing="false" text="Flapper" GridPane.rowIndex="2" />
-            <RadioButton mnemonicParsing="false" text="Spheroid" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <RadioButton mnemonicParsing="false" text="Leggite" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <RadioButton mnemonicParsing="false" text="Humanoid" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <RadioButton mnemonicParsing="false" text="Mechtron">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="raceChoice" />
+                     </toggleGroup></RadioButton>
+            <RadioButton mnemonicParsing="false" text="Gollumer" toggleGroup="$raceChoice" GridPane.columnIndex="1" />
+            <RadioButton mnemonicParsing="false" text="Packer" toggleGroup="$raceChoice" GridPane.columnIndex="2" />
+            <RadioButton mnemonicParsing="false" text="Bonzoid" toggleGroup="$raceChoice" GridPane.rowIndex="1" />
+            <RadioButton mnemonicParsing="false" text="Flapper" toggleGroup="$raceChoice" GridPane.rowIndex="2" />
+            <RadioButton mnemonicParsing="false" text="Spheroid" toggleGroup="$raceChoice" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <RadioButton mnemonicParsing="false" text="Leggite" toggleGroup="$raceChoice" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <RadioButton mnemonicParsing="false" selected="true" text="Humanoid" toggleGroup="$raceChoice" GridPane.columnIndex="2" GridPane.rowIndex="2" />
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -46,16 +67,19 @@
         </GridPane>
       </children>
     </HBox>
-    <HBox prefHeight="100.0" prefWidth="200.0">
+    <HBox alignment="CENTER_LEFT" prefHeight="123.0" prefWidth="600.0">
       <children>
-        <Label alignment="BOTTOM_RIGHT" prefHeight="59.0" prefWidth="184.0" text="Select a color for Player :" />
+        <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="200.0" text="Select a color for Player :" />
         <Pane prefHeight="100.0" prefWidth="68.0" />
         <GridPane>
           <children>
-            <RadioButton mnemonicParsing="false" text="Yellow" GridPane.columnIndex="1" />
-            <RadioButton mnemonicParsing="false" text="Red" />
-            <RadioButton mnemonicParsing="false" text="Green" GridPane.rowIndex="1" />
-            <RadioButton mnemonicParsing="false" text="Blue" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <RadioButton mnemonicParsing="false" text="Yellow" GridPane.columnIndex="1">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="colorChoice" />
+                     </toggleGroup></RadioButton>
+            <RadioButton mnemonicParsing="false" selected="true" text="Red" toggleGroup="$colorChoice" />
+            <RadioButton mnemonicParsing="false" text="Green" toggleGroup="$colorChoice" GridPane.rowIndex="1" />
+            <RadioButton mnemonicParsing="false" text="Blue" toggleGroup="$colorChoice" GridPane.columnIndex="1" GridPane.rowIndex="1" />
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -68,8 +92,11 @@
           </rowConstraints>
         </GridPane>
       </children>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
     </HBox>
-    <HBox prefHeight="100.0" prefWidth="200.0">
+    <HBox prefHeight="100.0" prefWidth="600.0">
       <children>
         <Pane prefHeight="92.0" prefWidth="56.0" />
         <Label alignment="CENTER_RIGHT" prefHeight="88.0" prefWidth="250.0" text="Are the above settings correct?" />
