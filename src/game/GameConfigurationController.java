@@ -56,7 +56,7 @@ public class GameConfigurationController implements GameScreen {
         playerNum.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                playerNum.setValue(newValue.intValue());
+                playerNum.setValue((int)(newValue.doubleValue() + 0.5));
             }
         });
 
