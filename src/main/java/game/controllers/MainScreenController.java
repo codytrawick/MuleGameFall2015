@@ -34,7 +34,6 @@ public class MainScreenController implements GameScreen {
 
     @FXML
     void testWhip(ActionEvent event) {
-        System.out.println("Test");
         gameEngine.setScreen(Mule.GAME_CONFIGURATION);
     }
 

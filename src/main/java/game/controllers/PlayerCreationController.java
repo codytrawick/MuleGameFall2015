@@ -8,6 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.TextField;
+
+import java.awt.*;
 
 public class PlayerCreationController implements GameScreen {
 
@@ -15,6 +18,9 @@ public class PlayerCreationController implements GameScreen {
 
     @FXML
     private Label playerNumLabel;
+
+    @FXML
+    private TextField playerName;
 
     @FXML
     private ToggleGroup raceChoice;
@@ -30,7 +36,8 @@ public class PlayerCreationController implements GameScreen {
 
     @FXML
     void checkValues(ActionEvent event) {
-
+        System.out.println(playerName.getText());
+        System.out.println(raceChoice.getSelectedToggle().getUserData());
     }
 
     @FXML
