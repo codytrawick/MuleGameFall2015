@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="game.controllers.MainScreenController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.MainScreenController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -56,7 +56,7 @@
           </font>
         </Label>
         <Button fx:id="startButton" layoutX="280.0" layoutY="217.0" mnemonicParsing="false" onAction="#testWhip" text="Start Game" />
-        <Button layoutX="280.0" layoutY="249.0" mnemonicParsing="false" text="Load Game" />
+        <Button fx:id="quitButton" layoutX="280.0" layoutY="249.0" mnemonicParsing="false" onAction="#quitGame" text="Quit Game" />
       </children>
     </AnchorPane>
   </children>

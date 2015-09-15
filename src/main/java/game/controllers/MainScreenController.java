@@ -23,6 +23,14 @@ public class MainScreenController implements GameScreen {
     @FXML
     private Button startButton;
 
+    @FXML
+    private Button quitButton;
+
+    @FXML
+    public void quitGame(ActionEvent event) {
+        System.exit(0);
+    }
+
 
     @FXML
     void testWhip(ActionEvent event) {
