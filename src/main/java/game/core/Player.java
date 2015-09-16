@@ -8,7 +8,7 @@ package game.core;
  * @version 1.0
  */
 public class Player {
-
+    
     private String name;
     private String color;
     private Race race;
@@ -19,11 +19,6 @@ public class Player {
         this.race = race;
     }
 
-    //Player Variables
-
-    private String name;
-    private Race race;
-    private Color color;
 
 
     public enum Race{MECTRON, GOLLUMER, PACKER, BONZOID, SPHEROID, FLAPPER, LEGGITE, HUMANOID}
