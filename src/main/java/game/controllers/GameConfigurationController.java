@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import game.core.Engine;
+import game.core.GameInfo;
 import game.core.GameScreen;
 import game.core.Mule;
 import javafx.beans.value.ChangeListener;
@@ -42,6 +43,7 @@ public class GameConfigurationController implements GameScreen {
 
     @FXML
     void checkInputs(ActionEvent event) {
+        gameEngine.setGame(new GameInfo(((int) playerNum.getValue())));
         gameEngine.setScreen(Mule.PLAYER_CREATION_PAGE);
     }
 

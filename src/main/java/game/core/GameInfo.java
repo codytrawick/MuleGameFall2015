@@ -6,7 +6,50 @@ package game.core;
  * then help players create their Player information
  *
  * @author The SpecialFX
- * @versoin 1.0
+ * @version 1.0
  */
 public class GameInfo {
+
+    private int numPlayers;
+    private Player[] players;
+    private MapType type;
+    private Difficulty difficulty;
+
+    private enum MapType {
+        STANDARD, RANDOM
+    }
+
+    private enum Difficulty {
+        BEGINNER, NORMAL, TOURNAMENT
+    }
+
+    public GameInfo(String mapType, String difficulty, int numPlayers) {
+        this.numPlayers = numPlayers;
+        players = new Player[numPlayers];
+    }
+
+    public Player[] getPlayers() {
+        return players;
+    }
+
+    private MapType getMapType(String mapTypeString) {
+        if (mapTypeString.equals("Standard")) {
+            return MapType.STANDARD;
+        } else if (mapTypeString.equals("Random Hills")) {
+            return MapType.RANDOM;
+        } else {
+            return null;
+        }
+    }
+
+    private Difficulty getDifficulty(String difficultyString) {
+        if (difficultyString.equals("Beginner")) {
+            return Difficulty.BEGINNER;
+        } else if (difficultyString.equals("Normal")) {
+            return Difficulty.NORMAL;
+        } else if (difficultyString.equals("Tournament")) {
+            return Difficulty.TOURNAMENT;
+        }
+        return null;
+    }
 }
