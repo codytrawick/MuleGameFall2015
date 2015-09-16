@@ -27,7 +27,7 @@
                 <Label alignment="CENTER_RIGHT" prefHeight="98.0" prefWidth="203.0" text="Select a name for Player:" />
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="194.0">
                     <children>
-                        <TextField fx:id="playerName" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="186.0">
+                        <TextField fx:id="playerName" prefHeight="20.0" prefWidth="186.0">
                             <opaqueInsets>
                                 <Insets />
                             </opaqueInsets>
