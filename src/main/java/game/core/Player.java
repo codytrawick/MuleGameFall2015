@@ -8,7 +8,7 @@ package game.core;
  * @version 1.0
  */
 public class Player {
-    
+
     private String name;
     private String color;
     private Race race;
@@ -19,9 +19,10 @@ public class Player {
         this.race = race;
     }
 
-
-
-    public enum Race{MECTRON, GOLLUMER, PACKER, BONZOID, SPHEROID, FLAPPER, LEGGITE, HUMANOID}
+    public enum Race {
+        MECHTRON, GOLLUMER, PACKER, BONZOID,
+        SPHEROID, FLAPPER, LEGGITE, HUMANOID
+    }
 
     public String getName() {
         return name;
