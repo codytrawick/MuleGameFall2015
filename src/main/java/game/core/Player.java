@@ -8,4 +8,28 @@ package game.core;
  * @version 1.0
  */
 public class Player {
+
+    private String name;
+    private String color;
+    private Race race;
+
+    public Player(String name, String color, Race race) {
+        this.name = name;
+        this.color = color;
+        this.race = race;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public Race getRace() {
+        return race;
+    }
+
+
 }
