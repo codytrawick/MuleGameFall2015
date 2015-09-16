@@ -55,6 +55,10 @@ public class GameInfo {
         return null;
     }
 
+    public int getNumOfPlayers() {
+        return numPlayers;
+    }
+
     public String toString() {
         String output = "";
         output += type.toString() + " " + difficulty.toString() + " " + numPlayers;
