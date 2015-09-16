@@ -73,13 +73,13 @@
                 <Pane prefHeight="100.0" prefWidth="68.0" />
                 <GridPane>
                     <children>
-                        <RadioButton mnemonicParsing="false" text="Yellow" GridPane.columnIndex="1">
+                        <RadioButton fx:id="yellowColor" mnemonicParsing="false" text="Yellow" GridPane.columnIndex="1">
                             <toggleGroup>
                                 <ToggleGroup fx:id="colorChoice" />
                             </toggleGroup></RadioButton>
-                        <RadioButton mnemonicParsing="false" selected="true" text="Red" toggleGroup="$colorChoice" />
-                        <RadioButton mnemonicParsing="false" text="Green" toggleGroup="$colorChoice" GridPane.rowIndex="1" />
-                        <RadioButton mnemonicParsing="false" text="Blue" toggleGroup="$colorChoice" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <RadioButton fx:id="redColor" mnemonicParsing="false" selected="true" text="Red" toggleGroup="$colorChoice" />
+                        <RadioButton fx:id="greenColor" mnemonicParsing="false" text="Green" toggleGroup="$colorChoice" GridPane.rowIndex="1" />
+                        <RadioButton fx:id="blueColor" mnemonicParsing="false" text="Blue" toggleGroup="$colorChoice" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     </children>
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
