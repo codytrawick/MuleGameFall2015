@@ -23,7 +23,9 @@ public class GameInfo {
         BEGINNER, NORMAL, TOURNAMENT
     }
 
-    public GameInfo(String mapType, String difficulty, int numPlayers) {
+    public GameInfo(String mapType, String difficultyString, int numPlayers) {
+        type = getMapType(mapType);
+        difficulty = getDifficulty(difficultyString);
         this.numPlayers = numPlayers;
         players = new Player[numPlayers];
     }
@@ -51,5 +53,11 @@ public class GameInfo {
             return Difficulty.TOURNAMENT;
         }
         return null;
+    }
+
+    public String toString() {
+        String output = "";
+        output += type.toString() + " " + difficulty.toString() + " " + numPlayers;
+        return output;
     }
 }
