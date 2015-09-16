@@ -15,6 +15,9 @@ import java.util.HashMap;
  * @versoin 1.0
  */
 public class Engine extends StackPane {
+
+    GameInfo game;
+
     private HashMap<String, Node> gameScreens = new HashMap<String, Node>();
 
     /**
@@ -59,5 +62,13 @@ public class Engine extends StackPane {
         } else {
             System.out.print("Problem setting screen");
         }
+    }
+
+    public GameInfo getGame() {
+        return game;
+    }
+
+    public void setGame(GameInfo game) {
+        this.game = game;
     }
 }

@@ -9,4 +9,16 @@ package game.core;
  * @versoin 1.0
  */
 public class GameInfo {
+
+    private int numPlayers;
+    private Player[] players;
+
+    public GameInfo(int numPlayers) {
+        this.numPlayers = numPlayers;
+        players = new Player[numPlayers];
+    }
+
+    public Player[] getPlayers() {
+        return players;
+    }
 }

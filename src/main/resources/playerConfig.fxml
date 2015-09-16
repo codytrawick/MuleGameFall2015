@@ -52,7 +52,7 @@
                         <RadioButton mnemonicParsing="false" text="Flapper" toggleGroup="$raceChoice" GridPane.rowIndex="2" />
                         <RadioButton mnemonicParsing="false" text="Spheroid" toggleGroup="$raceChoice" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <RadioButton mnemonicParsing="false" text="Leggite" toggleGroup="$raceChoice" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <RadioButton mnemonicParsing="false" selected="true" text="Humanoid" toggleGroup="$raceChoice" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="defaultRace" mnemonicParsing="false" selected="true" text="Humanoid" toggleGroup="$raceChoice" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                     </children>
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
