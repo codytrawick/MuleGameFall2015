@@ -23,12 +23,33 @@ public class GameInfo {
         BEGINNER, NORMAL, TOURNAMENT
     }
 
-    public GameInfo(int numPlayers) {
+    public GameInfo(String mapType, String difficulty, int numPlayers) {
         this.numPlayers = numPlayers;
         players = new Player[numPlayers];
     }
 
     public Player[] getPlayers() {
         return players;
+    }
+
+    private MapType getMapType(String mapTypeString) {
+        if (mapTypeString.equals("Standard")) {
+            return MapType.STANDARD;
+        } else if (mapTypeString.equals("Random Hills")) {
+            return MapType.RANDOM;
+        } else {
+            return null;
+        }
+    }
+
+    private Difficulty getDifficulty(String difficultyString) {
+        if (difficultyString.equals("Beginner")) {
+            return Difficulty.BEGINNER;
+        } else if (difficultyString.equals("Normal")) {
+            return Difficulty.NORMAL;
+        } else if (difficultyString.equals("Tournament")) {
+            return Difficulty.TOURNAMENT;
+        }
+        return null;
     }
 }
