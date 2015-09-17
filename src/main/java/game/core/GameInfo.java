@@ -55,6 +55,32 @@ public class GameInfo {
         return null;
     }
 
+    public void addPlayer(Player player) {
+        if (players[0] == null) {
+            players[0] = player;
+        } else if (numPlayers > 1) {
+            if (players[1] == null) {
+                players[1] = player;
+            }
+        } else if (numPlayers > 2) {
+            if (players[2] == null) {
+                players[2] = player;
+            }
+        } else if (numPlayers > 3) {
+            if (players[3] == null) {
+                players[3] = player;
+            }
+        }
+    }
+
+    public void resetSettings() {
+        //for use if game is quit during setup
+        numPlayers = 0;
+        players = null;
+        type = null;
+        difficulty = null;
+    }
+
     public int getNumOfPlayers() {
         return numPlayers;
     }

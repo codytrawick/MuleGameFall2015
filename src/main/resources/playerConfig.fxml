@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.PlayerCreationController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.PlayerCreationController">
     <children>
         <HBox alignment="CENTER" prefHeight="57.0" prefWidth="600.0">
             <children>
@@ -15,7 +15,7 @@
                         <Font size="25.0" />
                     </font>
                 </Label>
-                <Label fx:id="playerNumLabel" prefHeight="17.0" prefWidth="20.0" text="1">
+                <Label fx:id="playerNumLabel" prefHeight="36.0" prefWidth="38.0" text="1">
                     <font>
                         <Font size="25.0" />
                     </font>
@@ -24,10 +24,10 @@
         </HBox>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                <Label alignment="CENTER_RIGHT" prefHeight="98.0" prefWidth="203.0" text="Select a name for Player:" />
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="194.0">
+                <Label alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="312.0" text="Select a name for Player (cannot be blank):" />
+                <HBox alignment="CENTER" prefHeight="82.0" prefWidth="149.0">
                     <children>
-                        <TextField fx:id="playerName" prefHeight="20.0" prefWidth="186.0">
+                        <TextField fx:id="playerName" prefHeight="31.0" prefWidth="127.0">
                             <opaqueInsets>
                                 <Insets />
                             </opaqueInsets>
