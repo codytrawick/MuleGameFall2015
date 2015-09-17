@@ -17,6 +17,8 @@ public class Mule extends Application {
     public static final String PLAYER_CREATION_PAGE_FXML = "/playerConfig.fxml";
     public static final String GAME_CONFIGURATION = "Configuration Menu";
     public static final String GAME_CONFIGURATION_FXML = "/gameConfig.fxml";
+    public static final String MAP_PAGE = "Map";
+    public static final String MAP_PAGE_FXML = "/mapScreen.fxml";
 
     public static void main(String[] args) {
         launch(args);
@@ -28,6 +30,7 @@ public class Mule extends Application {
         gameEngine.loadScreen(WELCOME_PAGE, WELCOME_PAGE_FXML);
         gameEngine.loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML);
         gameEngine.loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML);
+        gameEngine.loadScreen(MAP_PAGE, MAP_PAGE_FXML);
 
         gameEngine.setScreen(WELCOME_PAGE);
         primaryStage.setTitle("Mule");

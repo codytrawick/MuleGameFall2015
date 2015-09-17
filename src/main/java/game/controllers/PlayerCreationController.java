@@ -79,6 +79,7 @@ public class PlayerCreationController implements GameScreen {
             for (Player p: gameEngine.getGame().getPlayers()) {
                 System.out.println(p);
             }
+            gameEngine.setScreen(Mule.MAP_PAGE);
         }
     }
 
