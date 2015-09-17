@@ -24,7 +24,7 @@
         </HBox>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                <Label alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="312.0" text="Select a name for Player (cannot be blank):" />
+                <Label alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="312.0" text="Select a name (cannot be blank):" />
                 <HBox alignment="CENTER" prefHeight="82.0" prefWidth="149.0">
                     <children>
                         <TextField fx:id="playerName" prefHeight="31.0" prefWidth="127.0">
@@ -38,7 +38,7 @@
         </HBox>
         <HBox prefHeight="110.0" prefWidth="600.0">
             <children>
-                <Label alignment="BOTTOM_RIGHT" prefHeight="64.0" prefWidth="197.0" text="Select a race for Player :" />
+                <Label alignment="BOTTOM_RIGHT" prefHeight="64.0" prefWidth="197.0" text="Select a race:" />
                 <Pane prefHeight="100.0" prefWidth="49.0" />
                 <GridPane>
                     <children>
@@ -69,7 +69,7 @@
         </HBox>
         <HBox alignment="CENTER_LEFT" prefHeight="123.0" prefWidth="600.0">
             <children>
-                <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="200.0" text="Select a color for Player :" />
+                <Label alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="200.0" text="Select a color:" />
                 <Pane prefHeight="100.0" prefWidth="68.0" />
                 <GridPane>
                     <children>
