@@ -74,7 +74,7 @@ public class PlayerCreationController implements GameScreen {
         playerNumLabel.setText(Integer.toString(Integer.parseInt(playerNumLabel.getText()) + 1));
 
         //debug test
-        if ((Integer.parseInt(playerNumLabel.getText())) >= gameEngine.getGame().getNumOfPlayers()) {
+        if ((Integer.parseInt(playerNumLabel.getText())) > gameEngine.getGame().getNumOfPlayers()) {
             System.out.println(gameEngine.getGame());
             for (Player p: gameEngine.getGame().getPlayers()) {
                 System.out.println(p);

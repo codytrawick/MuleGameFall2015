@@ -61,16 +61,16 @@ public class GameInfo {
         } else if (numPlayers > 1) {
             if (players[1] == null) {
                 players[1] = player;
+            } else if (numPlayers > 2) {
+                if (players[2] == null) {
+                    players[2] = player;
+                } else if (numPlayers > 3) {
+                    if (players[3] == null) {
+                        players[3] = player;
+                    }
+                }
             }
-        } else if (numPlayers > 2) {
-            if (players[2] == null) {
-                players[2] = player;
-            }
-        } else if (numPlayers > 3) {
-            if (players[3] == null) {
-                players[3] = player;
-            }
-        }
+        } 
     }
 
     public void resetSettings() {
