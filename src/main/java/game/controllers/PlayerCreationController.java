@@ -15,6 +15,8 @@ import java.awt.*;
 public class PlayerCreationController implements GameScreen {
 
     Engine gameEngine;
+    private int numPlayers;
+    private int currentPlayer = 1;
 
     @FXML
     private Label playerNumLabel;
@@ -38,6 +40,18 @@ public class PlayerCreationController implements GameScreen {
     private Toggle defaultRace;
 
     @FXML
+    private RadioButton redColor;
+
+    @FXML
+    private RadioButton blueColor;
+
+    @FXML
+    private RadioButton greenColor;
+
+    @FXML
+    private RadioButton yellowColor;
+
+    @FXML
     void checkValues(ActionEvent event) {
         System.out.println(playerName.getText());
         System.out.println(((RadioButton) raceChoice.getSelectedToggle()).getText());
@@ -52,6 +66,10 @@ public class PlayerCreationController implements GameScreen {
 
     public void setEngine(Engine parent) {
         gameEngine = parent;
+    }
+
+    public void makePlayers() {
+        numPlayers = gameEngine.getGame().getPlayers().length;
     }
 
 }
