@@ -47,7 +47,7 @@ public class GameInfo {
     private Difficulty getDifficulty(String difficultyString) {
         if (difficultyString.equals("Beginner")) {
             return Difficulty.BEGINNER;
-        } else if (difficultyString.equals("Normal")) {
+        } else if (difficultyString.equals("Standard")) {
             return Difficulty.NORMAL;
         } else if (difficultyString.equals("Tournament")) {
             return Difficulty.TOURNAMENT;

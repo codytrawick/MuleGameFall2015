@@ -48,7 +48,7 @@ public class GameConfigurationController implements GameScreen {
         String difficultyString = ((RadioButton)difficultyLevel.getSelectedToggle()).getText();
         gameEngine.setGame(new GameInfo(mapTypeString, difficultyString, (int) playerNum.getValue()));
         gameEngine.setScreen(Mule.PLAYER_CREATION_PAGE);
-        System.out.println(gameEngine.getGame());
+        //System.out.println(gameEngine.getGame());
     }
 
     @FXML
