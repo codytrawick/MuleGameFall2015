@@ -12,6 +12,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleGroup;
 
@@ -43,8 +44,11 @@ public class GameConfigurationController implements GameScreen {
 
     @FXML
     void checkInputs(ActionEvent event) {
-        gameEngine.setGame(new GameInfo(((int) playerNum.getValue())));
+        String mapTypeString = ((RadioButton)mapType.getSelectedToggle()).getText();
+        String difficultyString = ((RadioButton)difficultyLevel.getSelectedToggle()).getText();
+        gameEngine.setGame(new GameInfo(mapTypeString, difficultyString, (int) playerNum.getValue()));
         gameEngine.setScreen(Mule.PLAYER_CREATION_PAGE);
+        System.out.println(gameEngine.getGame());
     }
 
     @FXML

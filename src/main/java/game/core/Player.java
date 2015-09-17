@@ -19,14 +19,10 @@ public class Player {
         this.race = race;
     }
 
-    //Player Variables
-
-    private String name;
-    private Race race;
-    private Color color;
-
-
-    public enum Race{MECTRON, GOLLUMER, PACKER, BONZOID, SPHEROID, FLAPPER, LEGGITE, HUMANOID}
+    public enum Race {
+        MECHTRON, GOLLUMER, PACKER, BONZOID,
+        SPHEROID, FLAPPER, LEGGITE, HUMANOID
+    }
 
     public String getName() {
         return name;
