@@ -53,6 +53,7 @@ public class GameConfigurationController implements GameScreen {
 
     @FXML
     void returnToTitle(ActionEvent event) {
+        gameEngine.getGame().resetSettings();
         gameEngine.setScreen(Mule.WELCOME_PAGE);
     }
 

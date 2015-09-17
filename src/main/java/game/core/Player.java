@@ -11,17 +11,12 @@ public class Player {
 
     private String name;
     private String color;
-    private Race race;
+    private String race;
 
-    public Player(String name, String color, Race race) {
+    public Player(String name, String color, String race) {
         this.name = name;
         this.color = color;
         this.race = race;
-    }
-
-    public enum Race {
-        MECHTRON, GOLLUMER, PACKER, BONZOID,
-        SPHEROID, FLAPPER, LEGGITE, HUMANOID
     }
 
     public String getName() {
@@ -32,8 +27,14 @@ public class Player {
         return color;
     }
 
-    public Race getRace() {
+    public String getRace() {
         return race;
+    }
+
+    public String toString() {
+        String output = "";
+        output += name + " " + color + " " + race;
+        return output;
     }
 
 }
