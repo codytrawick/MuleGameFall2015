@@ -48,12 +48,13 @@ public class GameConfigurationController implements GameScreen {
         String difficultyString = ((RadioButton)difficultyLevel.getSelectedToggle()).getText();
         gameEngine.setGame(new GameInfo(mapTypeString, difficultyString, (int) playerNum.getValue()));
         gameEngine.setScreen(Mule.PLAYER_CREATION_PAGE);
+
         //System.out.println(gameEngine.getGame());
     }
 
     @FXML
     void returnToTitle(ActionEvent event) {
-        gameEngine.getGame().resetSettings();
+        //gameEngine.getGame().resetSettings(); Not needed. Game is already null!!!
         gameEngine.setScreen(Mule.WELCOME_PAGE);
     }
 
