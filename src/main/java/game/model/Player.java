@@ -12,6 +12,7 @@ public class Player {
     private String name;
     private String color;
     private String race;
+    private int money;
 
     public Player(String name, String color, String race) {
         this.name = name;
@@ -35,6 +36,14 @@ public class Player {
         String output = "";
         output += name + " " + color + " " + race;
         return output;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void spendMoney(int amount) {
+        money -= amount;
     }
 
 }

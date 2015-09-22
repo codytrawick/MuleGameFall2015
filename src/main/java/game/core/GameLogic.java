@@ -8,4 +8,5 @@ package game.core;
  */
 public interface GameLogic {
     public void tileWasClicked(int x, int y);
+    public void setView(GameScreen view);
 }

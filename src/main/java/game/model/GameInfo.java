@@ -106,4 +106,8 @@ public class GameInfo {
     public Player getCurPlayer() {
         return curPlayer;
     }
+
+    public void setCurPlayer(Player newPlayer) {
+        curPlayer = newPlayer;
+    }
 }

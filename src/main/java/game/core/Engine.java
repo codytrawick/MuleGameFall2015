@@ -93,5 +93,6 @@ public class Engine extends StackPane {
 
     public void setCurrentGameLogic(GameLogic newThing) {
         currentGameLogic = newThing;
+        currentGameLogic.setView(controllers.get(Mule.MAP_PAGE));
     }
 }

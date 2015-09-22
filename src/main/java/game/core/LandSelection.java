@@ -1,22 +1,26 @@
 package game.core;
-import game.model.GameMap;
 import game.model.Player;
+import game.model.Tile;
 
 public class LandSelection implements GameLogic {
 
-    private Player[] players;
-    private GameMap gameMap;
+    private Player[] players ;
+    private Engine gameEngine;
+    private int roundNum = 0;
+    private int playerNum = 0;
+    private int passStreak = 0;
+    private GameScreen view;
 
 
-    public LandSelection(GameMap gameMap, Player[] players) {
-        this.gameMap = gameMap;
-        this.players = players;
+    public LandSelection(Engine gameEngine) {
+        this.gameEngine = gameEngine;
+        players = gameEngine.getGame().getPlayers();
     }
 
     public void executeAuction() {
-        boolean[] playerPassed = new boolean[players.length];
-        for (int i = 0; i < players.length; i++) {
-            playerPassed[i] = executeTurn(players[i]);
+        boolean[] playerPassed = new boolean[gameEngine.getGame().getPlayers().length];
+        for (int i = 0; i < gameEngine.getGame().getPlayers().length; i++) {
+            //playerPassed[i] = executeTurn(players[i]);
         }
     }
 
@@ -26,6 +30,55 @@ public class LandSelection implements GameLogic {
     }
 
     public void tileWasClicked(int row, int column) {
-        System.exit(1);
+        System.out.println("Tile was clicked");
+        Tile clickedTile = gameEngine.game.getMyGameMap().getTile(row, column);
+        if (row == 2 && column == 4) {
+            passStreak++;
+            if (playerNum < gameEngine.getGame().getNumOfPlayers() - 1) {
+                playerNum++;
+                gameEngine.getGame().setCurPlayer(players[playerNum]);
+            } else {
+                roundNum++;
+                playerNum = 0;
+                gameEngine.getGame().setCurPlayer(players[playerNum]);
+            }
+        } else if (roundNum < 2) {
+            if (clickedTile.getOwner() == null) {
+                passStreak =0;
+                clickedTile.setOwner(gameEngine.game.getCurPlayer());
+                if (playerNum < gameEngine.getGame().getNumOfPlayers() - 1) {
+                    playerNum++;
+                    gameEngine.getGame().setCurPlayer(players[playerNum]);
+                } else {
+                    roundNum++;
+                    playerNum = 0;
+                    gameEngine.getGame().setCurPlayer(players[playerNum]);
+                }
+            }
+        } else {
+            if (clickedTile.getOwner() == null) {
+                if (gameEngine.getGame().getCurPlayer().getMoney() > 300) {
+                    gameEngine.getGame().getCurPlayer().spendMoney(300);
+                    passStreak = 0;
+                    clickedTile.setOwner(gameEngine.game.getCurPlayer());
+                    if (playerNum < gameEngine.getGame().getNumOfPlayers() - 1) {
+                        playerNum++;
+                        gameEngine.getGame().setCurPlayer(players[playerNum]);
+                    } else {
+                        roundNum++;
+                        playerNum = 0;
+                        gameEngine.getGame().setCurPlayer(players[playerNum]);
+                    }
+                }
+            }
+        }
+        view.initializeScreen();
+        if (passStreak == gameEngine.getGame().getNumOfPlayers()) {
+            System.exit(1);
+        }
+    }
+
+    public void setView(GameScreen view) {
+        this.view = view;
     }
 }

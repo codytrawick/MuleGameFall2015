@@ -89,7 +89,7 @@ public class PlayerCreationController implements GameScreen {
             }
 
             gameEngine.setScreen(Mule.MAP_PAGE);
-            gameEngine.setCurrentGameLogic(new LandSelection(gameEngine.getGame().getMyGameMap(), gameEngine.getGame().getPlayers()));
+            gameEngine.setCurrentGameLogic(new LandSelection(gameEngine));
         }
     }
 
