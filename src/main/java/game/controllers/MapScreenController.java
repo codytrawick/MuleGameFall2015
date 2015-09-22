@@ -15,9 +15,12 @@ import javafx.event.ActionEvent;
 
 import javafx.scene.Group;
 
+import java.util.HashMap;
+
 
 public class MapScreenController implements GameScreen {
 
+    HashMap<String, Image> tileArt = new HashMap<>();
     private Engine gameEngine;
 
     @FXML
@@ -44,14 +47,21 @@ public class MapScreenController implements GameScreen {
 
     public void setEngine(Engine parent) {
         gameEngine = parent;
-        initializeButtons();
     }
 
-    private void initializeButtons() {
+
+
+    public void initializeScreen() {
+        tileArt.put("R", new Image("/default/River.jpg"));
+        tileArt.put("P", new Image("/default/Plains.jpg"));
+        tileArt.put("Town", new Image("/default/Town.jpg"));
+        tileArt.put("M1", new Image("/default/Mountain.jpg"));
+        tileArt.put("M2", new Image("/default/Mountain.jpg"));
+        tileArt.put("M3", new Image("/default/Mountain.jpg"));
         for (int index = 0; index < 45; index++) {
             ((Button) tiles.getChildren().get(index)).setPadding(Insets.EMPTY);
             ((Button) tiles.getChildren().get(index)).setGraphic(new ImageView(
-                    new Image(getClass().getResourceAsStream("/BlankTile.jpg"))));
+                    tileArt.get(gameEngine.getGame().getMyGameMap().getTile(index / 9, index % 9).toString())));
         }
     }
 

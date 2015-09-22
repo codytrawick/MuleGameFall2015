@@ -8,4 +8,6 @@ import game.core.Engine;
 public interface GameScreen {
 
     void setEngine(Engine parent);
+
+    void initializeScreen();
 }

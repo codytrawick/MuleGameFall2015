@@ -1,4 +1,6 @@
-package game.core;
+package game.model;
+
+import game.controllers.MapScreenController;
 
 /**
  * Created by The SpecialFX on 9/21/2015.
@@ -10,7 +12,7 @@ public class GameMap {
     private Tile[][] gameMap;
 
     public GameMap() {
-        generateMap(GameInfo.MapType.STANDARD);
+        this(GameInfo.MapType.STANDARD);
     }
 
     public GameMap(GameInfo.MapType mapType) {

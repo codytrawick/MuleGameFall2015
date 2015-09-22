@@ -1,5 +1,6 @@
 package game.core;
 
+import game.model.GameInfo;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
@@ -18,7 +19,8 @@ public class Engine extends StackPane {
 
     GameInfo game;
 
-    private HashMap<String, Node> gameScreens = new HashMap<String, Node>();
+    private HashMap<String, Node> gameScreens = new HashMap<>();
+    private HashMap<String, GameScreen> controllers = new HashMap<>();
 
     /**
      * This method adds a loaded screen to our game.
@@ -41,6 +43,7 @@ public class Engine extends StackPane {
             Node loadedScreen = (Node) loader.load();
             GameScreen targetScene = loader.getController();
             targetScene.setEngine(this);
+            controllers.put(name, targetScene);
             addScreen(name, loadedScreen);
         } catch (java.io.IOException e) {
             e.printStackTrace();
@@ -56,8 +59,10 @@ public class Engine extends StackPane {
             if (!getChildren().isEmpty()) {
                 getChildren().remove(0);
                 getChildren().add(0, gameScreens.get(name));
+                controllers.get(name).initializeScreen();
             } else {
                 getChildren().add(0, gameScreens.get(name));
+                controllers.get(name).initializeScreen();
             }
         } else {
             System.out.print("Problem setting screen");

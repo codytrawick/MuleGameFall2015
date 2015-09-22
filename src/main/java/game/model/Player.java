@@ -1,4 +1,4 @@
-package game.core;
+package game.model;
 
 /**
  * This class represents a player. This class will hold the important

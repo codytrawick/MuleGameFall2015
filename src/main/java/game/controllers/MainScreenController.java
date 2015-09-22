@@ -44,6 +44,10 @@ public class MainScreenController implements GameScreen {
 
     }
 
+    public void initializeScreen() {
+
+    }
+
     @Override
     public void setEngine(Engine parent) {
         gameEngine = parent;

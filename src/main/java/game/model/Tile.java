@@ -1,9 +1,10 @@
-package game.core;
+package game.model;
 
 /**
  * Created by temp on 9/21/2015.
  */
 public class Tile {
+
 
     private String terrain;
     private String prodType;

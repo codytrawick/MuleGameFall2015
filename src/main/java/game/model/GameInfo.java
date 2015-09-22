@@ -1,4 +1,8 @@
-package game.core;
+package game.model;
+
+import game.controllers.MapScreenController;
+import game.model.GameMap;
+import game.model.Player;
 
 /**
  * This class holds the information that's important for the game to run
@@ -16,11 +20,11 @@ public class GameInfo {
     private Difficulty difficulty;
     private GameMap myGameMap;
 
-    enum MapType {
+    public enum MapType {
         STANDARD, RANDOM
     }
 
-    enum Difficulty {
+    public enum Difficulty {
         BEGINNER, NORMAL, TOURNAMENT
     }
 

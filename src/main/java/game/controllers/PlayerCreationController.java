@@ -1,10 +1,9 @@
 package game.controllers;
 
 import game.core.Engine;
-import game.core.GameInfo;
 import game.core.GameScreen;
 import game.core.Mule;
-import game.core.Player;
+import game.model.Player;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -12,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class PlayerCreationController implements GameScreen {
@@ -91,6 +89,7 @@ public class PlayerCreationController implements GameScreen {
             for (Player p: gameEngine.getGame().getPlayers()) {
                 System.out.println(p);
             }
+
             gameEngine.setScreen(Mule.MAP_PAGE);
         }
     }
@@ -103,6 +102,9 @@ public class PlayerCreationController implements GameScreen {
 
     public void setEngine(Engine parent) {
         gameEngine = parent;
+    }
+
+    public void initializeScreen() {
         colorButtons.add(redColor);
         colorButtons.add(yellowColor);
         colorButtons.add(greenColor);
