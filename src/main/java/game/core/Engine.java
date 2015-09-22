@@ -17,6 +17,7 @@ import java.util.HashMap;
 public class Engine extends StackPane {
     //The game Engine has a single game reference
     GameInfo game;
+    GameLogic currentGameLogic;
 
     //The Game Engine has references to the screens and their controllers
     private HashMap<String, Node> gameScreens = new HashMap<>();
@@ -84,5 +85,13 @@ public class Engine extends StackPane {
      */
     public void setGame(GameInfo game) {
         this.game = game;
+    }
+
+    public GameLogic getCurrentGameLogic() {
+        return currentGameLogic;
+    }
+
+    public void setCurrentGameLogic(GameLogic newThing) {
+        currentGameLogic = newThing;
     }
 }

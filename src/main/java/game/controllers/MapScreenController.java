@@ -5,6 +5,7 @@ import game.core.GameScreen;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -28,6 +29,9 @@ public class MapScreenController implements GameScreen {
     private GridPane tiles;
 
     @FXML
+    private Label curPlayerName;
+
+    @FXML
     private Button row0col0, row0col1, row0col2, row0col3, row0col4, row0col5,
             row0col6, row0col7, row0col8, row1col0, row1col1, row1col2,
             row1col3, row1col4, row1col5, row1col6, row1col7, row1col8,
@@ -45,11 +49,12 @@ public class MapScreenController implements GameScreen {
      */
     @FXML
     void onClickOnTile(ActionEvent event) {
-        System.out.print(event.getTarget().toString().charAt(13));
-        System.out.print(event.getTarget().toString().charAt(17));
+        int row = event.getTarget().toString().charAt(13) - 48;
+        int column = event.getTarget().toString().charAt(17) - 48;
         System.out.println(gameEngine.getGame().getMyGameMap().getTile(
                 event.getTarget().toString().charAt(13) - 48,
                 event.getTarget().toString().charAt(17) - 48));
+        gameEngine.getCurrentGameLogic().tileWasClicked(row, column);
     }
 
     /**
@@ -72,7 +77,7 @@ public class MapScreenController implements GameScreen {
      *
      */
     public void initializeScreen() {
-
+        curPlayerName.setText(gameEngine.getGame().getCurPlayer().getName());
         for (int index = 0; index < 45; index++) {
             ((Button) tiles.getChildren().get(index)).setPadding(Insets.EMPTY);
             ((Button) tiles.getChildren().get(index)).setGraphic(new ImageView(

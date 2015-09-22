@@ -2,10 +2,11 @@ package game.core;
 import game.model.GameMap;
 import game.model.Player;
 
-public class LandSelection {
+public class LandSelection implements GameLogic {
 
     private Player[] players;
     private GameMap gameMap;
+
 
     public LandSelection(GameMap gameMap, Player[] players) {
         this.gameMap = gameMap;
@@ -22,5 +23,9 @@ public class LandSelection {
     //Need to fill this out to actually have the current player do stuff
     public boolean executeTurn(Player curPlayer) {
         return false;
+    }
+
+    public void tileWasClicked(int row, int column) {
+        System.exit(1);
     }
 }

@@ -19,6 +19,7 @@ public class GameInfo {
     private MapType type;
     private Difficulty difficulty;
     private GameMap myGameMap;
+    private Player curPlayer;
 
     public enum MapType {
         STANDARD, RANDOM
@@ -64,6 +65,7 @@ public class GameInfo {
     public void addPlayer(Player player) {
         if (players[0] == null) {
             players[0] = player;
+            curPlayer = player;
         } else if (numPlayers > 1) {
             if (players[1] == null) {
                 players[1] = player;
@@ -99,5 +101,9 @@ public class GameInfo {
         String output = "";
         output += type.toString() + " " + difficulty.toString() + " " + numPlayers;
         return output;
+    }
+
+    public Player getCurPlayer() {
+        return curPlayer;
     }
 }

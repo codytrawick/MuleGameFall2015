@@ -1,8 +1,6 @@
 package game.controllers;
 
-import game.core.Engine;
-import game.core.GameScreen;
-import game.core.Mule;
+import game.core.*;
 import game.model.Player;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -91,6 +89,7 @@ public class PlayerCreationController implements GameScreen {
             }
 
             gameEngine.setScreen(Mule.MAP_PAGE);
+            gameEngine.setCurrentGameLogic(new LandSelection(gameEngine.getGame().getMyGameMap(), gameEngine.getGame().getPlayers()));
         }
     }
 
