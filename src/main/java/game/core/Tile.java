@@ -38,4 +38,8 @@ public class Tile {
     public boolean isOwned() {
         return ownedStatus;
     }
+
+    public String toString() {
+        return terrain;
+    }
 }

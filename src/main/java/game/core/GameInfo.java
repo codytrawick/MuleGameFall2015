@@ -87,6 +87,10 @@ public class GameInfo {
         return numPlayers;
     }
 
+    public GameMap getMyGameMap() {
+        return myGameMap;
+    }
+
     public String toString() {
         String output = "";
         output += type.toString() + " " + difficulty.toString() + " " + numPlayers;
