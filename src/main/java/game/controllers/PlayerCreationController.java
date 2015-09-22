@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class PlayerCreationController implements GameScreen {
 
@@ -53,20 +54,31 @@ public class PlayerCreationController implements GameScreen {
     @FXML
     private RadioButton yellowColor;
 
+    private ArrayList<RadioButton> colorButtons = new ArrayList<RadioButton>();
+
     @FXML
     void checkValues(ActionEvent event) {
         String name = null;
-        if (playerName.getText() == "") {
+        if (playerName.getText().trim().equals("")) {
             return;
         } else {
-            name = playerName.getText();
+            name = playerName.getText().trim();
         }
+
+        playerName.setText("");
 
         String color = ((RadioButton) colorChoice.getSelectedToggle()).getText();
         //disable selected color for next player
 
+        colorButtons.remove(colorChoice.getSelectedToggle());
+        ((RadioButton) colorChoice.getSelectedToggle()).setDisable(true);
+
         String race = ((RadioButton) raceChoice.getSelectedToggle()).getText();
         raceChoice.selectToggle(defaultRace);
+
+        if (!colorButtons.isEmpty()) {
+            colorChoice.selectToggle(colorButtons.get(0));
+        }
 
         Player player = new Player(name, color, race);
         gameEngine.getGame().addPlayer(player);
@@ -91,6 +103,10 @@ public class PlayerCreationController implements GameScreen {
 
     public void setEngine(Engine parent) {
         gameEngine = parent;
+        colorButtons.add(redColor);
+        colorButtons.add(yellowColor);
+        colorButtons.add(greenColor);
+        colorButtons.add(blueColor);
     }
 
     public void makePlayers() {
