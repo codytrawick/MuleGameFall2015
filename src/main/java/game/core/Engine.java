@@ -43,7 +43,7 @@ public class Engine extends StackPane {
             targetScene.setEngine(this);
             addScreen(name, loadedScreen);
         } catch (java.io.IOException e) {
-            System.out.println("Oops");
+            e.printStackTrace();
         }
     }
 
