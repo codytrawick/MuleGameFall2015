@@ -1,7 +1,5 @@
 package game.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import game.core.Engine;
 import game.model.GameInfo;
@@ -16,32 +14,34 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleGroup;
 
-
+/**
+ * This controller handles the game configuration screen.
+ * The game configuration will gain important information about the game
+ * then create the game and start the player configuration process.
+ *
+ * @author The SpecialFX
+ * @version 1.0
+ */
 public class GameConfigurationController implements GameScreen {
 
+    //GameScreen instance variables
     Engine gameEngine;
 
+    //FXML Elements
     @FXML
-    private ToggleGroup difficultyLevel;
+    private ToggleGroup difficultyLevel, mapType;
 
     @FXML
-    private ToggleGroup mapType;
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Button confirmButton;
-
-    @FXML
-    private Button quitButton;
+    private Button confirmButton, quitButton;
 
     @FXML
     private Slider playerNum;
 
+    /**
+     * This methods will check the inputs on the screen and make the game
+     * Then the screen is change to the player configuration screen
+     * @param event The required event parameter
+     */
     @FXML
     void checkInputs(ActionEvent event) {
         String mapTypeString = ((RadioButton)mapType.getSelectedToggle()).getText();
@@ -52,15 +52,22 @@ public class GameConfigurationController implements GameScreen {
         //System.out.println(gameEngine.getGame());
     }
 
+    /**
+     * This method is called when the quit button is pressed. It will return
+     * the player to the main menu
+     * @param event The required event parameter
+     */
     @FXML
     void returnToTitle(ActionEvent event) {
         //gameEngine.getGame().resetSettings(); Not needed. Game is already null!!!
         gameEngine.setScreen(Mule.WELCOME_PAGE);
     }
 
+    /**
+     * This method will modify the slider to affix itself to integer values
+     */
     @FXML
     void initialize() {
-        assert confirmButton != null : "fx:id=\"confirmButton\" was not injected: check your FXML file 'gameConfig.fxml'.";
         playerNum.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
@@ -70,10 +77,18 @@ public class GameConfigurationController implements GameScreen {
 
     }
 
+    /**
+     * The Game Configuration Screen has default values for the map type and
+     * level
+     */
     public void initializeScreen() {
-
+        difficultyLevel.selectToggle(difficultyLevel.getToggles().get(0));
+        mapType.selectToggle(mapType.getToggles().get(0));
+        playerNum.adjustValue(1);
+        confirmButton.requestFocus();
     }
 
+    @Override
     public void setEngine(Engine parent) {
         gameEngine = parent;
     }

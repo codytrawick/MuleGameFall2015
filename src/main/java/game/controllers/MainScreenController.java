@@ -1,8 +1,5 @@
 package game.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import game.core.Engine;
 import game.core.GameScreen;
 import game.core.Mule;
@@ -12,40 +9,37 @@ import javafx.scene.control.Button;
 
 
 public class MainScreenController implements GameScreen {
+    //GameScreen instance variables
     Engine gameEngine;
 
-    @FXML
-    private ResourceBundle resources;
+    //FXML Elements
 
     @FXML
-    private URL location;
+    private Button startButton, quitButton;
 
+    /**
+     * This method changes the screen to the Game Configuration Screen
+     * @param event The required event parameter
+     */
     @FXML
-    private Button startButton;
+    void startGame(ActionEvent event) {
+        gameEngine.setScreen(Mule.GAME_CONFIGURATION);
+    }
 
-    @FXML
-    private Button quitButton;
-
+    /**
+     * This method quits the game and closes the window
+     * @param event The required event parameter
+     */
     @FXML
     public void quitGame(ActionEvent event) {
         System.exit(0);
     }
 
+    //GameScreen methods
 
-    @FXML
-    void testWhip(ActionEvent event) {
-        gameEngine.setScreen(Mule.GAME_CONFIGURATION);
-    }
-
-    @FXML
-    void initialize() {
-        assert startButton != null : "fx:id=\"startButton\" was not injected: check your FXML file 'startScreen.fxml'.";
-
-
-    }
-
+    @Override
     public void initializeScreen() {
-
+        //Nothing to initialize
     }
 
     @Override

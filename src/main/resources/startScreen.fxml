@@ -16,7 +16,7 @@
             <Font size="18.0" />
           </font>
         </Label>
-        <Button fx:id="startButton" layoutX="412.0" layoutY="215.0" mnemonicParsing="false" onAction="#testWhip" text="Start Game" />
+        <Button fx:id="startButton" layoutX="412.0" layoutY="215.0" mnemonicParsing="false" onAction="#startGame" text="Start Game" />
         <Button fx:id="quitButton" layoutX="413.0" layoutY="250.0" mnemonicParsing="false" onAction="#quitGame" text="Quit Game" />
       </children>
     </AnchorPane>

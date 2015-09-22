@@ -2,27 +2,28 @@ package game.controllers;
 
 import game.core.Engine;
 import game.core.GameScreen;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
-
-import javafx.scene.Group;
-
 import java.util.HashMap;
 
-
+/**
+ * This controller handles the information on the Game Map
+ * It will gather information from the model to skin the tiles
+ * and provide information to the presenter about what tile was clicked.
+ */
 public class MapScreenController implements GameScreen {
 
-    HashMap<String, Image> tileArt = new HashMap<>();
+    // GameScreen instance variables
     private Engine gameEngine;
+    //This map will match the type of tiles to an image that corresponds to it
+    HashMap<String, Image> tileArt = new HashMap<>();
 
+    // FXML Elements
     @FXML
     private GridPane tiles;
 
@@ -36,8 +37,14 @@ public class MapScreenController implements GameScreen {
             row4col0, row4col1, row4col2, row4col3, row4col4, row4col5,
             row4col6, row4col7, row4col8;
 
+    /**
+     * This method is called whenever a tile is clicked.
+     * Currently it prints out the tile's coordinates and the Tile Type from
+     * the model
+     * @param event The required event parameter
+     */
     @FXML
-    void doThing(ActionEvent event) {
+    void onClickOnTile(ActionEvent event) {
         System.out.print(event.getTarget().toString().charAt(13));
         System.out.print(event.getTarget().toString().charAt(17));
         System.out.println(gameEngine.getGame().getMyGameMap().getTile(
@@ -45,24 +52,39 @@ public class MapScreenController implements GameScreen {
                 event.getTarget().toString().charAt(17) - 48));
     }
 
-    public void setEngine(Engine parent) {
-        gameEngine = parent;
-    }
-
-
-
-    public void initializeScreen() {
+    /**
+     * This method is called when this controller is instantiated.
+     * The map of tile art is created from the resources
+     */
+    @FXML
+    void initialize() {
         tileArt.put("R", new Image("/default/River.jpg"));
         tileArt.put("P", new Image("/default/Plains.jpg"));
         tileArt.put("Town", new Image("/default/Town.jpg"));
         tileArt.put("M1", new Image("/default/Mountain.jpg"));
         tileArt.put("M2", new Image("/default/Mountain.jpg"));
         tileArt.put("M3", new Image("/default/Mountain.jpg"));
+    }
+
+    /**
+     * This method goes through each button and sets the image to the
+     * appropriate image from the model.
+     *
+     */
+    public void initializeScreen() {
+
         for (int index = 0; index < 45; index++) {
             ((Button) tiles.getChildren().get(index)).setPadding(Insets.EMPTY);
             ((Button) tiles.getChildren().get(index)).setGraphic(new ImageView(
-                    tileArt.get(gameEngine.getGame().getMyGameMap().getTile(index / 9, index % 9).toString())));
+                    tileArt.get(gameEngine.getGame().getMyGameMap().getTile(
+                            index / 9, index % 9).toString())));
         }
+    }
+
+
+    @Override
+    public void setEngine(Engine parent) {
+        gameEngine = parent;
     }
 
 }

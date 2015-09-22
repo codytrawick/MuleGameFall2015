@@ -4,7 +4,6 @@ import game.model.GameInfo;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
-
 import java.util.HashMap;
 
 /**
@@ -16,9 +15,10 @@ import java.util.HashMap;
  * @version 1.0
  */
 public class Engine extends StackPane {
-
+    //The game Engine has a single game reference
     GameInfo game;
 
+    //The Game Engine has references to the screens and their controllers
     private HashMap<String, Node> gameScreens = new HashMap<>();
     private HashMap<String, GameScreen> controllers = new HashMap<>();
 
@@ -40,7 +40,7 @@ public class Engine extends StackPane {
         try {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource(fxlmresourceName));
-            Node loadedScreen = (Node) loader.load();
+            Node loadedScreen = loader.load();
             GameScreen targetScene = loader.getController();
             targetScene.setEngine(this);
             controllers.put(name, targetScene);
@@ -69,10 +69,19 @@ public class Engine extends StackPane {
         }
     }
 
+    /**
+     * This method returns the engine's game
+     * @return The game associated with the engine
+     */
     public GameInfo getGame() {
         return game;
     }
 
+    /**
+     * This method sets the engine's game. Used for creating a new game
+     * or loading an old game
+     * @param game The new game for the engine
+     */
     public void setGame(GameInfo game) {
         this.game = game;
     }

@@ -1,16 +1,20 @@
 package game.core;
-/**
- * This is the  main class for our Game.
- * This class will load all known screens and set the screen to the welcome
- * screen.
- */
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * This is the  main class for our Game.
+ * This class will load all known screens and set the screen to the welcome
+ * screen.
+ *
+ * @author The SpecialFX
+ * @version 1.0
+ */
 public class Mule extends Application {
 
+    //GameScreen names. Used to refer to other game screens
     public static final String WELCOME_PAGE = "Start";
     public static final String WELCOME_PAGE_FXML = "/startScreen.fxml";
     public static final String PLAYER_CREATION_PAGE = "Players";
@@ -20,10 +24,18 @@ public class Mule extends Application {
     public static final String MAP_PAGE = "GameMap";
     public static final String MAP_PAGE_FXML = "/mapScreen.fxml";
 
+    /**
+     * Main method for our game. This is the main class in the jar file
+     * @param args The required args parameter. Not used
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * This method starts the JavaFX application
+     * @param primaryStage The required primary stage parameter
+     */
     @Override
     public void start(Stage primaryStage) {
         Engine gameEngine = new Engine();
