@@ -14,12 +14,13 @@ public class GameInfo {
     private Player[] players;
     private MapType type;
     private Difficulty difficulty;
+    private GameMap myGameMap;
 
-    private enum MapType {
+    enum MapType {
         STANDARD, RANDOM
     }
 
-    private enum Difficulty {
+    enum Difficulty {
         BEGINNER, NORMAL, TOURNAMENT
     }
 
@@ -28,6 +29,7 @@ public class GameInfo {
         difficulty = getDifficulty(difficultyString);
         this.numPlayers = numPlayers;
         players = new Player[numPlayers];
+        myGameMap = new GameMap(type);
     }
 
     public Player[] getPlayers() {

@@ -17,7 +17,7 @@ public class Mule extends Application {
     public static final String PLAYER_CREATION_PAGE_FXML = "/playerConfig.fxml";
     public static final String GAME_CONFIGURATION = "Configuration Menu";
     public static final String GAME_CONFIGURATION_FXML = "/gameConfig.fxml";
-    public static final String MAP_PAGE = "Map";
+    public static final String MAP_PAGE = "GameMap";
     public static final String MAP_PAGE_FXML = "/mapScreen.fxml";
 
     public static void main(String[] args) {

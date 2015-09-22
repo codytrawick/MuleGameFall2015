@@ -1,14 +1,24 @@
 package game.core;
 
 /**
- * Created by temp on 9/21/2015.
+ * Created by The SpecialFX on 9/21/2015.
+ * @author The SpecialFX
+ * @version 1.0
  */
-public class Map {
+public class GameMap {
 
     private Tile[][] gameMap;
 
-    public void generateMap(String mapType) {
-        if (mapType.equals("Standard")) {
+    public GameMap() {
+        generateMap(GameInfo.MapType.STANDARD);
+    }
+
+    public GameMap(GameInfo.MapType mapType) {
+        generateMap(mapType);
+    }
+
+    public void generateMap(GameInfo.MapType mapType) {
+        if (mapType.equals(GameInfo.MapType.STANDARD)) {
             gameMap = new Tile[][]{
                     {new Tile("P"), new Tile("P"), new Tile("M1"), new Tile("P"), new Tile("R"), new Tile("P"), new Tile("M3"), new Tile("P"), new Tile("P")},
                     {new Tile("P"), new Tile("M1"), new Tile("P"), new Tile("P"), new Tile("R"), new Tile("P"), new Tile("P"), new Tile("P"), new Tile("M3")},
