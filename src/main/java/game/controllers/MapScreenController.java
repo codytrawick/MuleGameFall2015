@@ -44,22 +44,29 @@ public class MapScreenController implements GameScreen {
             row2col6, row2col7, row2col8, row3col0, row3col1, row3col2,
             row3col3, row3col4, row3col5, row3col6, row3col7, row3col8,
             row4col0, row4col1, row4col2, row4col3, row4col4, row4col5,
-            row4col6, row4col7, row4col8;
+            row4col6, row4col7, row4col8, passButton;
 
     /**
      * This method is called whenever a tile is clicked.
      * Currently it prints out the tile's coordinates and the Tile Type from
-     * the model
+     * the model. Note, the town tile will act as a pass button
      * @param event The required event parameter
      */
     @FXML
     void onClickOnTile(ActionEvent event) {
         int row = event.getTarget().toString().charAt(13) - 48;
         int column = event.getTarget().toString().charAt(17) - 48;
-        System.out.println(gameEngine.getGame().getMyGameMap().getTile(
-                event.getTarget().toString().charAt(13) - 48,
-                event.getTarget().toString().charAt(17) - 48));
         gameEngine.getCurrentGameLogic().tileWasClicked(row, column);
+    }
+
+    /**
+     * This button is the equivalent of clicking on the town. The player will
+     * pass their turn
+     * @param event The required event parameter
+     */
+    @FXML
+    void onPassButton(ActionEvent event) {
+        gameEngine.getCurrentGameLogic().tileWasClicked(2, 4);
     }
 
     /**
