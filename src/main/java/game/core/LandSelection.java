@@ -49,6 +49,7 @@ public class LandSelection implements GameLogic {
                     gameEngine.getGame().getCurPlayer().spendMoney(300);
                     passStreak = 0;
                     clickedTile.setOwner(gameEngine.game.getCurPlayer());
+                    ((MapScreenController) view).addTileElement("Owner", gameEngine.getGame().getCurPlayer().getColor(), row, column);
                     nextPlayer();
                 }
             }

@@ -18,6 +18,13 @@ public class Player {
         this.name = name;
         this.color = color;
         this.race = race;
+        if (race.equals("Humanoid")) {
+            money = 600;
+        } else if (race.equals("Flapper")) {
+            money = 1600;
+        } else {
+            money = 1000;
+        }
     }
 
     public String getName() {
