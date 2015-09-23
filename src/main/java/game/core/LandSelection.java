@@ -45,7 +45,7 @@ public class LandSelection implements GameLogic {
             }
         } else {
             if (clickedTile.getOwner() == null) {
-                if (gameEngine.getGame().getCurPlayer().getMoney() > 300) {
+                if (gameEngine.getGame().getCurPlayer().getMoney() >= 300) {
                     gameEngine.getGame().getCurPlayer().spendMoney(300);
                     passStreak = 0;
                     clickedTile.setOwner(gameEngine.game.getCurPlayer());
