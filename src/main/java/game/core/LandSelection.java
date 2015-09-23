@@ -1,4 +1,5 @@
 package game.core;
+import game.controllers.MapScreenController;
 import game.model.Player;
 import game.model.Tile;
 
@@ -34,26 +35,13 @@ public class LandSelection implements GameLogic {
         Tile clickedTile = gameEngine.game.getMyGameMap().getTile(row, column);
         if (row == 2 && column == 4) {
             passStreak++;
-            if (playerNum < gameEngine.getGame().getNumOfPlayers() - 1) {
-                playerNum++;
-                gameEngine.getGame().setCurPlayer(players[playerNum]);
-            } else {
-                roundNum++;
-                playerNum = 0;
-                gameEngine.getGame().setCurPlayer(players[playerNum]);
-            }
+            nextPlayer();
         } else if (roundNum < 2) {
             if (clickedTile.getOwner() == null) {
                 passStreak =0;
                 clickedTile.setOwner(gameEngine.game.getCurPlayer());
-                if (playerNum < gameEngine.getGame().getNumOfPlayers() - 1) {
-                    playerNum++;
-                    gameEngine.getGame().setCurPlayer(players[playerNum]);
-                } else {
-                    roundNum++;
-                    playerNum = 0;
-                    gameEngine.getGame().setCurPlayer(players[playerNum]);
-                }
+                ((MapScreenController) view).addTileElement("Owner", gameEngine.getGame().getCurPlayer().getColor(), row, column);
+                nextPlayer();
             }
         } else {
             if (clickedTile.getOwner() == null) {
@@ -61,20 +49,24 @@ public class LandSelection implements GameLogic {
                     gameEngine.getGame().getCurPlayer().spendMoney(300);
                     passStreak = 0;
                     clickedTile.setOwner(gameEngine.game.getCurPlayer());
-                    if (playerNum < gameEngine.getGame().getNumOfPlayers() - 1) {
-                        playerNum++;
-                        gameEngine.getGame().setCurPlayer(players[playerNum]);
-                    } else {
-                        roundNum++;
-                        playerNum = 0;
-                        gameEngine.getGame().setCurPlayer(players[playerNum]);
-                    }
+                    nextPlayer();
                 }
             }
         }
         view.initializeScreen();
         if (passStreak == gameEngine.getGame().getNumOfPlayers()) {
             System.exit(1);
+        }
+    }
+
+    private void nextPlayer() {
+        if (playerNum < gameEngine.getGame().getNumOfPlayers() - 1) {
+            playerNum++;
+            gameEngine.getGame().setCurPlayer(players[playerNum]);
+        } else {
+            roundNum++;
+            playerNum = 0;
+            gameEngine.getGame().setCurPlayer(players[playerNum]);
         }
     }
 

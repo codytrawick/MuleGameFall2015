@@ -2,6 +2,9 @@ package game.controllers;
 
 import game.core.Engine;
 import game.core.GameScreen;
+import game.model.GameMap;
+import game.model.Player;
+import game.model.Tile;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -10,6 +13,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.StackPane;
+
 import java.util.HashMap;
 
 /**
@@ -65,10 +70,37 @@ public class MapScreenController implements GameScreen {
     void initialize() {
         tileArt.put("R", new Image("/default/River.jpg"));
         tileArt.put("P", new Image("/default/Plains.jpg"));
-        tileArt.put("Town", new Image("/default/Town.jpg"));
+        tileArt.put("Town", (new Image("/default/Town.jpg")));
         tileArt.put("M1", new Image("/default/Mountain.jpg"));
         tileArt.put("M2", new Image("/default/Mountain.jpg"));
         tileArt.put("M3", new Image("/default/Mountain.jpg"));
+        tileArt.put("Red", new Image("/default/redOwner.png"));
+        tileArt.put("Yellow", new Image("/default/yellowOwner.png"));
+        tileArt.put("Green", new Image("/default/greenOwner.png"));
+        tileArt.put("Blue", new Image("/default/blueOwner.png"));
+
+        for (int index = 0; index < 45; index++) {
+            ((Button) tiles.getChildren().get(index)).setPadding(Insets.EMPTY);
+            ((Button) tiles.getChildren().get(index)).setGraphic(new StackPane(new ImageView(new Image("BlankTile.jpg"))));
+        }
+    }
+
+    public void setMap() {
+        for (int index = 0; index < 45; index++) {
+            Button indexedButton = (Button) tiles.getChildren().get(index);
+            Tile clickedTile = gameEngine.getGame().getMyGameMap().getTile(
+                    index / 9, index % 9);
+            ((ImageView) ((StackPane) indexedButton.getGraphic()).getChildren().get(0)).setImage(
+                    tileArt.get(clickedTile.toString()));
+        }
+    }
+
+    public void addTileElement(String type, String color, int row, int column) {
+        if (type.equals("Owner")) {
+                    ((StackPane) ((Button)
+                            tiles.getChildren().get(row * 9 + column)).getGraphic())
+                    .getChildren().add(new ImageView(tileArt.get(color)));
+        }
     }
 
     /**
@@ -78,12 +110,20 @@ public class MapScreenController implements GameScreen {
      */
     public void initializeScreen() {
         curPlayerName.setText(gameEngine.getGame().getCurPlayer().getName());
+        setMap();
+        /*
         for (int index = 0; index < 45; index++) {
-            ((Button) tiles.getChildren().get(index)).setPadding(Insets.EMPTY);
-            ((Button) tiles.getChildren().get(index)).setGraphic(new ImageView(
-                    tileArt.get(gameEngine.getGame().getMyGameMap().getTile(
-                            index / 9, index % 9).toString())));
-        }
+            Button indexedButton = (Button) tiles.getChildren().get(index);
+            Tile clickedTile = gameEngine.getGame().getMyGameMap().getTile(
+                    index / 9, index % 9);
+            Player tileOwner = clickedTile.getOwner();
+            String ownerString = "default";
+            if (tileOwner != null) {
+                ownerString = tileOwner.getColor();
+            }
+            ((ImageView) ((StackPane) indexedButton.getGraphic()).getChildren().get(0)).setImage(
+                    colorTiles.get(ownerString).get(clickedTile.toString()));
+        } */
     }
 
 
