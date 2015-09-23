@@ -50,8 +50,8 @@ public class LandSelection implements GameLogic {
                 }
             }
         }
-        view.initializeScreen();
         nextPlayer();
+        view.initializeScreen();
     }
 
     private void nextPlayer() {
