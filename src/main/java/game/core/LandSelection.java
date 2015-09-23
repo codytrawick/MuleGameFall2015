@@ -61,7 +61,7 @@ public class LandSelection implements GameLogic {
         } else {
             roundNum++;
             if (passStreak) {
-                System.exit(1);
+                endLandSelectionPhase();
             }
             passStreak = true;
             playerNum = 0;
@@ -71,5 +71,9 @@ public class LandSelection implements GameLogic {
 
     public void setView(GameScreen view) {
         this.view = (MapScreenController) view;
+    }
+
+    private void endLandSelectionPhase() {
+        gameEngine.setCurrentGameLogic(null);
     }
 }
