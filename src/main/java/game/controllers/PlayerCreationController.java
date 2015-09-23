@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class PlayerCreationController implements GameScreen {
 
     Engine gameEngine;
-    private int numPlayers;
     private int currentPlayer = 1;
 
     @FXML
@@ -108,10 +107,6 @@ public class PlayerCreationController implements GameScreen {
         colorButtons.add(yellowColor);
         colorButtons.add(greenColor);
         colorButtons.add(blueColor);
-    }
-
-    public void makePlayers() {
-        numPlayers = gameEngine.getGame().getPlayers().length;
     }
 
 }
