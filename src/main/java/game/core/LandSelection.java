@@ -9,7 +9,7 @@ public class LandSelection implements GameLogic {
     private Engine gameEngine;
     private int roundNum = 0;
     private int playerNum = 0;
-    private int passStreak = 0;
+    private boolean passStreak = true;
     private MapScreenController view;
 
 
@@ -33,30 +33,25 @@ public class LandSelection implements GameLogic {
     public void tileWasClicked(int row, int column) {
         Tile clickedTile = gameEngine.game.getMyGameMap().getTile(row, column);
         if (row == 2 && column == 4) {
-            passStreak++;
-            nextPlayer();
+            passStreak = passStreak && true;
         } else if (roundNum < 2) {
             if (clickedTile.getOwner() == null) {
-                passStreak =0;
+                passStreak = passStreak && false;
                 clickedTile.setOwner(gameEngine.game.getCurPlayer());
                 view.addTileElement("Owner", gameEngine.getGame().getCurPlayer().getColor(), row, column);
-                nextPlayer();
             }
         } else {
             if (clickedTile.getOwner() == null) {
                 if (gameEngine.getGame().getCurPlayer().getMoney() >= 300) {
                     gameEngine.getGame().getCurPlayer().spendMoney(300);
-                    passStreak = 0;
+                    passStreak = passStreak && false;
                     clickedTile.setOwner(gameEngine.game.getCurPlayer());
                     view.addTileElement("Owner", gameEngine.getGame().getCurPlayer().getColor(), row, column);
-                    nextPlayer();
                 }
             }
         }
         view.initializeScreen();
-        if (passStreak == gameEngine.getGame().getNumOfPlayers()) {
-            System.exit(1);
-        }
+        nextPlayer();
     }
 
     private void nextPlayer() {
@@ -65,6 +60,10 @@ public class LandSelection implements GameLogic {
             gameEngine.getGame().setCurPlayer(players[playerNum]);
         } else {
             roundNum++;
+            if (passStreak) {
+                System.exit(1);
+            }
+            passStreak = true;
             playerNum = 0;
             gameEngine.getGame().setCurPlayer(players[playerNum]);
         }
