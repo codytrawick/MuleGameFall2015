@@ -33,10 +33,10 @@ public class LandSelection implements GameLogic {
     public void tileWasClicked(int row, int column) {
         Tile clickedTile = gameEngine.game.getMyGameMap().getTile(row, column);
         if (row == 2 && column == 4) {
-            passStreak = passStreak && true;
+            //there seems to be nothing here...
         } else if (roundNum < 2) {
             if (clickedTile.getOwner() == null) {
-                passStreak = passStreak && false;
+                passStreak = false;
                 clickedTile.setOwner(gameEngine.game.getCurPlayer());
                 view.addTileElement("Owner", gameEngine.getGame().getCurPlayer().getColor(), row, column);
             }
@@ -44,7 +44,7 @@ public class LandSelection implements GameLogic {
             if (clickedTile.getOwner() == null) {
                 if (gameEngine.getGame().getCurPlayer().getMoney() >= 300) {
                     gameEngine.getGame().getCurPlayer().spendMoney(300);
-                    passStreak = passStreak && false;
+                    passStreak = false;
                     clickedTile.setOwner(gameEngine.game.getCurPlayer());
                     view.addTileElement("Owner", gameEngine.getGame().getCurPlayer().getColor(), row, column);
                 }
