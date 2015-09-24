@@ -133,6 +133,9 @@ public class MapScreenController implements GameScreen {
         } */
     }
 
+    public void removePassButton() {
+        passButton.setDisable(true);
+    }
 
     @Override
     public void setEngine(Engine parent) {

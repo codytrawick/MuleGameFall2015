@@ -33,12 +33,13 @@ public class LandSelection implements GameLogic {
     public void tileWasClicked(int row, int column) {
         Tile clickedTile = gameEngine.game.getMyGameMap().getTile(row, column);
         if (row == 2 && column == 4) {
-            //there seems to be nothing here...
+            nextPlayer();
         } else if (roundNum < 2) {
             if (clickedTile.getOwner() == null) {
                 passStreak = false;
                 clickedTile.setOwner(gameEngine.game.getCurPlayer());
                 view.addTileElement("Owner", gameEngine.getGame().getCurPlayer().getColor(), row, column);
+                nextPlayer();
             }
         } else {
             if (clickedTile.getOwner() == null) {
@@ -47,10 +48,10 @@ public class LandSelection implements GameLogic {
                     passStreak = false;
                     clickedTile.setOwner(gameEngine.game.getCurPlayer());
                     view.addTileElement("Owner", gameEngine.getGame().getCurPlayer().getColor(), row, column);
+                    nextPlayer();
                 }
             }
         }
-        nextPlayer();
         view.initializeScreen();
     }
 
@@ -75,5 +76,6 @@ public class LandSelection implements GameLogic {
 
     private void endLandSelectionPhase() {
         gameEngine.setCurrentGameLogic(new RoundLogic(gameEngine, 1));
+        view.removePassButton();
     }
 }
