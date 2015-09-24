@@ -12,6 +12,10 @@ public class RoundLogic implements GameLogic {
 
     public void tileWasClicked(int row, int column) {
 
+        if(row==2 && column==4) {
+            
+        }
+
     }
 
     public void setView(GameScreen view) {
