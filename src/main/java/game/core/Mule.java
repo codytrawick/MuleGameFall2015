@@ -16,15 +16,15 @@ public class Mule extends Application {
 
     //GameScreen names. Used to refer to other game screens
     public static final String WELCOME_PAGE = "Start";
-    public static final String WELCOME_PAGE_FXML = "/startScreen.fxml";
+    public static final String WELCOME_PAGE_FXML = "/fxml/startScreen.fxml";
     public static final String PLAYER_CREATION_PAGE = "Players";
-    public static final String PLAYER_CREATION_PAGE_FXML = "/playerConfig.fxml";
+    public static final String PLAYER_CREATION_PAGE_FXML = "/fxml/playerConfig.fxml";
     public static final String GAME_CONFIGURATION = "Configuration Menu";
-    public static final String GAME_CONFIGURATION_FXML = "/gameConfig.fxml";
+    public static final String GAME_CONFIGURATION_FXML = "/fxml/gameConfig.fxml";
     public static final String MAP_PAGE = "GameMap";
-    public static final String MAP_PAGE_FXML = "/mapScreen.fxml";
+    public static final String MAP_PAGE_FXML = "/fxml/mapScreen.fxml";
     public static final String TOWN_SCREEN = "Town";
-    public static final String TOWN_SCREEN_FXML = "/townScreen.fxml";
+    public static final String TOWN_SCREEN_FXML = "/fxml/townScreen.fxml";
 
     /**
      * Main method for our game. This is the main class in the jar file

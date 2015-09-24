@@ -107,6 +107,7 @@ public class PlayerCreationController implements GameScreen {
         colorButtons.add(yellowColor);
         colorButtons.add(greenColor);
         colorButtons.add(blueColor);
+        playerName.requestFocus();
     }
 
 }
