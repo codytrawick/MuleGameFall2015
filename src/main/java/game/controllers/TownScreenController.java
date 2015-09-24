@@ -3,6 +3,7 @@ package game.controllers;
 
 import game.core.Engine;
 import game.core.GameScreen;
+import game.core.Mule;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -28,6 +29,9 @@ public class TownScreenController implements GameScreen {
 
     @FXML
     void clickBack(ActionEvent event) {
+
+        gameEngine.setScreen(Mule.MAP_PAGE);
+
     }
 
     @FXML

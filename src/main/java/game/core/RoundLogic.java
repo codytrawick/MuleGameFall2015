@@ -20,7 +20,7 @@ public class RoundLogic implements GameLogic {
     public void tileWasClicked(int row, int column) {
 
         if(row==2 && column==4) {
-            
+            gameEngine.setScreen(Mule.TOWN_SCREEN);
         }
 
     }
