@@ -74,6 +74,6 @@ public class LandSelection implements GameLogic {
     }
 
     private void endLandSelectionPhase() {
-        gameEngine.setCurrentGameLogic(new RoundLogic());
+        gameEngine.setCurrentGameLogic(new RoundLogic(gameEngine, 1));
     }
 }
