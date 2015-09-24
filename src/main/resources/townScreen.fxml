@@ -4,7 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.TownScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.controllers.TownScreenController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -17,14 +17,14 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="220.0" prefWidth="235.0" text="Pub" />
-            <Button mnemonicParsing="false" prefHeight="220.0" prefWidth="235.0" text="Land Office" GridPane.columnIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="220.0" prefWidth="235.0" text="Assay Office" GridPane.columnIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="220.0" prefWidth="235.0" text="Store" GridPane.columnIndex="3" />
+            <Button fx:id="pub" mnemonicParsing="false" onAction="#clickPub" prefHeight="220.0" prefWidth="235.0" text="Pub" />
+            <Button fx:id="landOffice" mnemonicParsing="false" onAction="#clickLandOffice" prefHeight="220.0" prefWidth="235.0" text="Land Office" GridPane.columnIndex="1" />
+            <Button fx:id="assayOffice" mnemonicParsing="false" onAction="#clickAssay" prefHeight="220.0" prefWidth="235.0" text="Assay Office" GridPane.columnIndex="2" />
+            <Button fx:id="store" mnemonicParsing="false" onAction="#clickStore" prefHeight="220.0" prefWidth="235.0" text="Store" GridPane.columnIndex="3" />
          </children>
       </GridPane>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" text="Back" BorderPane.alignment="CENTER" />
+      <Button fx:id="returnButton" mnemonicParsing="false" onAction="#clickBack" text="Back" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>
