@@ -115,11 +115,7 @@ public class GameInfo {
         return players[i - 1].getName();
     }
 
-<<<<<<< HEAD
     public int getPlayerMoney(int i) {
-=======
-    public int getP1Money(int i) {
->>>>>>> 2741b5f... make screen display current info
         return players[i - 1].getMoney();
     }
 

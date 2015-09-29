@@ -144,7 +144,7 @@ public class MapScreen2Controller implements GameScreen {
      */
     public void initializeScreen() {
         currentPlayerName.setText(gameEngine.getGame().getCurPlayer().getName());
-        currentRoundNumber.setText(roundCounter.getCurRound());
+        currentRoundNumber.setText("??");
         playerOneName.setText(gameEngine.getGame().getPlayerName(1));
         playerOneMoney.setText("$" + String.valueOf(gameEngine.getGame().getPlayerMoney(1)));
         playerTwoName.setText(gameEngine.getGame().getPlayerName(2));
