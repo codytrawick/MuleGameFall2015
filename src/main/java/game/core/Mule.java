@@ -25,6 +25,7 @@ public class Mule extends Application {
     public static final String MAP_PAGE_FXML = "/fxml/mapScreen.fxml";
     public static final String TOWN_SCREEN = "Town";
     public static final String TOWN_SCREEN_FXML = "/fxml/townScreen.fxml";
+    public static final String MAP2SCREEN = "Map Screen", MAP2FXML = "/fxml/mapScreen2.fxml";
 
     /**
      * Main method for our game. This is the main class in the jar file
@@ -46,6 +47,7 @@ public class Mule extends Application {
         gameEngine.loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML);
         gameEngine.loadScreen(MAP_PAGE, MAP_PAGE_FXML);
         gameEngine.loadScreen(TOWN_SCREEN, TOWN_SCREEN_FXML);
+        gameEngine.loadScreen(MAP2SCREEN, MAP2FXML);
 
         gameEngine.setScreen(WELCOME_PAGE);
         primaryStage.setTitle("Mule");

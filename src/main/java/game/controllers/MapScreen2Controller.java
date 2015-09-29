@@ -71,7 +71,7 @@ public class MapScreen2Controller implements GameScreen {
             row2col6, row2col7, row2col8, row3col0, row3col1, row3col2,
             row3col3, row3col4, row3col5, row3col6, row3col7, row3col8,
             row4col0, row4col1, row4col2, row4col3, row4col4, row4col5,
-            row4col6, row4col7, row4col8, passButton;
+            row4col6, row4col7, row4col8;
 
     /**
      * This method is called whenever a tile is clicked.

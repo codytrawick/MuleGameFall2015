@@ -30,7 +30,7 @@ public class TownScreenController implements GameScreen {
     @FXML
     void clickBack(ActionEvent event) {
 
-        gameEngine.setScreen(Mule.MAP_PAGE);
+        gameEngine.setScreen(Mule.MAP2SCREEN);
 
     }
 

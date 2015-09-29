@@ -75,6 +75,7 @@ public class LandSelection implements GameLogic {
     }
 
     private void endLandSelectionPhase() {
+        gameEngine.setScreen(Mule.MAP2SCREEN);
         gameEngine.setCurrentGameLogic(new RoundLogic(gameEngine, 1));
         view.removePassButton();
     }
