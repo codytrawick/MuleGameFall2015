@@ -117,6 +117,7 @@ public class MapScreenController implements GameScreen {
      */
     public void initializeScreen() {
         curPlayerName.setText(gameEngine.getGame().getCurPlayer().getName() + ", Money: $" + gameEngine.getGame().getCurPlayer().getMoney());
+        curPlayerName.setStyle("-fx-text-fill: " + gameEngine.getGame().getCurPlayer().getColor() + ";");
         setMap();
         /*
         for (int index = 0; index < 45; index++) {

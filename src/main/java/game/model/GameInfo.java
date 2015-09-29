@@ -110,4 +110,13 @@ public class GameInfo {
     public void setCurPlayer(Player newPlayer) {
         curPlayer = newPlayer;
     }
+
+    public String getPlayerName(int i) {
+        return players[i - 1].getName();
+    }
+
+    public int getPlayerMoney(int i) {
+        return players[i - 1].getMoney();
+    }
+
 }
