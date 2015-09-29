@@ -1,4 +1,7 @@
-package game.core;
+package game.view;
+
+import game.core.Engine;
+import game.core.GameLogic;
 
 /**
  * This interface allows a screen in our Game to have access to our engine.
@@ -15,6 +18,8 @@ public interface GameScreen {
      * @param parent The main game engine
      */
     void setEngine(Engine parent);
+
+    void setGameLogic(GameLogic logic);
 
     /**
      * This method will handle the initialization before a screen is displayed.

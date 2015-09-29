@@ -1,8 +1,9 @@
-package game.controllers;
+package game.view.controllers;
 
 
+import game.core.GameLogic;
+import game.view.GameScreen;
 import game.core.Engine;
-import game.core.GameScreen;
 import game.core.Mule;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -60,6 +61,10 @@ public class TownScreenController implements GameScreen {
 
     public void initializeScreen() {
 
+    }
+
+    public void setGameLogic(GameLogic parent) {
+        //TODO
     }
 
 }

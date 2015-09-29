@@ -1,9 +1,14 @@
-package game.core;
-import game.controllers.MapScreenController;
+package game.core.Presenters;
+import game.core.Engine;
+import game.core.GameLogic;
+import game.core.Mule;
+import game.core.RoundLogic;
+import game.view.GameScreen;
+import game.view.controllers.MapScreenController;
 import game.model.Player;
 import game.model.Tile;
 
-public class LandSelection implements GameLogic {
+public class LandSelection extends GameLogic {
 
     private Player[] players ;
     private Engine gameEngine;
@@ -30,7 +35,7 @@ public class LandSelection implements GameLogic {
         return false;
     }
 
-    public void tileWasClicked(int row, int column) {
+    public void checkView(int row, int column) {
         Tile clickedTile = gameEngine.game.getMyGameMap().getTile(row, column);
         if (row == 2 && column == 4) {
             nextPlayer();
@@ -56,7 +61,7 @@ public class LandSelection implements GameLogic {
     }
 
     private void nextPlayer() {
-        if (playerNum < gameEngine.getGame().getNumOfPlayers() - 1) {
+        if (playerNum < gameEngine.getGame().getPlayerNumber() - 1) {
             playerNum++;
             gameEngine.getGame().setCurPlayer(players[playerNum]);
         } else {
@@ -78,5 +83,9 @@ public class LandSelection implements GameLogic {
         gameEngine.setScreen(Mule.MAP2SCREEN);
         gameEngine.setCurrentGameLogic(new RoundLogic(gameEngine, 1));
         view.removePassButton();
+    }
+
+    public void viewUpdated() {
+
     }
 }

@@ -1,7 +1,5 @@
 package game.model;
 
-import game.controllers.MapScreenController;
-
 /**
  * Created by The SpecialFX on 9/21/2015.
  * @author The SpecialFX
@@ -12,15 +10,15 @@ public class GameMap {
     private Tile[][] gameMap;
 
     public GameMap() {
-        this(GameInfo.MapType.STANDARD);
+        this("Standard");
     }
 
-    public GameMap(GameInfo.MapType mapType) {
+    public GameMap(String mapType) {
         generateMap(mapType);
     }
 
-    public void generateMap(GameInfo.MapType mapType) {
-        if (mapType.equals(GameInfo.MapType.STANDARD)) {
+    public void generateMap(String mapType) {
+        if (mapType.equals("Standard")) {
             gameMap = new Tile[][]{
                     {new Tile("P"), new Tile("P"), new Tile("M1"), new Tile("P"), new Tile("R"), new Tile("P"), new Tile("M3"), new Tile("P"), new Tile("P")},
                     {new Tile("P"), new Tile("M1"), new Tile("P"), new Tile("P"), new Tile("R"), new Tile("P"), new Tile("P"), new Tile("P"), new Tile("M3")},

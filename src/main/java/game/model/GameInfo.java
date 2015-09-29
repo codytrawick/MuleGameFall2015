@@ -1,9 +1,5 @@
 package game.model;
 
-import game.controllers.MapScreenController;
-import game.model.GameMap;
-import game.model.Player;
-
 /**
  * This class holds the information that's important for the game to run
  * It should take in the game information from the Configuration screen
@@ -12,55 +8,55 @@ import game.model.Player;
  * @author The SpecialFX
  * @version 1.0
  */
-public class GameInfo {
+public class GameInfo implements IModel {
 
     private int numPlayers;
     private Player[] players;
-    private MapType type;
-    private Difficulty difficulty;
+    private String mapType;
+    private String difficulty;
     private GameMap myGameMap;
     private Player curPlayer;
 
-    public enum MapType {
-        STANDARD, RANDOM
-    }
+//    public enum MapType {
+//        STANDARD, RANDOM
+//    }
+//
+//    public enum Difficulty {
+//        BEGINNER, NORMAL, TOURNAMENT
+//    }
 
-    public enum Difficulty {
-        BEGINNER, NORMAL, TOURNAMENT
-    }
-
-    public GameInfo(String mapType, String difficultyString, int numPlayers) {
-        type = getMapType(mapType);
-        difficulty = getDifficulty(difficultyString);
-        this.numPlayers = numPlayers;
-        players = new Player[numPlayers];
-        myGameMap = new GameMap(type);
-    }
+//    public GameInfo(String mapType, String difficultyString, int numPlayers) {
+//        this.mapType = mapType;
+//        difficulty = difficultyString;
+//        this.numPlayers = numPlayers;
+//        players = new Player[numPlayers];
+//        myGameMap = new GameMap(this.mapType);
+//    }
 
     public Player[] getPlayers() {
         return players;
     }
 
-    private MapType getMapType(String mapTypeString) {
-        if (mapTypeString.equals("Standard")) {
-            return MapType.STANDARD;
-        } else if (mapTypeString.equals("Random Hills")) {
-            return MapType.RANDOM;
-        } else {
-            return null;
-        }
-    }
+//    private MapType getMapType(String mapTypeString) {
+//        if (mapTypeString.equals("Standard")) {
+//            return MapType.STANDARD;
+//        } else if (mapTypeString.equals("Random Hills")) {
+//            return MapType.RANDOM;
+//        } else {
+//            return null;
+//        }
+//    }
 
-    private Difficulty getDifficulty(String difficultyString) {
-        if (difficultyString.equals("Beginner")) {
-            return Difficulty.BEGINNER;
-        } else if (difficultyString.equals("Standard")) {
-            return Difficulty.NORMAL;
-        } else if (difficultyString.equals("Tournament")) {
-            return Difficulty.TOURNAMENT;
-        }
-        return null;
-    }
+//    private Difficulty getDifficulty(String difficultyString) {
+//        if (difficultyString.equals("Beginner")) {
+//            return Difficulty.BEGINNER;
+//        } else if (difficultyString.equals("Standard")) {
+//            return Difficulty.NORMAL;
+//        } else if (difficultyString.equals("Tournament")) {
+//            return Difficulty.TOURNAMENT;
+//        }
+//        return null;
+//    }
 
     public void addPlayer(Player player) {
         if (players[0] == null) {
@@ -85,12 +81,16 @@ public class GameInfo {
         //for use if game is quit during setup
         numPlayers = 0;
         players = null;
-        type = null;
+        mapType = null;
         difficulty = null;
     }
 
-    public int getNumOfPlayers() {
+    public int getPlayerNumber() {
         return numPlayers;
+    }
+
+    public void setPlayerNumber(int numPlayers) {
+        this.numPlayers = numPlayers;
     }
 
     public GameMap getMyGameMap() {
@@ -99,7 +99,7 @@ public class GameInfo {
 
     public String toString() {
         String output = "";
-        output += type.toString() + " " + difficulty.toString() + " " + numPlayers;
+        output += mapType + " " + difficulty + " " + numPlayers;
         return output;
     }
 
@@ -119,4 +119,11 @@ public class GameInfo {
         return players[i - 1].getMoney();
     }
 
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public void setMapType(String mapType) {
+        this.mapType = mapType;
+    }
 }

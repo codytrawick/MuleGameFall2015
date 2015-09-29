@@ -1,5 +1,7 @@
-package game.controllers;
+package game.view.controllers;
 
+import game.core.Presenters.LandSelection;
+import game.view.GameScreen;
 import game.core.*;
 import game.model.Player;
 import javafx.event.ActionEvent;
@@ -81,7 +83,7 @@ public class PlayerCreationController implements GameScreen {
         playerNumLabel.setText(Integer.toString(Integer.parseInt(playerNumLabel.getText()) + 1));
 
         //debug test
-        if ((Integer.parseInt(playerNumLabel.getText())) > gameEngine.getGame().getNumOfPlayers()) {
+        if ((Integer.parseInt(playerNumLabel.getText())) > gameEngine.getGame().getPlayerNumber()) {
             System.out.println(gameEngine.getGame());
             for (Player p: gameEngine.getGame().getPlayers()) {
                 System.out.println(p);
@@ -110,4 +112,7 @@ public class PlayerCreationController implements GameScreen {
         playerName.requestFocus();
     }
 
+    public void setGameLogic(GameLogic parent) {
+        //TODO
+    }
 }

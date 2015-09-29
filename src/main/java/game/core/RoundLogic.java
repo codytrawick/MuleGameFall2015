@@ -1,5 +1,7 @@
 package game.core;
 
+import game.view.GameScreen;
+
 /**
  * This controls the logic for a round
  *
@@ -17,7 +19,16 @@ public class RoundLogic implements GameLogic {
         this.roundNum = roundNum;
     }
 
-    public void tileWasClicked(int row, int column) {
+
+    /**
+     * This method will update the information in the view.
+     * @param view The target view. Pre-condition: Must be the game map
+     */
+    public void updateView(GameScreen view) {
+
+    }
+
+    public void checkView(int row, int column) {
 
         if(row==2 && column==4) {
             gameEngine.setScreen(Mule.TOWN_SCREEN);
@@ -27,5 +38,9 @@ public class RoundLogic implements GameLogic {
 
     public void setView(GameScreen view) {
         this.view = view;
+    }
+
+    public void viewUpdated() {
+
     }
 }

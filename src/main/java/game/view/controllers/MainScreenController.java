@@ -1,14 +1,15 @@
-package game.controllers;
+package game.view.controllers;
 
+import game.core.GameLogic;
 import game.core.Engine;
-import game.core.GameScreen;
 import game.core.Mule;
+import game.view.interfaces.IMainScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 
-public class MainScreenController implements GameScreen {
+public class MainScreenController implements IMainScreen {
     //GameScreen instance variables
     Engine gameEngine;
 
@@ -23,7 +24,7 @@ public class MainScreenController implements GameScreen {
      */
     @FXML
     void startGame(ActionEvent event) {
-        gameEngine.setScreen(Mule.GAME_CONFIGURATION);
+        gameEngine.setCurrentGameLogic(Mule.GAME_CONFIGURATION);
     }
 
     /**
@@ -45,5 +46,9 @@ public class MainScreenController implements GameScreen {
     @Override
     public void setEngine(Engine parent) {
         gameEngine = parent;
+    }
+
+    public void setGameLogic(GameLogic parent) {
+        //TODO
     }
 }

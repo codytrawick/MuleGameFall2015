@@ -1,10 +1,11 @@
-package game.controllers;
+package game.view.controllers;
 
 
+import game.core.Presenters.ConfigurationLogic;
+import game.core.GameLogic;
 import game.core.Engine;
-import game.model.GameInfo;
-import game.core.GameScreen;
 import game.core.Mule;
+import game.view.interfaces.IGameConfiguration;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -22,10 +23,11 @@ import javafx.scene.control.ToggleGroup;
  * @author The SpecialFX
  * @version 1.0
  */
-public class GameConfigurationController implements GameScreen {
+public class GameConfigurationController implements IGameConfiguration {
 
     //GameScreen instance variables
     Engine gameEngine;
+    ConfigurationLogic listener;
 
     //FXML Elements
     @FXML
@@ -44,10 +46,7 @@ public class GameConfigurationController implements GameScreen {
      */
     @FXML
     void checkInputs(ActionEvent event) {
-        String mapTypeString = ((RadioButton)mapType.getSelectedToggle()).getText();
-        String difficultyString = ((RadioButton)difficultyLevel.getSelectedToggle()).getText();
-        gameEngine.setGame(new GameInfo(mapTypeString, difficultyString, (int) playerNum.getValue()));
-        gameEngine.setScreen(Mule.PLAYER_CREATION_PAGE);
+        listener.viewUpdated();
 
         //System.out.println(gameEngine.getGame());
     }
@@ -71,7 +70,7 @@ public class GameConfigurationController implements GameScreen {
         playerNum.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                playerNum.setValue((int)(newValue.doubleValue() + 0.5));
+                playerNum.setValue((int) (newValue.doubleValue() + 0.5));
             }
         });
 
@@ -89,8 +88,25 @@ public class GameConfigurationController implements GameScreen {
     }
 
     @Override
+    public void setGameLogic(GameLogic presenter) {
+        listener = (ConfigurationLogic) presenter;
+    }
+
     public void setEngine(Engine parent) {
         gameEngine = parent;
+    }
+
+    public String getDifficulty() {
+        return ((RadioButton) difficultyLevel.getSelectedToggle()).getText();
+    }
+
+    public String getMapType() {
+        return ((RadioButton) mapType.getSelectedToggle()).getText();
+
+    }
+
+    public int getPlayerNumber() {
+        return (int) playerNum.getValue();
     }
 
 }

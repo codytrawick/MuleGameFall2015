@@ -1,6 +1,11 @@
 package game.core;
 
+import game.core.Presenters.ConfigurationLogic;
+import game.core.Presenters.MainScreenLogic;
+import game.view.GameScreen;
 import game.model.GameInfo;
+import game.view.interfaces.IGameConfiguration;
+import game.view.interfaces.IMainScreen;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
@@ -16,12 +21,13 @@ import java.util.HashMap;
  */
 public class Engine extends StackPane {
     //The game Engine has a single game reference
-    GameInfo game;
+    GameInfo game = new GameInfo();
     GameLogic currentGameLogic;
 
     //The Game Engine has references to the screens and their controllers
     private HashMap<String, Node> gameScreens = new HashMap<>();
     private HashMap<String, GameScreen> controllers = new HashMap<>();
+    private HashMap<String, GameLogic> logic = new HashMap<>();
 
     /**
      * This method adds a loaded screen to our game.
@@ -30,6 +36,11 @@ public class Engine extends StackPane {
      */
     private void addScreen(String name, Node screen) {
         gameScreens.put(name, screen);
+        if (name.equals(Mule.GAME_CONFIGURATION)) {
+            logic.put(Mule.GAME_CONFIGURATION, new ConfigurationLogic((IGameConfiguration) screen, game));
+        } else if (name.equals(Mule.WELCOME_PAGE)) {
+            logic.put(Mule.WELCOME_PAGE, new MainScreenLogic((IMainScreen) screen, game));
+        }
     }
 
     /**
@@ -44,6 +55,7 @@ public class Engine extends StackPane {
             Node loadedScreen = loader.load();
             GameScreen targetScene = loader.getController();
             targetScene.setEngine(this);
+
             controllers.put(name, targetScene);
             addScreen(name, loadedScreen);
         } catch (java.io.IOException e) {
@@ -93,6 +105,10 @@ public class Engine extends StackPane {
 
     public void setCurrentGameLogic(GameLogic newThing) {
         currentGameLogic = newThing;
-        currentGameLogic.setView(controllers.get(Mule.MAP_PAGE));
+    }
+
+    public void setCurrentGameLogic(String newLogic) {
+        currentGameLogic = logic.get(newLogic);
+        setScreen(newLogic);
     }
 }

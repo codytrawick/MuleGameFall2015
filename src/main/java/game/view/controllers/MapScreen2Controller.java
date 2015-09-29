@@ -1,9 +1,8 @@
-package game.controllers;
+package game.view.controllers;
 
+import game.core.GameLogic;
+import game.view.GameScreen;
 import game.core.Engine;
-import game.core.GameScreen;
-import game.model.GameMap;
-import game.model.Player;
 import game.model.Tile;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -83,7 +82,7 @@ public class MapScreen2Controller implements GameScreen {
     void onClickOnTile(ActionEvent event) {
         int row = event.getTarget().toString().charAt(13) - 48;
         int column = event.getTarget().toString().charAt(17) - 48;
-        gameEngine.getCurrentGameLogic().tileWasClicked(row, column);
+        gameEngine.getCurrentGameLogic().viewUpdated();
     }
 
     /**
@@ -93,7 +92,7 @@ public class MapScreen2Controller implements GameScreen {
      */
     @FXML
     void onPassButton(ActionEvent event) {
-        gameEngine.getCurrentGameLogic().tileWasClicked(2, 4);
+        gameEngine.getCurrentGameLogic().viewUpdated();
     }
 
     /**
@@ -172,6 +171,10 @@ public class MapScreen2Controller implements GameScreen {
     @Override
     public void setEngine(Engine parent) {
         gameEngine = parent;
+    }
+
+    public void setGameLogic(GameLogic parent) {
+        //TODO
     }
 
 }

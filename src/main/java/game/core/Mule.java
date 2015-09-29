@@ -49,7 +49,7 @@ public class Mule extends Application {
         gameEngine.loadScreen(TOWN_SCREEN, TOWN_SCREEN_FXML);
         gameEngine.loadScreen(MAP2SCREEN, MAP2FXML);
 
-        gameEngine.setScreen(WELCOME_PAGE);
+        gameEngine.setCurrentGameLogic(WELCOME_PAGE);
         primaryStage.setTitle("Mule");
         primaryStage.setScene(new Scene(gameEngine));
         primaryStage.show();
