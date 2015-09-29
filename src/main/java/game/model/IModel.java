@@ -8,5 +8,7 @@ public interface IModel {
     void setPlayerNumber(int number);
     void setMapType(String mapType);
     void setDifficulty(String difficulty);
+    int getCurPlayerNumber();
+    void createNewPlayer(String name, String color, String race);
 
 }

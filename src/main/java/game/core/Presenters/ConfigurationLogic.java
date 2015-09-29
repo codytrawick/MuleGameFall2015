@@ -15,15 +15,17 @@ public class ConfigurationLogic extends GameLogic {
     private IGameConfiguration configView;
 
     public ConfigurationLogic(IGameConfiguration configView, IModel gameModel) {
-        super(configView, gameModel);
-        configView = (IGameConfiguration) abstractView;
+        super(gameModel);
+        this.configView = configView;
+
+        this.configView.setGameLogic(this);
     }
 
     public void viewUpdated() {
         gameModel.setPlayerNumber(configView.getPlayerNumber());
         gameModel.setDifficulty(configView.getDifficulty());
         gameModel.setMapType(configView.getMapType());
-        System.out.println("View Updated");
+        gameEngine.setCurrentGameLogic(Mule.PLAYER_CREATION_PAGE);
 
     }
 
@@ -31,9 +33,8 @@ public class ConfigurationLogic extends GameLogic {
         gameEngine.setScreen(Mule.WELCOME_PAGE);
     }
 
-    public void setEngine(Engine parent) {
-        gameEngine = parent;
+    public void primeScreen() {
+        configView.initializeScreen();
     }
-
 
 }

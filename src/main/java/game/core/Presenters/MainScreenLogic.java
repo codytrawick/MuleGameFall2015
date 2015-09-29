@@ -12,10 +12,14 @@ import game.view.interfaces.IMainScreen;
  */
 public class MainScreenLogic extends GameLogic {
 
-    Engine gameEngine;
+    IMainScreen mainView;
 
-    public MainScreenLogic(IMainScreen configView, IModel gameModel) {
-        super(configView, gameModel);
+    public MainScreenLogic(IMainScreen mainView, IModel gameModel) {
+        super(gameModel);
+        this.mainView = mainView;
+
+        this.mainView.setGameLogic(this);
+
     }
 
     public void setEngine(Engine gameEngine) {
@@ -28,5 +32,9 @@ public class MainScreenLogic extends GameLogic {
 
     public void viewUpdated() {
         gameEngine.setCurrentGameLogic(Mule.GAME_CONFIGURATION);
+    }
+
+    public void primeScreen() {
+        mainView.initializeScreen();
     }
 }

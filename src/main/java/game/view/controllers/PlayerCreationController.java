@@ -1,9 +1,10 @@
 package game.view.controllers;
 
 import game.core.Presenters.LandSelection;
-import game.view.GameScreen;
+import game.core.Presenters.PlayerCreationLogic;
 import game.core.*;
 import game.model.Player;
+import game.view.interfaces.IPlayerConfiguration;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -13,10 +14,11 @@ import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 
-public class PlayerCreationController implements GameScreen {
+public class PlayerCreationController implements IPlayerConfiguration {
 
     Engine gameEngine;
     private int currentPlayer = 1;
+    private PlayerCreationLogic listener;
 
     @FXML
     private Label playerNumLabel;
@@ -55,43 +57,39 @@ public class PlayerCreationController implements GameScreen {
 
     @FXML
     void checkValues(ActionEvent event) {
-        String name = null;
         if (playerName.getText().trim().equals("")) {
             return;
         } else {
-            name = playerName.getText().trim();
+            listener.viewUpdated();
         }
 
         playerName.setText("");
-
-        String color = ((RadioButton) colorChoice.getSelectedToggle()).getText();
+        playerName.requestFocus();
+//
+//        String color = ((RadioButton) colorChoice.getSelectedToggle()).getText();
         //disable selected color for next player
 
         colorButtons.remove(colorChoice.getSelectedToggle());
         ((RadioButton) colorChoice.getSelectedToggle()).setDisable(true);
 
-        String race = ((RadioButton) raceChoice.getSelectedToggle()).getText();
         raceChoice.selectToggle(defaultRace);
 
         if (!colorButtons.isEmpty()) {
             colorChoice.selectToggle(colorButtons.get(0));
         }
 
-        Player player = new Player(name, color, race);
-        gameEngine.getGame().addPlayer(player);
-
         playerNumLabel.setText(Integer.toString(Integer.parseInt(playerNumLabel.getText()) + 1));
 
-        //debug test
-        if ((Integer.parseInt(playerNumLabel.getText())) > gameEngine.getGame().getPlayerNumber()) {
-            System.out.println(gameEngine.getGame());
-            for (Player p: gameEngine.getGame().getPlayers()) {
-                System.out.println(p);
-            }
-
-            gameEngine.setScreen(Mule.MAP_PAGE);
-            gameEngine.setCurrentGameLogic(new LandSelection(gameEngine));
-        }
+//        //debug test
+//        if ((Integer.parseInt(playerNumLabel.getText())) > gameEngine.getGame().getPlayerNumber()) {
+//            System.out.println(gameEngine.getGame());
+//            for (Player p: gameEngine.getGame().getPlayers()) {
+//                System.out.println(p);
+//            }
+//
+//            gameEngine.setScreen(Mule.MAP_PAGE);
+//            gameEngine.setCurrentGameLogic(new LandSelection(gameEngine));
+//        }
     }
 
     @FXML
@@ -113,6 +111,18 @@ public class PlayerCreationController implements GameScreen {
     }
 
     public void setGameLogic(GameLogic parent) {
-        //TODO
+        listener = (PlayerCreationLogic) parent;
+    }
+
+    public String getPlayerName() {
+        return playerName.getText().trim();
+    }
+
+    public String getPlayerRace() {
+        return ((RadioButton) raceChoice.getSelectedToggle()).getText();
+    }
+
+    public String getPlayerColor() {
+        return ((RadioButton) colorChoice.getSelectedToggle()).getText();
     }
 }

@@ -1,6 +1,8 @@
 package game.core;
 
+import game.model.IModel;
 import game.view.GameScreen;
+import game.view.interfaces.IGameConfiguration;
 
 /**
  * This controls the logic for a round
@@ -8,15 +10,19 @@ import game.view.GameScreen;
  * @author The SpecialFX
  * @version 1.0
  */
-public class RoundLogic implements GameLogic {
+public class RoundLogic extends GameLogic {
 
     Engine gameEngine;
     int roundNum;
     GameScreen view;
 
-    public RoundLogic(Engine gameEngine, int roundNum) {
-        this.gameEngine = gameEngine;
-        this.roundNum = roundNum;
+//    public RoundLogic(Engine gameEngine, int roundNum) {
+//        this.gameEngine = gameEngine;
+//        this.roundNum = roundNum;
+//    }
+
+    public RoundLogic(IGameConfiguration configView, IModel gameModel) {
+        super(gameModel);
     }
 
 
@@ -41,6 +47,14 @@ public class RoundLogic implements GameLogic {
     }
 
     public void viewUpdated() {
+
+    }
+
+    public void passButton() {
+
+    }
+
+    public void primeScreen() {
 
     }
 }

@@ -2,10 +2,12 @@ package game.core;
 
 import game.core.Presenters.ConfigurationLogic;
 import game.core.Presenters.MainScreenLogic;
+import game.core.Presenters.PlayerCreationLogic;
 import game.view.GameScreen;
 import game.model.GameInfo;
 import game.view.interfaces.IGameConfiguration;
 import game.view.interfaces.IMainScreen;
+import game.view.interfaces.IPlayerConfiguration;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
@@ -26,7 +28,7 @@ public class Engine extends StackPane {
 
     //The Game Engine has references to the screens and their controllers
     private HashMap<String, Node> gameScreens = new HashMap<>();
-    private HashMap<String, GameScreen> controllers = new HashMap<>();
+//    private HashMap<String, GameScreen> controllers = new HashMap<>();
     private HashMap<String, GameLogic> logic = new HashMap<>();
 
     /**
@@ -34,13 +36,16 @@ public class Engine extends StackPane {
      * @param name The name of the screen
      * @param screen The loaded screen
      */
-    private void addScreen(String name, Node screen) {
+    public void addScreen(String name, Node screen) {
         gameScreens.put(name, screen);
-        if (name.equals(Mule.GAME_CONFIGURATION)) {
-            logic.put(Mule.GAME_CONFIGURATION, new ConfigurationLogic((IGameConfiguration) screen, game));
-        } else if (name.equals(Mule.WELCOME_PAGE)) {
-            logic.put(Mule.WELCOME_PAGE, new MainScreenLogic((IMainScreen) screen, game));
-        }
+//        if (name.equals(Mule.GAME_CONFIGURATION)) {
+//            logic.get(Mule.GAME_CONFIGURATION).setEngine(this);
+//        } else if (name.equals(Mule.WELCOME_PAGE)) {
+//            logic.get(Mule.WELCOME_PAGE).setEngine(this);
+//        } else if (name.equals(Mule.PLAYER_CREATION_PAGE)) {
+//            logic.get(Mule.PLAYER_CREATION_PAGE).setEngine(this);
+//        }
+
     }
 
     /**
@@ -48,20 +53,27 @@ public class Engine extends StackPane {
      * @param name The name of the target screen
      * @param fxlmresourceName The fxml file that controls the screen's layout
      */
-    public void loadScreen(String name, String fxlmresourceName) {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource(fxlmresourceName));
-            Node loadedScreen = loader.load();
-            GameScreen targetScene = loader.getController();
-            targetScene.setEngine(this);
-
-            controllers.put(name, targetScene);
-            addScreen(name, loadedScreen);
-        } catch (java.io.IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void loadScreen(String name, String fxlmresourceName) {
+//        try {
+//            FXMLLoader loader = new FXMLLoader(
+//                    getClass().getResource(fxlmresourceName));
+//            Node loadedScreen = loader.load();
+//            GameScreen targetScene = loader.getController();
+////            targetScene.setEngine(this);
+//            if (name.equals(Mule.GAME_CONFIGURATION)) {
+//                logic.put(Mule.GAME_CONFIGURATION, new ConfigurationLogic((IGameConfiguration) targetScene, game));
+//            } else if (name.equals(Mule.WELCOME_PAGE)) {
+//                logic.put(Mule.WELCOME_PAGE, new MainScreenLogic((IMainScreen) targetScene, game));
+//            } else if (name.equals(Mule.PLAYER_CREATION_PAGE)) {
+//                logic.put(Mule.PLAYER_CREATION_PAGE, new PlayerCreationLogic((IPlayerConfiguration) targetScene, game));
+//            }
+//
+//            controllers.put(name, targetScene);
+//            addScreen(name, loadedScreen);
+//        } catch (java.io.IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     /**
      * This method displays a loaded screen and removes the old screen
@@ -72,10 +84,10 @@ public class Engine extends StackPane {
             if (!getChildren().isEmpty()) {
                 getChildren().remove(0);
                 getChildren().add(0, gameScreens.get(name));
-                controllers.get(name).initializeScreen();
+                gameScreens.get(name);
             } else {
                 getChildren().add(0, gameScreens.get(name));
-                controllers.get(name).initializeScreen();
+                gameScreens.get(name);
             }
         } else {
             System.out.print("Problem setting screen");
@@ -103,8 +115,9 @@ public class Engine extends StackPane {
         return currentGameLogic;
     }
 
-    public void setCurrentGameLogic(GameLogic newThing) {
-        currentGameLogic = newThing;
+    public void addGameLogic(String name, GameLogic newThing) {
+        logic.put(name, newThing);
+        newThing.setEngine(this);
     }
 
     public void setCurrentGameLogic(String newLogic) {

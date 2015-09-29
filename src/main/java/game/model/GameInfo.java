@@ -16,6 +16,7 @@ public class GameInfo implements IModel {
     private String difficulty;
     private GameMap myGameMap;
     private Player curPlayer;
+    private int curPlayerNumber;
 
 //    public enum MapType {
 //        STANDARD, RANDOM
@@ -125,5 +126,13 @@ public class GameInfo implements IModel {
 
     public void setMapType(String mapType) {
         this.mapType = mapType;
+    }
+
+    public int getCurPlayerNumber() {
+        return curPlayerNumber;
+    }
+
+    public void createNewPlayer(String name, String color, String race) {
+        players[curPlayerNumber++] = new Player(name, color, race);
     }
 }

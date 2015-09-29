@@ -12,21 +12,21 @@ import game.view.interfaces.IGameConfiguration;
  */
 public abstract class GameLogic {
     protected Engine gameEngine;
-    protected GameScreen abstractView;
     protected IModel gameModel;
 
-    public GameLogic(GameScreen configView, IModel gameModel) {
-        this.abstractView = configView;
+    public GameLogic(IModel gameModel) {
         this.gameModel = gameModel;
 
-        configView.setGameLogic(this);
     }
 
     public abstract void viewUpdated();
 
     public abstract void passButton();
 
+
     public void setEngine(Engine parent) {
         gameEngine = parent;
     }
+
+    public abstract void primeScreen();
 }

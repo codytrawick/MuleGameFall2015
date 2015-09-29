@@ -59,7 +59,7 @@ public class GameConfigurationController implements IGameConfiguration {
     @FXML
     void returnToTitle(ActionEvent event) {
         //gameEngine.getGame().resetSettings(); Not needed. Game is already null!!!
-        gameEngine.setScreen(Mule.WELCOME_PAGE);
+        listener.passButton();
     }
 
     /**

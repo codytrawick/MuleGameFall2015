@@ -3,6 +3,7 @@ import game.core.Engine;
 import game.core.GameLogic;
 import game.core.Mule;
 import game.core.RoundLogic;
+import game.model.IModel;
 import game.view.GameScreen;
 import game.view.controllers.MapScreenController;
 import game.model.Player;
@@ -18,9 +19,14 @@ public class LandSelection extends GameLogic {
     private MapScreenController view;
 
 
-    public LandSelection(Engine gameEngine) {
-        this.gameEngine = gameEngine;
-        players = gameEngine.getGame().getPlayers();
+//    public LandSelection(Engine gameEngine) {
+//        this.gameEngine = gameEngine;
+//        players = gameEngine.getGame().getPlayers();
+//    }
+
+    public LandSelection(GameScreen view, IModel model) {
+        super(model);
+
     }
 
     public void executeAuction() {
@@ -36,13 +42,13 @@ public class LandSelection extends GameLogic {
     }
 
     public void checkView(int row, int column) {
-        Tile clickedTile = gameEngine.game.getMyGameMap().getTile(row, column);
+        Tile clickedTile = gameEngine.getGame().getMyGameMap().getTile(row, column);
         if (row == 2 && column == 4) {
             nextPlayer();
         } else if (roundNum < 2) {
             if (clickedTile.getOwner() == null) {
                 passStreak = false;
-                clickedTile.setOwner(gameEngine.game.getCurPlayer());
+                clickedTile.setOwner(gameEngine.getGame().getCurPlayer());
                 view.addTileElement("Owner", gameEngine.getGame().getCurPlayer().getColor(), row, column);
                 nextPlayer();
             }
@@ -51,7 +57,7 @@ public class LandSelection extends GameLogic {
                 if (gameEngine.getGame().getCurPlayer().getMoney() >= 300) {
                     gameEngine.getGame().getCurPlayer().spendMoney(300);
                     passStreak = false;
-                    clickedTile.setOwner(gameEngine.game.getCurPlayer());
+                    clickedTile.setOwner(gameEngine.getGame().getCurPlayer());
                     view.addTileElement("Owner", gameEngine.getGame().getCurPlayer().getColor(), row, column);
                     nextPlayer();
                 }
@@ -80,12 +86,20 @@ public class LandSelection extends GameLogic {
     }
 
     private void endLandSelectionPhase() {
-        gameEngine.setScreen(Mule.MAP2SCREEN);
-        gameEngine.setCurrentGameLogic(new RoundLogic(gameEngine, 1));
+//        gameEngine.setScreen(Mule.MAP2SCREEN);
+//        gameEngine.setCurrentGameLogic(new RoundLogic(gameEngine, 1));
         view.removePassButton();
     }
 
     public void viewUpdated() {
 
+    }
+
+    public void passButton() {
+
+    }
+
+    public void primeScreen() {
+//        la.initializeScreen();
     }
 }

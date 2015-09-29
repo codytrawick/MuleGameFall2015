@@ -168,7 +168,6 @@ public class MapScreen2Controller implements GameScreen {
         } */
     }
 
-    @Override
     public void setEngine(Engine parent) {
         gameEngine = parent;
     }

@@ -43,7 +43,6 @@ public class MainScreenController implements IMainScreen {
         //Nothing to initialize
     }
 
-    @Override
     public void setEngine(Engine parent) {
         gameEngine = parent;
     }

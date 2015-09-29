@@ -11,13 +11,13 @@ import game.core.GameLogic;
  */
 public interface GameScreen {
 
-    /**
-     * This method sets the game scree's engine. All game screens will have
-     * a reference to the Engine presenter so that they can change screens
-     *
-     * @param parent The main game engine
-     */
-    void setEngine(Engine parent);
+//    /**
+//     * This method sets the game scree's engine. All game screens will have
+//     * a reference to the Engine presenter so that they can change screens
+//     *
+//     * @param parent The main game engine
+//     */
+////    void setEngine(Engine parent);
 
     void setGameLogic(GameLogic logic);
 
