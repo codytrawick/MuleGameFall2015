@@ -27,7 +27,7 @@ public class PlayerCreationLogic extends GameLogic {
     public void viewUpdated() {
         gameModel.createNewPlayer(playerView.getPlayerName(), playerView.getPlayerColor(), playerView.getPlayerRace());
         if (++currentPlayerNum == gameModel.getPlayerNumber()) {
-            gameEngine.setCurrentGameLogic(Mule.MAP_PAGE);
+            gameEngine.setCurrentGameLogic(Mule.LAND_SELECTION);
         }
     }
 

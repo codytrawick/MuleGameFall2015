@@ -1,9 +1,11 @@
 package game.view.controllers;
 
 import game.core.GameLogic;
-import game.view.GameScreen;
+import game.core.Presenters.LandSelection;
 import game.core.Engine;
 import game.model.Tile;
+import game.view.interfaces.ILandSelection;
+import game.view.interfaces.TileSelected;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -21,12 +23,14 @@ import java.util.HashMap;
  * It will gather information from the model to skin the tiles
  * and provide information to the presenter about what tile was clicked.
  */
-public class MapScreenController implements GameScreen {
+public class LandSelectionController implements ILandSelection {
 
     // GameScreen instance variables
     private Engine gameEngine;
     //This map will match the type of tiles to an image that corresponds to it
     HashMap<String, Image> tileArt = new HashMap<>();
+    private TileSelected lastClick;
+    private LandSelection listener;
 
     // FXML Elements
     @FXML
@@ -55,7 +59,10 @@ public class MapScreenController implements GameScreen {
     void onClickOnTile(ActionEvent event) {
         int row = event.getTarget().toString().charAt(13) - 48;
         int column = event.getTarget().toString().charAt(17) - 48;
-        gameEngine.getCurrentGameLogic().viewUpdated();
+        if (row != 2 || column != 4) {
+            lastClick = new TileSelected(row, column);
+            listener.viewUpdated();
+        }
     }
 
     /**
@@ -65,7 +72,7 @@ public class MapScreenController implements GameScreen {
      */
     @FXML
     void onPassButton(ActionEvent event) {
-        gameEngine.getCurrentGameLogic().viewUpdated();
+        listener.passButton();
     }
 
     /**
@@ -133,16 +140,29 @@ public class MapScreenController implements GameScreen {
         } */
     }
 
-    public void removePassButton() {
-        passButton.setDisable(true);
-    }
+//    public void removePassButton() {
+//        passButton.setDisable(true);
+//    }
 
     public void setEngine(Engine parent) {
         gameEngine = parent;
     }
 
     public void setGameLogic(GameLogic parent) {
-        //TODO
+        listener = (LandSelection) parent;
+    }
+
+    public TileSelected playerClickMap() {
+        return lastClick;
+    }
+
+    public void setTerrain(int row, int column, String terrain) {
+        Button targetButton = (Button) tiles.getChildren().get(row * 9 + column);
+        ((ImageView) ((StackPane) targetButton.getGraphic()).getChildren().get(0)).setImage(tileArt.get(terrain));
+    }
+
+    public void setPlayerText(String newText) {
+        curPlayerName.setText(newText);
     }
 
 }

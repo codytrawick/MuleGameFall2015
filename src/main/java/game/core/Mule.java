@@ -1,10 +1,12 @@
 package game.core;
 
 import game.core.Presenters.ConfigurationLogic;
+import game.core.Presenters.LandSelection;
 import game.core.Presenters.MainScreenLogic;
 import game.core.Presenters.PlayerCreationLogic;
 import game.view.GameScreen;
 import game.view.interfaces.IGameConfiguration;
+import game.view.interfaces.ILandSelection;
 import game.view.interfaces.IMainScreen;
 import game.view.interfaces.IPlayerConfiguration;
 import javafx.application.Application;
@@ -30,8 +32,8 @@ public class Mule extends Application {
     public static final String PLAYER_CREATION_PAGE_FXML = "/fxml/playerConfig.fxml";
     public static final String GAME_CONFIGURATION = "Configuration Menu";
     public static final String GAME_CONFIGURATION_FXML = "/fxml/gameConfig.fxml";
-    public static final String MAP_PAGE = "GameMap";
-    public static final String MAP_PAGE_FXML = "/fxml/mapScreen.fxml";
+    public static final String LAND_SELECTION = "GameMap";
+    public static final String LAND_SELECTION_FXML = "/fxml/mapScreen.fxml";
     public static final String TOWN_SCREEN = "Town";
     public static final String TOWN_SCREEN_FXML = "/fxml/townScreen.fxml";
     public static final String MAP2SCREEN = "Map Screen", MAP2FXML = "/fxml/mapScreen2.fxml";
@@ -55,6 +57,7 @@ public class Mule extends Application {
         gameEngine.addGameLogic(WELCOME_PAGE, new MainScreenLogic((IMainScreen) loadScreen(WELCOME_PAGE, WELCOME_PAGE_FXML), gameEngine.getGame()));
         gameEngine.addGameLogic(GAME_CONFIGURATION, new ConfigurationLogic((IGameConfiguration) loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML), gameEngine.getGame()));
         gameEngine.addGameLogic(PLAYER_CREATION_PAGE, new PlayerCreationLogic((IPlayerConfiguration) loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML), gameEngine.getGame()));
+        gameEngine.addGameLogic(LAND_SELECTION, new LandSelection((ILandSelection) loadScreen(LAND_SELECTION, LAND_SELECTION_FXML), gameEngine.getGame()));
 //        loadScreen(WELCOME_PAGE, WELCOME_PAGE_FXML);
 //        loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML);
 //        loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML);

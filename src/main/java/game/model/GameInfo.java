@@ -59,32 +59,32 @@ public class GameInfo implements IModel {
 //        return null;
 //    }
 
-    public void addPlayer(Player player) {
-        if (players[0] == null) {
-            players[0] = player;
-            curPlayer = player;
-        } else if (numPlayers > 1) {
-            if (players[1] == null) {
-                players[1] = player;
-            } else if (numPlayers > 2) {
-                if (players[2] == null) {
-                    players[2] = player;
-                } else if (numPlayers > 3) {
-                    if (players[3] == null) {
-                        players[3] = player;
-                    }
-                }
-            }
-        }
-    }
+//    public void addPlayer(Player player) {
+//        if (players[0] == null) {
+//            players[0] = player;
+//            curPlayer = player;
+//        } else if (numPlayers > 1) {
+//            if (players[1] == null) {
+//                players[1] = player;
+//            } else if (numPlayers > 2) {
+//                if (players[2] == null) {
+//                    players[2] = player;
+//                } else if (numPlayers > 3) {
+//                    if (players[3] == null) {
+//                        players[3] = player;
+//                    }
+//                }
+//            }
+//        }
+//    }
 
-    public void resetSettings() {
-        //for use if game is quit during setup
-        numPlayers = 0;
-        players = null;
-        mapType = null;
-        difficulty = null;
-    }
+//    public void resetSettings() {
+//        //for use if game is quit during setup
+//        numPlayers = 0;
+//        players = null;
+//        mapType = null;
+//        difficulty = null;
+//    }
 
     public int getPlayerNumber() {
         return numPlayers;
@@ -127,6 +127,7 @@ public class GameInfo implements IModel {
 
     public void setMapType(String mapType) {
         this.mapType = mapType;
+        this.myGameMap = new GameMap(mapType);
     }
 
     public int getCurPlayerNumber() {
@@ -135,5 +136,22 @@ public class GameInfo implements IModel {
 
     public void createNewPlayer(String name, String color, String race) {
         players[curPlayerNumber++] = new Player(name, color, race);
+    }
+
+    public String getTileTerrain(int row, int column) {
+        return myGameMap.getTile(row, column).toString();
+    }
+
+    public String getTileOwner(int row, int column) {
+        Player owner = myGameMap.getTile(row, column).getOwner();
+        return owner != null ? owner.getColor() : "None";
+    }
+
+    public void setTileOwner(int row, int column, Player owner) {
+        myGameMap.getTile(row, column).setOwner(owner);
+    }
+
+    public String getCurrentPlayerColor() {
+        return curPlayer.getColor();
     }
 }

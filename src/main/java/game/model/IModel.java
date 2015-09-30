@@ -10,5 +10,10 @@ public interface IModel {
     void setDifficulty(String difficulty);
     int getCurPlayerNumber();
     void createNewPlayer(String name, String color, String race);
+    Player[] getPlayers();
+    String getTileTerrain(int row, int column);
+    String getTileOwner(int row, int column);
+    void setTileOwner(int row, int column, Player owner);
+    String getCurrentPlayerColor();
 
 }

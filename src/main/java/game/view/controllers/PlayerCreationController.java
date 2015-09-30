@@ -69,7 +69,7 @@ public class PlayerCreationController implements IPlayerConfiguration {
 //        String color = ((RadioButton) colorChoice.getSelectedToggle()).getText();
         //disable selected color for next player
 
-        colorButtons.remove(colorChoice.getSelectedToggle());
+        colorButtons.remove((RadioButton) colorChoice.getSelectedToggle());
         ((RadioButton) colorChoice.getSelectedToggle()).setDisable(true);
 
         raceChoice.selectToggle(defaultRace);
