@@ -54,6 +54,7 @@ public class Mule extends Application {
     public void start(Stage primaryStage) {
         gameEngine.addGameLogic(WELCOME_PAGE, new MainScreenLogic((IMainScreen) loadScreen(WELCOME_PAGE, WELCOME_PAGE_FXML), gameEngine.getGame()));
         gameEngine.addGameLogic(GAME_CONFIGURATION, new ConfigurationLogic((IGameConfiguration) loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML), gameEngine.getGame()));
+        gameEngine.addGameLogic(PLAYER_CREATION_PAGE, new PlayerCreationLogic((IPlayerConfiguration) loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML), gameEngine.getGame()));
 //        loadScreen(WELCOME_PAGE, WELCOME_PAGE_FXML);
 //        loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML);
 //        loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML);

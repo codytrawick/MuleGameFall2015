@@ -92,6 +92,7 @@ public class GameInfo implements IModel {
 
     public void setPlayerNumber(int numPlayers) {
         this.numPlayers = numPlayers;
+        players = new Player[numPlayers];
     }
 
     public GameMap getMyGameMap() {

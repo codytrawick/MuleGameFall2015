@@ -3,6 +3,7 @@ package game.view.controllers;
 import game.core.GameLogic;
 import game.core.Engine;
 import game.core.Mule;
+import game.core.Presenters.MainScreenLogic;
 import game.view.interfaces.IMainScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.control.Button;
 public class MainScreenController implements IMainScreen {
     //GameScreen instance variables
     Engine gameEngine;
+    MainScreenLogic logic;
 
     //FXML Elements
 
@@ -24,7 +26,7 @@ public class MainScreenController implements IMainScreen {
      */
     @FXML
     void startGame(ActionEvent event) {
-        gameEngine.setCurrentGameLogic(Mule.GAME_CONFIGURATION);
+        logic.viewUpdated();
     }
 
     /**
@@ -48,6 +50,6 @@ public class MainScreenController implements IMainScreen {
     }
 
     public void setGameLogic(GameLogic parent) {
-        //TODO
+        logic = (MainScreenLogic) parent;
     }
 }

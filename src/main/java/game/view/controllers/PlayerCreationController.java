@@ -94,8 +94,7 @@ public class PlayerCreationController implements IPlayerConfiguration {
 
     @FXML
     void returnToMain(ActionEvent event) {
-        gameEngine.getGame().resetSettings();
-        gameEngine.setScreen(Mule.WELCOME_PAGE);
+        listener.passButton();
     }
 
     public void setEngine(Engine parent) {
