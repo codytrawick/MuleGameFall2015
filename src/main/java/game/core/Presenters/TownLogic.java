@@ -24,10 +24,10 @@ public class TownLogic extends GameLogic {
     }
 
     public void primeScreen() {
-        //Nothing to do here yet
+        gameEngine.setCurrentGameLogic(Mule.MAP2SCREEN);
     }
 
     public void viewUpdated() {
-        //TODO
+        System.out.printf("%s", townView.getTargetLocation());
     }
 }

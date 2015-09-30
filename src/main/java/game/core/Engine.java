@@ -122,7 +122,7 @@ public class Engine extends StackPane {
 
     public void setCurrentGameLogic(String newLogic) {
         currentGameLogic = logic.get(newLogic);
-        logic.get(newLogic).primeScreen();
+        currentGameLogic.primeScreen();
         setScreen(newLogic);
     }
 }

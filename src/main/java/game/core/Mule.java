@@ -1,14 +1,8 @@
 package game.core;
 
-import game.core.Presenters.ConfigurationLogic;
-import game.core.Presenters.LandSelection;
-import game.core.Presenters.MainScreenLogic;
-import game.core.Presenters.PlayerCreationLogic;
+import game.core.Presenters.*;
 import game.view.GameScreen;
-import game.view.interfaces.IGameConfiguration;
-import game.view.interfaces.ILandSelection;
-import game.view.interfaces.IMainScreen;
-import game.view.interfaces.IPlayerConfiguration;
+import game.view.interfaces.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -58,6 +52,7 @@ public class Mule extends Application {
         gameEngine.addGameLogic(GAME_CONFIGURATION, new ConfigurationLogic((IGameConfiguration) loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML), gameEngine.getGame()));
         gameEngine.addGameLogic(PLAYER_CREATION_PAGE, new PlayerCreationLogic((IPlayerConfiguration) loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML), gameEngine.getGame()));
         gameEngine.addGameLogic(LAND_SELECTION, new LandSelection((ILandSelection) loadScreen(LAND_SELECTION, LAND_SELECTION_FXML), gameEngine.getGame()));
+        gameEngine.addGameLogic(MAP2SCREEN, new MapSceenLogic((IMapScreen) loadScreen(MAP2SCREEN, MAP2FXML), gameEngine.getGame()));
 //        loadScreen(WELCOME_PAGE, WELCOME_PAGE_FXML);
 //        loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML);
 //        loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML);

@@ -1,5 +1,7 @@
 package game.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by Cody on 9/29/2015.
  */
@@ -10,7 +12,7 @@ public interface IModel {
     void setDifficulty(String difficulty);
     int getCurPlayerNumber();
     void createNewPlayer(String name, String color, String race);
-    Player[] getPlayers();
+    ArrayList<Player> getPlayers();
     String getTileTerrain(int row, int column);
     String getTileOwner(int row, int column);
     void setTileOwner(int row, int column, Player owner);

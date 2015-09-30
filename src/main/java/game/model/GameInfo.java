@@ -1,5 +1,7 @@
 package game.model;
 
+import java.util.ArrayList;
+
 /**
  * This class holds the information that's important for the game to run
  * It should take in the game information from the Configuration screen
@@ -11,7 +13,7 @@ package game.model;
 public class GameInfo implements IModel {
 
     private int numPlayers;
-    private Player[] players;
+    private ArrayList<Player> players;
     private String mapType;
     private String difficulty;
     private GameMap myGameMap;
@@ -34,7 +36,7 @@ public class GameInfo implements IModel {
 //        myGameMap = new GameMap(this.mapType);
 //    }
 
-    public Player[] getPlayers() {
+    public ArrayList<Player> getPlayers() {
         return players;
     }
 
@@ -92,7 +94,7 @@ public class GameInfo implements IModel {
 
     public void setPlayerNumber(int numPlayers) {
         this.numPlayers = numPlayers;
-        players = new Player[numPlayers];
+        players = new ArrayList<>(4);
     }
 
     public GameMap getMyGameMap() {
@@ -114,11 +116,11 @@ public class GameInfo implements IModel {
     }
 
     public String getPlayerName(int i) {
-        return players[i - 1].getName();
+        return players.get(i - 1).getName();
     }
 
     public int getPlayerMoney(int i) {
-        return players[i - 1].getMoney();
+        return players.get(i - 1).getMoney();
     }
 
     public void setDifficulty(String difficulty) {
@@ -135,7 +137,7 @@ public class GameInfo implements IModel {
     }
 
     public void createNewPlayer(String name, String color, String race) {
-        players[curPlayerNumber++] = new Player(name, color, race);
+        players.add(new Player(name, color, race));
     }
 
     public String getTileTerrain(int row, int column) {

@@ -152,7 +152,7 @@ public class LandSelectionController implements ILandSelection {
         listener = (LandSelection) parent;
     }
 
-    public TileSelected playerClickMap() {
+    public TileSelected lastTileClicked() {
         return lastClick;
     }
 

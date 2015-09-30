@@ -12,7 +12,6 @@ import game.view.interfaces.IGameConfiguration;
  */
 public class RoundLogic extends GameLogic {
 
-    Engine gameEngine;
     int roundNum;
     GameScreen view;
 

@@ -1,9 +1,13 @@
 package game.view.controllers;
 
 import game.core.GameLogic;
+import game.core.Presenters.MapSceenLogic;
+import game.model.Player;
 import game.view.GameScreen;
 import game.core.Engine;
 import game.model.Tile;
+import game.view.interfaces.IMapScreen;
+import game.view.interfaces.TileSelected;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -14,6 +18,8 @@ import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.StackPane;
 
+import java.sql.Time;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -21,11 +27,13 @@ import java.util.HashMap;
  * It will gather information from the model to skin the tiles
  * and provide information to the presenter about what tile was clicked.
  */
-public class MapScreen2Controller implements GameScreen {
+public class MapScreenController implements IMapScreen {
 
     // GameScreen instance variables
-    private Engine gameEngine;
+//    private Engine gameEngine;
     //This map will match the type of tiles to an image that corresponds to it
+    MapSceenLogic listener;
+    private TileSelected lastClick;
     HashMap<String, Image> tileArt = new HashMap<>();
 
     // FXML Elements
@@ -36,31 +44,15 @@ public class MapScreen2Controller implements GameScreen {
     private Label currentPlayerName;
 
     @FXML
-    private Label playerOneName;
+    private Label playerOneName, playerOneMoney, playerTwoName, playerTwoMoney,
+            playerThreeName, playerThreeMoney, playerFourName, playerFourMoney;
+
+    private ArrayList<Label> nameLabels= new ArrayList<>();
+    private ArrayList<Label> money= new ArrayList<>();
+
 
     @FXML
-    private Label playerOneMoney;
-
-    @FXML
-    private Label playerTwoName;
-
-    @FXML
-    private Label playerTwoMoney;
-
-    @FXML
-    private Label playerThreeName;
-
-    @FXML
-    private Label playerThreeMoney;
-
-    @FXML
-    private Label playerFourName;
-
-    @FXML
-    private Label playerFourMoney;
-
-    @FXML
-    private Label currentRoundNumber;
+    private Label currentRoundNumber, timeRemaining;
 
     @FXML
     private Button row0col0, row0col1, row0col2, row0col3, row0col4, row0col5,
@@ -82,7 +74,9 @@ public class MapScreen2Controller implements GameScreen {
     void onClickOnTile(ActionEvent event) {
         int row = event.getTarget().toString().charAt(13) - 48;
         int column = event.getTarget().toString().charAt(17) - 48;
-        gameEngine.getCurrentGameLogic().viewUpdated();
+        lastClick = new TileSelected(row, column);
+        listener.viewUpdated();
+
     }
 
     /**
@@ -92,7 +86,7 @@ public class MapScreen2Controller implements GameScreen {
      */
     @FXML
     void onPassButton(ActionEvent event) {
-        gameEngine.getCurrentGameLogic().viewUpdated();
+        listener.passButton();
     }
 
     /**
@@ -116,17 +110,34 @@ public class MapScreen2Controller implements GameScreen {
             ((Button) tiles.getChildren().get(index)).setPadding(Insets.EMPTY);
             ((Button) tiles.getChildren().get(index)).setGraphic(new StackPane(new ImageView(new Image("BlankTile.jpg"))));
         }
-    }
+        money.add(playerOneMoney);
+        money.add(playerTwoMoney);
+        money.add(playerThreeMoney);
+        money.add(playerFourMoney);
 
-    public void setMap() {
-        for (int index = 0; index < 45; index++) {
-            Button indexedButton = (Button) tiles.getChildren().get(index);
-            Tile clickedTile = gameEngine.getGame().getMyGameMap().getTile(
-                    index / 9, index % 9);
-            ((ImageView) ((StackPane) indexedButton.getGraphic()).getChildren().get(0)).setImage(
-                    tileArt.get(clickedTile.toString()));
+        nameLabels.add(playerOneName);
+        nameLabels.add(playerTwoName);
+        nameLabels.add(playerThreeName);
+        nameLabels.add(playerFourName);
+
+        for (Label names: nameLabels) {
+            names.setText("");
+        }
+
+        for (Label moneyLabel: money) {
+            moneyLabel.setText("");
         }
     }
+
+//    public void setMap() {
+//        for (int index = 0; index < 45; index++) {
+//            Button indexedButton = (Button) tiles.getChildren().get(index);
+//            Tile clickedTile = gameEngine.getGame().getMyGameMap().getTile(
+//                    index / 9, index % 9);
+//            ((ImageView) ((StackPane) indexedButton.getGraphic()).getChildren().get(0)).setImage(
+//                    tileArt.get(clickedTile.toString()));
+//        }
+//    }
 
     public void addTileElement(String type, String color, int row, int column) {
         if (type.equals("Owner")) {
@@ -142,17 +153,7 @@ public class MapScreen2Controller implements GameScreen {
      *
      */
     public void initializeScreen() {
-        currentPlayerName.setText(gameEngine.getGame().getCurPlayer().getName());
-        currentRoundNumber.setText("??");
-        playerOneName.setText(gameEngine.getGame().getPlayerName(1));
-        playerOneMoney.setText("$" + String.valueOf(gameEngine.getGame().getPlayerMoney(1)));
-        playerTwoName.setText(gameEngine.getGame().getPlayerName(2));
-        playerTwoMoney.setText("$" + String.valueOf(gameEngine.getGame().getPlayerMoney(2)));
-        playerThreeName.setText(gameEngine.getGame().getPlayerName(3));
-        playerThreeMoney.setText("$" + String.valueOf(gameEngine.getGame().getPlayerMoney(3)));
-        playerFourName.setText(gameEngine.getGame().getPlayerName(4));
-        playerFourMoney.setText("$" + String.valueOf(gameEngine.getGame().getPlayerMoney(4)));
-        setMap();
+//        setPlayerInfo();
         /*
         for (int index = 0; index < 45; index++) {
             Button indexedButton = (Button) tiles.getChildren().get(index);
@@ -168,12 +169,45 @@ public class MapScreen2Controller implements GameScreen {
         } */
     }
 
-    public void setEngine(Engine parent) {
-        gameEngine = parent;
+    public void setPlayerInfo(ArrayList<Player> players) {
+        for (int i = 0; i < players.size(); i++) {
+            nameLabels.get(i).setText(players.get(i).getName());
+            money.get(i).setText(String.format("$%d", players.get(i).getMoney()));
+        }
     }
 
+//    public void setEngine(Engine parent) {
+//        gameEngine = parent;
+//    }
+
     public void setGameLogic(GameLogic parent) {
-        //TODO
+        listener = (MapSceenLogic) parent;
     }
+
+    public TileSelected lastTileClicked() {
+        return lastClick;
+    }
+
+    public void setTile(String terrain, String owner, int row, int column) {
+        Button target = (Button) tiles.getChildren().get(row * 9 + column);
+        StackPane buttonGraphic = (StackPane) target.getGraphic();
+        ((ImageView) buttonGraphic.getChildren().get(0)).setImage(tileArt.get(terrain));
+        if (!owner.equals("None")) {
+            buttonGraphic.getChildren().add(new ImageView(tileArt.get(owner)));
+        }
+    }
+
+    public void setRoundNumber(int number) {
+        currentRoundNumber.setText(String.format("Round #%d", number));
+    }
+
+    public void setCurrentPlayer(String player) {
+        currentPlayerName.setText(player);
+    }
+
+    public void setTimeLeft(int time) {
+        timeRemaining.setText(String.format("%d", time));
+    }
+
 
 }

@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.controllers.MapScreen2Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.controllers.MapScreenController">
    <center>
       <GridPane fx:id="tiles" maxHeight="500.0" maxWidth="900.0" prefHeight="500.0" prefWidth="900.0" BorderPane.alignment="TOP_CENTER">
         <columnConstraints>
@@ -114,6 +114,7 @@
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Label text="Time remaining: " />
+                              <Label fx:id="timeRemaining" />
                            </children>
                         </HBox>
                      </children>

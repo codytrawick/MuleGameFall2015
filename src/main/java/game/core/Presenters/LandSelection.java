@@ -1,19 +1,19 @@
 package game.core.Presenters;
 import game.core.Engine;
 import game.core.GameLogic;
+import game.core.Mule;
 import game.model.IModel;
 import game.view.GameScreen;
 import game.view.controllers.LandSelectionController;
 import game.model.Player;
-import game.model.Tile;
 import game.view.interfaces.ILandSelection;
 import game.view.interfaces.TileSelected;
 
+import java.util.ArrayList;
+
 public class LandSelection extends GameLogic {
 
-    private Player[] players ;
-    private Player currentPlayer;
-    private Engine gameEngine;
+    private ArrayList<Player> players ;
     private int roundNum = 0;
     private int playerNum = 0;
     private boolean passStreak = true;
@@ -60,7 +60,7 @@ public class LandSelection extends GameLogic {
 
     private void nextPlayer() {
         if (playerNum < gameModel.getPlayerNumber() - 1) {
-            currentPlayer = players[++playerNum];
+            ++playerNum;
 //            gameEngine.getGame().setCurPlayer(players[playerNum]);
         } else {
             roundNum++;
@@ -68,10 +68,10 @@ public class LandSelection extends GameLogic {
                 endLandSelectionPhase();
             }
             passStreak = true;
-            currentPlayer = players[0];
             playerNum = 0;
         }
-        view.setPlayerText(String.format("%s : $%d", currentPlayer, currentPlayer.getMoney()));
+        view.setPlayerText(String.format("%s : $%d", players.get(playerNum),
+                players.get(playerNum).getMoney()));
 
     }
 
@@ -83,23 +83,28 @@ public class LandSelection extends GameLogic {
 //        gameEngine.setScreen(Mule.MAP2SCREEN);
 //        gameEngine.setCurrentGameLogic(new RoundLogic(gameEngine, 1));
 //        view.removePassButton();
+        gameEngine.setCurrentGameLogic(Mule.MAP2SCREEN);
     }
 
     public void viewUpdated() {
-        TileSelected target = view.playerClickMap();
+        TileSelected target = view.lastTileClicked();
         String owner = gameModel.getTileOwner(target.getX(), target.getY());
         if (owner.equals("None")) {
             if (roundNum < 2) {
-                view.addTileElement("Owner", currentPlayer.getColor(), target.getX(), target.getY());
-                gameModel.setTileOwner(target.getX(), target.getY(), currentPlayer);
+                view.addTileElement("Owner", players.get(playerNum).getColor(),
+                        target.getX(), target.getY());
+                gameModel.setTileOwner(target.getX(), target.getY(),
+                        players.get(playerNum));
                 passStreak = false;
                 nextPlayer();
-            } else if (currentPlayer.getMoney() >= 300) {
-                view.addTileElement("Owner", currentPlayer.getColor(), target.getX(), target.getY());
-                gameModel.setTileOwner(target.getX(), target.getY(), currentPlayer);
+            } else if (players.get(playerNum).getMoney() >= 300) {
+                view.addTileElement("Owner", players.get(playerNum).getColor(),
+                        target.getX(), target.getY());
+                gameModel.setTileOwner(target.getX(), target.getY(),
+                        players.get(playerNum));
                 passStreak = false;
                 nextPlayer();
-                currentPlayer.spendMoney(300);
+                players.get(playerNum).spendMoney(300);
             }
         }
     }
@@ -117,7 +122,7 @@ public class LandSelection extends GameLogic {
             }
         }
         players = gameModel.getPlayers();
-        currentPlayer = players[0];
-        view.setPlayerText(String.format("%s : $%d", currentPlayer, currentPlayer.getMoney()));
+        view.setPlayerText(String.format("%s : $%d", players.get(playerNum),
+                players.get(playerNum).getMoney()));
     }
 }
