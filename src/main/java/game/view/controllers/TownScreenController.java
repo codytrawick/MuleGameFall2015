@@ -2,61 +2,52 @@ package game.view.controllers;
 
 
 import game.core.GameLogic;
+import game.core.Presenters.TownLogic;
 import game.view.GameScreen;
 import game.core.Engine;
 import game.core.Mule;
+import game.view.interfaces.ITownScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class TownScreenController implements GameScreen {
+public class TownScreenController implements ITownScreen {
 
-    private Engine gameEngine;
-
-    @FXML
-    private Button landOffice;
+    private TownLogic listener;
+    private String target;
 
     @FXML
-    private Button assayOffice;
-
-    @FXML
-    private Button store;
-
-    @FXML
-    private Button returnButton;
-
-    @FXML
-    private Button pub;
+    private Button landOffice, assayOffice, store, returnButton, pub;
 
     @FXML
     void clickBack(ActionEvent event) {
 
-        gameEngine.setScreen(Mule.MAP2SCREEN);
+        listener.passButton();
 
     }
 
     @FXML
     void clickPub(ActionEvent event) {
-
+        target = "Pub";
+        listener.viewUpdated();
     }
 
     @FXML
     void clickLandOffice(ActionEvent event) {
-
+        target = "Land Office";
+        listener.viewUpdated();
     }
 
     @FXML
     void clickAssay(ActionEvent event) {
-
+        target = "Assay"; //??
+        listener.viewUpdated();
     }
 
     @FXML
     void clickStore(ActionEvent event) {
-
-    }
-
-    public void setEngine(Engine newEngine) {
-        gameEngine = newEngine;
+        target = "Store";
+        listener.viewUpdated();
     }
 
     public void initializeScreen() {
@@ -64,7 +55,11 @@ public class TownScreenController implements GameScreen {
     }
 
     public void setGameLogic(GameLogic parent) {
-        //TODO
+        listener = (TownLogic) parent;
+    }
+
+    public String getTargetLocation() {
+        return target;
     }
 
 }
