@@ -205,8 +205,8 @@ public class MapScreenController implements IMapScreen {
         currentPlayerName.setText(player);
     }
 
-    public void setTimeLeft(int time) {
-        timeRemaining.setText(String.format("%d", time));
+    public Label getTimeLabel() {
+        return timeRemaining;
     }
 
 
