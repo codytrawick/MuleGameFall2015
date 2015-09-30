@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.controllers.TurnStartController">
+   <center>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="roundNumberLabel" alignment="CENTER" text="Round: #1">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Label>
+            <Label fx:id="playerTurnLabel" text="Player's turn">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <Pane BorderPane.alignment="CENTER_RIGHT">
+         <children>
+            <Button fx:id="startButton" alignment="CENTER" layoutX="430.0" layoutY="2.0" mnemonicParsing="false" onAction="#buttonClick" text="Start" />
+         </children>
+         <padding>
+            <Insets bottom="100.0" />
+         </padding>
+      </Pane>
+   </bottom>
+</BorderPane>
