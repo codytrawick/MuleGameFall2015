@@ -19,6 +19,7 @@ public class GameInfo implements IModel {
     private GameMap myGameMap;
     private Player curPlayer;
     private int curPlayerNumber;
+    private Round round;
 
 //    public enum MapType {
 //        STANDARD, RANDOM

@@ -13,6 +13,7 @@ public class Player {
     private String color;
     private String race;
     private int money;
+    private int score = 0;
 
     public Player(String name, String color, String race) {
         this.name = name;
@@ -51,6 +52,14 @@ public class Player {
 
     public void spendMoney(int amount) {
         money -= amount;
+    }
+
+    public void calcScore() {
+        score = (int)(1000*Math.random());
+    }
+
+    public int getScore() {
+        return score;
     }
 
 }
