@@ -210,7 +210,7 @@ public class MapScreenController implements IMapScreen {
     }
 
     public void setRoundNumber(int number) {
-        currentRoundNumber.setText(String.format("Round #%d", number));
+        currentRoundNumber.setText(Integer.toString(number));
     }
 
     public void setCurrentPlayer(String player) {
