@@ -37,7 +37,8 @@ public class TownLogic extends GameLogic {
             }
 
             Random rand = new Random();
-            int timeBonus = rand.nextInt(gameModel.getRound().getTimeRemaining() + 1);
+            System.out.printf("%d seconds left", gameEngine.turnTimeLeft());
+            int timeBonus = rand.nextInt(gameEngine.turnTimeLeft() + 1);
 
             int totalBonus = roundBonus + timeBonus;
             gameModel.giveMoney(totalBonus);

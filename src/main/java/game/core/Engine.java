@@ -87,6 +87,10 @@ public class Engine extends StackPane {
         ((MapSceenLogic) logic.get(Mule.MAP2SCREEN)).timerStart(time);
     }
 
+    public int turnTimeLeft() {
+        return ((MapSceenLogic) logic.get(Mule.MAP2SCREEN)).getTimeLeft();
+    }
+
     public void setCurrentGameLogic(String newLogic) {
         currentGameLogic = logic.get(newLogic);
         currentGameLogic.primeScreen();

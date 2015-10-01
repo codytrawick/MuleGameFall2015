@@ -213,4 +213,8 @@ public class MapScreenController implements IMapScreen {
     public void setTimerText(String timeLeft) {
         timeRemaining.setText(timeLeft);
     }
+
+    public int timeLeft() {
+        return Integer.parseInt(timeRemaining.getText());
+    }
 }

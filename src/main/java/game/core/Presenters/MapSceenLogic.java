@@ -62,6 +62,10 @@ public class MapSceenLogic extends GameLogic {
         }
     }
 
+    public int getTimeLeft() {
+        return mapView.timeLeft();
+    }
+
     public void timerStart(int timeLeft) {
         IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLeft);
         mapView.setTimerBind(timeSeconds);
