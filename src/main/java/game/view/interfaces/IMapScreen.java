@@ -3,6 +3,7 @@ package game.view.interfaces;
 import game.model.Player;
 import game.view.GameScreen;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.scene.control.Label;
 import java.util.ArrayList;
 
@@ -16,5 +17,5 @@ public interface IMapScreen extends GameScreen {
     void setTile(String terrain, String owner, int row, int column);
     void setRoundNumber(int newNum);
     void setCurrentPlayer(String player);
-    Label getTimeLabel();
+    void setTimerBind(IntegerProperty timeSeconds);
 }

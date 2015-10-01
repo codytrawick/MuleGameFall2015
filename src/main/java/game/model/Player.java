@@ -1,5 +1,7 @@
 package game.model;
 
+import java.util.List;
+
 /**
  * This class represents a player. This class will hold the important
  * information about that player
@@ -13,6 +15,8 @@ public class Player {
     private String color;
     private String race;
     private int money;
+    private int score;
+    private List<Tile> ownedTiles;
 
     public Player(String name, String color, String race) {
         this.name = name;
@@ -25,6 +29,7 @@ public class Player {
         } else {
             money = 1000;
         }
+        score = 0;
     }
 
     public String getName() {
@@ -51,6 +56,18 @@ public class Player {
 
     public void spendMoney(int amount) {
         money -= amount;
+    }
+
+    public void calcScore() {
+        score = money + 500*ownedTiles.size();
+    }
+
+    public void purchaseTile(Tile tile) {
+        ownedTiles.add(tile);
+    }
+
+    public int getScore() {
+        return score;
     }
 
 }
