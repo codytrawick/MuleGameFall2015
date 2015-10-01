@@ -80,7 +80,9 @@ public class MapSceenLogic extends GameLogic {
     }
 
     public void timeExpired() {
-        gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
+        if (!(gameEngine.betweenTurns())) {
+            gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
+        }
     }
 
 }
