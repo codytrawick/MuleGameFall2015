@@ -4,6 +4,7 @@ import game.core.GameLogic;
 import game.core.Mule;
 import game.model.IModel;
 import game.view.interfaces.ITownScreen;
+import java.util.Random;
 
 /**
  * Created by Cody on 9/29/2015.
@@ -35,7 +36,8 @@ public class TownLogic extends GameLogic {
                 roundBonus = 200;
             }
 
-            int timeBonus = 0; //TODO
+            Random rand = new Random();
+            int timeBonus = rand.nextInt(gameModel.getRound().getTimeRemaining() + 1);
 
             int totalBonus = roundBonus + timeBonus;
             gameModel.giveMoney(totalBonus);

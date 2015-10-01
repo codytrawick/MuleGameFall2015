@@ -9,6 +9,7 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.ObservableList;
 
 
 /**
@@ -70,5 +71,22 @@ public class Round {
                 new KeyFrame(Duration.seconds(timeLeft + 1),
                         new KeyValue(timeSeconds, 0)));
         timeline.playFromStart();
+    }
+
+    public int getTimeElapsed() {
+        int size = timer.getKeyFrames().size();
+        int seconds = (int) timer.getKeyFrames().get(size - 1).getTime().toSeconds();
+        System.out.println(seconds + " seconds have passed");
+        return seconds;
+    }
+
+    public int getTimeRemaining() {
+        int seconds = getTimeElapsed();
+        if (seconds >= 50) {
+            return 0;
+        } else {
+            return 50 - seconds;
+        }
+
     }
 }
