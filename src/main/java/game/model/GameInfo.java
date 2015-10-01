@@ -161,4 +161,8 @@ public class GameInfo implements IModel {
     public void setRound(int roundNumber) {
         round = new Round(roundNumber, players);
     }
+
+    public int getCurrentRound() {
+        return round.getCurrentRound();
+    }
 }

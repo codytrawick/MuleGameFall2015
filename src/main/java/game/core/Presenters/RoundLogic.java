@@ -41,4 +41,5 @@ public class RoundLogic extends GameLogic {
     public void primeScreen() {
         view.setPlayerName(String.format("%d's Turn", 10));
     }
+
 }
