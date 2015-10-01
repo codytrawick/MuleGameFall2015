@@ -1,9 +1,11 @@
 package game.core.Presenters;
 
 import game.core.GameLogic;
+import game.core.Mule;
 import game.model.IModel;
 import game.model.Player;
 import game.view.interfaces.IMapScreen;
+import game.view.interfaces.TileSelected;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -53,7 +55,10 @@ public class MapSceenLogic extends GameLogic {
     }
 
     public void viewUpdated() {
-
+        TileSelected playerClick = mapView.lastTileClicked();
+        if (playerClick.getX() == 2 && playerClick.getY() == 4) {
+            gameEngine.setCurrentGameLogic(Mule.TOWN_SCREEN);
+        }
     }
 
     public void timerStart(int timeLeft) {

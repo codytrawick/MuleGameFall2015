@@ -53,6 +53,7 @@ public class Mule extends Application {
         gameEngine.addGameLogic(PLAYER_CREATION_PAGE, new PlayerCreationLogic((IPlayerConfiguration) loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML), gameEngine.getGame()));
         gameEngine.addGameLogic(LAND_SELECTION, new LandSelection((ILandSelection) loadScreen(LAND_SELECTION, LAND_SELECTION_FXML), gameEngine.getGame()));
         gameEngine.addGameLogic(MAP2SCREEN, new MapSceenLogic((IMapScreen) loadScreen(MAP2SCREEN, MAP2FXML), gameEngine.getGame()));
+        gameEngine.addGameLogic(TOWN_SCREEN, new TownLogic((ITownScreen) loadScreen(TOWN_SCREEN, TOWN_SCREEN_FXML), gameEngine.getGame()));
 //        loadScreen(WELCOME_PAGE, WELCOME_PAGE_FXML);
 //        loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML);
 //        loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML);
