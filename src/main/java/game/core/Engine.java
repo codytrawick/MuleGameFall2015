@@ -4,6 +4,7 @@ import game.core.Presenters.ConfigurationLogic;
 import game.core.Presenters.MainScreenLogic;
 import game.core.Presenters.MapSceenLogic;
 import game.core.Presenters.PlayerCreationLogic;
+import game.core.Presenters.RoundLogic;
 import game.view.GameScreen;
 import game.model.GameInfo;
 import game.view.interfaces.IGameConfiguration;
@@ -95,5 +96,9 @@ public class Engine extends StackPane {
         currentGameLogic = logic.get(newLogic);
         currentGameLogic.primeScreen();
         setScreen(newLogic);
+    }
+
+    public boolean betweenTurns() {
+        return currentGameLogic instanceof RoundLogic;
     }
 }

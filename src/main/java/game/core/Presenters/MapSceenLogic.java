@@ -53,6 +53,8 @@ public class MapSceenLogic extends GameLogic {
         players = gameModel.getPlayers();
 
         mapView.setCurrentPlayer(gameModel.currentPlayer());
+
+        mapView.setRoundNumber(gameModel.getCurrentRound());
     }
 
     public void viewUpdated() {
@@ -76,4 +78,11 @@ public class MapSceenLogic extends GameLogic {
                 new KeyValue(timeSeconds, 0)));
         timeline.playFromStart();
     }
+
+    public void timeExpired() {
+        if (!(gameEngine.betweenTurns())) {
+            gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
+        }
+    }
+
 }

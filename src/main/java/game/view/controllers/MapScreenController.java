@@ -8,6 +8,8 @@ import game.core.Engine;
 import game.model.Tile;
 import game.view.interfaces.IMapScreen;
 import game.view.interfaces.TileSelected;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -128,6 +130,15 @@ public class MapScreenController implements IMapScreen {
         for (Label moneyLabel: money) {
             moneyLabel.setText("");
         }
+
+        timeRemaining.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                if (Integer.parseInt(timeRemaining.getText()) == 0) {
+                    listener.timeExpired();
+                }
+            }
+        });
     }
 
 //    public void setMap() {
@@ -199,7 +210,7 @@ public class MapScreenController implements IMapScreen {
     }
 
     public void setRoundNumber(int number) {
-        currentRoundNumber.setText(String.format("Round #%d", number));
+        currentRoundNumber.setText(Integer.toString(number));
     }
 
     public void setCurrentPlayer(String player) {
