@@ -46,4 +46,5 @@ public class RoundLogic extends GameLogic {
         }
         view.setPlayerName(String.format("%s's Turn", gameModel.currentPlayer()));
     }
+
 }
