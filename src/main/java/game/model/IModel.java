@@ -16,8 +16,11 @@ public interface IModel {
     String getTileOwner(int row, int column);
     void setTileOwner(int row, int column, Player owner);
     String currentPlayer();
+    void nextPlayer();
     int currentPlayerTime();
     void createRound(int number);
+    int getCurrentRound();
+    void giveMoney(int money);
     String getCurrentPlayerColor();
 
 }

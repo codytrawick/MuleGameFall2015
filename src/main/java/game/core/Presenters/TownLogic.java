@@ -30,7 +30,7 @@ public class TownLogic extends GameLogic {
     public void viewUpdated() {
         if (townView.getTargetLocation() == "Pub") {
             int roundNumber = gameModel.getCurrentRound();
-            int roundBonus = (15 * roundNum + 50);
+            int roundBonus = (15 * roundNumber + 50);
             if (roundBonus > 200) {
                 roundBonus = 200;
             }
@@ -38,7 +38,8 @@ public class TownLogic extends GameLogic {
             int timeBonus = 0; //TODO
 
             int totalBonus = roundBonus + timeBonus;
-            gameModel.getCurPlayer().earnMoney(totalBonus);
+            gameModel.giveMoney(totalBonus);
+            gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
 
         }
         System.out.printf("%s", townView.getTargetLocation());
