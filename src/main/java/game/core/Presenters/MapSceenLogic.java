@@ -26,6 +26,7 @@ public class MapSceenLogic extends GameLogic {
     IMapScreen mapView;
     private ArrayList<Player> players;
     private Timeline timeline;
+    private int turnTime;
 
     public MapSceenLogic(IMapScreen mapView, IModel gameModel) {
         super(gameModel);
