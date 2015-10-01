@@ -9,12 +9,8 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-<<<<<<< HEAD
-import java.util.ObservableList;
-=======
 import java.util.Timer;
 import java.util.TimerTask;
->>>>>>> origin/master
 
 
 /**
@@ -24,6 +20,7 @@ public class Round {
     private Player[] orderedPlayers;
     private int currentPlayer;
     private int roundNumber;
+    private Timeline timer;
 
     public Round(int roundNumber, ArrayList<Player> players) {
         this.roundNumber = roundNumber;
@@ -62,7 +59,6 @@ public class Round {
     public void giveMoney(int money) {
         orderedPlayers[currentPlayer].earnMoney(money);
     }
-<<<<<<< HEAD
 
     public Timeline getTimeline() {
         return timer;
@@ -94,6 +90,4 @@ public class Round {
         }
 
     }
-=======
->>>>>>> origin/master
 }
