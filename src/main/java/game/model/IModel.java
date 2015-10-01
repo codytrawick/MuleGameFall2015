@@ -20,6 +20,7 @@ public interface IModel {
     int currentPlayerTime();
     void createRound(int number);
     int getCurrentRound();
+    Round getRound();
     void giveMoney(int money);
     String getCurrentPlayerColor();
 

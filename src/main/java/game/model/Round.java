@@ -20,6 +20,7 @@ public class Round {
     private Player[] orderedPlayers;
     private int currentPlayer;
     private int roundNumber;
+    private Timeline timer;
 
     public Round(int roundNumber, ArrayList<Player> players) {
         this.roundNumber = roundNumber;
@@ -57,5 +58,37 @@ public class Round {
 
     public void giveMoney(int money) {
         orderedPlayers[currentPlayer].earnMoney(money);
+    }
+
+    public Timeline getTimeline() {
+        return timer;
+    }
+
+    public void timerStart(int timeLeft) {
+        IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLeft);
+        timeSeconds.set(timeLeft);
+        timer = new Timeline();
+        timer.getKeyFrames().add(
+                new KeyFrame(Duration.seconds(timeLeft + 1),
+                        new KeyValue(timeSeconds, 0)));
+        timer.playFromStart();
+    }
+
+    public int getTimeElapsed() {
+
+        int size = timer.getKeyFrames().size();
+        int seconds = (int) timer.getKeyFrames().get(size - 1).getTime().toSeconds();
+        System.out.println(seconds + " seconds have passed");
+        return seconds;
+    }
+
+    public int getTimeRemaining() {
+        int seconds = getTimeElapsed();
+        if (seconds >= 50) {
+            return 0;
+        } else {
+            return 50 - seconds;
+        }
+
     }
 }

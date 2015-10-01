@@ -1,5 +1,6 @@
 package game.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ public class Player {
     private String race;
     private int money;
     private int score;
-    private List<Tile> ownedTiles;
+    private List<Tile> ownedTiles = new ArrayList<>();
 
     public Player(String name, String color, String race) {
         this.name = name;
@@ -60,16 +61,16 @@ public class Player {
         money += amount;
     }
 
-    public void calcScore() {
-        score = money + 500*ownedTiles.size();
+    public int getScore() {
+        return money + 500*ownedTiles.size();
     }
 
     public void purchaseTile(Tile tile) {
         ownedTiles.add(tile);
     }
 
-    public int getScore() {
-        return score;
-    }
+//    public int getScore() {
+//        return score;
+//    }
 
 }

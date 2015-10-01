@@ -185,4 +185,8 @@ public class GameInfo implements IModel {
     public void nextPlayer() {
         round.nextPlayer();
     }
+
+    public Round getRound() {
+        return round;
+    }
 }
