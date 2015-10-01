@@ -51,7 +51,6 @@ public class MapSceenLogic extends GameLogic {
 
         players = gameModel.getPlayers();
         mapView.setCurrentPlayer(players.get(0).getName());
-        timerStart(50);
     }
 
     public void viewUpdated() {

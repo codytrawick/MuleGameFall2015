@@ -20,7 +20,7 @@ public class TurnStartController implements ITurnStart {
 
     @FXML
     void buttonClick(ActionEvent event) {
-
+        listener.viewUpdated();
     }
 
     public void setPlayerName(String name) {

@@ -30,7 +30,8 @@ public class Mule extends Application {
     public static final String LAND_SELECTION_FXML = "/fxml/mapScreen.fxml";
     public static final String TOWN_SCREEN = "Town";
     public static final String TOWN_SCREEN_FXML = "/fxml/townScreen.fxml";
-    public static final String MAP2SCREEN = "Map Screen", MAP2FXML = "/fxml/mapScreen2.fxml";
+    public static final String MAP2SCREEN = "Map Screen", MAP2FXML = "/fxml/mapScreen2.fxml",
+    ROUNDSTART = "Turn Screen", ROUNDSTARTFXML = "/fxml/turnStart.fxml";
 
     Engine gameEngine = new Engine();
 
@@ -54,6 +55,7 @@ public class Mule extends Application {
         gameEngine.addGameLogic(LAND_SELECTION, new LandSelection((ILandSelection) loadScreen(LAND_SELECTION, LAND_SELECTION_FXML), gameEngine.getGame()));
         gameEngine.addGameLogic(MAP2SCREEN, new MapSceenLogic((IMapScreen) loadScreen(MAP2SCREEN, MAP2FXML), gameEngine.getGame()));
         gameEngine.addGameLogic(TOWN_SCREEN, new TownLogic((ITownScreen) loadScreen(TOWN_SCREEN, TOWN_SCREEN_FXML), gameEngine.getGame()));
+        gameEngine.addGameLogic(ROUNDSTART, new RoundLogic((ITurnStart) loadScreen(ROUNDSTART, ROUNDSTARTFXML), gameEngine.getGame()));
 //        loadScreen(WELCOME_PAGE, WELCOME_PAGE_FXML);
 //        loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML);
 //        loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML);

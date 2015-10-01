@@ -18,7 +18,7 @@ public class GameInfo implements IModel {
     private String difficulty;
     private GameMap myGameMap;
     private Player curPlayer;
-    private int curPlayerNumber;
+//    private int curPlayerNumber;
     private Round round;
 
 //    public enum MapType {
@@ -133,9 +133,9 @@ public class GameInfo implements IModel {
         this.myGameMap = new GameMap(mapType);
     }
 
-    public int getCurPlayerNumber() {
-        return curPlayerNumber;
-    }
+//    public int getCurPlayerNumber() {
+//        return curPlayerNumber;
+//    }
 
     public void createNewPlayer(String name, String color, String race) {
         players.add(new Player(name, color, race));
@@ -160,5 +160,17 @@ public class GameInfo implements IModel {
 
     public void setRound(int roundNumber) {
         round = new Round(roundNumber, players);
+    }
+
+    public String currentPlayer() {
+        return round.currentPlayer();
+    }
+
+    public int currentPlayerTime() {
+        return round.getPlayerTime();
+    }
+
+    public void createRound(int number) {
+        round = new Round(number, players);
     }
 }
