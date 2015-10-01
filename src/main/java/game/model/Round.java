@@ -9,6 +9,8 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -18,7 +20,6 @@ public class Round {
     private Player[] orderedPlayers;
     private int currentPlayer;
     private int roundNumber;
-    private Timeline timer;
 
     public Round(int roundNumber, ArrayList<Player> players) {
         this.roundNumber = roundNumber;
@@ -56,19 +57,5 @@ public class Round {
 
     public void giveMoney(int money) {
         orderedPlayers[currentPlayer].earnMoney(money);
-    }
-
-    public Timeline getTimeline() {
-        return timer;
-    }
-
-    public void timerStart(int timeLeft) {
-        IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLeft);
-        timeSeconds.set(timeLeft);
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().add(
-                new KeyFrame(Duration.seconds(timeLeft + 1),
-                        new KeyValue(timeSeconds, 0)));
-        timeline.playFromStart();
     }
 }
