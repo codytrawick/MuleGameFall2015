@@ -209,4 +209,8 @@ public class MapScreenController implements IMapScreen {
     public void setTimerBind(IntegerProperty timeSeconds) {
         timeRemaining.textProperty().bind(timeSeconds.asString());
     }
+
+    public void setTimerText(String timeLeft) {
+        timeRemaining.setText(timeLeft);
+    }
 }

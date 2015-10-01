@@ -18,4 +18,5 @@ public interface IMapScreen extends GameScreen {
     void setRoundNumber(int newNum);
     void setCurrentPlayer(String player);
     void setTimerBind(IntegerProperty timeSeconds);
+    void setTimerText(String timeLeft);
 }
