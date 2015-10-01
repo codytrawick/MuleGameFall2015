@@ -67,14 +67,15 @@ public class Round {
     public void timerStart(int timeLeft) {
         IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLeft);
         timeSeconds.set(timeLeft);
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().add(
+        timer = new Timeline();
+        timer.getKeyFrames().add(
                 new KeyFrame(Duration.seconds(timeLeft + 1),
                         new KeyValue(timeSeconds, 0)));
-        timeline.playFromStart();
+        timer.playFromStart();
     }
 
     public int getTimeElapsed() {
+
         int size = timer.getKeyFrames().size();
         int seconds = (int) timer.getKeyFrames().get(size - 1).getTime().toSeconds();
         System.out.println(seconds + " seconds have passed");

@@ -33,6 +33,7 @@ public class RoundLogic extends GameLogic {
 
     public void viewUpdated() {
         gameEngine.startMapTimer(gameModel.currentPlayerTime());
+        gameModel.getRound().timerStart(gameModel.currentPlayerTime());
         gameEngine.setCurrentGameLogic(Mule.MAP2SCREEN);
     }
 
