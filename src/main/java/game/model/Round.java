@@ -24,4 +24,8 @@ public class Round {
             orderedPlayers[i] = players.get(i);
         }
     }
+
+    public int getCurrentRound() {
+        return roundNumber;
+    }
 }

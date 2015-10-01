@@ -58,6 +58,10 @@ public class Player {
         money -= amount;
     }
 
+    public void earnMoney(int amount) {
+        money += amount;
+    }
+
     public void calcScore() {
         score = money + 500*ownedTiles.size();
     }
