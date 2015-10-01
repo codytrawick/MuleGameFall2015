@@ -44,6 +44,5 @@ public class TownLogic extends GameLogic {
             gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
 
         }
-        System.out.printf("%s", townView.getTargetLocation());
     }
 }
