@@ -173,4 +173,16 @@ public class GameInfo implements IModel {
     public void createRound(int number) {
         round = new Round(number, players);
     }
+
+    public int getCurrentRound() {
+        return round.getNumber();
+    }
+
+    public void giveMoney(int money) {
+        round.giveMoney(money);
+    }
+
+    public void nextPlayer() {
+        round.nextPlayer();
+    }
 }

@@ -50,7 +50,8 @@ public class MapSceenLogic extends GameLogic {
         mapView.setPlayerInfo(gameModel.getPlayers());
 
         players = gameModel.getPlayers();
-        mapView.setCurrentPlayer(players.get(0).getName());
+
+        mapView.setCurrentPlayer(gameModel.currentPlayer());
     }
 
     public void viewUpdated() {

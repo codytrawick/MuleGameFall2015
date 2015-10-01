@@ -45,9 +45,7 @@ public class Player {
     }
 
     public String toString() {
-        String output = "";
-        output += name + " " + color + " " + race;
-        return output;
+        return name;
     }
 
     public int getMoney() {

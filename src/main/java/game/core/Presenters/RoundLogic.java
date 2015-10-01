@@ -43,8 +43,16 @@ public class RoundLogic extends GameLogic {
     public void primeScreen() {
         if (roundNum == 0) {
             gameModel.createRound(1);
+            roundNum = 1;
+        } else if (turnNumber == gameModel.getPlayerNumber()) {
+            gameModel.createRound(++roundNum);
+            turnNumber = 0;
+        } else {
+            gameModel.nextPlayer();
         }
+        view.setRoundText(String.format("Round #%d", gameModel.getCurrentRound()));
         view.setPlayerName(String.format("%s's Turn", gameModel.currentPlayer()));
+        turnNumber++;
     }
 
 }
