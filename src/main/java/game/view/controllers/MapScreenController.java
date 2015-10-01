@@ -8,6 +8,7 @@ import game.core.Engine;
 import game.model.Tile;
 import game.view.interfaces.IMapScreen;
 import game.view.interfaces.TileSelected;
+import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -205,9 +206,7 @@ public class MapScreenController implements IMapScreen {
         currentPlayerName.setText(player);
     }
 
-    public Label getTimeLabel() {
-        return timeRemaining;
+    public void setTimerBind(IntegerProperty timeSeconds) {
+        timeRemaining.textProperty().bind(timeSeconds.asString());
     }
-
-
 }

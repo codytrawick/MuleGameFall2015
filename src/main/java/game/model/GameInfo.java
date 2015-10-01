@@ -157,4 +157,8 @@ public class GameInfo implements IModel {
     public String getCurrentPlayerColor() {
         return curPlayer.getColor();
     }
+
+    public void setRound(int roundNumber) {
+        round = new Round(roundNumber, players);
+    }
 }
