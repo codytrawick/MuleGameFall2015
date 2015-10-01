@@ -16,6 +16,7 @@ import game.view.interfaces.ITurnStart;
 public class RoundLogic extends GameLogic {
 
     private int roundNum;
+    private int turnNumber;
     private ITurnStart view;
 
 //    public RoundLogic(Engine gameEngine, int roundNum) {
@@ -31,7 +32,8 @@ public class RoundLogic extends GameLogic {
     }
 
     public void viewUpdated() {
-
+        gameEngine.startMapTimer(gameModel.currentPlayerTime());
+        gameEngine.setCurrentGameLogic(Mule.MAP2SCREEN);
     }
 
     public void passButton() {
@@ -39,7 +41,10 @@ public class RoundLogic extends GameLogic {
     }
 
     public void primeScreen() {
-        view.setPlayerName(String.format("%d's Turn", 10));
+        if (roundNum == 0) {
+            gameModel.createRound(1);
+        }
+        view.setPlayerName(String.format("%s's Turn", gameModel.currentPlayer()));
     }
 
 }

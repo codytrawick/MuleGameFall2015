@@ -25,7 +25,23 @@ public class Round {
         }
     }
 
-    public int getCurrentRound() {
+    public String currentPlayer() {
+        return orderedPlayers[currentPlayer].toString();
+    }
+
+    public void nextPlayer() {
+        currentPlayer++;
+    }
+
+    public boolean isOver() {
+        return currentPlayer == orderedPlayers.length;
+    }
+
+    public int getNumber() {
         return roundNumber;
+    }
+
+    public int getPlayerTime() {
+        return 50;
     }
 }

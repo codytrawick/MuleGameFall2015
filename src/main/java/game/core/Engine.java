@@ -2,6 +2,7 @@ package game.core;
 
 import game.core.Presenters.ConfigurationLogic;
 import game.core.Presenters.MainScreenLogic;
+import game.core.Presenters.MapSceenLogic;
 import game.core.Presenters.PlayerCreationLogic;
 import game.view.GameScreen;
 import game.model.GameInfo;
@@ -38,42 +39,8 @@ public class Engine extends StackPane {
      */
     public void addScreen(String name, Node screen) {
         gameScreens.put(name, screen);
-//        if (name.equals(Mule.GAME_CONFIGURATION)) {
-//            logic.get(Mule.GAME_CONFIGURATION).setEngine(this);
-//        } else if (name.equals(Mule.WELCOME_PAGE)) {
-//            logic.get(Mule.WELCOME_PAGE).setEngine(this);
-//        } else if (name.equals(Mule.PLAYER_CREATION_PAGE)) {
-//            logic.get(Mule.PLAYER_CREATION_PAGE).setEngine(this);
-//        }
 
     }
-
-    /**
-     * This method loads a screen to the game.
-     * @param name The name of the target screen
-     * @param fxlmresourceName The fxml file that controls the screen's layout
-     */
-//    public void loadScreen(String name, String fxlmresourceName) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(
-//                    getClass().getResource(fxlmresourceName));
-//            Node loadedScreen = loader.load();
-//            GameScreen targetScene = loader.getController();
-////            targetScene.setEngine(this);
-//            if (name.equals(Mule.GAME_CONFIGURATION)) {
-//                logic.put(Mule.GAME_CONFIGURATION, new ConfigurationLogic((IGameConfiguration) targetScene, game));
-//            } else if (name.equals(Mule.WELCOME_PAGE)) {
-//                logic.put(Mule.WELCOME_PAGE, new MainScreenLogic((IMainScreen) targetScene, game));
-//            } else if (name.equals(Mule.PLAYER_CREATION_PAGE)) {
-//                logic.put(Mule.PLAYER_CREATION_PAGE, new PlayerCreationLogic((IPlayerConfiguration) targetScene, game));
-//            }
-//
-//            controllers.put(name, targetScene);
-//            addScreen(name, loadedScreen);
-//        } catch (java.io.IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     /**
      * This method displays a loaded screen and removes the old screen
@@ -111,13 +78,13 @@ public class Engine extends StackPane {
         this.game = game;
     }
 
-    public GameLogic getCurrentGameLogic() {
-        return currentGameLogic;
-    }
-
     public void addGameLogic(String name, GameLogic newThing) {
         logic.put(name, newThing);
         newThing.setEngine(this);
+    }
+
+    public void startMapTimer(int time) {
+        ((MapSceenLogic) logic.get(Mule.MAP2SCREEN)).timerStart(time);
     }
 
     public void setCurrentGameLogic(String newLogic) {
