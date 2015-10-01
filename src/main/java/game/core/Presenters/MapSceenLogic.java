@@ -57,9 +57,8 @@ public class MapSceenLogic extends GameLogic {
     }
 
     public void timerStart(int timeLeft) {
-        Label timeLabel = mapView.getTimeLabel();
         IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLeft);
-        timeLabel.textProperty().bind(timeSeconds.asString());
+        mapView.setTimerBind(timeSeconds);
         timeSeconds.set(timeLeft);
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(
