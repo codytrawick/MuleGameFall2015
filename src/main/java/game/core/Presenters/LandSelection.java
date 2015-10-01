@@ -103,8 +103,8 @@ public class LandSelection extends GameLogic {
                 gameModel.setTileOwner(target.getX(), target.getY(),
                         players.get(playerNum));
                 passStreak = false;
-                nextPlayer();
                 players.get(playerNum).spendMoney(300);
+                nextPlayer();
             }
         }
     }
