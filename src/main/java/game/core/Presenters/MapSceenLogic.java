@@ -68,15 +68,15 @@ public class MapSceenLogic extends GameLogic {
         return mapView.timeLeft();
     }
 
-    public void timerStart(int timeLeft) {
-        IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLeft);
+    public void timerStart(IntegerProperty timeSeconds) {
+//        IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLeft);
         mapView.setTimerBind(timeSeconds);
-        timeSeconds.set(timeLeft);
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().add(
-                new KeyFrame(Duration.seconds(timeLeft + 1),
-                new KeyValue(timeSeconds, 0)));
-        timeline.playFromStart();
+//        timeSeconds.set(timeLeft);
+//        Timeline timeline = new Timeline();
+//        timeline.getKeyFrames().add(
+//                new KeyFrame(Duration.seconds(timeLeft + 1),
+//                new KeyValue(timeSeconds, 0)));
+//        timeline.playFromStart();
     }
 
     public void timeExpired() {

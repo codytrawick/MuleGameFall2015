@@ -14,7 +14,8 @@ import java.util.TimerTask;
 
 
 /**
- * Created by Cody on 9/30/2015.
+ * This class represents a round
+ * @author The SpecialFX
  */
 public class Round {
     private Player[] orderedPlayers;

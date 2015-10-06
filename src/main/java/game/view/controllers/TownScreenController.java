@@ -7,9 +7,11 @@ import game.view.GameScreen;
 import game.core.Engine;
 import game.core.Mule;
 import game.view.interfaces.ITownScreen;
+import javafx.beans.property.IntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class TownScreenController implements ITownScreen {
 
@@ -18,6 +20,9 @@ public class TownScreenController implements ITownScreen {
 
     @FXML
     private Button landOffice, assayOffice, store, returnButton, pub;
+
+    @FXML
+    private Label timeLeft;
 
     @FXML
     void clickBack(ActionEvent event) {
@@ -61,5 +66,10 @@ public class TownScreenController implements ITownScreen {
     public String getTargetLocation() {
         return target;
     }
+
+    public void setTimerBind(IntegerProperty timeSeconds) {
+        timeLeft.textProperty().bind(timeSeconds.asString());
+    }
+
 
 }

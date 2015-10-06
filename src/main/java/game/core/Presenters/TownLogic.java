@@ -4,6 +4,9 @@ import game.core.GameLogic;
 import game.core.Mule;
 import game.model.IModel;
 import game.view.interfaces.ITownScreen;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.util.Random;
 
 /**
@@ -44,5 +47,10 @@ public class TownLogic extends GameLogic {
             gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
 
         }
+    }
+
+    public void timerStart(IntegerProperty timeLeft) {
+//        IntegerProperty timeSeconds = new SimpleIntegerProperty(timeLeft);
+        townView.setTimerBind(timeLeft);
     }
 }

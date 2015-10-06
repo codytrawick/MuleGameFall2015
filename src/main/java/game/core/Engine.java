@@ -1,18 +1,21 @@
 package game.core;
 
-import game.core.Presenters.ConfigurationLogic;
-import game.core.Presenters.MainScreenLogic;
-import game.core.Presenters.MapSceenLogic;
-import game.core.Presenters.PlayerCreationLogic;
-import game.core.Presenters.RoundLogic;
+import game.core.Presenters.*;
 import game.view.GameScreen;
 import game.model.GameInfo;
 import game.view.interfaces.IGameConfiguration;
 import game.view.interfaces.IMainScreen;
 import game.view.interfaces.IPlayerConfiguration;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
+
 import java.util.HashMap;
 
 /**
@@ -85,7 +88,16 @@ public class Engine extends StackPane {
     }
 
     public void startMapTimer(int time) {
-        ((MapSceenLogic) logic.get(Mule.MAP2SCREEN)).timerStart(time);
+        IntegerProperty timeSeconds = new SimpleIntegerProperty(time);
+//        mapView.setTimerBind(timeSeconds);
+        timeSeconds.set(time);
+        Timeline timeline = new Timeline();
+        timeline.getKeyFrames().add(
+                new KeyFrame(Duration.seconds(time + 1),
+                        new KeyValue(timeSeconds, 0)));
+        timeline.playFromStart();
+        ((MapSceenLogic) logic.get(Mule.MAP2SCREEN)).timerStart(timeSeconds);
+        ((TownLogic) logic.get(Mule.TOWN_SCREEN)).timerStart(timeSeconds);
     }
 
     public int turnTimeLeft() {

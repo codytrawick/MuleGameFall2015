@@ -22,6 +22,7 @@ public interface IModel {
     int getCurrentRound();
     Round getRound();
     void giveMoney(int money);
+    void startTurn(int turnTime);
     String getCurrentPlayerColor();
 
 }
