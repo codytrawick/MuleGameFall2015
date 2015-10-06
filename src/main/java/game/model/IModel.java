@@ -24,5 +24,6 @@ public interface IModel {
     void giveMoney(int money);
     void startTurn(int turnTime);
     String getCurrentPlayerColor();
+    int getPlayerFood();
 
 }

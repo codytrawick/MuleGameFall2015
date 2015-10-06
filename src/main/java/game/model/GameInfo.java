@@ -102,6 +102,10 @@ public class GameInfo implements IModel {
         return round;
     }
 
+    public int getPlayerFood() {
+        return round.getPlayerFood();
+    }
+
     public void startTurn(int turnTime) {
         round.timerStart(turnTime);
     }

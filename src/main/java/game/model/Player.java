@@ -16,6 +16,9 @@ public class Player {
     private String color;
     private String race;
     private int money;
+    private int food;
+    private int energy;
+    private int ore;
     private int score;
     private List<Tile> ownedTiles = new ArrayList<>();
 
@@ -31,6 +34,8 @@ public class Player {
             money = 1000;
         }
         score = 0;
+        food = 8;
+        energy = 8;
     }
 
     public String getName() {
@@ -67,6 +72,22 @@ public class Player {
 
     public void purchaseTile(Tile tile) {
         ownedTiles.add(tile);
+    }
+
+    public int getFood() {
+        return food;
+    }
+
+    public void decreaseFood(int amount) {
+        food = food - amount;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public int getOre() {
+        return ore;
     }
 
 //    public int getScore() {

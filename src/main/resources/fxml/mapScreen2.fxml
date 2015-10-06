@@ -97,7 +97,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4">
                      <children>
                         <HBox prefHeight="35.0" prefWidth="180.0">
                            <children>
@@ -119,27 +119,31 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
                         <Label fx:id="playerOneName" text="Label" />
+                        <Label fx:id="playerOneFood" text="Label" />
                         <Label fx:id="playerOneMoney" text="Label" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
                         <Label fx:id="playerTwoName" text="Label" />
+                        <Label fx:id="playerTwoFood" text="Label" />
                         <Label fx:id="playerTwoMoney" text="Label" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                      <children>
                         <Label fx:id="playerThreeName" text="Label" />
+                        <Label fx:id="playerThreeFood" text="Label" />
                         <Label fx:id="playerThreeMoney" text="Label" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
                      <children>
                         <Label fx:id="playerFourName" text="Label" />
+                        <Label fx:id="playerFourFood" text="Label" />
                         <Label fx:id="playerFourMoney" text="Label" />
                      </children>
                   </VBox>
