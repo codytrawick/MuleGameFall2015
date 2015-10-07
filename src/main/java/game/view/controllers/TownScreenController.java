@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
 
 public class TownScreenController implements ITownScreen {
 
-    private TownLogic listener;
+    private GameLogic listener;
     private String target;
 
     @FXML
@@ -60,7 +60,7 @@ public class TownScreenController implements ITownScreen {
     }
 
     public void setGameLogic(GameLogic parent) {
-        listener = (TownLogic) parent;
+        listener = parent;
     }
 
     public String getTargetLocation() {

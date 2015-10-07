@@ -1,6 +1,7 @@
 package game.core.Presenters;
 
 import game.core.GameLogic;
+import game.core.Mule;
 import game.view.interfaces.IStoreScreen;
 import game.model.IModel;
 
@@ -18,9 +19,13 @@ public class StoreLogic extends GameLogic {
         this.storeView.setGameLogic(this);
     }
 
-    public void passButton() {}
+    public void passButton() {
+        gameEngine.setCurrentGameLogic(Mule.MAP2SCREEN);
+    }
 
-    public void primeScreen() {}
+    public void primeScreen() {
+        storeView.setStoreAmounts(gameModel.getStoreValues());
+    }
 
     public void viewUpdated() {}
 

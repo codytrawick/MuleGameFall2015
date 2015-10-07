@@ -17,6 +17,8 @@ import java.util.HashMap;
 
 public class StoreScreenController implements IStoreScreen {
 
+    GameLogic listener;
+
     @FXML
     private Label energyRemaining, foodRemaining, muleRemaining, smithoreRemaining,
             crystiteRemaining;
@@ -37,7 +39,7 @@ public class StoreScreenController implements IStoreScreen {
 
     @FXML
     void clickBack(ActionEvent event) {
-
+        listener.passButton();
     }
 
     @FXML
@@ -95,7 +97,7 @@ public class StoreScreenController implements IStoreScreen {
     }
 
     public void setGameLogic(GameLogic parent) {
-
+        listener = parent;
     }
 
     public void setStoreAmounts(HashMap<String, Integer> amounts) {
@@ -103,7 +105,13 @@ public class StoreScreenController implements IStoreScreen {
         energyRemaining.setText(amounts.get("Energy").toString());
         foodRemaining.setText(amounts.get("Food").toString());
         smithoreRemaining.setText(amounts.get("Ore").toString());
-        crystiteRemaining.setText(amounts.get("Crystie").toString());
+        try {
+            crystiteRemaining.setText(amounts.get("Crystie").toString());
+        } catch (NullPointerException e) {
+            crystiteRemaining.setText("0");
+            buyCrystiteButton.setDisable(true);
+            sellCrystiteButton.setDisable(true);
+        }
     }
 
 }

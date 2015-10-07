@@ -46,6 +46,8 @@ public class TownLogic extends GameLogic {
             gameModel.giveMoney(totalBonus);
             gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
 
+        } else if (townView.getTargetLocation().equals("Store")) {
+            gameEngine.setCurrentGameLogic(Mule.STORE_SCREEN);
         }
     }
 
