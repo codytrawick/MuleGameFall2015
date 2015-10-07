@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <GridPane gridLinesVisible="true" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="buyFoodButton" layoutX="55.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseFood" text="BUY" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="6.0" pickOnBounds="false" text="Food" />
+                  <Button fx:id="sellFoodButton" layoutX="53.0" layoutY="114.0" mnemonicParsing="false" onAction="#sellFood" text="SELL" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <Button fx:id="buyEnergyButton" alignment="TOP_LEFT" layoutX="58.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseEnergy" text="BUY" />
+                  <Label layoutX="59.0" layoutY="6.0" text="Energy" />
+                  <Button fx:id="sellEnergyButton" layoutX="56.0" layoutY="119.0" mnemonicParsing="false" onAction="#sellEnergy" text="SELL" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+               <children>
+                  <Button fx:id="buySmithoreButton" layoutX="58.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseSmithore" text="BUY" />
+                  <Label layoutX="53.0" layoutY="6.0" text="Smithore" />
+                  <Button fx:id="sellSmithoreButton" layoutX="56.0" layoutY="116.0" mnemonicParsing="false" onAction="#sellSmithore" text="SELL" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Button fx:id="buyCrystiteButton" layoutX="59.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseCrystite" text="BUY" />
+                  <Label layoutX="47.0" layoutY="6.0" text="Crystite" />
+                  <Button fx:id="sellCrystiteButton" layoutX="57.0" layoutY="118.0" mnemonicParsing="false" onAction="#sellCrystite" text="SELL" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Button fx:id="buyMuleButton" layoutX="62.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseMULE" text="BUY" />
+                  <Label layoutX="58.0" layoutY="6.0" text="M.U.L.E." />
+                  <Button fx:id="sellMuleButton" layoutX="60.0" layoutY="119.0" mnemonicParsing="false" onAction="#sellMULE" text="SELL" />
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+   </center>
+   <bottom>
+      <Button fx:id="returnToTown" mnemonicParsing="false" onAction="#clickBack" text="Back" BorderPane.alignment="BOTTOM_RIGHT" />
+   </bottom>
+   <left>
+      <Pane prefHeight="373.0" prefWidth="116.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane layoutX="6.0" prefHeight="373.0" prefWidth="89.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" text="Quantities" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="Food: " />
+                        <Label fx:id="foodRemaining" text="Label" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label text="Energy: " />
+                        <Label fx:id="energyRemaining" text="Label" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="62.0" prefWidth="107.0" GridPane.rowIndex="3">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="80.0" text="Smithore: " />
+                        <Label fx:id="smithoreRemaining" prefHeight="17.0" prefWidth="34.0" text="Label" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                     <children>
+                        <Label text="M.U.L.E: " />
+                        <Label fx:id="muleRemaining" text="Label" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+                     <children>
+                        <Label text="Crystite: " />
+                        <Label fx:id="crystiteRemaining" text="Label" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+   </left>
+</BorderPane>
