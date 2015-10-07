@@ -1,6 +1,7 @@
 package game.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * This class holds the information that's important for the game to run
@@ -110,5 +111,9 @@ public class GameInfo implements IModel {
 
     public void startTurn(int turnTime) {
         round.timerStart(turnTime);
+    }
+
+    public HashMap<String, Integer> getStoreValues() {
+        return store.getStoreValues();
     }
 }

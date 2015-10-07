@@ -1,5 +1,7 @@
 package game.model;
 
+import java.util.HashMap;
+
 /**
  * Created by Andrew on 10/7/2015.
  */
@@ -62,5 +64,14 @@ public class Store {
 
     public int getOreStock() {
         return oreStock;
+    }
+
+    public HashMap<String, Integer> getStoreValues() {
+        HashMap<String, Integer> output = new HashMap<>();
+        output.put("Energy", getEnergyStock());
+        output.put("Ore", getOreStock());
+        output.put("Food", getFoodStock());
+        output.put("Mules", getMuleStock());
+        return output;
     }
 }

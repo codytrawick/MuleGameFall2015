@@ -1,6 +1,7 @@
 package game.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Cody on 9/29/2015.
@@ -25,5 +26,6 @@ public interface IModel {
     void startTurn(int turnTime);
     String getCurrentPlayerColor();
     int getPlayerFood();
+    HashMap<String, Integer> getStoreValues();
 
 }
