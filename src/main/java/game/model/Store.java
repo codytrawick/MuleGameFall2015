@@ -1,0 +1,66 @@
+package game.model;
+
+/**
+ * Created by Andrew on 10/7/2015.
+ */
+public class Store {
+
+    private int muleStock;
+    private int foodStock;
+    private int energyStock;
+    private int oreStock;
+
+    public Store(String difficulty) {
+        if (difficulty.equals("Beginner")) {
+            muleStock = 25;
+            foodStock = 16;
+            energyStock = 16;
+            oreStock = 0;
+        } else if (difficulty.equals("Standard")) {
+            muleStock = 14;
+            foodStock = 8;
+            energyStock = 8;
+            oreStock = 8;
+        } else {
+            muleStock = 14;
+            foodStock = 8;
+            energyStock = 8;
+            oreStock = 8;
+        }
+    }
+
+    public void produceMules() {
+        while (muleStock < 14 && oreStock > 1) {
+            muleStock++;
+            oreStock = oreStock - 2;
+        }
+    }
+
+    public void addFood(int num) {
+        foodStock = foodStock + num;
+    }
+
+    public void addEnergy(int num) {
+        energyStock = energyStock + num;
+    }
+
+    public void addOre(int num) {
+        oreStock = oreStock + num;
+    }
+
+    public int getMuleStock() {
+        return muleStock;
+    }
+
+    public int getFoodStock() {
+        return foodStock;
+    }
+
+    public int getEnergyStock() {
+        return energyStock;
+    }
+
+    public int getOreStock() {
+        return oreStock;
+    }
+}
