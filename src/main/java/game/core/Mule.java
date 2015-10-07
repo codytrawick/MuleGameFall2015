@@ -32,6 +32,7 @@ public class Mule extends Application {
     public static final String TOWN_SCREEN_FXML = "/fxml/townScreen.fxml";
     public static final String MAP2SCREEN = "Map Screen", MAP2FXML = "/fxml/mapScreen2.fxml",
     ROUNDSTART = "Turn Screen", ROUNDSTARTFXML = "/fxml/turnStart.fxml";
+    public static final String STORE_SCREEN = "/fxml/storeScreen.fxml";
 
     Engine gameEngine = new Engine();
 
