@@ -21,6 +21,7 @@ public class Player {
     private int ore;
     private int score;
     private List<Tile> ownedTiles = new ArrayList<>();
+    private String mule;
 
     public Player(String name, String color, String race) {
         this.name = name;
@@ -36,6 +37,7 @@ public class Player {
         score = 0;
         food = 8;
         energy = 8;
+        mule = "";
     }
 
     public String getName() {
@@ -88,6 +90,14 @@ public class Player {
 
     public int getOre() {
         return ore;
+    }
+
+    public String getMule() {
+        return mule;
+    }
+
+    public void setMule(String mule) {
+        this.mule = mule;
     }
 
 //    public int getScore() {
