@@ -32,7 +32,7 @@ public class TownLogic extends GameLogic {
     }
 
     public void viewUpdated() {
-        if (townView.getTargetLocation() == "Pub") {
+        if (townView.getTargetLocation().equals("Pub")) {
             int roundNumber = gameModel.getCurrentRound();
             int roundBonus = (15 * roundNumber + 50);
             if (roundBonus > 200) {
