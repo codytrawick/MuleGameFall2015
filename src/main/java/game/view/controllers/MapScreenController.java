@@ -48,10 +48,12 @@ public class MapScreenController implements IMapScreen {
 
     @FXML
     private Label playerOneName, playerOneMoney, playerTwoName, playerTwoMoney,
-            playerThreeName, playerThreeMoney, playerFourName, playerFourMoney;
+            playerThreeName, playerThreeMoney, playerFourName, playerFourMoney,
+            playerOneFood, playerTwoFood, playerThreeFood, playerFourFood;
 
-    private ArrayList<Label> nameLabels= new ArrayList<>();
-    private ArrayList<Label> money= new ArrayList<>();
+    private ArrayList<Label> nameLabels = new ArrayList<>();
+    private ArrayList<Label> money = new ArrayList<>();
+    private ArrayList<Label> food = new ArrayList<>();
 
 
     @FXML
@@ -123,6 +125,11 @@ public class MapScreenController implements IMapScreen {
         nameLabels.add(playerThreeName);
         nameLabels.add(playerFourName);
 
+        food.add(playerOneFood);
+        food.add(playerTwoFood);
+        food.add(playerThreeFood);
+        food.add(playerFourFood);
+
         for (Label names: nameLabels) {
             names.setText("");
         }
@@ -185,6 +192,7 @@ public class MapScreenController implements IMapScreen {
         for (int i = 0; i < players.size(); i++) {
             nameLabels.get(i).setText(players.get(i).getName());
             money.get(i).setText(String.format("$%d", players.get(i).getMoney()));
+            food.get(i).setText(String.format("Food: %d", players.get(i).getFood()));
         }
     }
 

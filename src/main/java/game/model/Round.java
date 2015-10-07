@@ -14,7 +14,8 @@ import java.util.TimerTask;
 
 
 /**
- * Created by Cody on 9/30/2015.
+ * This class represents a round
+ * @author The SpecialFX
  */
 public class Round {
     private Player[] orderedPlayers;
@@ -52,8 +53,22 @@ public class Round {
         return roundNumber;
     }
 
+    public int getPlayerFood() {
+        return orderedPlayers[currentPlayer].getFood();
+    }
+
     public int getPlayerTime() {
-        return 50;
+        int playerFood = orderedPlayers[currentPlayer].getFood();
+        int roundRequirement = 3 + (roundNumber / 4);
+        int playTime;
+        if (playerFood > roundRequirement) {
+            playTime = 50;
+        } else if (playerFood > 0) {
+            playTime = 30;
+        } else {
+            playTime = 5;
+        }
+        return playTime;
     }
 
     public void giveMoney(int money) {

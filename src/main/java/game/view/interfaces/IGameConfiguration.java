@@ -1,5 +1,6 @@
 package game.view.interfaces;
 
+import game.core.Presenters.ConfigurationLogic;
 import game.view.GameScreen;
 
 /**

@@ -98,16 +98,6 @@ public class LandSelectionController implements ILandSelection {
         }
     }
 
-    public void setMap() {
-        for (int index = 0; index < 45; index++) {
-            Button indexedButton = (Button) tiles.getChildren().get(index);
-            Tile clickedTile = gameEngine.getGame().getMyGameMap().getTile(
-                    index / 9, index % 9);
-            ((ImageView) ((StackPane) indexedButton.getGraphic()).getChildren().get(0)).setImage(
-                    tileArt.get(clickedTile.toString()));
-        }
-    }
-
     public void addTileElement(String type, String color, int row, int column) {
         if (type.equals("Owner")) {
                     ((StackPane) ((Button)
@@ -122,9 +112,9 @@ public class LandSelectionController implements ILandSelection {
      *
      */
     public void initializeScreen() {
-        curPlayerName.setText(gameEngine.getGame().getCurPlayer().getName() + ", Money: $" + gameEngine.getGame().getCurPlayer().getMoney());
-        curPlayerName.setStyle("-fx-text-fill: " + gameEngine.getGame().getCurPlayer().getColor() + ";");
-        setMap();
+//        curPlayerName.setText(gameEngine.getGame().getCurPlayer().getName() + ", Money: $" + gameEngine.getGame().getCurPlayer().getMoney());
+//        curPlayerName.setStyle("-fx-text-fill: " + gameEngine.getGame().getCurPlayer().getColor() + ";");
+//        setMap();
         /*
         for (int index = 0; index < 45; index++) {
             Button indexedButton = (Button) tiles.getChildren().get(index);
