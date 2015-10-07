@@ -20,6 +20,7 @@ public class GameInfo implements IModel {
     private Player curPlayer;
 //    private int curPlayerNumber;
     private Round round;
+    private Store store;
 
     public ArrayList<Player> getPlayers() {
         return players;
@@ -46,6 +47,7 @@ public class GameInfo implements IModel {
 
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
+        store = new Store(difficulty);
     }
 
     public void setMapType(String mapType) {
