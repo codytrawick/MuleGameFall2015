@@ -12,6 +12,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.util.HashMap;
+
 
 public class StoreScreenController implements IStoreScreen {
 
@@ -94,6 +96,14 @@ public class StoreScreenController implements IStoreScreen {
 
     public void setGameLogic(GameLogic parent) {
 
+    }
+
+    public void setStoreAmounts(HashMap<String, Integer> amounts) {
+        muleRemaining.setText(amounts.get("Mules").toString());
+        energyRemaining.setText(amounts.get("Energy").toString());
+        foodRemaining.setText(amounts.get("Food").toString());
+        smithoreRemaining.setText(amounts.get("Ore").toString());
+        crystiteRemaining.setText(amounts.get("Crystie").toString());
     }
 
 }
