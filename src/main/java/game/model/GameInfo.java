@@ -126,15 +126,14 @@ public class GameInfo implements IModel {
     }
 
     public HashMap<String, Integer> getCurPlayerResources() {
-        return curPlayer.getResources();
+        return round.getCurPlayerResources();
     }
 
     public void resolveRound() {
         store.produceMules();
     }
 
-<<<<<<< HEAD
-=======
+
     public String getPlayerMule() {
         return round.getPlayerMule();
     }
@@ -142,5 +141,4 @@ public class GameInfo implements IModel {
     public void placeMule(int x, int y, String mule) {
         myGameMap.placeMule(x, y, mule);
     }
->>>>>>> origin/master
 }

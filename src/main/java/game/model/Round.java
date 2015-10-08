@@ -7,10 +7,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.util.Duration;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 
 /**
@@ -111,5 +108,9 @@ public class Round {
         String output = orderedPlayers[currentPlayer].getMule();
         orderedPlayers[currentPlayer].setMule("");
         return output;
+    }
+
+    public HashMap<String, Integer> getCurPlayerResources() {
+        return orderedPlayers[currentPlayer].getResources();
     }
 }
