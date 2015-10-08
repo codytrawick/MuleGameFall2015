@@ -4,7 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.controllers.StoreScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.controllers.StoreScreenController">
    <center>
       <GridPane gridLinesVisible="true" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -54,7 +54,6 @@
                   <Button fx:id="buyMuleButton" layoutX="62.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseMULE" text="BUY" />
                   <Label layoutX="58.0" layoutY="6.0" text="M.U.L.E." />
                    <Label fx:id="mulePrice" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="26.0" pickOnBounds="false" text="Price" />
-                   <Button fx:id="sellMuleButton" layoutX="60.0" layoutY="119.0" mnemonicParsing="false" onAction="#sellMULE" text="SELL" />
                </children>
             </Pane>
          </children>
@@ -81,39 +80,74 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" text="Quantities" />
+                        <Label alignment="CENTER_RIGHT" text="Store Stock" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                      <children>
-                        <Label text="Food: " />
-                        <Label fx:id="foodRemaining" text="Label" />
+                        <HBox prefHeight="19.0" prefWidth="89.0">
+                           <children>
+                              <Label text="Food: " />
+                              <Label fx:id="foodRemaining" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="3.0" prefWidth="89.0">
+                           <children>
+                              <Label text="You Have: " />
+                              <Label fx:id="playerFood" text="Label" />
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                      <children>
-                        <Label text="Energy: " />
-                        <Label fx:id="energyRemaining" text="Label" />
+                        <HBox prefHeight="27.0" prefWidth="89.0">
+                           <children>
+                              <Label text="Energy: " />
+                              <Label fx:id="energyRemaining" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="You Have: " />
+                              <Label fx:id="playerEnergy" text="Label" />
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="62.0" prefWidth="107.0" GridPane.rowIndex="3">
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
                      <children>
-                        <Label prefHeight="17.0" prefWidth="80.0" text="Smithore: " />
-                        <Label fx:id="smithoreRemaining" prefHeight="17.0" prefWidth="34.0" text="Label" />
+                        <HBox prefHeight="62.0" prefWidth="107.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="80.0" text="Smithore: " />
+                              <Label fx:id="smithoreRemaining" prefHeight="17.0" prefWidth="34.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="You Have: " />
+                              <Label fx:id="playerOre" text="Label" />
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
+                  </VBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
                      <children>
                         <Label text="M.U.L.E: " />
                         <Label fx:id="muleRemaining" text="Label" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="5">
                      <children>
-                        <Label text="Crystite: " />
-                        <Label fx:id="crystiteRemaining" text="Label" />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Crystite: " />
+                              <Label fx:id="crystiteRemaining" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                      </children>
-                  </HBox>
+                  </VBox>
                </children>
             </GridPane>
          </children>
