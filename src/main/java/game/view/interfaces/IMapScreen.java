@@ -14,7 +14,7 @@ public interface IMapScreen extends GameScreen {
     TileSelected lastTileClicked();
     void addTileElement(String type, String color, int row, int column);
     void setPlayerInfo(ArrayList<Player> players);
-    void setTile(String terrain, String owner, int row, int column);
+    void setTile(String terrain, String owner, String mule, int row, int column);
     void setRoundNumber(int newNum);
     void setCurrentPlayer(String player);
     void setTimerBind(IntegerProperty timeSeconds);

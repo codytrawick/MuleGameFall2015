@@ -45,6 +45,8 @@ public class GameMap {
                     }
                 }
             }
+            gameMap[0][0].setMule("Energy");
+
             ArrayList<Tile> leftHills = new ArrayList<>(5);
             leftHills.add(new Tile("M1"));
             leftHills.add(new Tile("M1"));
@@ -66,6 +68,10 @@ public class GameMap {
                 gameMap[i][rightTile + 5] = rightHills.remove(rightType);
             }
         }
+    }
+
+    public void placeMule(int x, int y, String mule) {
+        gameMap[x][y].setMule(mule);
     }
 
     public Tile getTile(int x, int y) {
