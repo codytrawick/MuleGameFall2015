@@ -4,8 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.controllers.StoreScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.controllers.StoreScreenController">
    <center>
       <GridPane gridLinesVisible="true" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -22,6 +21,7 @@
                <children>
                   <Button fx:id="buyFoodButton" layoutX="55.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseFood" text="BUY" />
                   <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="6.0" pickOnBounds="false" text="Food" />
+                  <Label fx:id="foodPrice" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="26.0" pickOnBounds="false" text="Price" />
                   <Button fx:id="sellFoodButton" layoutX="53.0" layoutY="114.0" mnemonicParsing="false" onAction="#sellFood" text="SELL" />
                </children>
             </Pane>
@@ -29,28 +29,32 @@
                <children>
                   <Button fx:id="buyEnergyButton" alignment="TOP_LEFT" layoutX="58.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseEnergy" text="BUY" />
                   <Label layoutX="59.0" layoutY="6.0" text="Energy" />
-                  <Button fx:id="sellEnergyButton" layoutX="56.0" layoutY="119.0" mnemonicParsing="false" onAction="#sellEnergy" text="SELL" />
+                   <Label fx:id="energyPrice" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="26.0" pickOnBounds="false" text="Price" />
+                   <Button fx:id="sellEnergyButton" layoutX="56.0" layoutY="119.0" mnemonicParsing="false" onAction="#sellEnergy" text="SELL" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                <children>
                   <Button fx:id="buySmithoreButton" layoutX="58.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseSmithore" text="BUY" />
                   <Label layoutX="53.0" layoutY="6.0" text="Smithore" />
-                  <Button fx:id="sellSmithoreButton" layoutX="56.0" layoutY="116.0" mnemonicParsing="false" onAction="#sellSmithore" text="SELL" />
+                   <Label fx:id="orePrice" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="26.0" pickOnBounds="false" text="Price" />
+                   <Button fx:id="sellSmithoreButton" layoutX="56.0" layoutY="116.0" mnemonicParsing="false" onAction="#sellSmithore" text="SELL" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
                   <Button fx:id="buyCrystiteButton" layoutX="59.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseCrystite" text="BUY" />
                   <Label layoutX="47.0" layoutY="6.0" text="Crystite" />
-                  <Button fx:id="sellCrystiteButton" layoutX="57.0" layoutY="118.0" mnemonicParsing="false" onAction="#sellCrystite" text="SELL" />
+                   <Label fx:id="crystiePrice" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="26.0" pickOnBounds="false" text="Price" />
+                   <Button fx:id="sellCrystiteButton" layoutX="57.0" layoutY="118.0" mnemonicParsing="false" onAction="#sellCrystite" text="SELL" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <Button fx:id="buyMuleButton" layoutX="62.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseMULE" text="BUY" />
                   <Label layoutX="58.0" layoutY="6.0" text="M.U.L.E." />
-                  <Button fx:id="sellMuleButton" layoutX="60.0" layoutY="119.0" mnemonicParsing="false" onAction="#sellMULE" text="SELL" />
+                   <Label fx:id="mulePrice" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="26.0" pickOnBounds="false" text="Price" />
+                   <Button fx:id="sellMuleButton" layoutX="60.0" layoutY="119.0" mnemonicParsing="false" onAction="#sellMULE" text="SELL" />
                </children>
             </Pane>
          </children>
