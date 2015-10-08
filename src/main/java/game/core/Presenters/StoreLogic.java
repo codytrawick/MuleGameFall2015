@@ -25,9 +25,13 @@ public class StoreLogic extends GameLogic {
 
     public void primeScreen() {
         storeView.setStoreAmounts(gameModel.getStoreValues());
+        storeView.setStorePrices(gameModel.getStorePrices());
+        storeView.setPlayerAmounts(gameModel.getCurPlayerResources());
     }
 
-    public void viewUpdated() {}
+    public void viewUpdated() {
+        storeView.setPlayerAmounts(gameModel.getCurPlayerResources());
+    }
 
 
 

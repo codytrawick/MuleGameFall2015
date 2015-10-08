@@ -12,6 +12,13 @@ public class Store {
     private int energyStock;
     private int oreStock;
 
+    private int mulePrice = 100;
+    private int foodPrice = 30;
+    private int energyPrice = 25;
+    private int orePrice = 50;
+    private int crystitePrice = 100;
+
+
     public Store(String difficulty) {
         if (difficulty.equals("Beginner")) {
             muleStock = 25;
@@ -34,7 +41,7 @@ public class Store {
     public void produceMules() {
         while (muleStock < 14 && oreStock > 1) {
             muleStock++;
-            oreStock = oreStock - 2;
+            oreStock = oreStock - 2; //convert 2 ore into a mule
         }
     }
 
@@ -73,5 +80,15 @@ public class Store {
         output.put("Food", getFoodStock());
         output.put("Mules", getMuleStock());
         return output;
+    }
+
+    public HashMap<String, Integer> getStorePrices() {
+         HashMap<String, Integer> prices = new HashMap<>();
+        prices.put("Mule", mulePrice);
+        prices.put("Food", foodPrice);
+        prices.put("Energy", energyPrice);
+        prices.put("Ore", orePrice);
+        prices.put("Crystite", crystitePrice);
+        return prices;
     }
 }

@@ -106,4 +106,10 @@ public class Round {
         }
 
     }
+
+    public String getPlayerMule() {
+        String output = orderedPlayers[currentPlayer].getMule();
+        orderedPlayers[currentPlayer].setMule("");
+        return output;
+    }
 }

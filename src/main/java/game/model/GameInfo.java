@@ -69,6 +69,10 @@ public class GameInfo implements IModel {
         return owner != null ? owner.getColor() : "None";
     }
 
+    public String getTileMule(int row, int column) {
+        return myGameMap.getTile(row, column).getMuleType();
+    }
+
     public void setTileOwner(int row, int column, Player owner) {
         myGameMap.getTile(row, column).setOwner(owner);
     }
@@ -117,7 +121,26 @@ public class GameInfo implements IModel {
         return store.getStoreValues();
     }
 
+    public HashMap<String, Integer> getStorePrices() {
+        return store.getStorePrices();
+    }
+
+    public HashMap<String, Integer> getCurPlayerResources() {
+        return curPlayer.getResources();
+    }
+
     public void resolveRound() {
         store.produceMules();
     }
+
+<<<<<<< HEAD
+=======
+    public String getPlayerMule() {
+        return round.getPlayerMule();
+    }
+
+    public void placeMule(int x, int y, String mule) {
+        myGameMap.placeMule(x, y, mule);
+    }
+>>>>>>> origin/master
 }

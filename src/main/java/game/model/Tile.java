@@ -8,7 +8,7 @@ public class Tile {
 
     private String terrain;
     private String prodType;
-    private boolean hasMule;
+    private String muleType = "";
     private boolean ownedStatus;
     private Player owner;
     private int production;
@@ -30,6 +30,14 @@ public class Tile {
     public void setOwner(Player owner) {
         ownedStatus = true;
         this.owner = owner;
+    }
+
+    public void setMule(String mule) {
+        muleType = mule;
+    }
+
+    public String getMuleType() {
+        return muleType;
     }
 
     public Player getOwner() {
