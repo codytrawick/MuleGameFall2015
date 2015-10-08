@@ -18,11 +18,12 @@ import java.util.HashMap;
 
 public class StoreScreenController implements IStoreScreen {
 
-    GameLogic listener;
+    private GameLogic listener;
+    private String target;
 
     @FXML
     private Label energyRemaining, foodRemaining, muleRemaining, smithoreRemaining,
-            crystiteRemaining;
+            crystiteRemaining, foodPrice, energyPrice, mulePrice, orePrice, crystitePrice;
 
     @FXML
     private Button buySmithoreButton, buyMuleButton, buyEnergyButton, buyCrystiteButton,
@@ -113,6 +114,14 @@ public class StoreScreenController implements IStoreScreen {
             buyCrystiteButton.setDisable(true);
             sellCrystiteButton.setDisable(true);
         }
+    }
+
+    public void setStorePrices(HashMap<String, Integer> prices) {
+        foodPrice.setText(prices.get("Food").toString());
+        energyPrice.setText(prices.get("Energy").toString());
+        mulePrice.setText(prices.get("Mule").toString());
+        orePrice.setText(prices.get("Ore").toString());
+        crystitePrice.setText(prices.get("Crystite").toString());
     }
 
 }
