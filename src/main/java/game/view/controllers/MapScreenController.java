@@ -110,6 +110,8 @@ public class MapScreenController implements IMapScreen {
         tileArt.put("Yellow", new Image("/default/yellowOwner.png"));
         tileArt.put("Green", new Image("/default/greenOwner.png"));
         tileArt.put("Blue", new Image("/default/blueOwner.png"));
+        tileArt.put("Energy", new Image("/default/Energy.png"));
+        tileArt.put("Food", new Image("/default/Food.png"));
 
         for (int index = 0; index < 45; index++) {
             ((Button) tiles.getChildren().get(index)).setPadding(Insets.EMPTY);
@@ -216,7 +218,7 @@ public class MapScreenController implements IMapScreen {
             buttonGraphic.getChildren().add(new ImageView(tileArt.get(owner)));
         }
         if (!mule.equals("")) {
-            buttonGraphic.getChildren().add(new ImageView(new Image("/BlankTile.jpg")));
+            buttonGraphic.getChildren().add(new ImageView(tileArt.get(mule)));
         }
     }
 

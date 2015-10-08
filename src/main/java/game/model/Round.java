@@ -125,4 +125,15 @@ public class Round {
     public String currentPlayerColor() {
         return orderedPlayers[currentPlayer].getColor();
     }
+
+    public void consumeFood() {
+        int foodReq = 3 + roundNumber / 4;
+        for (Player p: orderedPlayers) {
+            if (p.getFood() > foodReq) {
+                p.addFood(-foodReq);
+            } else {
+                p.addFood(-p.getFood());
+            }
+        }
+    }
 }

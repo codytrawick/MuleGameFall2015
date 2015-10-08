@@ -46,6 +46,7 @@ public class RoundLogic extends GameLogic {
             gameModel.createRound(1);
             roundNum = 1;
         } else if (turnNumber == gameModel.getPlayerNumber()) {
+            gameModel.resolveRound();
             gameModel.createRound(++roundNum);
             turnNumber = 0;
         } else {

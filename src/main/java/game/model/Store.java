@@ -69,6 +69,10 @@ public class Store {
         oreStock = oreStock - num;
     }
 
+    public void removeMule() {
+        muleStock--;
+    }
+
     public int getMuleStock() {
         return muleStock;
     }
@@ -114,6 +118,10 @@ public class Store {
 
     public boolean hasOre() {
         return (oreStock > 0);
+    }
+
+    public boolean hasMule() {
+        return (muleStock > 0);
     }
 
     public int foodPrice() {

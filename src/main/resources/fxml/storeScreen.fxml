@@ -4,7 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.controllers.StoreScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.controllers.StoreScreenController">
    <center>
       <GridPane gridLinesVisible="true" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -54,6 +54,13 @@
                   <Button fx:id="buyMuleButton" layoutX="62.0" layoutY="80.0" mnemonicParsing="false" onAction="#purchaseMULE" text="BUY" />
                   <Label layoutX="58.0" layoutY="6.0" text="M.U.L.E." />
                    <Label fx:id="mulePrice" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="26.0" pickOnBounds="false" text="Price" />
+                  <RadioButton fx:id="defaultMule" layoutX="37.0" layoutY="113.0" mnemonicParsing="false" text="+ 25 Food">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="muleType" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton layoutX="37.0" layoutY="130.0" mnemonicParsing="false" text="+ 50 Energy" toggleGroup="$muleType" />
+                  <RadioButton layoutX="37.0" layoutY="147.0" mnemonicParsing="false" text="+75 SmithOre" toggleGroup="$muleType" />
                </children>
             </Pane>
          </children>

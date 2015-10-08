@@ -131,6 +131,7 @@ public class GameInfo implements IModel {
 
     public void resolveRound() {
         store.produceMules();
+        round.consumeFood();
     }
 
     public void performBuySellAction(BuySellAction action) {
@@ -141,6 +142,7 @@ public class GameInfo implements IModel {
         int foodPrice = prices.get("Food");
         int energyPrice = prices.get("Energy");
         int orePrice = prices.get("Ore");
+        int muleBase = prices.get("Mule");
         if (action.buying()) {
             if (action.getType().equals("Food")) {
                 if (store.hasFood() && player.canAfford(foodPrice)) {
@@ -161,7 +163,22 @@ public class GameInfo implements IModel {
                     store.removeOre(1);
                 }
             } else {
-                player.setMule("Energy");
+                if (action.getType().substring(0, 5).equals("Mule:")) {
+                    String muleType = action.getType().substring(5);
+                    int mulePrice = muleBase;
+                    if (muleType.equals("Food")) {
+                        mulePrice = muleBase + 25;
+                    } else if (muleType.equals("Energy")) {
+                        mulePrice = muleBase + 50;
+                    } else if (muleType.equals("Ore")) {
+                        mulePrice = muleBase + 75;
+                    }
+                    if (store.hasMule() && player.canAfford(mulePrice)) {
+                        player.spendMoney(mulePrice);
+                        player.setMule(muleType);
+                        store.removeMule();
+                    }
+                }
             }
         } else {
             if (action.getType().equals("Food") && player.hasFood()) {

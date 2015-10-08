@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 
 import java.util.HashMap;
 
@@ -31,6 +33,12 @@ public class StoreScreenController implements IStoreScreen {
 
     @FXML
     private Button returnToTown;
+
+    @FXML
+    private ToggleGroup muleType;
+
+    @FXML
+    private RadioButton defaultMule;
 
 
 
@@ -88,7 +96,10 @@ public class StoreScreenController implements IStoreScreen {
 
     @FXML
     void purchaseMULE(ActionEvent event) {
-        action = new BuySellAction("EnergyMule", true);
+        RadioButton choice = (RadioButton) muleType.getSelectedToggle();
+        String type = choice.getText().split(" ")[2];
+        action = new BuySellAction("Mule:" + type, true);
+        defaultMule.requestFocus();
         listener.viewUpdated();
     }
 
