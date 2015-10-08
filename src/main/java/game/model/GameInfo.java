@@ -134,43 +134,7 @@ public class GameInfo implements IModel {
     }
 
     public void performBuySellAction(BuySellAction action) {
-        //round.performBuySellAction(action, store);
-        //make interface called Sellable, have Food, Energy, and Ore implement it?
-        if (action.buying()) {
-            if (action.getType() == "Food") {
-                if (store.hasFood() && playerMoney.canAfford(foodPrice)) {
-                    player.spendMoney(foodPrice);
-                    player.addFood(1);
-                    store.removeFood(1);
-                }
-            } else if (action.getType() == "Energy") {
-                if (store.hasEnergy() && playerMoney.canAfford(energyPrice)) {
-                    player.spendMoney(energyPrice);
-                    player.addEnergy(1);
-                    store.removeEnergy(1);
-                }
-            } else if (action.getType() == "Ore") {
-                if (store.hasOre() && playerMoney.canAfford(orePrice)) {
-                    player.spendMoney(orePrice);
-                    player.addOre(1);
-                    store.removeOre(1);
-                }
-            }
-        } else {
-            if (action.getType() == "Food" && player.hasFood()) {
-                player.earnMoney(foodPrice);
-                player.addFood(-1);
-                store.addFood(1);
-            } else if (action.getType() == "Energy" && player.hasEnergy()) {
-                player.earnMoney(energyPrice);
-                player.addEnergy(-1);
-                store.addEnergy(1);
-            } else if (action.getType() == "Ore" && player.hasOre()) {
-                player.earnMoney(orePrice);
-                player.addOre(-1);
-                store.addOre(1);
-            }
-        }
+        round.performBuySellAction(action, store);
     }
 
     public String getPlayerMule() {

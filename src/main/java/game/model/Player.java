@@ -102,11 +102,11 @@ public class Player {
         this.mule = mule;
     }
 
-    //public void setFood(int food) { this.food += food; }
+    public void setFood(int food) { this.food += food; }
 
-    //public void setOre(int ore) { this.ore += ore; }
+    public void setOre(int ore) { this.ore += ore; }
 
-    //public void setEnergy(int energy) { this.energy += energy; }
+    public void setEnergy(int energy) { this.energy += energy; }
 
 
     /**
@@ -137,21 +137,5 @@ public class Player {
         amounts.put("Energy", energy);
         amounts.put("Ore", ore);
         return amounts;
-    }
-
-    public boolean canAfford(int price) {
-        return money >= price;
-    }
-
-    public boolean hasFood() {
-        return (food > 0);
-    }
-
-    public boolean hasEnergy() {
-        return (energy > 0);
-    }
-
-    public boolean hasOre() {
-        return (ore > 0);
     }
 }
