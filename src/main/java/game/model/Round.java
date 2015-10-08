@@ -121,4 +121,8 @@ public class Round {
     public Player getActualPlayerObjectRemoveLater() {
         return orderedPlayers[currentPlayer];
     }
+
+    public String currentPlayerColor() {
+        return orderedPlayers[currentPlayer].getColor();
+    }
 }

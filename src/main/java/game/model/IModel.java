@@ -25,7 +25,7 @@ public interface IModel {
     Round getRound();
     void giveMoney(int money);
     void startTurn(int turnTime);
-//    String getCurrentPlayerColor();
+    String getCurrentPlayerColor();
     int getPlayerFood();
     HashMap<String, Integer> getStoreValues();
     HashMap<String, Integer> getStorePrices();

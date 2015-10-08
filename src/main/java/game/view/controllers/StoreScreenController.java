@@ -88,7 +88,8 @@ public class StoreScreenController implements IStoreScreen {
 
     @FXML
     void purchaseMULE(ActionEvent event) {
-
+        action = new BuySellAction("EnergyMule", true);
+        listener.viewUpdated();
     }
 
     @FXML

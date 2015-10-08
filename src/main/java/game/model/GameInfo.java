@@ -77,9 +77,9 @@ public class GameInfo implements IModel {
         myGameMap.getTile(row, column).setOwner(owner);
     }
 
-//    public String getCurrentPlayerColor() {
-//        return round.currentPlayer();
-//    }
+    public String getCurrentPlayerColor() {
+        return round.currentPlayerColor();
+    }
 
     public String currentPlayer() {
         return round.currentPlayer();
