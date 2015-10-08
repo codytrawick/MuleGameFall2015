@@ -117,7 +117,16 @@ public class GameInfo implements IModel {
         return store.getStoreValues();
     }
 
+    public HashMap<String, Integer> getStorePrices() {
+        return store.getStorePrices();
+    }
+
+    public HashMap<String, Integer> getCurPlayerResources() {
+        return curPlayer.getResources();
+    }
+
     public void resolveRound() {
         store.produceMules();
     }
+
 }

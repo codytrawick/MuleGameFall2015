@@ -23,15 +23,15 @@ public class StoreScreenController implements IStoreScreen {
 
     @FXML
     private Label energyRemaining, foodRemaining, muleRemaining, smithoreRemaining,
-            crystiteRemaining, foodPrice, energyPrice, mulePrice, orePrice, crystitePrice;
+            crystiteRemaining, foodPrice, energyPrice, mulePrice, orePrice, crystitePrice,
+            playerFood, playerEnergy, playerOre;
 
     @FXML
     private Button buySmithoreButton, buyMuleButton, buyEnergyButton, buyCrystiteButton,
             buyFoodButton;
 
     @FXML
-    private Button sellCrystiteButton, sellEnergyButton, sellFoodButton, sellMuleButton,
-            sellSmithoreButton;
+    private Button sellCrystiteButton, sellEnergyButton, sellFoodButton, sellSmithoreButton;
 
     @FXML
     private Button returnToTown;
@@ -124,4 +124,9 @@ public class StoreScreenController implements IStoreScreen {
         crystitePrice.setText(prices.get("Crystite").toString());
     }
 
+    public void setPlayerAmounts(HashMap<String, Integer> amounts) {
+        playerFood.setText(amounts.get("Food").toString());
+        playerEnergy.setText(amounts.get("Energy").toString());
+        playerOre.setText(amounts.get("Ore").toString());
+    }
 }

@@ -84,11 +84,11 @@ public class Store {
 
     public HashMap<String, Integer> getStorePrices() {
          HashMap<String, Integer> prices = new HashMap<>();
-        prices.put("mule", mulePrice);
-        prices.put("food", foodPrice);
-        prices.put("energy", energyPrice);
-        prices.put("ore", orePrice);
-        prices.put("crystite", crystitePrice);
+        prices.put("Mule", mulePrice);
+        prices.put("Food", foodPrice);
+        prices.put("Energy", energyPrice);
+        prices.put("Ore", orePrice);
+        prices.put("Crystite", crystitePrice);
         return prices;
     }
 }

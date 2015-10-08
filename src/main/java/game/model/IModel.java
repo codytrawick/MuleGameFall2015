@@ -27,6 +27,8 @@ public interface IModel {
     String getCurrentPlayerColor();
     int getPlayerFood();
     HashMap<String, Integer> getStoreValues();
+    HashMap<String, Integer> getStorePrices();
+    HashMap<String, Integer> getCurPlayerResources();
     void resolveRound();
 
 }

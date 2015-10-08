@@ -1,6 +1,7 @@
 package game.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -130,4 +131,11 @@ public class Player {
 //        return score;
 //    }
 
+    public HashMap<String, Integer> getResources() {
+        HashMap<String, Integer> amounts = new HashMap<>();
+        amounts.put("Food", food);
+        amounts.put("Energy", energy);
+        amounts.put("Ore", ore);
+        return amounts;
+    }
 }

@@ -9,4 +9,6 @@ import java.util.HashMap;
  */
 public interface IStoreScreen extends GameScreen {
     void setStoreAmounts(HashMap<String, Integer> amounts);
+    void setStorePrices(HashMap<String, Integer> prices);
+    void setPlayerAmounts(HashMap<String, Integer> amounts);
 }
