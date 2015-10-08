@@ -141,6 +141,7 @@ public class GameInfo implements IModel {
         int foodPrice = prices.get("Food");
         int energyPrice = prices.get("Energy");
         int orePrice = prices.get("Ore");
+        int mulePrice = prices.get("Mule");
         if (action.buying()) {
             if (action.getType().equals("Food")) {
                 if (store.hasFood() && player.canAfford(foodPrice)) {
@@ -161,7 +162,12 @@ public class GameInfo implements IModel {
                     store.removeOre(1);
                 }
             } else {
-                player.setMule("Energy");
+                //TODO: Implement multiple types of MULEs
+                if (store.hasMules() && player.canAfford(mulePrice)) {
+                    player.setMule("Energy");
+                    player.spendMoney(mulePrice);
+                    store.removeMules(1);
+                }
             }
         } else {
             if (action.getType().equals("Food") && player.hasFood()) {
