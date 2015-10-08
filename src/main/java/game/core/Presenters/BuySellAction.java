@@ -9,7 +9,7 @@ public class BuySellAction {
     private String resourceType;
     private boolean buy;
 
-    public BuySellAction(String type, int price, boolean buy) {
+    public BuySellAction(String type, boolean buy) {
         this.buy = buy;
         this.resourceType = type;
     }

@@ -1,6 +1,7 @@
 package game.view.controllers;
 
 import game.core.GameLogic;
+import game.core.Presenters.BuySellAction;
 import game.core.Presenters.TownLogic;
 import game.view.GameScreen;
 import game.core.Engine;
@@ -44,7 +45,7 @@ public class StoreScreenController implements IStoreScreen {
 
     @FXML
     void purchaseFood(ActionEvent event) {
-
+        BuySellAction action = new BuySellAction("food", true);
     }
 
     @FXML
