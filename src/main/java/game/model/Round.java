@@ -117,4 +117,8 @@ public class Round {
     public HashMap<String, Integer> getCurPlayerResources() {
         return orderedPlayers[currentPlayer].getResources();
     }
+
+    public Player getActualPlayerObjectRemoveLater() {
+        return orderedPlayers[currentPlayer];
+    }
 }

@@ -136,21 +136,26 @@ public class GameInfo implements IModel {
     public void performBuySellAction(BuySellAction action) {
         //round.performBuySellAction(action, store);
         //make interface called Sellable, have Food, Energy, and Ore implement it?
+        Player player = round.getActualPlayerObjectRemoveLater();
+        HashMap<String, Integer> prices = store.getStorePrices();
+        int foodPrice = prices.get("Food");
+        int energyPrice = prices.get("Energy");
+        int orePrice = prices.get("Ore");
         if (action.buying()) {
             if (action.getType() == "Food") {
-                if (store.hasFood() && playerMoney.canAfford(foodPrice)) {
+                if (store.hasFood() && player.canAfford(foodPrice)) {
                     player.spendMoney(foodPrice);
                     player.addFood(1);
                     store.removeFood(1);
                 }
             } else if (action.getType() == "Energy") {
-                if (store.hasEnergy() && playerMoney.canAfford(energyPrice)) {
+                if (store.hasEnergy() && player.canAfford(energyPrice)) {
                     player.spendMoney(energyPrice);
                     player.addEnergy(1);
                     store.removeEnergy(1);
                 }
             } else if (action.getType() == "Ore") {
-                if (store.hasOre() && playerMoney.canAfford(orePrice)) {
+                if (store.hasOre() && player.canAfford(orePrice)) {
                     player.spendMoney(orePrice);
                     player.addOre(1);
                     store.removeOre(1);
