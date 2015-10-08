@@ -173,10 +173,10 @@ public class GameInfo implements IModel {
                     } else if (muleType.equals("Ore")) {
                         mulePrice = muleBase + 75;
                     }
-                    if (store.hasMule() && player.canAfford(mulePrice)) {
+                    if (store.hasMules() && player.canAfford(mulePrice)) {
                         player.spendMoney(mulePrice);
                         player.setMule(muleType);
-                        store.removeMule();
+                        store.removeMules(1);
                     }
                 }
             }
