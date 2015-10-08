@@ -70,4 +70,12 @@ public class BuySellAction {
         }
     }
 
+    public String getType() {
+        return resourceType;
+    }
+
+    public boolean buying() {
+        return buy;
+    }
+
 }

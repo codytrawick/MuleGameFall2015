@@ -57,6 +57,18 @@ public class Store {
         oreStock = oreStock + num;
     }
 
+    public void removeFood(int num) {
+        foodStock = foodStock - num;
+    }
+
+    public void removeEnergy(int num) {
+        energyStock = energyStock - num;
+    }
+
+    public void removeOre(int num) {
+        oreStock = oreStock - num;
+    }
+
     public int getMuleStock() {
         return muleStock;
     }
@@ -90,5 +102,29 @@ public class Store {
         prices.put("Ore", orePrice);
         prices.put("Crystite", crystitePrice);
         return prices;
+    }
+
+    public boolean hasFood() {
+        return (foodStock > 0);
+    }
+
+    public boolean hasEnergy() {
+        return (energyStock > 0);
+    }
+
+    public boolean hasOre() {
+        return (oreStock > 0);
+    }
+
+    public int foodPrice() {
+        return foodPrice;
+    }
+
+    public int energyPrice() {
+        return energyPrice;
+    }
+
+    public int orePrice() {
+        return orePrice;
     }
 }
