@@ -12,6 +12,13 @@ public class Store {
     private int energyStock;
     private int oreStock;
 
+    private int mulePrice = 100;
+    private int foodPrice = 30;
+    private int energyPrice = 25;
+    private int orePrice = 50;
+    private int crystitePrice = 100;
+
+
     public Store(String difficulty) {
         if (difficulty.equals("Beginner")) {
             muleStock = 25;
@@ -73,5 +80,15 @@ public class Store {
         output.put("Food", getFoodStock());
         output.put("Mules", getMuleStock());
         return output;
+    }
+
+    public HashMap<String, Integer> getStorePrices() {
+         HashMap<String, Integer> prices = new HashMap<>();
+        prices.put("mule", mulePrice);
+        prices.put("food", foodPrice);
+        prices.put("energy", energyPrice);
+        prices.put("ore", orePrice);
+        prices.put("crystite", crystitePrice);
+        return prices;
     }
 }

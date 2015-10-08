@@ -60,8 +60,13 @@ public class Player {
         return money;
     }
 
-    public void spendMoney(int amount) {
-        money -= amount;
+    public boolean spendMoney(int amount) {
+        if (money >= amount) {
+            money -= amount;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void earnMoney(int amount) {
@@ -80,10 +85,6 @@ public class Player {
         return food;
     }
 
-    public void decreaseFood(int amount) {
-        food = food - amount;
-    }
-
     public int getEnergy() {
         return energy;
     }
@@ -99,6 +100,31 @@ public class Player {
     public void setMule(String mule) {
         this.mule = mule;
     }
+
+    public void setFood(int food) { this.food += food; }
+
+    public void setOre(int ore) { this.ore += ore; }
+
+    public void setEnergy(int energy) { this.energy += energy; }
+
+
+    /**
+     * To decrease food pass in a negative amount
+     * @param amount
+     */
+    public void addFood(int amount) { this.food += amount; }
+
+    /**
+     * To decrease ore pass in a negative amount
+     * @param amount
+     */
+    public void addOre(int amount) { this.ore += amount; }
+
+    /**
+     * To decrease energy pass in a negative amount
+     * @param amount
+     */
+    public void addEnergy(int amount) { this.energy += amount; }
 
 //    public int getScore() {
 //        return score;
