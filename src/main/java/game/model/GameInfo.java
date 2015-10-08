@@ -18,7 +18,7 @@ public class GameInfo implements IModel {
     private String mapType;
     private String difficulty;
     private GameMap myGameMap;
-    private Player curPlayer;
+//    private Player curPlayer;
 //    private int curPlayerNumber;
     private Round round;
     private Store store;
@@ -77,9 +77,9 @@ public class GameInfo implements IModel {
         myGameMap.getTile(row, column).setOwner(owner);
     }
 
-    public String getCurrentPlayerColor() {
-        return curPlayer.getColor();
-    }
+//    public String getCurrentPlayerColor() {
+//        return round.currentPlayer();
+//    }
 
     public String currentPlayer() {
         return round.currentPlayer();
@@ -142,35 +142,37 @@ public class GameInfo implements IModel {
         int energyPrice = prices.get("Energy");
         int orePrice = prices.get("Ore");
         if (action.buying()) {
-            if (action.getType() == "Food") {
+            if (action.getType().equals("Food")) {
                 if (store.hasFood() && player.canAfford(foodPrice)) {
                     player.spendMoney(foodPrice);
                     player.addFood(1);
                     store.removeFood(1);
                 }
-            } else if (action.getType() == "Energy") {
+            } else if (action.getType().equals("Energy")) {
                 if (store.hasEnergy() && player.canAfford(energyPrice)) {
                     player.spendMoney(energyPrice);
                     player.addEnergy(1);
                     store.removeEnergy(1);
                 }
-            } else if (action.getType() == "Ore") {
+            } else if (action.getType().equals("Ore")) {
                 if (store.hasOre() && player.canAfford(orePrice)) {
                     player.spendMoney(orePrice);
                     player.addOre(1);
                     store.removeOre(1);
                 }
+            } else {
+                player.setMule("Energy");
             }
         } else {
-            if (action.getType() == "Food" && player.hasFood()) {
+            if (action.getType().equals("Food") && player.hasFood()) {
                 player.earnMoney(foodPrice);
                 player.addFood(-1);
                 store.addFood(1);
-            } else if (action.getType() == "Energy" && player.hasEnergy()) {
+            } else if (action.getType().equals("Energy") && player.hasEnergy()) {
                 player.earnMoney(energyPrice);
                 player.addEnergy(-1);
                 store.addEnergy(1);
-            } else if (action.getType() == "Ore" && player.hasOre()) {
+            } else if (action.getType().equals("Ore") && player.hasOre()) {
                 player.earnMoney(orePrice);
                 player.addOre(-1);
                 store.addOre(1);
