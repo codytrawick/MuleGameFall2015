@@ -2,6 +2,8 @@ package game.core.Presenters;
 
 import game.model.Player;
 
+import java.util.HashMap;
+
 /**
  * Created by matthew38 on 10/7/15.
  */
@@ -21,7 +23,8 @@ public class BuySellAction {
      * @param player
      * @return
      */
-    public boolean performAction(Player player, int price) {
+    public boolean performAction(Player player, HashMap<String, Integer> prices) {
+        int price = prices.get(resourceType);
         if (buy) {
             if (player.spendMoney(price)) {
                 switch (resourceType) {

@@ -31,6 +31,11 @@ public class StoreLogic extends GameLogic {
 
     public void viewUpdated() {
         storeView.setPlayerAmounts(gameModel.getCurPlayerResources());
+
+        BuySellAction action = storeView.getBuySellAction();
+        if (action != null) {
+            gameModel.performBuySellAction(action);
+        }
     }
 
 

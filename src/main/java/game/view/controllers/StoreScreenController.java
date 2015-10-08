@@ -20,6 +20,7 @@ public class StoreScreenController implements IStoreScreen {
 
     private GameLogic listener;
     private String target;
+    private BuySellAction action;
 
     @FXML
     private Label energyRemaining, foodRemaining, muleRemaining, smithoreRemaining,
@@ -46,32 +47,38 @@ public class StoreScreenController implements IStoreScreen {
 
     @FXML
     void purchaseFood(ActionEvent event) {
-        BuySellAction action = new BuySellAction("food", true);
+        action = new BuySellAction("food", true);
+        listener.viewUpdated();
     }
 
     @FXML
     void sellFood(ActionEvent event) {
-
+        action = new BuySellAction("food", false);
+        listener.viewUpdated();
     }
 
     @FXML
     void purchaseEnergy(ActionEvent event) {
-
+        action = new BuySellAction("energy", true);
+        listener.viewUpdated();
     }
 
     @FXML
     void sellEnergy(ActionEvent event) {
-
+        action = new BuySellAction("energy", false);
+        listener.viewUpdated();
     }
 
     @FXML
     void purchaseSmithore(ActionEvent event) {
-
+        action = new BuySellAction("ore", true);
+        listener.viewUpdated();
     }
 
     @FXML
     void sellSmithore(ActionEvent event) {
-
+        action = new BuySellAction("ore", false);
+        listener.viewUpdated();
     }
 
     @FXML
@@ -124,6 +131,9 @@ public class StoreScreenController implements IStoreScreen {
 //        crystitePrice.setText(prices.get("Crystite").toString());
     }
 
+    public BuySellAction getBuySellAction() {
+        return action;
+    }
     public void setPlayerAmounts(HashMap<String, Integer> amounts) {
         playerFood.setText(amounts.get("Food").toString());
         playerEnergy.setText(amounts.get("Energy").toString());

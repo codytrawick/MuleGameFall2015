@@ -1,5 +1,7 @@
 package game.model;
 
+import game.core.Presenters.BuySellAction;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -33,5 +35,5 @@ public interface IModel {
     void resolveRound();
     String getPlayerMule();
     void placeMule(int x, int y, String mule);
-
+    void performBuySellAction(BuySellAction action);
 }

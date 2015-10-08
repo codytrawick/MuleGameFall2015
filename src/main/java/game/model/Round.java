@@ -1,5 +1,6 @@
 package game.model;
 
+import game.core.Presenters.BuySellAction;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -108,6 +109,10 @@ public class Round {
         String output = orderedPlayers[currentPlayer].getMule();
         orderedPlayers[currentPlayer].setMule("");
         return output;
+    }
+
+    public void performBuySellAction(BuySellAction action, Store store) {
+        action.performAction(orderedPlayers[currentPlayer], store.getStorePrices());
     }
 
     public HashMap<String, Integer> getCurPlayerResources() {
