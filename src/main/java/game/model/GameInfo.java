@@ -133,8 +133,6 @@ public class GameInfo implements IModel {
         store.produceMules();
     }
 
-<<<<<<< HEAD
-=======
     public String getPlayerMule() {
         return round.getPlayerMule();
     }

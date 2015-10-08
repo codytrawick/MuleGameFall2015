@@ -117,10 +117,10 @@ public class StoreScreenController implements IStoreScreen {
     }
 
     public void setStorePrices(HashMap<String, Integer> prices) {
-        foodPrice.setText(prices.get("Food").toString());
-        energyPrice.setText(prices.get("Energy").toString());
-        mulePrice.setText(prices.get("Mule").toString());
-        orePrice.setText(prices.get("Ore").toString());
+        foodPrice.setText("$" + prices.get("Food").toString());
+        energyPrice.setText("$" + prices.get("Energy").toString());
+        mulePrice.setText("$" + prices.get("Mule").toString());
+        orePrice.setText("$" + prices.get("Ore").toString());
 //        crystitePrice.setText(prices.get("Crystite").toString());
     }
 
