@@ -34,7 +34,7 @@ public class Store {
     public void produceMules() {
         while (muleStock < 14 && oreStock > 1) {
             muleStock++;
-            oreStock = oreStock - 2;
+            oreStock = oreStock - 2; //convert 2 ore into a mule
         }
     }
 

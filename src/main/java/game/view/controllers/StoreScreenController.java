@@ -17,7 +17,8 @@ import java.util.HashMap;
 
 public class StoreScreenController implements IStoreScreen {
 
-    GameLogic listener;
+    private GameLogic listener;
+    private String target;
 
     @FXML
     private Label energyRemaining, foodRemaining, muleRemaining, smithoreRemaining,
