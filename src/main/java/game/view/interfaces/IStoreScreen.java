@@ -1,6 +1,6 @@
 package game.view.interfaces;
 
-import game.core.Presenters.BuySellAction;
+import game.model.BuySellAction;
 import game.view.GameScreen;
 
 import java.util.HashMap;

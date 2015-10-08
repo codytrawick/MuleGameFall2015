@@ -1,4 +1,4 @@
-package game.core.Presenters;
+package game.model;
 
 import game.model.Player;
 
@@ -23,16 +23,16 @@ public class BuySellAction {
      * @param player
      * @return
      */
-    public boolean performAction(Player player, HashMap<String, Integer> prices) {
+    public boolean performAction(Player player, HashMap<String, Integer> prices, Store store) {
         int price = prices.get(resourceType);
         if (buy) {
             if (player.spendMoney(price)) {
                 switch (resourceType) {
-                    case "food":
+                    case "Food":
                         player.addFood(1); break;
-                    case "ore":
+                    case "Ore":
                         player.addOre(1); break;
-                    case "energy":
+                    case "Energy":
                         player.addEnergy(1); break;
                 }
                 return true;
@@ -41,7 +41,7 @@ public class BuySellAction {
             }
         } else {
             switch (resourceType) {
-                case "food":
+                case "Food":
                     if (player.getFood() > 0) {
                         player.addFood(-1);
                         player.earnMoney(price);
@@ -49,7 +49,7 @@ public class BuySellAction {
                     } else {
                         return false;
                     }
-                case "ore":
+                case "Ore":
                     if (player.getOre() > 0) {
                         player.addOre(-1);
                         player.earnMoney(price);
@@ -57,7 +57,7 @@ public class BuySellAction {
                     } else {
                         return false;
                     }
-                case "energy":
+                case "Energy":
                     if (player.getEnergy() > 0) {
                         player.addEnergy(-1);
                         player.earnMoney(price);

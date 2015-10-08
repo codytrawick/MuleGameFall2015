@@ -1,13 +1,8 @@
 package game.view.controllers;
 
 import game.core.GameLogic;
-import game.core.Presenters.BuySellAction;
-import game.core.Presenters.TownLogic;
-import game.view.GameScreen;
-import game.core.Engine;
-import game.core.Mule;
+import game.model.BuySellAction;
 import game.view.interfaces.IStoreScreen;
-import javafx.beans.property.IntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -47,37 +42,37 @@ public class StoreScreenController implements IStoreScreen {
 
     @FXML
     void purchaseFood(ActionEvent event) {
-        action = new BuySellAction("food", true);
+        action = new BuySellAction("Food", true);
         listener.viewUpdated();
     }
 
     @FXML
     void sellFood(ActionEvent event) {
-        action = new BuySellAction("food", false);
+        action = new BuySellAction("Food", false);
         listener.viewUpdated();
     }
 
     @FXML
     void purchaseEnergy(ActionEvent event) {
-        action = new BuySellAction("energy", true);
+        action = new BuySellAction("Energy", true);
         listener.viewUpdated();
     }
 
     @FXML
     void sellEnergy(ActionEvent event) {
-        action = new BuySellAction("energy", false);
+        action = new BuySellAction("Energy", false);
         listener.viewUpdated();
     }
 
     @FXML
     void purchaseSmithore(ActionEvent event) {
-        action = new BuySellAction("ore", true);
+        action = new BuySellAction("Ore", true);
         listener.viewUpdated();
     }
 
     @FXML
     void sellSmithore(ActionEvent event) {
-        action = new BuySellAction("ore", false);
+        action = new BuySellAction("Ore", false);
         listener.viewUpdated();
     }
 
