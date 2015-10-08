@@ -42,7 +42,8 @@ public class MapSceenLogic extends GameLogic {
     public void primeScreen() {
         for (int row = 0, col = 0; row < 5; col++) {
             mapView.setTile(gameModel.getTileTerrain(row, col),
-                    gameModel.getTileOwner(row, col), row, col);
+                    gameModel.getTileOwner(row, col),
+                    gameModel.getTileMule(row, col), row, col);
             if (col == 8) {
                 row++;
                 col = -1;
@@ -61,6 +62,14 @@ public class MapSceenLogic extends GameLogic {
         TileSelected playerClick = mapView.lastTileClicked();
         if (playerClick.getX() == 2 && playerClick.getY() == 4) {
             gameEngine.setCurrentGameLogic(Mule.TOWN_SCREEN);
+        } else {
+            String tileOwner = gameModel.getTileOwner(playerClick.getX(), playerClick.getY());
+            String muleType = gameModel.getPlayerMule();
+            if (!muleType.equals("") && tileOwner.equals(gameModel.currentPlayer())) {
+                gameModel.placeMule(playerClick.getX(), playerClick.getY(), muleType);
+
+            }
+
         }
     }
 

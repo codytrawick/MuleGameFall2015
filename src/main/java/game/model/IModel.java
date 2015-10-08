@@ -15,6 +15,7 @@ public interface IModel {
     ArrayList<Player> getPlayers();
     String getTileTerrain(int row, int column);
     String getTileOwner(int row, int column);
+    String getTileMule(int row, int column);
     void setTileOwner(int row, int column, Player owner);
     String currentPlayer();
     void nextPlayer();
@@ -30,5 +31,7 @@ public interface IModel {
     HashMap<String, Integer> getStorePrices();
     HashMap<String, Integer> getCurPlayerResources();
     void resolveRound();
+    String getPlayerMule();
+    void placeMule(int x, int y, String mule);
 
 }

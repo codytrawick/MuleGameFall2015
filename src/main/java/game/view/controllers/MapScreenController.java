@@ -208,12 +208,15 @@ public class MapScreenController implements IMapScreen {
         return lastClick;
     }
 
-    public void setTile(String terrain, String owner, int row, int column) {
+    public void setTile(String terrain, String owner, String mule, int row, int column) {
         Button target = (Button) tiles.getChildren().get(row * 9 + column);
         StackPane buttonGraphic = (StackPane) target.getGraphic();
         ((ImageView) buttonGraphic.getChildren().get(0)).setImage(tileArt.get(terrain));
         if (!owner.equals("None")) {
             buttonGraphic.getChildren().add(new ImageView(tileArt.get(owner)));
+        }
+        if (!mule.equals("")) {
+            buttonGraphic.getChildren().add(new ImageView(new Image("/BlankTile.jpg")));
         }
     }
 
