@@ -52,6 +52,10 @@ public class Tile {
         return terrain;
     }
 
+    /**
+     * Does production, updating model as necessary, for this tile
+     * Caller must make sure that this tile is owned
+     */
     public void produceStuff() {
         //make Tile abstract, make new terrain types that implement Tile?
         if (owner.hasEnergy()) {
