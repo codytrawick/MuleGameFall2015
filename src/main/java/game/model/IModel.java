@@ -22,11 +22,11 @@ public interface IModel {
     int currentPlayerTime();
     void createRound(int number);
     int getCurrentRound();
-    Round getRound();
+    //Round getRound();
     void giveMoney(int money);
     void startTurn(int turnTime);
     String getCurrentPlayerColor();
-    int getPlayerFood();
+    //int getPlayerFood();
     HashMap<String, Integer> getStoreValues();
     HashMap<String, Integer> getStorePrices();
     HashMap<String, Integer> getCurPlayerResources();

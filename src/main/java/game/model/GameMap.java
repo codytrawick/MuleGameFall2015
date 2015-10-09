@@ -12,15 +12,15 @@ public class GameMap {
 
     private Tile[][] gameMap;
 
-    public GameMap() {
-        this("Standard");
-    }
+//    public GameMap() {
+//        this("Standard");
+//    }
 
     public GameMap(String mapType) {
         generateMap(mapType);
     }
 
-    public void generateMap(String mapType) {
+    private void generateMap(String mapType) {
         if (mapType.equals("Standard")) {
             gameMap = new Tile[][]{
                     {new Tile("P"), new Tile("P"), new Tile("M1"), new Tile("P"), new Tile("R"), new Tile("P"), new Tile("M3"), new Tile("P"), new Tile("P")},
