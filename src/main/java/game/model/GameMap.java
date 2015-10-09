@@ -77,4 +77,14 @@ public class GameMap {
     public Tile getTile(int x, int y) {
         return gameMap[x][y];
     }
+
+    public void produceStuff() {
+        for (int i = 0; i < gameMap.length; i++) {
+            for (int j = 0; i < gameMap[i].length; j++) {
+                if (gameMap[i][j].isOwned()) {
+                    gameMap[i][j].produceStuff();
+                }
+            }
+        }
+    }
 }

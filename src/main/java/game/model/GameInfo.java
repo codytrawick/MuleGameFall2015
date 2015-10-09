@@ -132,6 +132,7 @@ public class GameInfo implements IModel {
     public void resolveRound() {
         store.produceMules();
         round.consumeFood();
+        myGameMap.produceStuff();
     }
 
     public void performBuySellAction(BuySellAction action) {
