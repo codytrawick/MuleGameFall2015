@@ -112,6 +112,7 @@ public class MapScreenController implements IMapScreen {
         tileArt.put("Blue", new Image("/default/blueOwner.png"));
         tileArt.put("Energy", new Image("/default/Energy.png"));
         tileArt.put("Food", new Image("/default/Food.png"));
+        tileArt.put("Ore", new Image("/default/Ore.png"));
 
         for (int index = 0; index < 45; index++) {
             ((Button) tiles.getChildren().get(index)).setPadding(Insets.EMPTY);
