@@ -121,30 +121,30 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label fx:id="playerOneName" text="Label" />
-                        <Label fx:id="playerOneFood" text="Label" />
-                        <Label fx:id="playerOneMoney" text="Label" />
+                        <Label fx:id="playerOneName" text="" />
+                        <Label fx:id="playerOneFood" text="" />
+                        <Label fx:id="playerOneMoney" text="" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
-                        <Label fx:id="playerTwoName" text="Label" />
-                        <Label fx:id="playerTwoFood" text="Label" />
-                        <Label fx:id="playerTwoMoney" text="Label" />
+                        <Label fx:id="playerTwoName" text="" />
+                        <Label fx:id="playerTwoFood" text="" />
+                        <Label fx:id="playerTwoMoney" text="" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                      <children>
-                        <Label fx:id="playerThreeName" text="Label" />
-                        <Label fx:id="playerThreeFood" text="Label" />
-                        <Label fx:id="playerThreeMoney" text="Label" />
+                        <Label fx:id="playerThreeName" text="" />
+                        <Label fx:id="playerThreeFood" text="" />
+                        <Label fx:id="playerThreeMoney" text="l" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
                      <children>
-                        <Label fx:id="playerFourName" text="Label" />
-                        <Label fx:id="playerFourFood" text="Label" />
-                        <Label fx:id="playerFourMoney" text="Label" />
+                        <Label fx:id="playerFourName" text="" />
+                        <Label fx:id="playerFourFood" text="" />
+                        <Label fx:id="playerFourMoney" text="" />
                      </children>
                   </VBox>
                </children>
