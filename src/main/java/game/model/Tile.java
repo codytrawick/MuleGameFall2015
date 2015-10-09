@@ -51,4 +51,67 @@ public class Tile {
     public String toString() {
         return terrain;
     }
+
+    /**
+     * Does production, updating model as necessary, for this tile
+     * Caller must make sure that this tile is owned
+     */
+    public void produceStuff() {
+        //make Tile abstract, make new terrain types that implement Tile?
+        if (owner.hasEnergy()) {
+            if (terrain.equals("R")) {
+                if (muleType.equals("Food")) {
+                    owner.addFood(4);
+                    owner.addEnergy(-1);
+                } else if (muleType.equals("Energy")) {
+                    owner.addEnergy(2);
+                    owner.addEnergy(-1);
+                }
+            } else if (terrain.equals("P")) {
+                if (muleType.equals("Food")) {
+                    owner.addFood(2);
+                    owner.addEnergy(-1);
+                } else if (muleType.equals("Energy")) {
+                    owner.addEnergy(3);
+                    owner.addEnergy(-1);
+                } else if (muleType.equals("Ore")) {
+                    owner.addOre(1);
+                    owner.addEnergy(-1);
+                }
+            } else if (terrain.equals("M1")) {
+                if (muleType.equals("Food")) {
+                    owner.addFood(1);
+                    owner.addEnergy(-1);
+                } else if (muleType.equals("Energy")) {
+                    owner.addEnergy(1);
+                    owner.addEnergy(-1);
+                } else if (muleType.equals("Ore")) {
+                    owner.addOre(2);
+                    owner.addEnergy(-1);
+                }
+            } else if (terrain.equals("M2")) {
+                if (muleType.equals("Food")) {
+                    owner.addFood(1);
+                    owner.addEnergy(-1);
+                } else if (muleType.equals("Energy")) {
+                    owner.addEnergy(1);
+                    owner.addEnergy(-1);
+                } else if (muleType.equals("Ore")) {
+                    owner.addOre(3);
+                    owner.addEnergy(-1);
+                }
+            } else if (terrain.equals("M3")) {
+                if (muleType.equals("Food")) {
+                    owner.addFood(1);
+                    owner.addEnergy(-1);
+                } else if (muleType.equals("Energy")) {
+                    owner.addEnergy(1);
+                    owner.addEnergy(-1);
+                } else if (muleType.equals("Ore")) {
+                    owner.addOre(4);
+                    owner.addEnergy(-1);
+                }
+            }
+        }
+    }
 }

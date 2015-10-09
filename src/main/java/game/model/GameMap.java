@@ -45,7 +45,6 @@ public class GameMap {
                     }
                 }
             }
-            gameMap[0][0].setMule("Energy");
 
             ArrayList<Tile> leftHills = new ArrayList<>(5);
             leftHills.add(new Tile("M1"));
@@ -76,5 +75,15 @@ public class GameMap {
 
     public Tile getTile(int x, int y) {
         return gameMap[x][y];
+    }
+
+    public void produceStuff() {
+        for (int i = 0; i < gameMap.length; i++) {
+            for (int j = 0; j < gameMap[i].length; j++) {
+                if (gameMap[i][j].isOwned()) {
+                    gameMap[i][j].produceStuff();
+                }
+            }
+        }
     }
 }
