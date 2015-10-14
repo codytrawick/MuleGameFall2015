@@ -3,9 +3,6 @@ package game.view.controllers;
 import game.core.GameLogic;
 import game.core.Presenters.MapSceenLogic;
 import game.model.Player;
-import game.view.GameScreen;
-import game.core.Engine;
-import game.model.Tile;
 import game.view.interfaces.IMapScreen;
 import game.view.interfaces.TileSelected;
 import javafx.beans.value.ChangeListener;
@@ -21,7 +18,6 @@ import javafx.scene.layout.GridPane;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.StackPane;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -100,12 +96,12 @@ public class MapScreenController implements IMapScreen {
      */
     @FXML
     void initialize() {
-        tileArt.put("R", new Image("/default/River.jpg"));
-        tileArt.put("P", new Image("/default/Plains.jpg"));
+        tileArt.put("River", new Image("/default/River.jpg"));
+        tileArt.put("Plains", new Image("/default/Plains.jpg"));
         tileArt.put("Town", (new Image("/default/Town.jpg")));
-        tileArt.put("M1", new Image("/default/Mountain1.jpg"));
-        tileArt.put("M2", new Image("/default/Mountain2.jpg"));
-        tileArt.put("M3", new Image("/default/Mountain3.jpg"));
+        tileArt.put("Mountain1", new Image("/default/Mountain1.jpg"));
+        tileArt.put("Mountain2", new Image("/default/Mountain2.jpg"));
+        tileArt.put("Mountain3", new Image("/default/Mountain3.jpg"));
         tileArt.put("Red", new Image("/default/redOwner.png"));
         tileArt.put("Yellow", new Image("/default/yellowOwner.png"));
         tileArt.put("Green", new Image("/default/greenOwner.png"));

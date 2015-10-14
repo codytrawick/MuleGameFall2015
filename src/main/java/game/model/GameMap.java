@@ -1,5 +1,7 @@
 package game.model;
 
+import game.model.tile.*;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,11 +25,11 @@ public class GameMap {
     private void generateMap(String mapType) {
         if (mapType.equals("Standard")) {
             gameMap = new Tile[][]{
-                    {new Tile("P"), new Tile("P"), new Tile("M1"), new Tile("P"), new Tile("R"), new Tile("P"), new Tile("M3"), new Tile("P"), new Tile("P")},
-                    {new Tile("P"), new Tile("M1"), new Tile("P"), new Tile("P"), new Tile("R"), new Tile("P"), new Tile("P"), new Tile("P"), new Tile("M3")},
-                    {new Tile("M3"), new Tile("P"), new Tile("P"), new Tile("P"), new Tile("Town"), new Tile("P"), new Tile("P"), new Tile("P"), new Tile("M1")},
-                    {new Tile("P"), new Tile("M2"), new Tile("P"), new Tile("P"), new Tile("R"), new Tile("P"), new Tile("M2"), new Tile("P"), new Tile("P")},
-                    {new Tile("P"), new Tile("P"), new Tile("M2"), new Tile("P"), new Tile("R"), new Tile("P"), new Tile("P"), new Tile("P"), new Tile("M2")}
+                    {new Plain(), new Plain(), new Mountain1(), new Plain(), new River(), new Plain(), new Mountain3(), new Plain(), new Plain()},
+                    {new Plain(), new Mountain1(), new Plain(), new Plain(), new River(), new Plain(), new Plain(), new Plain(), new Mountain3()},
+                    {new Mountain3(), new Plain(), new Plain(), new Plain(), new Town(), new Plain(), new Plain(), new Plain(), new Mountain1()},
+                    {new Plain(), new Mountain2(), new Plain(), new Plain(), new River(), new Plain(), new Mountain2(), new Plain(), new Plain()},
+                    {new Plain(), new Plain(), new Mountain2(), new Plain(), new River(), new Plain(), new Plain(), new Plain(), new Mountain2()}
             };
         } else {
             Random mapGen = new Random();
@@ -36,22 +38,22 @@ public class GameMap {
                 for (int j = 0; j < gameMap[i].length; j++) {
                     if (j == 4) {
                         if (i == 2) {
-                            gameMap[i][j] = new Tile("Town");
+                            gameMap[i][j] = new Town();
                         } else {
-                            gameMap[i][j] = new Tile("R");
+                            gameMap[i][j] = new River();
                         }
                     } else {
-                        gameMap[i][j] = new Tile("P");
+                        gameMap[i][j] = new Plain();
                     }
                 }
             }
 
             ArrayList<Tile> leftHills = new ArrayList<>(5);
-            leftHills.add(new Tile("M1"));
-            leftHills.add(new Tile("M1"));
-            leftHills.add(new Tile("M2"));
-            leftHills.add(new Tile("M2"));
-            leftHills.add(new Tile("M3"));
+            leftHills.add(new Mountain1());
+            leftHills.add(new Mountain1());
+            leftHills.add(new Mountain2());
+            leftHills.add(new Mountain2());
+            leftHills.add(new Mountain3());
             ArrayList<Tile> rightHills = new ArrayList<>(5);
             rightHills.addAll(leftHills);
             int leftTile;
@@ -77,7 +79,7 @@ public class GameMap {
         return gameMap[x][y];
     }
 
-    public void produceStuff() {
+    /*public void produceStuff() {
         for (int i = 0; i < gameMap.length; i++) {
             for (int j = 0; j < gameMap[i].length; j++) {
                 if (gameMap[i][j].isOwned()) {
@@ -85,5 +87,5 @@ public class GameMap {
                 }
             }
         }
-    }
+    } */
 }

@@ -1,20 +1,19 @@
-package game.model;
+package game.model.tile;
+
+import game.model.Player;
 
 /**
  * Created by temp on 9/21/2015.
  */
-public class Tile {
+public abstract class Tile {
 
-
-    private String terrain;
     private String prodType;
     private String muleType = "";
     private boolean ownedStatus;
     private Player owner;
     private int production;
 
-    public Tile(String terrain) {
-        this.terrain = terrain;
+    public Tile() {
         ownedStatus = false;
         production = 0;
     }
@@ -32,6 +31,8 @@ public class Tile {
         this.owner = owner;
     }
 
+    public abstract TileProductionTypes getTileProduction();
+
     public void setMule(String mule) {
         muleType = mule;
     }
@@ -48,14 +49,10 @@ public class Tile {
         return ownedStatus;
     }
 
-    public String toString() {
-        return terrain;
-    }
-
     /**
      * Does production, updating model as necessary, for this tile
      * Caller must make sure that this tile is owned
-     */
+     *
     public void produceStuff() {
         //make Tile abstract, make new terrain types that implement Tile?
         if (owner.hasEnergy()) {
@@ -113,5 +110,5 @@ public class Tile {
                 }
             }
         }
-    }
+    } */
 }

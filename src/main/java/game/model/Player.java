@@ -1,5 +1,8 @@
 package game.model;
 
+import game.model.tile.Tile;
+import game.model.tile.TileProductionTypes;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -153,5 +156,21 @@ public class Player {
 
     public boolean hasOre() {
         return (ore > 0);
+    }
+
+    public void calculateProduction() {
+        for (Tile t : ownedTiles) {
+            if (energy > 0 && !t.getMuleType().equals("")) {
+                TileProductionTypes tileThings = t.getTileProduction();
+                String muleType = t.getMuleType();
+                if (muleType.equals("Food")) {
+                    this.addFood(tileThings.getFoodProduction());
+                } else if (muleType.equals("Energy")) {
+                    this.addEnergy(tileThings.getEnergyProduction());
+                } else if (muleType.equals("Ore")) {
+                    this.addOre(tileThings.getOreProduction());
+                }
+            }
+        }
     }
 }

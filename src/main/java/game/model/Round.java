@@ -1,5 +1,6 @@
 package game.model;
 
+import game.model.tile.Tile;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -135,5 +136,15 @@ public class Round {
                 p.addFood(-p.getFood());
             }
         }
+    }
+
+    public void calculateProduction() {
+        for (Player p : orderedPlayers) {
+            p.calculateProduction();
+        }
+    }
+
+    public void addPlayerTile(Tile target) {
+        orderedPlayers[currentPlayer].purchaseTile(target);
     }
 }

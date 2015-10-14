@@ -75,6 +75,7 @@ public class GameInfo implements IModel {
 
     public void setTileOwner(int row, int column, Player owner) {
         myGameMap.getTile(row, column).setOwner(owner);
+        owner.purchaseTile(myGameMap.getTile(row, column));
     }
 
     public String getCurrentPlayerColor() {
@@ -132,7 +133,8 @@ public class GameInfo implements IModel {
     public void resolveRound() {
         store.produceMules();
         round.consumeFood();
-        myGameMap.produceStuff();
+        round.calculateProduction();
+        //myGameMap.produceStuff();
     }
 
     public void performBuySellAction(BuySellAction action) {
