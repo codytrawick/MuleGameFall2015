@@ -33,6 +33,7 @@ public class Round {
         for (int i = 0; i < players.size(); i++) {
             orderedPlayers[i] = players.get(i);
         }
+        RandomEvent.generateEvent(true, roundNumber);
     }
 
     public String currentPlayer() {
@@ -41,6 +42,7 @@ public class Round {
 
     public void nextPlayer() {
         currentPlayer++;
+        RandomEvent.generateEvent(false, roundNumber);
     }
 
     public boolean isOver() {
