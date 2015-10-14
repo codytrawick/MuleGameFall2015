@@ -4,11 +4,11 @@ import game.core.Engine;
 import game.core.GameLogic;
 import game.core.Mule;
 import game.model.IModel;
-import game.view.interfaces.IGameConfiguration;
 import game.view.interfaces.IMainScreen;
 
 /**
- * Created by Cody on 9/29/2015.
+ * This class is a Presenter for the Main Screen
+ * @author The SpecialFX
  */
 public class MainScreenLogic extends GameLogic {
 

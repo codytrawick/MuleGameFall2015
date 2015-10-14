@@ -7,7 +7,8 @@ import game.view.interfaces.IStoreScreen;
 import game.model.IModel;
 
 /**
- * Created by jarredaultman on 10/7/15.
+ * This class is the Presenter for the Store Screen
+ * @author The SpecialFX
  */
 public class StoreLogic extends GameLogic {
 

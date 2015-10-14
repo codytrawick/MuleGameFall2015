@@ -1,8 +1,6 @@
 package game.core;
 
 import game.model.IModel;
-import game.view.GameScreen;
-import game.view.interfaces.IGameConfiguration;
 
 /**
  * This interface represents any object that implements game logic.

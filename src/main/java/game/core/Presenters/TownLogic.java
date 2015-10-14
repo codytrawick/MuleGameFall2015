@@ -5,12 +5,12 @@ import game.core.Mule;
 import game.model.IModel;
 import game.view.interfaces.ITownScreen;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 
 import java.util.Random;
 
 /**
- * Created by Cody on 9/29/2015.
+ * This class is the Presenter for the Town screen
+ * @author The SpeicalFX
  */
 public class TownLogic extends GameLogic {
 

@@ -3,30 +3,17 @@ package game.core.Presenters;
 import game.core.GameLogic;
 import game.core.Mule;
 import game.model.IModel;
-import game.model.Player;
 import game.view.interfaces.IMapScreen;
 import game.view.interfaces.TileSelected;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.util.Duration;
-
-import javafx.scene.control.Label;
-import java.util.ArrayList;
 
 /**
- * Created by Cody on 9/30/2015.
+ * This class is the presenter for the  Map Screen
+ * @author The SpecialFX
  */
 public class MapSceenLogic extends GameLogic {
 
     IMapScreen mapView;
-    private ArrayList<Player> players;
-    private Timeline timeline;
-    private int turnTime;
 
     public MapSceenLogic(IMapScreen mapView, IModel gameModel) {
         super(gameModel);
@@ -50,8 +37,6 @@ public class MapSceenLogic extends GameLogic {
             }
         }
         mapView.setPlayerInfo(gameModel.getPlayers());
-
-        players = gameModel.getPlayers();
 
         mapView.setCurrentPlayer(gameModel.currentPlayer());
 

@@ -3,11 +3,11 @@ package game.core.Presenters;
 import game.core.GameLogic;
 import game.core.Mule;
 import game.model.IModel;
-import game.view.GameScreen;
 import game.view.interfaces.IPlayerConfiguration;
 
 /**
- * Created by Cody on 9/29/2015.
+ * This class is the presenter for the Player Creation Screen
+ * @author The SpecialFX
  */
 public class PlayerCreationLogic extends GameLogic {
     private IPlayerConfiguration playerView;

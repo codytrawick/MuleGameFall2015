@@ -1,5 +1,5 @@
 package game.core.Presenters;
-import game.core.Engine;
+
 import game.core.GameLogic;
 import game.core.Mule;
 import game.model.IModel;
@@ -11,6 +11,10 @@ import game.view.interfaces.TileSelected;
 
 import java.util.ArrayList;
 
+/**
+ * This class is a Presenter for the Land Selection Screen
+ * @author The SpecialFX
+ */
 public class LandSelection extends GameLogic {
 
     private ArrayList<Player> players ;

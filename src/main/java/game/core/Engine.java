@@ -1,17 +1,12 @@
 package game.core;
 
 import game.core.Presenters.*;
-import game.view.GameScreen;
 import game.model.GameInfo;
-import game.view.interfaces.IGameConfiguration;
-import game.view.interfaces.IMainScreen;
-import game.view.interfaces.IPlayerConfiguration;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;

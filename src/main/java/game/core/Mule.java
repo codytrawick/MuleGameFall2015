@@ -51,20 +51,35 @@ public class Mule extends Application {
      */
     @Override
     public void start(Stage primaryStage) {
-        gameEngine.addGameLogic(WELCOME_PAGE, new MainScreenLogic((IMainScreen) loadScreen(WELCOME_PAGE, WELCOME_PAGE_FXML), gameEngine.getGame()));
-        gameEngine.addGameLogic(GAME_CONFIGURATION, new ConfigurationLogic((IGameConfiguration) loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML), gameEngine.getGame()));
-        gameEngine.addGameLogic(PLAYER_CREATION_PAGE, new PlayerCreationLogic((IPlayerConfiguration) loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML), gameEngine.getGame()));
-        gameEngine.addGameLogic(LAND_SELECTION, new LandSelection((ILandSelection) loadScreen(LAND_SELECTION, LAND_SELECTION_FXML), gameEngine.getGame()));
-        gameEngine.addGameLogic(MAP2SCREEN, new MapSceenLogic((IMapScreen) loadScreen(MAP2SCREEN, MAP2FXML), gameEngine.getGame()));
-        gameEngine.addGameLogic(TOWN_SCREEN, new TownLogic((ITownScreen) loadScreen(TOWN_SCREEN, TOWN_SCREEN_FXML), gameEngine.getGame()));
-        gameEngine.addGameLogic(ROUNDSTART, new RoundLogic((ITurnStart) loadScreen(ROUNDSTART, ROUNDSTARTFXML), gameEngine.getGame()));
-        gameEngine.addGameLogic(STORE_SCREEN, new StoreLogic((IStoreScreen) loadScreen(STORE_SCREEN, STORE_SCREEN_FXML), gameEngine.getGame()));
-//        loadScreen(WELCOME_PAGE, WELCOME_PAGE_FXML);
-//        loadScreen(PLAYER_CREATION_PAGE, PLAYER_CREATION_PAGE_FXML);
-//        loadScreen(GAME_CONFIGURATION, GAME_CONFIGURATION_FXML);
-//        loadScreen(MAP_PAGE, MAP_PAGE_FXML);
-//        loadScreen(TOWN_SCREEN, TOWN_SCREEN_FXML);
-//        loadScreen(MAP2SCREEN, MAP2FXML);
+        gameEngine.addGameLogic(WELCOME_PAGE, new MainScreenLogic((IMainScreen)
+                loadScreen(WELCOME_PAGE, WELCOME_PAGE_FXML),
+                gameEngine.getGame()));
+
+        gameEngine.addGameLogic(GAME_CONFIGURATION, new ConfigurationLogic(
+                (IGameConfiguration) loadScreen(GAME_CONFIGURATION,
+                        GAME_CONFIGURATION_FXML), gameEngine.getGame()));
+
+        gameEngine.addGameLogic(PLAYER_CREATION_PAGE, new PlayerCreationLogic(
+                (IPlayerConfiguration) loadScreen(PLAYER_CREATION_PAGE,
+                        PLAYER_CREATION_PAGE_FXML), gameEngine.getGame()));
+
+        gameEngine.addGameLogic(LAND_SELECTION, new LandSelection(
+                (ILandSelection) loadScreen(LAND_SELECTION,
+                        LAND_SELECTION_FXML), gameEngine.getGame()));
+
+        gameEngine.addGameLogic(MAP2SCREEN, new MapSceenLogic((IMapScreen)
+                loadScreen(MAP2SCREEN, MAP2FXML), gameEngine.getGame()));
+
+        gameEngine.addGameLogic(TOWN_SCREEN, new TownLogic((ITownScreen)
+                loadScreen(TOWN_SCREEN, TOWN_SCREEN_FXML),
+                gameEngine.getGame()));
+
+        gameEngine.addGameLogic(ROUNDSTART, new RoundLogic((ITurnStart)
+                loadScreen(ROUNDSTART, ROUNDSTARTFXML), gameEngine.getGame()));
+
+        gameEngine.addGameLogic(STORE_SCREEN, new StoreLogic((IStoreScreen)
+                loadScreen(STORE_SCREEN, STORE_SCREEN_FXML),
+                gameEngine.getGame()));
 
         gameEngine.setCurrentGameLogic(WELCOME_PAGE);
         primaryStage.setTitle("Mule");
@@ -84,27 +99,5 @@ public class Mule extends Application {
             return null;
         }
     }
-
-//    public void loadScreen(GameScreen screen, String fxlmresourceName) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(
-//                    getClass().getResource(fxlmresourceName));
-//            Node loadedScreen = loader.load();
-//            GameScreen targetScene = loader.getController();
-////            targetScene.setEngine(this);
-//            if (name.equals(Mule.GAME_CONFIGURATION)) {
-//                logic.put(Mule.GAME_CONFIGURATION, new ConfigurationLogic((IGameConfiguration) targetScene, game));
-//            } else if (name.equals(Mule.WELCOME_PAGE)) {
-//                logic.put(Mule.WELCOME_PAGE, new MainScreenLogic((IMainScreen) targetScene, game));
-//            } else if (name.equals(Mule.PLAYER_CREATION_PAGE)) {
-//                logic.put(Mule.PLAYER_CREATION_PAGE, new PlayerCreationLogic((IPlayerConfiguration) targetScene, game));
-//            }
-//
-//            controllers.put(name, targetScene);
-//            addScreen(name, loadedScreen);
-//        } catch (java.io.IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
 }

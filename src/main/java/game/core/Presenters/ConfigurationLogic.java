@@ -1,14 +1,12 @@
 package game.core.Presenters;
 
-import game.core.Engine;
 import game.core.GameLogic;
 import game.core.Mule;
 import game.model.IModel;
-import game.view.controllers.GameConfigurationController;
 import game.view.interfaces.IGameConfiguration;
 
 /**
- * Created by Cody on 9/29/2015.
+ * @author The SpecialFX
  */
 public class ConfigurationLogic extends GameLogic {
 
