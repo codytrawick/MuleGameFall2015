@@ -11,6 +11,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class StoreScreenController implements IStoreScreen {
@@ -99,7 +100,7 @@ public class StoreScreenController implements IStoreScreen {
         RadioButton choice = (RadioButton) muleType.getSelectedToggle();
         String type = choice.getText().split(" ")[2];
         action = new BuySellAction("Mule:" + type, true);
-        defaultMule.requestFocus();
+        muleType.selectToggle(defaultMule);
         listener.viewUpdated();
     }
 
@@ -109,14 +110,14 @@ public class StoreScreenController implements IStoreScreen {
     }
 
     public void initializeScreen() {
-
+        muleType.selectToggle(defaultMule);
     }
 
     public void setGameLogic(GameLogic parent) {
         listener = parent;
     }
 
-    public void setStoreAmounts(HashMap<String, Integer> amounts) {
+    public void setStoreAmounts(Map<String, Integer> amounts) {
         muleRemaining.setText(amounts.get("Mules").toString());
         energyRemaining.setText(amounts.get("Energy").toString());
         foodRemaining.setText(amounts.get("Food").toString());
@@ -130,7 +131,7 @@ public class StoreScreenController implements IStoreScreen {
         }
     }
 
-    public void setStorePrices(HashMap<String, Integer> prices) {
+    public void setStorePrices(Map<String, Integer> prices) {
         foodPrice.setText("$" + prices.get("Food").toString());
         energyPrice.setText("$" + prices.get("Energy").toString());
         mulePrice.setText("$" + prices.get("Mule").toString());
@@ -141,7 +142,8 @@ public class StoreScreenController implements IStoreScreen {
     public BuySellAction getBuySellAction() {
         return action;
     }
-    public void setPlayerAmounts(HashMap<String, Integer> amounts) {
+
+    public void setPlayerAmounts(Map<String, Integer> amounts) {
         playerFood.setText(amounts.get("Food").toString());
         playerEnergy.setText(amounts.get("Energy").toString());
         playerOre.setText(amounts.get("Ore").toString());

@@ -2,6 +2,8 @@ package game.model.tile;
 
 import game.model.Player;
 
+import java.util.Map;
+
 /**
  * Created by temp on 9/21/2015.
  */
@@ -31,7 +33,7 @@ public abstract class Tile {
         this.owner = owner;
     }
 
-    public abstract TileProductionTypes getTileProduction();
+    public abstract Map<String, Integer> getTileProduction();
 
     public void setMule(String mule) {
         muleType = mule;

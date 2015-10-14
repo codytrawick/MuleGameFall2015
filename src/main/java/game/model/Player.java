@@ -6,6 +6,7 @@ import game.model.tile.TileProductionTypes;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * This class represents a player. This class will hold the important
@@ -130,6 +131,14 @@ public class Player {
      */
     public void addEnergy(int amount) { this.energy += amount; }
 
+    public void addResource(String type, int amount) {
+        switch (type) {
+            case "Food": food += amount; break;
+            case "Energy": energy += amount; break;
+            case "Ore": ore += amount; break;
+        }
+    }
+
 //    public int getScore() {
 //        return score;
 //    }
@@ -161,15 +170,10 @@ public class Player {
     public void calculateProduction() {
         for (Tile t : ownedTiles) {
             if (energy > 0 && !t.getMuleType().equals("")) {
-                TileProductionTypes tileThings = t.getTileProduction();
+                Map<String, Integer> tileThings = t.getTileProduction();
                 String muleType = t.getMuleType();
-                if (muleType.equals("Food")) {
-                    this.addFood(tileThings.getFoodProduction());
-                } else if (muleType.equals("Energy")) {
-                    this.addEnergy(tileThings.getEnergyProduction());
-                } else if (muleType.equals("Ore")) {
-                    this.addOre(tileThings.getOreProduction());
-                }
+                this.addResource(muleType, tileThings.get(muleType));
+                energy--;
             }
         }
     }
