@@ -3,8 +3,6 @@ package game.core.Presenters;
 import game.core.GameLogic;
 import game.core.Mule;
 import game.model.IModel;
-import game.view.GameScreen;
-import game.view.interfaces.IGameConfiguration;
 import game.view.interfaces.ITurnStart;
 
 /**
@@ -47,7 +45,9 @@ public class RoundLogic extends GameLogic {
             roundNum = 1;
         } else if (turnNumber == gameModel.getPlayerNumber()) {
             gameModel.resolveRound();
-            gameModel.createRound(++roundNum);
+            if (roundNum < 12) {
+                gameModel.createRound(++roundNum);
+            }
             turnNumber = 0;
         } else {
             gameModel.nextPlayer();
@@ -55,6 +55,7 @@ public class RoundLogic extends GameLogic {
         view.setRoundText(String.format("Round #%d", gameModel.getCurrentRound()));
         view.setPlayerName(String.format("%s's Turn", gameModel.currentPlayer()));
         turnNumber++;
+
     }
 
 }
