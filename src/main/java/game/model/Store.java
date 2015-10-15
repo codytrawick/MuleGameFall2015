@@ -1,6 +1,7 @@
 package game.model;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Andrew on 10/7/2015.
@@ -45,34 +46,6 @@ public class Store {
         }
     }
 
-    public void addFood(int num) {
-        foodStock = foodStock + num;
-    }
-
-    public void addEnergy(int num) {
-        energyStock = energyStock + num;
-    }
-
-    public void addOre(int num) {
-        oreStock = oreStock + num;
-    }
-
-    public void removeFood(int num) {
-        foodStock = foodStock - num;
-    }
-
-    public void removeEnergy(int num) {
-        energyStock = energyStock - num;
-    }
-
-    public void removeOre(int num) {
-        oreStock = oreStock - num;
-    }
-
-    public void removeMules(int num) {
-        muleStock = muleStock - num;
-    }
-
     public int getMuleStock() {
         return muleStock;
     }
@@ -89,7 +62,7 @@ public class Store {
         return oreStock;
     }
 
-    public HashMap<String, Integer> getStoreValues() {
+    public Map<String, Integer> getStoreValues() {
         HashMap<String, Integer> output = new HashMap<>();
         output.put("Energy", getEnergyStock());
         output.put("Ore", getOreStock());
@@ -98,7 +71,7 @@ public class Store {
         return output;
     }
 
-    public HashMap<String, Integer> getStorePrices() {
+    public Map<String, Integer> getStorePrices() {
          HashMap<String, Integer> prices = new HashMap<>();
         prices.put("Mule", mulePrice);
         prices.put("Food", foodPrice);
@@ -106,22 +79,6 @@ public class Store {
         prices.put("Ore", orePrice);
         prices.put("Crystite", crystitePrice);
         return prices;
-    }
-
-    public boolean hasFood() {
-        return (foodStock > 0);
-    }
-
-    public boolean hasEnergy() {
-        return (energyStock > 0);
-    }
-
-    public boolean hasOre() {
-        return (oreStock > 0);
-    }
-
-    public boolean hasMules() {
-        return (muleStock > 0);
     }
 
     public boolean hasResource(String resource) {
@@ -160,22 +117,6 @@ public class Store {
         } else if (resource.equals("Mule")) {
             muleStock++;
         }
-    }
-
-    public int foodPrice() {
-        return foodPrice;
-    }
-
-    public int energyPrice() {
-        return energyPrice;
-    }
-
-    public int orePrice() {
-        return orePrice;
-    }
-
-    public int mulePrice() {
-        return mulePrice;
     }
 
     public int resourcePrice(String resource) {

@@ -119,11 +119,11 @@ public class GameInfo implements IModel {
         round.timerStart(turnTime);
     }
 
-    public HashMap<String, Integer> getStoreValues() {
+    public Map<String, Integer> getStoreValues() {
         return store.getStoreValues();
     }
 
-    public HashMap<String, Integer> getStorePrices() {
+    public Map<String, Integer> getStorePrices() {
         return store.getStorePrices();
     }
 

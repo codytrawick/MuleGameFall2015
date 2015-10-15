@@ -1,7 +1,7 @@
 package game.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Cody on 9/29/2015.
@@ -27,9 +27,9 @@ public interface IModel {
     void startTurn(int turnTime);
     String getCurrentPlayerColor();
     //int getPlayerFood();
-    HashMap<String, Integer> getStoreValues();
-    HashMap<String, Integer> getStorePrices();
-    HashMap<String, Integer> getCurPlayerResources();
+    Map<String, Integer> getStoreValues();
+    Map<String, Integer> getStorePrices();
+    Map<String, Integer> getCurPlayerResources();
     void resolveRound();
     String getPlayerMule();
     void placeMule(int x, int y, String mule);

@@ -20,14 +20,13 @@ public class BuySellAction {
      * Performs the action defined by this class's state on the given player.  Returns true if the action executed
      * sucessfully: the player had more than 1 unit of the resource (if selling) or enough money to buy 1 resource
      * (if buying)
-     * @param player
      * @return
-     */
+     *
     public boolean performAction(Player player, HashMap<String, Integer> prices, Store store) {
         int price = prices.get(resourceType);
         if (buy) {
             if (player.spendMoney(price)) {
-                player.addResource(resourceType, /*amount*/0);
+                player.addResource(resourceType, amount);
                 return true;
             } else {
                 return false;
@@ -61,7 +60,7 @@ public class BuySellAction {
                 default: return false;
             }
         }
-    }
+    } */
 
     public String getType() {
         return resourceType;

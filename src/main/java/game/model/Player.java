@@ -170,18 +170,6 @@ public class Player {
         return money >= price;
     }
 
-    public boolean hasFood() {
-        return (food > 0);
-    }
-
-    public boolean hasEnergy() {
-        return (energy > 0);
-    }
-
-    public boolean hasOre() {
-        return (ore > 0);
-    }
-
     public boolean hasResource(String resource) {
         if (resource.equals("Food")) {
             return food > 0;
