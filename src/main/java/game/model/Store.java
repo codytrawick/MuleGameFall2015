@@ -124,6 +124,44 @@ public class Store {
         return (muleStock > 0);
     }
 
+    public boolean hasResource(String resource) {
+        if (resource.equals("Food")) {
+            return foodStock > 0;
+        } else if (resource.equals("Energy")) {
+            return energyStock > 0;
+        } else if (resource.equals("Ore")) {
+            return oreStock > 0;
+        } else if (resource.equals("Mule")) {
+            return muleStock > 0;
+        } else {
+            return false;
+        }
+    }
+
+    public void removeResource(String resource) {
+        if (resource.equals("Food")) {
+            foodStock--;
+        } else if (resource.equals("Energy")) {
+            energyStock--;
+        } else if (resource.equals("Ore")) {
+            oreStock--;
+        } else if (resource.equals("Mule")) {
+            muleStock--;
+        }
+    }
+
+    public void addResource(String resource) {
+        if (resource.equals("Food")) {
+            foodStock++;
+        } else if (resource.equals("Energy")) {
+            energyStock++;
+        } else if (resource.equals("Ore")) {
+            oreStock++;
+        } else if (resource.equals("Mule")) {
+            muleStock++;
+        }
+    }
+
     public int foodPrice() {
         return foodPrice;
     }
@@ -138,5 +176,22 @@ public class Store {
 
     public int mulePrice() {
         return mulePrice;
+    }
+
+    public int resourcePrice(String resource) {
+        switch (resource) {
+            case "Food": return foodPrice;
+            case "Energy": return energyPrice;
+            case "Ore": return orePrice;
+        }
+
+        if (resource.substring(0, 5).equals("Mule:")) {
+            switch (resource.substring(5)) {
+                case "Food": return mulePrice + 25;
+                case "Energy": return mulePrice + 50;
+                case "Ore": return mulePrice + 75;
+            }
+        }
+        return 0;
     }
 }

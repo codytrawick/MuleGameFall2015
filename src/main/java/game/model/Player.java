@@ -182,6 +182,18 @@ public class Player {
         return (ore > 0);
     }
 
+    public boolean hasResource(String resource) {
+        if (resource.equals("Food")) {
+            return food > 0;
+        } else if (resource.equals("Energy")) {
+            return energy > 0;
+        } else if (resource.equals("Ore")) {
+            return ore > 0;
+        } else {
+            return false;
+        }
+    }
+
     public void calculateProduction() {
         for (Tile t : ownedTiles) {
             if (energy > 0 && !t.getMuleType().equals("")) {

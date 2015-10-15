@@ -27,7 +27,7 @@ public class BuySellAction {
         int price = prices.get(resourceType);
         if (buy) {
             if (player.spendMoney(price)) {
-                player.addResource(resourceType, amount);
+                player.addResource(resourceType, /*amount*/0);
                 return true;
             } else {
                 return false;

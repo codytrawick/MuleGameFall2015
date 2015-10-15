@@ -40,6 +40,10 @@ public class Round {
         return orderedPlayers[currentPlayer].toString();
     }
 
+    public boolean hasResource(String resource) {
+        return orderedPlayers[currentPlayer].hasResource(resource);
+    }
+
     public void nextPlayer() {
         currentPlayer++;
         //RandomEvent.generateEvent(false, roundNumber);
@@ -161,6 +165,18 @@ public class Round {
                 p.addResource("Food", -p.getFood());
             }
         }
+    }
+
+    public void setMule(String target) {
+        orderedPlayers[currentPlayer].setMule(target);
+    }
+
+    public boolean canAfford(int amount) {
+        return orderedPlayers[currentPlayer].canAfford(amount);
+    }
+
+    public void addResource(String resource, int amount) {
+        orderedPlayers[currentPlayer].addResource(resource, amount);
     }
 
     public void calculateProduction() {

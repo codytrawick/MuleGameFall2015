@@ -2,6 +2,7 @@ package game.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class holds the information that's important for the game to run
@@ -142,64 +143,27 @@ public class GameInfo implements IModel {
     }
 
     public void performBuySellAction(BuySellAction action) {
-        //round.performBuySellAction(action, store);
-        //make interface called Sellable, have Food, Energy, and Ore implement it?
-        Player player = round.getActualPlayerObjectRemoveLater();
-        HashMap<String, Integer> prices = store.getStorePrices();
-        int foodPrice = prices.get("Food");
-        int energyPrice = prices.get("Energy");
-        int orePrice = prices.get("Ore");
-        int muleBase = prices.get("Mule");
+        String actionType = action.getType();
+        int resourcePrice = store.resourcePrice(actionType);
         if (action.buying()) {
-            if (action.getType().equals("Food")) {
-                if (store.hasFood() && player.canAfford(foodPrice)) {
-                    player.spendMoney(foodPrice);
-                    player.addFood(1);
-                    store.removeFood(1);
+            if (actionType.length() > 5 && actionType.substring(0, 5).equals("Mule:")) {
+                String muleType = actionType.substring(5);
+                if (store.hasResource("Mule") && round.canAfford(resourcePrice)) {
+                    round.giveMoney(-resourcePrice);
+                    round.setMule(muleType);
+                    store.removeResource("Mule");
                 }
-            } else if (action.getType().equals("Energy")) {
-                if (store.hasEnergy() && player.canAfford(energyPrice)) {
-                    player.spendMoney(energyPrice);
-                    player.addEnergy(1);
-                    store.removeEnergy(1);
-                }
-            } else if (action.getType().equals("Ore")) {
-                if (store.hasOre() && player.canAfford(orePrice)) {
-                    player.spendMoney(orePrice);
-                    player.addOre(1);
-                    store.removeOre(1);
-                }
-            } else {
-                if (action.getType().substring(0, 5).equals("Mule:")) {
-                    String muleType = action.getType().substring(5);
-                    int mulePrice = muleBase;
-                    if (muleType.equals("Food")) {
-                        mulePrice = muleBase + 25;
-                    } else if (muleType.equals("Energy")) {
-                        mulePrice = muleBase + 50;
-                    } else if (muleType.equals("Ore")) {
-                        mulePrice = muleBase + 75;
-                    }
-                    if (store.hasMules() && player.canAfford(mulePrice)) {
-                        player.spendMoney(mulePrice);
-                        player.setMule(muleType);
-                        store.removeMules(1);
-                    }
-                }
+            } else if (store.hasResource(actionType) &&
+                    round.canAfford(resourcePrice)) {
+                round.giveMoney(-resourcePrice);
+                round.addResource(actionType, 1);
+                store.removeResource(actionType);
             }
         } else {
-            if (action.getType().equals("Food") && player.hasFood()) {
-                player.earnMoney(foodPrice);
-                player.addFood(-1);
-                store.addFood(1);
-            } else if (action.getType().equals("Energy") && player.hasEnergy()) {
-                player.earnMoney(energyPrice);
-                player.addEnergy(-1);
-                store.addEnergy(1);
-            } else if (action.getType().equals("Ore") && player.hasOre()) {
-                player.earnMoney(orePrice);
-                player.addOre(-1);
-                store.addOre(1);
+            if (round.hasResource(action.getType())) {
+                round.giveMoney(resourcePrice);
+                round.addResource(action.getType(), -1);
+                store.addResource(action.getType());
             }
         }
     }
