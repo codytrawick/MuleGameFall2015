@@ -13,7 +13,7 @@ public class TurnStartController implements ITurnStart {
     private RoundLogic listener;
 
     @FXML
-    private Label roundNumberLabel, playerTurnLabel;
+    private Label roundNumberLabel, playerTurnLabel, randomEventText, pubMoneyText;
 
     @FXML
     private Button startButton;
@@ -25,6 +25,14 @@ public class TurnStartController implements ITurnStart {
 
     public void setPlayerName(String name) {
         playerTurnLabel.setText(name);
+    }
+
+    public void setRandomEventText(String name) {
+        randomEventText.setText(name);
+    }
+
+    public void setPubMoney(String amount) {
+        pubMoneyText.setText(amount);
     }
 
     public void setRoundText(String newText) {

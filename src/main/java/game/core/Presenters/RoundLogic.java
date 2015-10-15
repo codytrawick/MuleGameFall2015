@@ -54,6 +54,7 @@ public class RoundLogic extends GameLogic {
         }
         view.setRoundText(String.format("Round #%d", gameModel.getCurrentRound()));
         view.setPlayerName(String.format("%s's Turn", gameModel.currentPlayer()));
+        view.setRandomEventText(gameModel.performRandomEvent());
         turnNumber++;
 
     }

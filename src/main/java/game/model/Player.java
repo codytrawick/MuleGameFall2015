@@ -136,6 +136,7 @@ public class Player {
             case "Food": food += amount; break;
             case "Energy": energy += amount; break;
             case "Ore": ore += amount; break;
+            case "Money": money += amount; break;
         }
     }
 

@@ -6,38 +6,55 @@ public class RandomEvent {
 
     private static Random rng = new Random();
     private static String[] goodEvents = new String[] {
-            "YOU JUST RECEIVED A PACKAGE FROM THE GT ALUMNI CONTAINING 3 FOOD AND 2 ENERGY UNITS.&FOOD~3&ENERGY~2",
-            "A WANDERING TECH STUDENT REPAID YOUR HOSPITALITY BY LEAVING 2 BARS OF ORE.&ORE~2",
-            "THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL COMPUTER FOR $[8~m].&MONEY~8*m",
-            "YOU FOUND A DEAD MOOSE RAT AND SOLD THE HIDE FOR $[2*m].&MONEY~8*m"
+            "YOU JUST RECEIVED A PACKAGE FROM THE GT ALUMNI CONTAINING 3 FOOD AND 2 ENERGY UNITS.&Food~3&Energy~2",
+            "A WANDERING TECH STUDENT REPAID YOUR HOSPITALITY BY LEAVING 2 BARS OF ORE.&Ore~2",
+            "THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL COMPUTER FOR $%d.&Money~%+d+8",
+            "YOU FOUND A DEAD MOOSE RAT AND SOLD THE HIDE FOR $%d.&Money~%+d+2"
     };
     private static String[] allEvents = new String[] {
-            "YOU JUST RECEIVED A PACKAGE FROM THE GT ALUMNI CONTAINING 3 FOOD AND 2 ENERGY UNITS.&FOOD~3&ENERGY~2",
-            "A WANDERING TECH STUDENT REPAID YOUR HOSPITALITY BY LEAVING 2 BARS OF ORE.&ORE~2",
-            "THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL COMPUTER FOR $[8~m].&MONEY~8*m",
-            "YOU FOUND A DEAD MOOSE RAT AND SOLD THE HIDE FOR $[2*m].&MONEY~8*m",
-            "FLYING CAT-BUGS ATE THE ROOF OFF YOUR HOUSE. REPAIRS COST $[4*m].&MONEY~-4*m",
-            "MISCHIEVOUS UGA STUDENTS BROKE INTO YOUR STORAGE SHED AND STOLE HALF YOUR FOOD.&FOOD~f/2",
-            "YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $[6*m] TO CLEAN IT UP.&MONEY~6*m"
+            "YOU JUST RECEIVED A PACKAGE FROM THE GT ALUMNI CONTAINING 3 FOOD AND 2 ENERGY UNITS.&Food~3&Energy~2",
+            "A WANDERING TECH STUDENT REPAID YOUR HOSPITALITY BY LEAVING 2 BARS OF ORE.&Ore~2",
+            "THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL COMPUTER FOR $%d.&Money~%+d+8",
+            "YOU FOUND A DEAD MOOSE RAT AND SOLD THE HIDE FOR $%d.&Money~%+d+2",
+            "FLYING CAT-BUGS ATE THE ROOF OFF YOUR HOUSE. REPAIRS COST $%d.&Money~%+d-4",
+            "MISCHIEVOUS UGA STUDENTS BROKE INTO YOUR STORAGE SHED AND STOLE HALF YOUR FOOD.&Food~f/2",
+            "YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $%d TO CLEAN IT UP.&Money~%+d-6"
     };
 
-    static void generateEvent(boolean isLast, int m) {
+    static String generateEvent(boolean isLast, int m) {
+        String output;
         if (isLast) {
-            generateGoodEvent();
+            output = generateGoodEvent();
         } else {
-            generateAnyEvent();
+            output = generateAnyEvent();
+        }
+        return parseEvent(output, m);
+    }
+
+    private static String generateGoodEvent() {
+        if (rng.nextInt(100) < 99) {
+            return goodEvents[rng.nextInt(goodEvents.length)];
+        } else {
+            return "None";
         }
     }
 
-    private static void generateGoodEvent() {
+    private static String generateAnyEvent() {
         if (rng.nextInt(100) < 27) {
-            System.out.println(goodEvents[rng.nextInt(goodEvents.length)]);
+            return allEvents[rng.nextInt(allEvents.length)];
+        } else {
+            return "None";
         }
     }
 
-    private static void generateAnyEvent() {
-        if (rng.nextInt(100) < 27) {
-            System.out.println(allEvents[rng.nextInt(allEvents.length)]);
+    private static String parseEvent(String event, int round) {
+        if (event.contains("$")) {
+            int multiplier = Integer.parseInt(event.substring(event.length() - 2));
+
+            event = event.substring(0, event.length() - 2);
+            return String.format(event, round * multiplier, round * multiplier);
+        } else {
+            return event;
         }
     }
 }

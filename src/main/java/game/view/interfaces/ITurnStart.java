@@ -8,5 +8,7 @@ import game.view.GameScreen;
 public interface ITurnStart extends GameScreen {
     void setRoundText(String text);
     void setPlayerName(String name);
+    void setRandomEventText(String name);
+    void setPubMoney(String amount);
 
 }

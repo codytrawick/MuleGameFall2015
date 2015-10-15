@@ -33,7 +33,7 @@ public class Round {
         for (int i = 0; i < players.size(); i++) {
             orderedPlayers[i] = players.get(i);
         }
-        RandomEvent.generateEvent(true, roundNumber);
+        //RandomEvent.generateEvent(true, roundNumber);
     }
 
     public String currentPlayer() {
@@ -42,7 +42,22 @@ public class Round {
 
     public void nextPlayer() {
         currentPlayer++;
-        RandomEvent.generateEvent(false, roundNumber);
+        //RandomEvent.generateEvent(false, roundNumber);
+    }
+
+    public String performRandomEvent() {
+        String randEvent = RandomEvent.generateEvent(currentPlayer == 0,
+                ((roundNumber / 4) + 1) * 25);
+        if (randEvent.equals("None")) {
+            return "No events took place this turn.";
+        } else {
+            System.out.println(randEvent.substring(randEvent.indexOf("&") + 1));
+            String[] eventOutcomes = randEvent.substring(randEvent.indexOf("&") + 1).split("&");
+            for (String event: eventOutcomes) {
+                orderedPlayers[currentPlayer].addResource(event.split("~")[0], Integer.parseInt(event.split("~")[1]));
+            }
+            return randEvent.substring(0, randEvent.indexOf("."));
+        }
     }
 
     public boolean isOver() {

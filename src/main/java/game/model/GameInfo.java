@@ -137,6 +137,10 @@ public class GameInfo implements IModel {
         //myGameMap.produceStuff();
     }
 
+    public String performRandomEvent() {
+        return round.performRandomEvent();
+    }
+
     public void performBuySellAction(BuySellAction action) {
         //round.performBuySellAction(action, store);
         //make interface called Sellable, have Food, Energy, and Ore implement it?

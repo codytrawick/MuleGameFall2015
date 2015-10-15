@@ -20,6 +20,8 @@
                   <Font size="36.0" />
                </font>
             </Label>
+            <Label fx:id="randomEventText" alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="500.0" text="Random Event" textAlignment="CENTER" />
+            <Label fx:id="pubMoneyText" alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="500.0" textAlignment="CENTER" />
          </children>
       </VBox>
    </center>

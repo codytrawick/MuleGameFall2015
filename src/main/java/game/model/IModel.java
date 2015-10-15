@@ -34,4 +34,5 @@ public interface IModel {
     String getPlayerMule();
     void placeMule(int x, int y, String mule);
     void performBuySellAction(BuySellAction action);
+    String performRandomEvent();
 }
