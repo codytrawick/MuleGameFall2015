@@ -27,14 +27,7 @@ public class BuySellAction {
         int price = prices.get(resourceType);
         if (buy) {
             if (player.spendMoney(price)) {
-                switch (resourceType) {
-                    case "Food":
-                        player.addFood(1); break;
-                    case "Ore":
-                        player.addOre(1); break;
-                    case "Energy":
-                        player.addEnergy(1); break;
-                }
+                player.addResource(resourceType, amount);
                 return true;
             } else {
                 return false;

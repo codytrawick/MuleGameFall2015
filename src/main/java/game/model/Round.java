@@ -156,9 +156,9 @@ public class Round {
         int foodReq = 3 + roundNumber / 4;
         for (Player p: orderedPlayers) {
             if (p.getFood() > foodReq) {
-                p.addFood(-foodReq);
+                p.addResource("Food", -foodReq);
             } else {
-                p.addFood(-p.getFood());
+                p.addResource("Food", -p.getFood());
             }
         }
     }
