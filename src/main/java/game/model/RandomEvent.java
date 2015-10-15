@@ -16,8 +16,8 @@ public class RandomEvent {
             "A WANDERING TECH STUDENT REPAID YOUR HOSPITALITY BY LEAVING 2 BARS OF ORE.&Ore~2",
             "THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL COMPUTER FOR $%d.&Money~%+d+8",
             "YOU FOUND A DEAD MOOSE RAT AND SOLD THE HIDE FOR $%d.&Money~%+d+2",
-            "FLYING CAT-BUGS ATE THE ROOF OFF YOUR HOUSE. REPAIRS COST $%d.&Money~%+d-4",
-            "MISCHIEVOUS UGA STUDENTS BROKE INTO YOUR STORAGE SHED AND STOLE HALF YOUR FOOD.&Food~f/2",
+            "FLYING CAT-BUGS ATE THE ROOF OFF YOUR HOUSE! REPAIRS COST $%d.&Money~%+d-4",
+            "MISCHIEVOUS UGA STUDENTS BROKE INTO YOUR STORAGE SHED AND STOLE HALF YOUR FOOD.&Food~/2",
             "YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $%d TO CLEAN IT UP.&Money~%+d-6"
     };
 
@@ -32,7 +32,7 @@ public class RandomEvent {
     }
 
     private static String generateGoodEvent() {
-        if (rng.nextInt(100) < 99) {
+        if (rng.nextInt(100) < 27) {
             return goodEvents[rng.nextInt(goodEvents.length)];
         } else {
             return "None";

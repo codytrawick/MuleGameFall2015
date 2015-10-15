@@ -131,6 +131,20 @@ public class Player {
      */
     public void addEnergy(int amount) { this.energy += amount; }
 
+    public int getResource(String type) {
+        if (type.equals("Food")) {
+            return food;
+        } else if (type.equals("Energy")) {
+            return energy;
+        } else if (type.equals("Ore")) {
+            return ore;
+        } else if (type.equals("Money")) {
+            return money;
+        } else {
+            return 0;
+        }
+    }
+
     public void addResource(String type, int amount) {
         switch (type) {
             case "Food": food += amount; break;

@@ -51,12 +51,20 @@ public class Round {
         if (randEvent.equals("None")) {
             return "No events took place this turn.";
         } else {
-            System.out.println(randEvent.substring(randEvent.indexOf("&") + 1));
+            //System.out.println(randEvent.substring(randEvent.indexOf("&") + 1));
             String[] eventOutcomes = randEvent.substring(randEvent.indexOf("&") + 1).split("&");
             for (String event: eventOutcomes) {
-                orderedPlayers[currentPlayer].addResource(event.split("~")[0], Integer.parseInt(event.split("~")[1]));
+                String[] instructions = event.split("~");
+                int change;
+                if (instructions[1].contains("/")) {
+                    change = - orderedPlayers[currentPlayer]
+                            .getResource(instructions[0]) / 2;
+                } else {
+                    change = Integer.parseInt(instructions[1]);
+                }
+                orderedPlayers[currentPlayer].addResource(instructions[0], change);
             }
-            return randEvent.substring(0, randEvent.indexOf("."));
+            return randEvent.substring(0, randEvent.indexOf("&"));
         }
     }
 
