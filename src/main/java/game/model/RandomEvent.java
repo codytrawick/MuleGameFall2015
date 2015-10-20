@@ -2,7 +2,11 @@ package game.model;
 
 import java.util.Random;
 
-public class RandomEvent {
+public final class RandomEvent {
+
+    private RandomEvent() {
+
+    }
 
     private static Random rng = new Random();
     private static String[] goodEvents = new String[] {
@@ -51,8 +55,8 @@ public class RandomEvent {
         if (event.contains("$")) {
             int multiplier = Integer.parseInt(event.substring(event.length() - 2));
 
-            event = event.substring(0, event.length() - 2);
-            return String.format(event, round * multiplier, round * multiplier);
+            String eventText = event.substring(0, event.length() - 2);
+            return String.format(eventText, round * multiplier, round * multiplier);
         } else {
             return event;
         }

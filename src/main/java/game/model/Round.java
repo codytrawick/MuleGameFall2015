@@ -56,7 +56,7 @@ public class Round {
             return "No events took place this turn.";
         } else {
             //System.out.println(randEvent.substring(randEvent.indexOf("&") + 1));
-            String[] eventOutcomes = randEvent.substring(randEvent.indexOf("&") + 1).split("&");
+            String[] eventOutcomes = randEvent.substring(randEvent.indexOf('&') + 1).split("&");
             for (String event: eventOutcomes) {
                 String[] instructions = event.split("~");
                 int change;
@@ -68,7 +68,7 @@ public class Round {
                 }
                 orderedPlayers[currentPlayer].addResource(instructions[0], change);
             }
-            return randEvent.substring(0, randEvent.indexOf("&"));
+            return randEvent.substring(0, randEvent.indexOf('&'));
         }
     }
 
