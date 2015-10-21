@@ -119,9 +119,7 @@ public class Round {
     public int getTimeElapsed() {
 
         int size = timer.getKeyFrames().size();
-        int seconds = (int) timer.getKeyFrames().get(size - 1).getTime().toSeconds();
-        System.out.println(seconds + " seconds have passed");
-        return seconds;
+        return (int) timer.getKeyFrames().get(size - 1).getTime().toSeconds();
     }
 
     public int getTimeRemaining() {

@@ -1,14 +1,11 @@
 package game.view.controllers;
 
-import game.core.Presenters.LandSelection;
 import game.core.Presenters.PlayerCreationLogic;
 import game.core.*;
-import game.model.Player;
 import game.view.interfaces.IPlayerConfiguration;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -18,7 +15,6 @@ import java.util.List;
 public class PlayerCreationController implements IPlayerConfiguration {
 
     Engine gameEngine;
-    private int currentPlayer = 1;
     private PlayerCreationLogic listener;
 
     @FXML
@@ -32,12 +28,6 @@ public class PlayerCreationController implements IPlayerConfiguration {
 
     @FXML
     private ToggleGroup colorChoice;
-
-    @FXML
-    private Button confirmButton;
-
-    @FXML
-    private Button quitButton;
 
     @FXML
     private Toggle defaultRace;

@@ -1,9 +1,5 @@
 package game.model;
 
-import game.model.Player;
-
-import java.util.HashMap;
-
 /**
  * Created by matthew38 on 10/7/15.
  */

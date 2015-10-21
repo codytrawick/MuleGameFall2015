@@ -4,7 +4,6 @@ import game.model.Player;
 import game.view.GameScreen;
 
 import javafx.beans.property.IntegerProperty;
-import javafx.scene.control.Label;
 import java.util.ArrayList;
 
 /**

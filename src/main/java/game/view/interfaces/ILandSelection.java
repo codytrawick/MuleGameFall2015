@@ -1,7 +1,6 @@
 package game.view.interfaces;
 
 import game.view.GameScreen;
-import javafx.geometry.Point2D;
 
 
 /**

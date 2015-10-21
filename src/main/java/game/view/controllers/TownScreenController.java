@@ -2,24 +2,16 @@ package game.view.controllers;
 
 
 import game.core.GameLogic;
-import game.core.Presenters.TownLogic;
-import game.view.GameScreen;
-import game.core.Engine;
-import game.core.Mule;
 import game.view.interfaces.ITownScreen;
 import javafx.beans.property.IntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class TownScreenController implements ITownScreen {
 
     private GameLogic listener;
     private String target;
-
-    @FXML
-    private Button landOffice, assayOffice, store, returnButton, pub;
 
     @FXML
     private Label timeLeft;

@@ -5,7 +5,6 @@ import game.core.Presenters.RoundLogic;
 import game.view.interfaces.ITurnStart;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class TurnStartController implements ITurnStart {
@@ -14,9 +13,6 @@ public class TurnStartController implements ITurnStart {
 
     @FXML
     private Label roundNumberLabel, playerTurnLabel, randomEventText, pubMoneyText;
-
-    @FXML
-    private Button startButton;
 
     @FXML
     void buttonClick(ActionEvent event) {

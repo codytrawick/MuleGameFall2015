@@ -2,12 +2,10 @@ package game.view.controllers;
 
 import game.core.GameLogic;
 import game.core.Engine;
-import game.core.Mule;
 import game.core.Presenters.MainScreenLogic;
 import game.view.interfaces.IMainScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
 
 public class MainScreenController implements IMainScreen {
@@ -16,9 +14,6 @@ public class MainScreenController implements IMainScreen {
     MainScreenLogic logic;
 
     //FXML Elements
-
-    @FXML
-    private Button startButton, quitButton;
 
     /**
      * This method changes the screen to the Game Configuration Screen

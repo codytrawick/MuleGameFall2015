@@ -2,7 +2,6 @@ package game.view.controllers;
 
 import game.core.GameLogic;
 import game.core.Presenters.LandSelection;
-import game.core.Engine;
 import game.view.interfaces.ILandSelection;
 import game.view.interfaces.TileSelected;
 import javafx.fxml.FXML;
@@ -24,8 +23,6 @@ import java.util.HashMap;
  */
 public class LandSelectionController implements ILandSelection {
 
-    // GameScreen instance variables
-    private Engine gameEngine;
     //This map will match the type of tiles to an image that corresponds to it
     HashMap<String, Image> tileArt = new HashMap<>();
     private TileSelected lastClick;
@@ -132,10 +129,6 @@ public class LandSelectionController implements ILandSelection {
 //    public void removePassButton() {
 //        passButton.setDisable(true);
 //    }
-
-    public void setEngine(Engine parent) {
-        gameEngine = parent;
-    }
 
     public void setGameLogic(GameLogic parent) {
         listener = (LandSelection) parent;

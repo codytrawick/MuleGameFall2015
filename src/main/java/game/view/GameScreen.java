@@ -1,6 +1,5 @@
 package game.view;
 
-import game.core.Engine;
 import game.core.GameLogic;
 
 /**

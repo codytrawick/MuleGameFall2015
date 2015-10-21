@@ -10,30 +10,24 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
-import java.util.HashMap;
 import java.util.Map;
 
 
 public class StoreScreenController implements IStoreScreen {
 
     private GameLogic listener;
-    private String target;
     private BuySellAction action;
 
     @FXML
     private Label energyRemaining, foodRemaining, muleRemaining, smithoreRemaining,
-            crystiteRemaining, foodPrice, energyPrice, mulePrice, orePrice, crystitePrice,
+            crystiteRemaining, foodPrice, energyPrice, mulePrice, orePrice,
             playerFood, playerEnergy, playerOre;
 
     @FXML
-    private Button buySmithoreButton, buyMuleButton, buyEnergyButton, buyCrystiteButton,
-            buyFoodButton;
+    private Button buyCrystiteButton;
 
     @FXML
-    private Button sellCrystiteButton, sellEnergyButton, sellFoodButton, sellSmithoreButton;
-
-    @FXML
-    private Button returnToTown;
+    private Button sellCrystiteButton;
 
     @FXML
     private ToggleGroup muleType;
