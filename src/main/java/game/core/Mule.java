@@ -95,7 +95,6 @@ public class Mule extends Application {
             gameEngine.addScreen(name, loadedScreen);
             return loader.getController();
         } catch (java.io.IOException e) {
-            e.printStackTrace();
             return null;
         }
     }

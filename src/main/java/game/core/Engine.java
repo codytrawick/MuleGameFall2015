@@ -12,6 +12,7 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class represents our Game Engine. The Game Engine manages screens in the
@@ -23,13 +24,13 @@ import java.util.HashMap;
  */
 public class Engine extends StackPane {
     //The game Engine has a single game reference
-    GameInfo game = new GameInfo();
-    GameLogic currentGameLogic;
+    private GameInfo game = new GameInfo();
+    private GameLogic currentGameLogic;
 
     //The Game Engine has references to the screens and their controllers
-    private HashMap<String, Node> gameScreens = new HashMap<>();
+    private Map<String, Node> gameScreens = new HashMap<>();
 //    private HashMap<String, GameScreen> controllers = new HashMap<>();
-    private HashMap<String, GameLogic> logic = new HashMap<>();
+    private Map<String, GameLogic> logic = new HashMap<>();
 
     /**
      * This method adds a loaded screen to our game.
@@ -55,8 +56,6 @@ public class Engine extends StackPane {
                 getChildren().add(0, gameScreens.get(name));
                 gameScreens.get(name);
             }
-        } else {
-            System.out.print("Problem setting screen");
         }
     }
 
@@ -71,10 +70,10 @@ public class Engine extends StackPane {
     /**
      * This method sets the engine's game. Used for creating a new game
      * or loading an old game
-     * @param game The new game for the engine
+     * @param newGame The new game for the engine
      */
-    public void setGame(GameInfo game) {
-        this.game = game;
+    public void setGame(GameInfo newGame) {
+        this.game = newGame;
     }
 
     public void addGameLogic(String name, GameLogic newThing) {

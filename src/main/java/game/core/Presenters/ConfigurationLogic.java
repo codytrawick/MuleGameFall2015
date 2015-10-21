@@ -12,9 +12,9 @@ public class ConfigurationLogic extends GameLogic {
 
     private IGameConfiguration configView;
 
-    public ConfigurationLogic(IGameConfiguration configView, IModel gameModel) {
+    public ConfigurationLogic(IGameConfiguration iGameConfiguration, IModel gameModel) {
         super(gameModel);
-        this.configView = configView;
+        this.configView = iGameConfiguration;
 
         this.configView.setGameLogic(this);
     }

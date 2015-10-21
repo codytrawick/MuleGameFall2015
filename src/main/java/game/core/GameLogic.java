@@ -26,5 +26,9 @@ public abstract class GameLogic {
         gameEngine = parent;
     }
 
+    public void updateModel(IModel newGameModel) {
+        gameModel = newGameModel;
+    }
+
     public abstract void primeScreen();
 }

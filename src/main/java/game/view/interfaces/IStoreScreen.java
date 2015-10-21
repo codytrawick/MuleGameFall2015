@@ -10,8 +10,7 @@ import java.util.Map;
  */
 public interface IStoreScreen extends GameScreen {
     void setStoreAmounts(Map<String, Integer> amounts);
-
-    public BuySellAction getBuySellAction();
+    BuySellAction getBuySellAction();
     void setStorePrices(Map<String, Integer> prices);
     void setPlayerAmounts(Map<String, Integer> amounts);
 }

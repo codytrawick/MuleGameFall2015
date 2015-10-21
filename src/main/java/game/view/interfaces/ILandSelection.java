@@ -8,8 +8,8 @@ import javafx.geometry.Point2D;
  * Created by Cody on 9/29/2015.
  */
 public interface ILandSelection extends GameScreen {
-    public TileSelected lastTileClicked();
-    public void setTerrain(int row, int column, String terrain);
-    public void setPlayerText(String newText);
-    public void addTileElement(String type, String color, int row, int column);
+    TileSelected lastTileClicked();
+    void setTerrain(int row, int column, String terrain);
+    void setPlayerText(String newText);
+    void addTileElement(String type, String color, int row, int column);
 }

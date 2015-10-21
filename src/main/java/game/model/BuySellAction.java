@@ -11,8 +11,8 @@ public class BuySellAction {
     private String resourceType;
     private boolean buy;
 
-    public BuySellAction(String type, boolean buy) {
-        this.buy = buy;
+    public BuySellAction(String type, boolean buyBoolean) {
+        this.buy = buyBoolean;
         this.resourceType = type;
     }
 

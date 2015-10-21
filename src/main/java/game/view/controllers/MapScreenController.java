@@ -55,16 +55,6 @@ public class MapScreenController implements IMapScreen {
     @FXML
     private Label currentRoundNumber, timeRemaining;
 
-    @FXML
-    private Button row0col0, row0col1, row0col2, row0col3, row0col4, row0col5,
-            row0col6, row0col7, row0col8, row1col0, row1col1, row1col2,
-            row1col3, row1col4, row1col5, row1col6, row1col7, row1col8,
-            row2col0, row2col1, row2col2, row2col3, row2col4, row2col5,
-            row2col6, row2col7, row2col8, row3col0, row3col1, row3col2,
-            row3col3, row3col4, row3col5, row3col6, row3col7, row3col8,
-            row4col0, row4col1, row4col2, row4col3, row4col4, row4col5,
-            row4col6, row4col7, row4col8;
-
     /**
      * This method is called whenever a tile is clicked.
      * Currently it prints out the tile's coordinates and the Tile Type from
@@ -137,12 +127,9 @@ public class MapScreenController implements IMapScreen {
             moneyLabel.setText("");
         }
 
-        timeRemaining.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
-                if (Integer.parseInt(timeRemaining.getText()) == 0) {
-                    listener.timeExpired();
-                }
+        timeRemaining.textProperty().addListener((ov, t, t1) -> {
+            if (Integer.parseInt(timeRemaining.getText()) == 0) {
+                listener.timeExpired();
             }
         });
     }

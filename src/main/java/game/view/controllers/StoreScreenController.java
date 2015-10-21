@@ -122,9 +122,9 @@ public class StoreScreenController implements IStoreScreen {
         energyRemaining.setText(amounts.get("Energy").toString());
         foodRemaining.setText(amounts.get("Food").toString());
         smithoreRemaining.setText(amounts.get("Ore").toString());
-        try {
+        if (amounts.get("Crystite") != null) {
             crystiteRemaining.setText(amounts.get("Crystie").toString());
-        } catch (NullPointerException e) {
+        } else {
             crystiteRemaining.setText("0");
             buyCrystiteButton.setDisable(true);
             sellCrystiteButton.setDisable(true);

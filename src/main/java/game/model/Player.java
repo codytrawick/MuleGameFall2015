@@ -1,7 +1,6 @@
 package game.model;
 
 import game.model.tile.Tile;
-import game.model.tile.TileProductionTypes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,14 +23,16 @@ public class Player {
     private int food;
     private int energy;
     private int ore;
-    private int score;
     private List<Tile> ownedTiles = new ArrayList<>();
     private String mule;
 
-    public Player(String name, String color, String race) {
-        this.name = name;
-        this.color = color;
-        this.race = race;
+    private String foodLiteral = "Food", energyLiteral = "Energy", oreLiteral =
+            "Ore";
+
+    public Player(String newName, String newColor, String newRace) {
+        this.name = newName;
+        this.color = newColor;
+        this.race = newRace;
         if (race.equals("Humanoid")) {
             money = 600;
         } else if (race.equals("Flapper")) {
@@ -39,7 +40,6 @@ public class Player {
         } else {
             money = 1000;
         }
-        score = 0;
         food = 8;
         energy = 8;
         mule = "";
@@ -102,8 +102,8 @@ public class Player {
         return mule;
     }
 
-    public void setMule(String mule) {
-        this.mule = mule;
+    public void setMule(String newMule) {
+        this.mule = newMule;
     }
 
     //public void setFood(int food) { this.food += food; }
@@ -132,11 +132,11 @@ public class Player {
     public void addEnergy(int amount) { this.energy += amount; }
 
     public int getResource(String type) {
-        if (type.equals("Food")) {
+        if (type.equals(foodLiteral)) {
             return food;
-        } else if (type.equals("Energy")) {
+        } else if (type.equals(energyLiteral)) {
             return energy;
-        } else if (type.equals("Ore")) {
+        } else if (type.equals(oreLiteral)) {
             return ore;
         } else if (type.equals("Money")) {
             return money;
@@ -158,11 +158,11 @@ public class Player {
 //        return score;
 //    }
 
-    public HashMap<String, Integer> getResources() {
+    public Map<String, Integer> getResources() {
         HashMap<String, Integer> amounts = new HashMap<>();
-        amounts.put("Food", food);
-        amounts.put("Energy", energy);
-        amounts.put("Ore", ore);
+        amounts.put(foodLiteral, food);
+        amounts.put(energyLiteral, energy);
+        amounts.put(oreLiteral, ore);
         return amounts;
     }
 
@@ -171,11 +171,11 @@ public class Player {
     }
 
     public boolean hasResource(String resource) {
-        if (resource.equals("Food")) {
+        if (resource.equals(foodLiteral)) {
             return food > 0;
-        } else if (resource.equals("Energy")) {
+        } else if (resource.equals(energyLiteral)) {
             return energy > 0;
-        } else if (resource.equals("Ore")) {
+        } else if (resource.equals(oreLiteral)) {
             return ore > 0;
         } else {
             return false;
