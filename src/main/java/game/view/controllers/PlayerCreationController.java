@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerCreationController implements IPlayerConfiguration {
 
@@ -53,7 +54,7 @@ public class PlayerCreationController implements IPlayerConfiguration {
     @FXML
     private RadioButton yellowColor;
 
-    private ArrayList<RadioButton> colorButtons = new ArrayList<RadioButton>();
+    private List<RadioButton> colorButtons = new ArrayList<>();
 
     @FXML
     void checkValues(ActionEvent event) {

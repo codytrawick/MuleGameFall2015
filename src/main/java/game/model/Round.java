@@ -24,7 +24,12 @@ public class Round {
     public Round(int roundNumber, ArrayList<Player> players) {
         this.roundNumber = roundNumber;
         orderedPlayers = new Player[players.size()];
-        players.sort((o1, o2) -> o1.getScore() - o2.getScore());
+        players.sort(new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return o1.getScore() - o2.getScore();
+            }
+        });
         for (int i = 0; i < players.size(); i++) {
             orderedPlayers[i] = players.get(i);
         }
