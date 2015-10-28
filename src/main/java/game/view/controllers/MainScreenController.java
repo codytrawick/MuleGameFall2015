@@ -24,6 +24,11 @@ public class MainScreenController implements IMainScreen {
         logic.viewUpdated();
     }
 
+    @FXML
+    void loadGame(ActionEvent event) {
+        logic.loadGame();
+    }
+
     /**
      * This method quits the game and closes the window
      * @param event The required event parameter

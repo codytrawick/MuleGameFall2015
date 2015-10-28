@@ -19,6 +19,8 @@
             <Pane opacity="0.75" prefHeight="50.0" prefWidth="200.0" visible="false" />
         <Button fx:id="startButton" mnemonicParsing="false" onAction="#startGame" prefWidth="100.0" text="Start Game" />
             <Pane prefHeight="25.0" prefWidth="200.0" />
+            <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadGame" prefWidth="100.0" text="Load Game" />
+            <Pane prefHeight="25.0" prefWidth="200.0" />
         <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quitGame" prefWidth="100.0" text="Quit Game" />
          </children>
       </VBox>
