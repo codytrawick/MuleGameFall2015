@@ -26,9 +26,10 @@
       </VBox>
    </center>
    <bottom>
-      <Pane BorderPane.alignment="CENTER_RIGHT">
+      <Pane prefHeight="124.0" prefWidth="900.0" BorderPane.alignment="CENTER_RIGHT">
          <children>
             <Button fx:id="startButton" alignment="CENTER" layoutX="430.0" layoutY="2.0" mnemonicParsing="false" onAction="#buttonClick" text="Start" />
+            <Button fx:id="saveButton" layoutX="413.0" layoutY="41.0" mnemonicParsing="false" onAction="#saveButtonClick" text="Save Game" />
          </children>
          <padding>
             <Insets bottom="100.0" />

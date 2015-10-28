@@ -59,4 +59,10 @@ public class RoundLogic extends GameLogic {
 
     }
 
+    public void saveGame() {
+        //Put saving method in here!
+        //Seriously, put it in here.
+        //TODO: Put things in here. Do it. Now.
+    }
+
 }

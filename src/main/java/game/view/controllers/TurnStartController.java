@@ -19,6 +19,11 @@ public class TurnStartController implements ITurnStart {
         listener.viewUpdated();
     }
 
+    @FXML
+    void saveButtonClick(ActionEvent event) {
+        listener.saveGame();
+    }
+
     public void setPlayerName(String name) {
         playerTurnLabel.setText(name);
     }
