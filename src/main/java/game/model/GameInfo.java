@@ -171,7 +171,11 @@ public class GameInfo implements IModel {
         return round.getPlayerMule();
     }
 
-    public void placeMule(int x, int y, String mule) {
-        myGameMap.placeMule(x, y, mule);
+    public void placeMule(int x, int y) {
+        String tileOwner = getTileOwner(x, y);
+        String muleType = getPlayerMule();
+        if (!muleType.equals("") && tileOwner.equals(getCurrentPlayerColor())) {
+            myGameMap.placeMule(x, y, muleType);
+        }
     }
 }

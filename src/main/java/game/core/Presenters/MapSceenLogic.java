@@ -48,12 +48,7 @@ public class MapSceenLogic extends GameLogic {
         if (playerClick.getX() == 2 && playerClick.getY() == 4) {
             gameEngine.setCurrentGameLogic(Mule.TOWN_SCREEN);
         } else {
-            String tileOwner = gameModel.getTileOwner(playerClick.getX(), playerClick.getY());
-            String muleType = gameModel.getPlayerMule();
-            if (!muleType.equals("") && tileOwner.equals(gameModel.getCurrentPlayerColor())) {
-                gameModel.placeMule(playerClick.getX(), playerClick.getY(), muleType);
-
-            }
+            gameModel.placeMule(playerClick.getX(), playerClick.getY());
             primeScreen();
         }
     }

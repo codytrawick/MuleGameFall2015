@@ -32,7 +32,7 @@ public interface IModel {
     Map<String, Integer> getCurPlayerResources();
     void resolveRound();
     String getPlayerMule();
-    void placeMule(int x, int y, String mule);
+    void placeMule(int x, int y);
     void performBuySellAction(BuySellAction action);
     String performRandomEvent();
 }
