@@ -31,4 +31,8 @@ public abstract class GameLogic {
     }
 
     public abstract void primeScreen();
+
+    public void setModel(IModel newModel) {
+        gameModel = newModel;
+    }
 }

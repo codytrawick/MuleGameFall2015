@@ -36,6 +36,8 @@ public class MainScreenLogic extends GameLogic {
 
     public void loadGame() {
         //TODO: Add loadGame method functionality
+        gameEngine.loadGame();
+        gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
     }
 
     public void primeScreen() {

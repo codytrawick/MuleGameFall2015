@@ -19,6 +19,7 @@ import javafx.util.Duration;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * This class represents our Game Engine. The Game Engine manages screens in the
@@ -80,6 +81,9 @@ public class Engine extends StackPane {
      */
     public void setGame(GameInfo newGame) {
         this.game = newGame;
+        for (GameLogic gameLogic : logic.values()) {
+            gameLogic.setModel(newGame);
+        }
     }
 
     public void addGameLogic(String name, GameLogic newThing) {
@@ -132,10 +136,26 @@ public class Engine extends StackPane {
 //                }
 //            }).create();
             Gson gs = new Gson();
-            PrintStream printStream = new PrintStream(new File("gameSave.json"));
+            PrintStream printStream = new PrintStream(new File(saveName));
             printStream.print(gs.toJson(game));
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static final String saveName = "gameSave.json";
+
+    public boolean loadGame() {
+        try {
+            Scanner scanner = new Scanner(new File(saveName));
+            String gameString = scanner.nextLine();
+            Gson gson = new Gson();
+            GameInfo newGame = gson.fromJson(gameString, GameInfo.class);
+            setGame(newGame);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }
