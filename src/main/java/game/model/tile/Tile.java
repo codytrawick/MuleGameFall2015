@@ -2,12 +2,13 @@ package game.model.tile;
 
 import game.model.Player;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
  * Created by temp on 9/21/2015.
  */
-public abstract class Tile {
+public class Tile implements Serializable {
 
     private String prodType;
     private String muleType = "";
@@ -33,7 +34,10 @@ public abstract class Tile {
         this.ownerColor = owner.getColor();
     }
 
-    public abstract Map<String, Integer> getTileProduction();
+    public Map<String, Integer> getTileProduction() {
+        //Placeholder method
+        return null;
+    }
 
     public void setMule(String mule) {
         muleType = mule;

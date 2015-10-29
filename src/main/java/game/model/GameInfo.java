@@ -15,7 +15,7 @@ import java.util.Map;
 public class GameInfo implements IModel, Serializable {
 
     private int numPlayers;
-    private ArrayList<Player> players;
+    private ArrayList<Player> playerList;
     private String mapType;
     private String difficulty;
     private GameMap myGameMap;
@@ -25,7 +25,7 @@ public class GameInfo implements IModel, Serializable {
     private Store store;
 
     public ArrayList<Player> getPlayers() {
-        return players;
+        return playerList;
     }
 
     public int getPlayerNumber() {
@@ -34,7 +34,7 @@ public class GameInfo implements IModel, Serializable {
 
     public void setPlayerNumber(int numPlayers) {
         this.numPlayers = numPlayers;
-        players = new ArrayList<>(4);
+        playerList = new ArrayList<>(4);
     }
 
     public GameMap getMyGameMap() {
@@ -58,7 +58,7 @@ public class GameInfo implements IModel, Serializable {
     }
 
     public void createNewPlayer(String name, String color, String race) {
-        players.add(new Player(name, color, race));
+        playerList.add(new Player(name, color, race));
     }
 
     public String getTileTerrain(int row, int column) {
@@ -92,7 +92,7 @@ public class GameInfo implements IModel, Serializable {
     }
 
     public void createRound(int number) {
-        round = new Round(number, players);
+        round = new Round(number, playerList);
     }
 
     public int getCurrentRound() {
