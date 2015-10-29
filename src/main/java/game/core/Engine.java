@@ -1,12 +1,8 @@
 package game.core;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import game.core.Presenters.*;
 import game.model.GameInfo;
+import game.model.IModel;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -31,7 +27,7 @@ import java.util.Scanner;
  */
 public class Engine extends StackPane {
     //The game Engine has a single game reference
-    private GameInfo game = new GameInfo();
+    private IModel game = new GameInfo();
     private GameLogic currentGameLogic;
 
     //The Game Engine has references to the screens and their controllers
@@ -70,7 +66,7 @@ public class Engine extends StackPane {
      * This method returns the engine's game
      * @return The game associated with the engine
      */
-    public GameInfo getGame() {
+    public IModel getGame() {
         return game;
     }
 
@@ -135,23 +131,27 @@ public class Engine extends StackPane {
 //                    return null;
 //                }
 //            }).create();
-            Gson gs = new Gson();
-            PrintStream printStream = new PrintStream(new File(saveName));
-            printStream.print(gs.toJson(game));
+//            Gson gs = new Gson();
+//            PrintStream printStream = new PrintStream(new File(saveName));
+//            printStream.print(gs.toJson(game));
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(saveName));
+            objectOutputStream.writeObject(game);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static final String saveName = "gameSave.json";
+    private static final String saveName = "gameSave.bin";
 
     public boolean loadGame() {
         try {
-            Scanner scanner = new Scanner(new File(saveName));
-            String gameString = scanner.nextLine();
-            Gson gson = new Gson();
-            GameInfo newGame = gson.fromJson(gameString, GameInfo.class);
-            setGame(newGame);
+//            Scanner scanner = new Scanner(new File(saveName));
+//            String gameString = scanner.nextLine();
+//            Gson gson = new Gson();
+//            GameInfo newGame = gson.fromJson(gameString, GameInfo.class);
+//            setGame(newGame);
+            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(saveName));
+            setGame((GameInfo) inputStream.readObject());
             return true;
         } catch (Exception e) {
             e.printStackTrace();
