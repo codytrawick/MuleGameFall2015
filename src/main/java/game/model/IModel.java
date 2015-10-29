@@ -9,6 +9,7 @@ import java.util.Map;
  */
 public interface IModel {
     int getPlayerNumber();
+    int getCurrentPlayerNumber();
     void setPlayerNumber(int number);
     void setMapType(String mapType);
     void setDifficulty(String difficulty);

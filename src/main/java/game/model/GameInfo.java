@@ -32,6 +32,10 @@ public class GameInfo implements IModel, Serializable {
         return numPlayers;
     }
 
+    public int getCurrentPlayerNumber() {
+        return round.getCurrentPlayerNumber();
+    }
+
     public void setPlayerNumber(int numPlayers) {
         this.numPlayers = numPlayers;
         playerList = new ArrayList<>(4);
@@ -96,6 +100,9 @@ public class GameInfo implements IModel, Serializable {
     }
 
     public int getCurrentRound() {
+        if (round == null) {
+            return 0;
+        }
         return round.getNumber();
     }
 

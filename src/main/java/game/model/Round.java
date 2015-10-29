@@ -50,6 +50,10 @@ public class Round implements Serializable {
         //RandomEvent.generateEvent(false, roundNumber);
     }
 
+    public int getCurrentPlayerNumber() {
+        return currentPlayer;
+    }
+
     public String performRandomEvent() {
         String randEvent = RandomEvent.generateEvent(currentPlayer == 0,
                 ((roundNumber / 4) + 1) * 25);
