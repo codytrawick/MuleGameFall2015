@@ -1,12 +1,13 @@
 package game.model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by Andrew on 10/7/2015.
  */
-public class Store {
+public class Store implements Serializable {
 
     private int muleStock;
     private int foodStock;

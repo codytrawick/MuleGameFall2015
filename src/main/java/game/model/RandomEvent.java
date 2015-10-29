@@ -1,8 +1,9 @@
 package game.model;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public final class RandomEvent {
+public final class RandomEvent implements Serializable {
 
     private RandomEvent() {
 

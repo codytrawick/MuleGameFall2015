@@ -8,6 +8,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.util.Duration;
 
+import java.io.Serializable;
 import java.util.*;
 
 
@@ -15,7 +16,7 @@ import java.util.*;
  * This class represents a round
  * @author The SpecialFX
  */
-public class Round {
+public class Round implements Serializable {
     private Player[] orderedPlayers;
     private int currentPlayer;
     private int roundNumber;

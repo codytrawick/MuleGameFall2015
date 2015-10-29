@@ -1,6 +1,10 @@
 package game.core;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import game.core.Presenters.*;
 import game.model.GameInfo;
 import javafx.animation.KeyFrame;
@@ -112,6 +116,21 @@ public class Engine extends StackPane {
 
     public void saveGame() {
         try {
+//            Gson gs = new GsonBuilder().registerTypeAdapter(GameInfo.class, new TypeAdapter<GameInfo>() {
+//                @Override
+//                public void write(JsonWriter out, GameInfo value) throws IOException {
+//                    if (value == null) {
+//                        out.nullValue();
+//                        return;
+//                    }
+//                    out.value(value.toString());
+//                }
+//
+//                @Override
+//                public GameInfo read(JsonReader in) throws IOException {
+//                    return null;
+//                }
+//            }).create();
             Gson gs = new Gson();
             PrintStream printStream = new PrintStream(new File("gameSave.json"));
             printStream.print(gs.toJson(game));

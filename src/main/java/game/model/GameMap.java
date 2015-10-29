@@ -2,6 +2,7 @@ package game.model;
 
 import game.model.tile.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,7 +11,7 @@ import java.util.Random;
  * @author The SpecialFX
  * @version 1.0
  */
-public class GameMap {
+public class GameMap implements Serializable {
 
     private Tile[][] gameMap;
 

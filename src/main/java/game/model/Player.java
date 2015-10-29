@@ -2,6 +2,7 @@ package game.model;
 
 import game.model.tile.Tile;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
  * @author The SpecialFX
  * @version 1.0
  */
-public class Player {
+public class Player implements Serializable {
 
     private String name;
     private String color;

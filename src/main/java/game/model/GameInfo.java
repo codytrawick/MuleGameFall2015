@@ -1,5 +1,6 @@
 package game.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ import java.util.Map;
  * @author The SpecialFX
  * @version 1.0
  */
-public class GameInfo implements IModel {
+public class GameInfo implements IModel, Serializable {
 
     private int numPlayers;
     private ArrayList<Player> players;
@@ -65,8 +66,8 @@ public class GameInfo implements IModel {
     }
 
     public String getTileOwner(int row, int column) {
-        Player owner = myGameMap.getTile(row, column).getOwner();
-        return owner != null ? owner.getColor() : "None";
+        String owner = myGameMap.getTile(row, column).getOwner();
+        return owner != null ? owner : "None";
     }
 
     public String getTileMule(int row, int column) {

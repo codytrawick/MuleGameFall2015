@@ -12,7 +12,7 @@ public abstract class Tile {
     private String prodType;
     private String muleType = "";
     private boolean ownedStatus;
-    private Player owner;
+    private String ownerColor;
     private int production;
 
     public Tile() {
@@ -30,7 +30,7 @@ public abstract class Tile {
 
     public void setOwner(Player owner) {
         ownedStatus = true;
-        this.owner = owner;
+        this.ownerColor = owner.getColor();
     }
 
     public abstract Map<String, Integer> getTileProduction();
@@ -43,8 +43,8 @@ public abstract class Tile {
         return muleType;
     }
 
-    public Player getOwner() {
-        return owner;
+    public String getOwner() {
+        return ownerColor;
     }
 
     public boolean isOwned() {
