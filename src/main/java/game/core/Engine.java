@@ -1,5 +1,6 @@
 package game.core;
 
+import com.google.gson.Gson;
 import game.core.Presenters.*;
 import game.model.GameInfo;
 import javafx.animation.KeyFrame;
@@ -11,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -106,5 +108,15 @@ public class Engine extends StackPane {
 
     public boolean betweenTurns() {
         return currentGameLogic instanceof RoundLogic;
+    }
+
+    public void saveGame() {
+        try {
+            Gson gs = new Gson();
+            PrintStream printStream = new PrintStream(new File("gameSave.json"));
+            printStream.print(gs.toJson(game));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
