@@ -42,13 +42,12 @@ public class RoundLogic extends GameLogic {
     public void primeScreen() {
         if (gameModel.getCurrentRound() == 0) {
             gameModel.createRound(1);
-
-        } else if (gameModel.getCurrentPlayerNumber() == gameModel.getPlayerNumber()) {
+            roundNum++;
+        } else if (gameModel.getCurrentPlayerNumber() + 1 == gameModel.getPlayerNumber()) {
             gameModel.resolveRound();
             if (gameModel.getCurrentRound() < 12) {
                 gameModel.createRound(++roundNum);
             }
-
         } else {
             gameModel.nextPlayer();
         }
