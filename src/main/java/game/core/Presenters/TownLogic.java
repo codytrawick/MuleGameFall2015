@@ -44,6 +44,7 @@ public class TownLogic extends GameLogic {
 
             int totalBonus = roundBonus + timeBonus;
             gameModel.giveMoney(totalBonus);
+            gameModel.nextPlayer();
             gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
 
         } else if (townView.getTargetLocation().equals("Store")) {

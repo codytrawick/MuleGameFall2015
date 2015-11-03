@@ -24,6 +24,7 @@ public interface IModel {
     int currentPlayerTime();
     void createRound(int number);
     int getCurrentRound();
+    boolean isRoundOver();
     //Round getRound();
     void giveMoney(int money);
     void startTurn(int turnTime);

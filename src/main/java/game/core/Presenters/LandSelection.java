@@ -87,6 +87,7 @@ public class LandSelection extends GameLogic {
 //        gameEngine.setScreen(Mule.MAP2SCREEN);
 //        gameEngine.setCurrentGameLogic(new RoundLogic(gameEngine, 1));
 //        view.removePassButton();
+        gameModel.createRound(1);
         gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
     }
 

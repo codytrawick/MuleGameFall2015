@@ -78,7 +78,7 @@ public class Round implements Serializable {
     }
 
     public boolean isOver() {
-        return currentPlayer == orderedPlayers.length;
+        return currentPlayer + 1 == orderedPlayers.length;
     }
 
     public int getNumber() {

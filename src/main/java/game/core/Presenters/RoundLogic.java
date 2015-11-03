@@ -40,17 +40,17 @@ public class RoundLogic extends GameLogic {
     }
 
     public void primeScreen() {
-        if (gameModel.getCurrentRound() == 0) {
-            gameModel.createRound(1);
-            roundNum++;
-        } else if (gameModel.getCurrentPlayerNumber() + 1 == gameModel.getPlayerNumber()) {
-            gameModel.resolveRound();
-            if (gameModel.getCurrentRound() < 12) {
-                gameModel.createRound(++roundNum);
-            }
-        } else {
-            gameModel.nextPlayer();
-        }
+//        if (gameModel.getCurrentRound() == 0) {
+//            gameModel.createRound(1);
+//            roundNum++;
+//        } else if (gameModel.getCurrentPlayerNumber() + 1 == gameModel.getPlayerNumber()) {
+//            gameModel.resolveRound();
+//            if (gameModel.getCurrentRound() < 12) {
+//                gameModel.createRound(++roundNum);
+//            }
+//        } else {
+//            gameModel.nextPlayer();
+//        }
         view.setRoundText(String.format("Round #%d", gameModel.getCurrentRound()));
         view.setPlayerName(String.format("%s's Turn", gameModel.currentPlayer()));
         view.setRandomEventText(gameModel.performRandomEvent());

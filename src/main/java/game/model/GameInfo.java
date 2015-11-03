@@ -111,7 +111,12 @@ public class GameInfo implements IModel, Serializable {
     }
 
     public void nextPlayer() {
-        round.nextPlayer();
+        if (round.isOver()) {
+            resolveRound();
+            createRound(round.getNumber() + 1);
+        } else {
+            round.nextPlayer();
+        }
     }
 
     public Round getRound() {
@@ -136,6 +141,10 @@ public class GameInfo implements IModel, Serializable {
 
     public Map<String, Integer> getCurPlayerResources() {
         return round.getCurPlayerResources();
+    }
+
+    public boolean isRoundOver() {
+        return round.isOver();
     }
 
     public void resolveRound() {
