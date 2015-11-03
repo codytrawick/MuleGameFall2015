@@ -10,5 +10,6 @@ public interface ITurnStart extends GameScreen {
     void setPlayerName(String name);
     void setRandomEventText(String name);
     void setPubMoney(String amount);
+    void setSaveButton(boolean status);
 
 }

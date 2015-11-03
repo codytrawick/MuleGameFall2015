@@ -4,6 +4,8 @@ import game.core.GameLogic;
 import game.core.Mule;
 import game.model.IModel;
 import game.view.interfaces.ITurnStart;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 /**
  * This controls the logic for a round
@@ -16,6 +18,8 @@ public class RoundLogic extends GameLogic {
     private int roundNum;
     private int turnNumber;
     private ITurnStart view;
+    @FXML
+    private Button saveButton;
 
 //    public RoundLogic(Engine gameEngine, int roundNum) {
 //        this.gameEngine = gameEngine;
@@ -51,6 +55,8 @@ public class RoundLogic extends GameLogic {
 //        } else {
 //            gameModel.nextPlayer();
 //        }
+        view.setSaveButton(gameModel.getCurrentPlayerNumber() != 0);
+
         view.setRoundText(String.format("Round #%d", gameModel.getCurrentRound()));
         view.setPlayerName(String.format("%s's Turn", gameModel.currentPlayer()));
         view.setRandomEventText(gameModel.performRandomEvent());
@@ -59,9 +65,6 @@ public class RoundLogic extends GameLogic {
     }
 
     public void saveGame() {
-        //Put saving method in here!
-        //Seriously, put it in here.
-        //TODO: Put things in here. Do it. Now.
         gameEngine.saveGame();
     }
 

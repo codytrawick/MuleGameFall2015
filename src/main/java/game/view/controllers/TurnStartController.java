@@ -5,10 +5,12 @@ import game.core.Presenters.RoundLogic;
 import game.view.interfaces.ITurnStart;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class TurnStartController implements ITurnStart {
 
+    public Button saveButton;
     private RoundLogic listener;
 
     @FXML
@@ -38,6 +40,10 @@ public class TurnStartController implements ITurnStart {
 
     public void setRoundText(String newText) {
         roundNumberLabel.setText(newText);
+    }
+
+    public void setSaveButton(boolean status) {
+        saveButton.setDisable(status);
     }
 
     public void initializeScreen() {
