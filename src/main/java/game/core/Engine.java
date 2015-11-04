@@ -116,24 +116,6 @@ public class Engine extends StackPane {
 
     public void saveGame() {
         try {
-//            Gson gs = new GsonBuilder().registerTypeAdapter(GameInfo.class, new TypeAdapter<GameInfo>() {
-//                @Override
-//                public void write(JsonWriter out, GameInfo value) throws IOException {
-//                    if (value == null) {
-//                        out.nullValue();
-//                        return;
-//                    }
-//                    out.value(value.toString());
-//                }
-//
-//                @Override
-//                public GameInfo read(JsonReader in) throws IOException {
-//                    return null;
-//                }
-//            }).create();
-//            Gson gs = new Gson();
-//            PrintStream printStream = new PrintStream(new File(saveName));
-//            printStream.print(gs.toJson(game));
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(SAVENAME));
             objectOutputStream.writeObject(game);
         } catch (IOException e) {
@@ -145,11 +127,6 @@ public class Engine extends StackPane {
 
     public boolean loadGame() {
         try {
-//            Scanner scanner = new Scanner(new File(saveName));
-//            String gameString = scanner.nextLine();
-//            Gson gson = new Gson();
-//            GameInfo newGame = gson.fromJson(gameString, GameInfo.class);
-//            setGame(newGame);
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(SAVENAME));
             setGame((GameInfo) inputStream.readObject());
             return true;
