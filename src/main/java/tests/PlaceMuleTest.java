@@ -3,11 +3,9 @@ package tests;
 import game.model.GameInfo;
 import game.model.GameMap;
 import game.model.Player;
-import game.model.tile.Plain;
 import game.model.tile.Tile;
 import org.junit.Before;
 import org.junit.Test;
-import sun.misc.MessageUtils;
 
 import static org.junit.Assert.assertEquals;
 
