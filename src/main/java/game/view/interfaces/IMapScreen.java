@@ -5,6 +5,7 @@ import game.view.GameScreen;
 
 import javafx.beans.property.IntegerProperty;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Cody on 9/30/2015.
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 public interface IMapScreen extends GameScreen {
     TileSelected lastTileClicked();
     void addTileElement(String type, String color, int row, int column);
-    void setPlayerInfo(ArrayList<Player> players);
+    void setPlayerInfo(List<Player> players);
     void setTile(String terrain, String owner, String mule, int row, int column);
     void setRoundNumber(int newNum);
     void setCurrentPlayer(String player);

@@ -2,6 +2,7 @@ package game.core.Presenters;
 
 import game.core.GameLogic;
 import game.core.Mule;
+import game.model.GameMap;
 import game.model.IModel;
 import game.view.GameScreen;
 import game.view.controllers.LandSelectionController;
@@ -10,6 +11,7 @@ import game.view.interfaces.ILandSelection;
 import game.view.interfaces.TileSelected;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class is a Presenter for the Land Selection Screen
@@ -17,11 +19,13 @@ import java.util.ArrayList;
  */
 public class LandSelection extends GameLogic {
 
-    private ArrayList<Player> players ;
+    private List<Player> players ;
     private int roundNum = 0;
     private int playerNum = 0;
     private boolean passStreak = true;
     private ILandSelection view;
+
+    public static final int LANDPRICE = 300;
 
 
 //    public LandSelection(Engine gameEngine) {
@@ -102,7 +106,7 @@ public class LandSelection extends GameLogic {
                         players.get(playerNum));
                 passStreak = false;
                 nextPlayer();
-            } else if (players.get(playerNum).spendMoney(300)) {
+            } else if (players.get(playerNum).spendMoney(LANDPRICE)) {
                 view.addTileElement("Owner", players.get(playerNum).getColor(),
                         target.getX(), target.getY());
                 gameModel.setTileOwner(target.getX(), target.getY(),
@@ -118,9 +122,9 @@ public class LandSelection extends GameLogic {
     }
 
     public void primeScreen() {
-        for (int row = 0, col = 0; row < 5; col++) {
+        for (int row = 0, col = 0; row < GameMap.MAPHEIGHT; col++) {
             view.setTerrain(row, col, gameModel.getTileTerrain(row, col));
-            if (col == 8) {
+            if (col == GameMap.MAPWIDTH - 1) {
                 row++;
                 col = -1;
             }

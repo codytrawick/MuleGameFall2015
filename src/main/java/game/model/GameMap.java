@@ -15,6 +15,9 @@ public class GameMap implements Serializable {
 
     private Tile[][] gameMap;
 
+    public static final int MAPWIDTH = 9;
+    public static final int MAPHEIGHT = 5;
+
 //    public GameMap() {
 //        this("Standard");
 //    }
@@ -34,11 +37,11 @@ public class GameMap implements Serializable {
             };
         } else {
             Random mapGen = new Random();
-            gameMap = new Tile[5][9];
+            gameMap = new Tile[MAPHEIGHT][MAPWIDTH];
             for (int i = 0; i < gameMap.length; i++) {
                 for (int j = 0; j < gameMap[i].length; j++) {
-                    if (j == 4) {
-                        if (i == 2) {
+                    if (j == 4) { //Town Location
+                        if (i == 2) { //Town location
                             gameMap[i][j] = new Town();
                         } else {
                             gameMap[i][j] = new River();
@@ -49,25 +52,25 @@ public class GameMap implements Serializable {
                 }
             }
 
-            ArrayList<Tile> leftHills = new ArrayList<>(5);
+            ArrayList<Tile> leftHills = new ArrayList<>(MAPHEIGHT);
             leftHills.add(new Mountain1());
             leftHills.add(new Mountain1());
             leftHills.add(new Mountain2());
             leftHills.add(new Mountain2());
             leftHills.add(new Mountain3());
-            ArrayList<Tile> rightHills = new ArrayList<>(5);
+            ArrayList<Tile> rightHills = new ArrayList<>(MAPHEIGHT);
             rightHills.addAll(leftHills);
             int leftTile;
             int leftType;
             int rightTile;
             int rightType;
             for (int i = 0; i < gameMap.length; i++) {
-                leftTile = mapGen.nextInt(4);
+                leftTile = mapGen.nextInt(MAPWIDTH / 2);
                 leftType = mapGen.nextInt(leftHills.size());
-                rightTile = mapGen.nextInt(4);
+                rightTile = mapGen.nextInt(MAPWIDTH / 2);
                 rightType = mapGen.nextInt(rightHills.size());
                 gameMap[i][leftTile] = leftHills.remove(leftType);
-                gameMap[i][rightTile + 5] = rightHills.remove(rightType);
+                gameMap[i][rightTile + MAPWIDTH / 2 + 1] = rightHills.remove(rightType);
             }
         }
     }

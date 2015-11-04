@@ -16,6 +16,7 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 /**
  * This class represents our Game Engine. The Game Engine manages screens in the
@@ -120,7 +121,7 @@ public class Engine extends StackPane {
             objectOutputStream.writeObject(game);
             objectOutputStream.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            //Oops
         }
     }
 
@@ -133,7 +134,6 @@ public class Engine extends StackPane {
             inputStream.close();
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
             return false;
         }
     }

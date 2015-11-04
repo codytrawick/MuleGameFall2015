@@ -22,7 +22,7 @@ public class Round implements Serializable {
     private int roundNumber;
     private Timeline timer;
 
-    public Round(int roundNumber, ArrayList<Player> players) {
+    public Round(int roundNumber, List<Player> players) {
         this.roundNumber = roundNumber;
         orderedPlayers = new Player[players.size()];
         players.sort(new Comparator<Player>() {

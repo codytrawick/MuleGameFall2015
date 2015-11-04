@@ -2,6 +2,7 @@ package game.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Map;
 public class GameInfo implements IModel, Serializable {
 
     private int numPlayers;
-    private ArrayList<Player> playerList;
+    private List<Player> playerList;
     private String mapType;
     private String difficulty;
     private GameMap myGameMap;
@@ -24,7 +25,7 @@ public class GameInfo implements IModel, Serializable {
     private Round round;
     private Store store;
 
-    public ArrayList<Player> getPlayers() {
+    public List<Player> getPlayers() {
         return playerList;
     }
 
@@ -38,7 +39,7 @@ public class GameInfo implements IModel, Serializable {
 
     public void setPlayerNumber(int numPlayers) {
         this.numPlayers = numPlayers;
-        playerList = new ArrayList<>(4);
+        playerList = new ArrayList<>(4); //Number of players
     }
 
     public GameMap getMyGameMap() {
@@ -162,7 +163,7 @@ public class GameInfo implements IModel, Serializable {
         String actionType = action.getType();
         int resourcePrice = store.resourcePrice(actionType);
         if (action.buying()) {
-            if (actionType.length() > 5 && actionType.substring(0, 5).equals("Mule:")) {
+            if (actionType.length() > 5 && actionType.substring(0, 5).equals("Mule:")) { //Size of the word "Mule:"
                 String muleType = actionType.substring(5);
                 if (store.hasResource("Mule") && round.canAfford(resourcePrice)) {
                     round.giveMoney(-resourcePrice);

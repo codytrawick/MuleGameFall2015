@@ -20,6 +20,7 @@ import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * This controller handles the information on the Game Map
@@ -47,9 +48,9 @@ public class MapScreenController implements IMapScreen {
             playerThreeName, playerThreeMoney, playerFourName, playerFourMoney,
             playerOneFood, playerTwoFood, playerThreeFood, playerFourFood;
 
-    private ArrayList<Label> nameLabels = new ArrayList<>();
-    private ArrayList<Label> money = new ArrayList<>();
-    private ArrayList<Label> food = new ArrayList<>();
+    private List<Label> nameLabels = new ArrayList<>();
+    private List<Label> money = new ArrayList<>();
+    private List<Label> food = new ArrayList<>();
 
 
     @FXML
@@ -174,7 +175,7 @@ public class MapScreenController implements IMapScreen {
         } */
     }
 
-    public void setPlayerInfo(ArrayList<Player> players) {
+    public void setPlayerInfo(List<Player> players) {
         for (int i = 0; i < players.size(); i++) {
             nameLabels.get(i).setText(players.get(i).getName());
             money.get(i).setText(String.format("$%d", players.get(i).getMoney()));

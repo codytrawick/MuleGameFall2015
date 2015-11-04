@@ -14,11 +14,11 @@ public class Store implements Serializable {
     private int energyStock;
     private int oreStock;
 
-    private int mulePrice = 100;
-    private int foodPrice = 30;
-    private int energyPrice = 25;
-    private int orePrice = 50;
-    private int crystitePrice = 100;
+    private static final int mulePrice = 100;
+    private static final int foodPrice = 30;
+    private static final int energyPrice = 25;
+    private static final int orePrice = 50;
+    private static final int crystitePrice = 100;
 
 
     public Store(String difficulty) {
@@ -127,7 +127,7 @@ public class Store implements Serializable {
             case "Ore": return orePrice;
         }
 
-        if (resource.substring(0, 5).equals("Mule:")) {
+        if (resource.substring(0, 5).equals("Mule:")) { //Size of "Mule:"
             switch (resource.substring(5)) {
                 case "Food": return mulePrice + 25;
                 case "Energy": return mulePrice + 50;

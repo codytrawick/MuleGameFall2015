@@ -2,6 +2,7 @@ package game.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,7 +15,7 @@ public interface IModel {
     void setMapType(String mapType);
     void setDifficulty(String difficulty);
     void createNewPlayer(String name, String color, String race);
-    ArrayList<Player> getPlayers();
+    List<Player> getPlayers();
     String getTileTerrain(int row, int column);
     String getTileOwner(int row, int column);
     String getTileMule(int row, int column);

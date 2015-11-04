@@ -2,6 +2,7 @@ package game.view.controllers;
 
 import game.core.GameLogic;
 import game.core.Presenters.LandSelection;
+import game.model.GameMap;
 import game.view.interfaces.ILandSelection;
 import game.view.interfaces.TileSelected;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.layout.StackPane;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This controller handles the information on the Game Map
@@ -24,7 +26,7 @@ import java.util.HashMap;
 public class LandSelectionController implements ILandSelection {
 
     //This map will match the type of tiles to an image that corresponds to it
-    HashMap<String, Image> tileArt = new HashMap<>();
+    Map<String, Image> tileArt = new HashMap<>();
     private TileSelected lastClick;
     private LandSelection listener;
 
@@ -53,9 +55,9 @@ public class LandSelectionController implements ILandSelection {
      */
     @FXML
     void onClickOnTile(ActionEvent event) {
-        int row = event.getTarget().toString().charAt(13) - 48;
-        int column = event.getTarget().toString().charAt(17) - 48;
-        if (row != 2 || column != 4) {
+        int row = event.getTarget().toString().charAt(13) - 48; //Location of char and offset
+        int column = event.getTarget().toString().charAt(17) - 48; //Location of char and offset
+        if (row != 2 || column != 4) { //Town location
             lastClick = new TileSelected(row, column);
             listener.viewUpdated();
         }
@@ -88,7 +90,7 @@ public class LandSelectionController implements ILandSelection {
         tileArt.put("Green", new Image("/default/greenOwner.png"));
         tileArt.put("Blue", new Image("/default/blueOwner.png"));
 
-        for (int index = 0; index < 45; index++) {
+        for (int index = 0; index < GameMap.MAPHEIGHT * GameMap.MAPWIDTH; index++) {
             ((Button) tiles.getChildren().get(index)).setPadding(Insets.EMPTY);
             ((Button) tiles.getChildren().get(index)).setGraphic(new StackPane(new ImageView(new Image("BlankTile.jpg"))));
         }
@@ -97,7 +99,7 @@ public class LandSelectionController implements ILandSelection {
     public void addTileElement(String type, String color, int row, int column) {
         if (type.equals("Owner")) {
                     ((StackPane) ((Button)
-                            tiles.getChildren().get(row * 9 + column)).getGraphic())
+                            tiles.getChildren().get(row * GameMap.MAPWIDTH + column)).getGraphic())
                     .getChildren().add(new ImageView(tileArt.get(color)));
         }
     }
@@ -139,7 +141,7 @@ public class LandSelectionController implements ILandSelection {
     }
 
     public void setTerrain(int row, int column, String terrain) {
-        Button targetButton = (Button) tiles.getChildren().get(row * 9 + column);
+        Button targetButton = (Button) tiles.getChildren().get(row * GameMap.MAPWIDTH + column);
         ((ImageView) ((StackPane) targetButton.getGraphic()).getChildren().get(0)).setImage(tileArt.get(terrain));
     }
 
