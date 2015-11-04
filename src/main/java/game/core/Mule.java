@@ -1,8 +1,22 @@
 package game.core;
 
-import game.core.Presenters.*;
+import game.core.Presenters.ConfigurationLogic;
+import game.core.Presenters.LandSelection;
+import game.core.Presenters.MainScreenLogic;
+import game.core.Presenters.MapSceenLogic;
+import game.core.Presenters.PlayerCreationLogic;
+import game.core.Presenters.RoundLogic;
+import game.core.Presenters.StoreLogic;
+import game.core.Presenters.TownLogic;
 import game.view.GameScreen;
-import game.view.interfaces.*;
+import game.view.interfaces.IGameConfiguration;
+import game.view.interfaces.ILandSelection;
+import game.view.interfaces.IMainScreen;
+import game.view.interfaces.IMapScreen;
+import game.view.interfaces.IPlayerConfiguration;
+import game.view.interfaces.IStoreScreen;
+import game.view.interfaces.ITownScreen;
+import game.view.interfaces.ITurnStart;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

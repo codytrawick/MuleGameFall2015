@@ -136,6 +136,7 @@ public class Engine extends StackPane {
 //            printStream.print(gs.toJson(game));
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(SAVENAME));
             objectOutputStream.writeObject(game);
+            objectOutputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -152,6 +153,7 @@ public class Engine extends StackPane {
 //            setGame(newGame);
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(SAVENAME));
             setGame((GameInfo) inputStream.readObject());
+            inputStream.close();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
