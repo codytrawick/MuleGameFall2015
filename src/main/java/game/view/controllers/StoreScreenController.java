@@ -2,6 +2,7 @@ package game.view.controllers;
 
 import game.core.GameLogic;
 import game.model.BuySellAction;
+import game.model.Store;
 import game.view.interfaces.IStoreScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,37 +46,37 @@ public class StoreScreenController implements IStoreScreen {
 
     @FXML
     void purchaseFood(ActionEvent event) {
-        action = new BuySellAction("Food", true);
+        action = new BuySellAction(Store.FOOD, true);
         listener.viewUpdated();
     }
 
     @FXML
     void sellFood(ActionEvent event) {
-        action = new BuySellAction("Food", false);
+        action = new BuySellAction(Store.FOOD, false);
         listener.viewUpdated();
     }
 
     @FXML
     void purchaseEnergy(ActionEvent event) {
-        action = new BuySellAction("Energy", true);
+        action = new BuySellAction(Store.ENERGY, true);
         listener.viewUpdated();
     }
 
     @FXML
     void sellEnergy(ActionEvent event) {
-        action = new BuySellAction("Energy", false);
+        action = new BuySellAction(Store.ENERGY, false);
         listener.viewUpdated();
     }
 
     @FXML
     void purchaseSmithore(ActionEvent event) {
-        action = new BuySellAction("Ore", true);
+        action = new BuySellAction(Store.ORE, true);
         listener.viewUpdated();
     }
 
     @FXML
     void sellSmithore(ActionEvent event) {
-        action = new BuySellAction("Ore", false);
+        action = new BuySellAction(Store.ORE, false);
         listener.viewUpdated();
     }
 
@@ -112,12 +113,12 @@ public class StoreScreenController implements IStoreScreen {
     }
 
     public void setStoreAmounts(Map<String, Integer> amounts) {
-        muleRemaining.setText(amounts.get("Mules").toString());
-        energyRemaining.setText(amounts.get("Energy").toString());
-        foodRemaining.setText(amounts.get("Food").toString());
-        smithoreRemaining.setText(amounts.get("Ore").toString());
-        if (amounts.get("Crystite") != null) {
-            crystiteRemaining.setText(amounts.get("Crystie").toString());
+        muleRemaining.setText(amounts.get(Store.MULES).toString());
+        energyRemaining.setText(amounts.get(Store.ENERGY).toString());
+        foodRemaining.setText(amounts.get(Store.FOOD).toString());
+        smithoreRemaining.setText(amounts.get(Store.ORE).toString());
+        if (amounts.get(Store.CRYSTITE) != null) {
+            crystiteRemaining.setText(amounts.get(Store.CRYSTITE).toString());
         } else {
             crystiteRemaining.setText("0");
             buyCrystiteButton.setDisable(true);
@@ -126,10 +127,10 @@ public class StoreScreenController implements IStoreScreen {
     }
 
     public void setStorePrices(Map<String, Integer> prices) {
-        foodPrice.setText("$" + prices.get("Food").toString());
-        energyPrice.setText("$" + prices.get("Energy").toString());
-        mulePrice.setText("$" + prices.get("Mule").toString());
-        orePrice.setText("$" + prices.get("Ore").toString());
+        foodPrice.setText("$" + prices.get(Store.FOOD).toString());
+        energyPrice.setText("$" + prices.get(Store.ENERGY).toString());
+        mulePrice.setText("$" + prices.get(Store.MULE).toString());
+        orePrice.setText("$" + prices.get(Store.ORE).toString());
 //        crystitePrice.setText(prices.get("Crystite").toString());
     }
 
@@ -138,8 +139,8 @@ public class StoreScreenController implements IStoreScreen {
     }
 
     public void setPlayerAmounts(Map<String, Integer> amounts) {
-        playerFood.setText(amounts.get("Food").toString());
-        playerEnergy.setText(amounts.get("Energy").toString());
-        playerOre.setText(amounts.get("Ore").toString());
+        playerFood.setText(amounts.get(Store.FOOD).toString());
+        playerEnergy.setText(amounts.get(Store.ENERGY).toString());
+        playerOre.setText(amounts.get(Store.ORE).toString());
     }
 }

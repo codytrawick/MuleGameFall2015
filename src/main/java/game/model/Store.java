@@ -20,6 +20,13 @@ public class Store implements Serializable {
     private static final int orePrice = 50;
     private static final int crystitePrice = 100;
 
+    public static final String ORE = "Ore";
+    public static final String FOOD = "Food";
+    public static final String MULES = "Mules";
+    public static final String MULE = "Mule";
+    public static final String ENERGY = "Energy";
+    public static final String CRYSTITE = "Crystite";
+
 
     public Store(String difficulty) {
         if (difficulty.equals("Beginner")) {
@@ -65,31 +72,31 @@ public class Store implements Serializable {
 
     public Map<String, Integer> getStoreValues() {
         HashMap<String, Integer> output = new HashMap<>();
-        output.put("Energy", getEnergyStock());
-        output.put("Ore", getOreStock());
-        output.put("Food", getFoodStock());
-        output.put("Mules", getMuleStock());
+        output.put(ENERGY, getEnergyStock());
+        output.put(ORE, getOreStock());
+        output.put(FOOD, getFoodStock());
+        output.put(MULES, getMuleStock());
         return output;
     }
 
     public Map<String, Integer> getStorePrices() {
          HashMap<String, Integer> prices = new HashMap<>();
-        prices.put("Mule", mulePrice);
-        prices.put("Food", foodPrice);
-        prices.put("Energy", energyPrice);
-        prices.put("Ore", orePrice);
-        prices.put("Crystite", crystitePrice);
+        prices.put(MULE, mulePrice);
+        prices.put(FOOD, foodPrice);
+        prices.put(ENERGY, energyPrice);
+        prices.put(ORE, orePrice);
+        prices.put(CRYSTITE, crystitePrice);
         return prices;
     }
 
     public boolean hasResource(String resource) {
-        if (resource.equals("Food")) {
+        if (resource.equals(FOOD)) {
             return foodStock > 0;
-        } else if (resource.equals("Energy")) {
+        } else if (resource.equals(ENERGY)) {
             return energyStock > 0;
-        } else if (resource.equals("Ore")) {
+        } else if (resource.equals(ORE)) {
             return oreStock > 0;
-        } else if (resource.equals("Mule")) {
+        } else if (resource.equals(MULE)) {
             return muleStock > 0;
         } else {
             return false;
@@ -97,41 +104,41 @@ public class Store implements Serializable {
     }
 
     public void removeResource(String resource) {
-        if (resource.equals("Food")) {
+        if (resource.equals(FOOD)) {
             foodStock--;
-        } else if (resource.equals("Energy")) {
+        } else if (resource.equals(ENERGY)) {
             energyStock--;
-        } else if (resource.equals("Ore")) {
+        } else if (resource.equals(ORE)) {
             oreStock--;
-        } else if (resource.equals("Mule")) {
+        } else if (resource.equals(MULE)) {
             muleStock--;
         }
     }
 
     public void addResource(String resource) {
-        if (resource.equals("Food")) {
+        if (resource.equals(FOOD)) {
             foodStock++;
-        } else if (resource.equals("Energy")) {
+        } else if (resource.equals(ENERGY)) {
             energyStock++;
-        } else if (resource.equals("Ore")) {
+        } else if (resource.equals(ORE)) {
             oreStock++;
-        } else if (resource.equals("Mule")) {
+        } else if (resource.equals(MULE)) {
             muleStock++;
         }
     }
 
     public int resourcePrice(String resource) {
         switch (resource) {
-            case "Food": return foodPrice;
-            case "Energy": return energyPrice;
-            case "Ore": return orePrice;
+            case FOOD: return foodPrice;
+            case ENERGY: return energyPrice;
+            case ORE: return orePrice;
         }
 
         if (resource.substring(0, 5).equals("Mule:")) { //Size of "Mule:"
             switch (resource.substring(5)) {
-                case "Food": return mulePrice + 25;
-                case "Energy": return mulePrice + 50;
-                case "Ore": return mulePrice + 75;
+                case FOOD: return mulePrice + 25;
+                case ENERGY: return mulePrice + 50;
+                case ORE: return mulePrice + 75;
             }
         }
         return 0;
