@@ -20,15 +20,15 @@ public class ConfigurationLogic extends GameLogic {
     }
 
     public void viewUpdated() {
-        gameModel.setPlayerNumber(configView.getPlayerNumber());
-        gameModel.setDifficulty(configView.getDifficulty());
-        gameModel.setMapType(configView.getMapType());
-        gameEngine.setCurrentGameLogic(Mule.PLAYER_CREATION_PAGE);
+        getGameModel().setPlayerNumber(configView.getPlayerNumber());
+        getGameModel().setDifficulty(configView.getDifficulty());
+        getGameModel().setMapType(configView.getMapType());
+        getGameEngine().setCurrentGameLogic(Mule.PLAYER_CREATION_PAGE);
 
     }
 
     public void passButton() {
-        gameEngine.setScreen(Mule.WELCOME_PAGE);
+        getGameEngine().setScreen(Mule.WELCOME_PAGE);
     }
 
     public void primeScreen() {

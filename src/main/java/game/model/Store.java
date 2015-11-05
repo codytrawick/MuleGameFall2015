@@ -14,11 +14,11 @@ public class Store implements Serializable {
     private int energyStock;
     private int oreStock;
 
-    private static final int mulePrice = 100;
-    private static final int foodPrice = 30;
-    private static final int energyPrice = 25;
-    private static final int orePrice = 50;
-    private static final int crystitePrice = 100;
+    private static final int MULE_PRICE = 100;
+    private static final int FOOD_PRICE = 30;
+    private static final int ENERGY_PRICE = 25;
+    private static final int ORE_PRICE = 50;
+    private static final int CRYSTITE_PRICE = 100;
 
     public static final String ORE = "Ore";
     public static final String FOOD = "Food";
@@ -81,11 +81,11 @@ public class Store implements Serializable {
 
     public Map<String, Integer> getStorePrices() {
          HashMap<String, Integer> prices = new HashMap<>();
-        prices.put(MULE, mulePrice);
-        prices.put(FOOD, foodPrice);
-        prices.put(ENERGY, energyPrice);
-        prices.put(ORE, orePrice);
-        prices.put(CRYSTITE, crystitePrice);
+        prices.put(MULE, MULE_PRICE);
+        prices.put(FOOD, FOOD_PRICE);
+        prices.put(ENERGY, ENERGY_PRICE);
+        prices.put(ORE, ORE_PRICE);
+        prices.put(CRYSTITE, CRYSTITE_PRICE);
         return prices;
     }
 
@@ -129,16 +129,16 @@ public class Store implements Serializable {
 
     public int resourcePrice(String resource) {
         switch (resource) {
-            case FOOD: return foodPrice;
-            case ENERGY: return energyPrice;
-            case ORE: return orePrice;
+            case FOOD: return FOOD_PRICE;
+            case ENERGY: return ENERGY_PRICE;
+            case ORE: return ORE_PRICE;
         }
 
         if (resource.substring(0, 5).equals("Mule:")) { //Size of "Mule:"
             switch (resource.substring(5)) {
-                case FOOD: return mulePrice + 25;
-                case ENERGY: return mulePrice + 50;
-                case ORE: return mulePrice + 75;
+                case FOOD: return MULE_PRICE + 25;
+                case ENERGY: return MULE_PRICE + 50;
+                case ORE: return MULE_PRICE + 75;
             }
         }
         return 0;

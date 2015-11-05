@@ -4,11 +4,10 @@ import game.model.Player;
 import game.view.GameScreen;
 
 import javafx.beans.property.IntegerProperty;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Cody on 9/30/2015.
+ * Created by The SpecialFX on 9/30/2015.
  */
 public interface IMapScreen extends GameScreen {
     TileSelected lastTileClicked();

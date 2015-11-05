@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class TownLogic extends GameLogic {
 
-    ITownScreen townView;
+    private ITownScreen townView;
 
     public TownLogic(ITownScreen townView, IModel model) {
         super(model);
@@ -24,31 +24,31 @@ public class TownLogic extends GameLogic {
     }
 
     public void passButton() {
-        gameEngine.setCurrentGameLogic(Mule.MAP2SCREEN);
+        getGameEngine().setCurrentGameLogic(Mule.MAP2SCREEN);
     }
 
     public void primeScreen() {
-        gameEngine.setCurrentGameLogic(Mule.MAP2SCREEN);
+        getGameEngine().setCurrentGameLogic(Mule.MAP2SCREEN);
     }
 
     public void viewUpdated() {
         if (townView.getTargetLocation().equals("Pub")) {
-            int roundNumber = gameModel.getCurrentRound();
+            int roundNumber = getGameModel().getCurrentRound();
             int roundBonus = (15 * roundNumber + 50);
             if (roundBonus > 200) {
                 roundBonus = 200;
             }
 
             Random rand = new Random();
-            int timeBonus = rand.nextInt(gameEngine.turnTimeLeft() + 1);
+            int timeBonus = rand.nextInt(getGameEngine().turnTimeLeft() + 1);
 
             int totalBonus = roundBonus + timeBonus;
-            gameModel.giveMoney(totalBonus);
-            gameModel.nextPlayer();
-            gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
+            getGameModel().giveMoney(totalBonus);
+            getGameModel().nextPlayer();
+            getGameEngine().setCurrentGameLogic(Mule.ROUNDSTART);
 
         } else if (townView.getTargetLocation().equals("Store")) {
-            gameEngine.setCurrentGameLogic(Mule.STORE_SCREEN);
+            getGameEngine().setCurrentGameLogic(Mule.STORE_SCREEN);
         }
     }
 

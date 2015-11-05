@@ -10,7 +10,7 @@ import game.model.Player;
 import game.view.interfaces.ILandSelection;
 import game.view.interfaces.TileSelected;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -67,7 +67,7 @@ public class LandSelection extends GameLogic {
 //    }
 
     private void nextPlayer() {
-        if (playerNum < gameModel.getPlayerNumber() - 1) {
+        if (playerNum < getGameModel().getPlayerNumber() - 1) {
             ++playerNum;
 //            gameEngine.getGame().setCurPlayer(players[playerNum]);
         } else {
@@ -91,25 +91,25 @@ public class LandSelection extends GameLogic {
 //        gameEngine.setScreen(Mule.MAP2SCREEN);
 //        gameEngine.setCurrentGameLogic(new RoundLogic(gameEngine, 1));
 //        view.removePassButton();
-        gameModel.createRound(1);
-        gameEngine.setCurrentGameLogic(Mule.ROUNDSTART);
+        getGameModel().createRound(1);
+        getGameEngine().setCurrentGameLogic(Mule.ROUNDSTART);
     }
 
     public void viewUpdated() {
         TileSelected target = view.lastTileClicked();
-        String owner = gameModel.getTileOwner(target.getX(), target.getY());
+        String owner = getGameModel().getTileOwner(target.getX(), target.getY());
         if (owner.equals("None")) {
             if (roundNum < 2) {
                 view.addTileElement("Owner", players.get(playerNum).getColor(),
                         target.getX(), target.getY());
-                gameModel.setTileOwner(target.getX(), target.getY(),
+                getGameModel().setTileOwner(target.getX(), target.getY(),
                         players.get(playerNum));
                 passStreak = false;
                 nextPlayer();
             } else if (players.get(playerNum).spendMoney(LANDPRICE)) {
                 view.addTileElement("Owner", players.get(playerNum).getColor(),
                         target.getX(), target.getY());
-                gameModel.setTileOwner(target.getX(), target.getY(),
+                getGameModel().setTileOwner(target.getX(), target.getY(),
                         players.get(playerNum));
                 passStreak = false;
                 nextPlayer();
@@ -123,13 +123,13 @@ public class LandSelection extends GameLogic {
 
     public void primeScreen() {
         for (int row = 0, col = 0; row < GameMap.MAPHEIGHT; col++) {
-            view.setTerrain(row, col, gameModel.getTileTerrain(row, col));
+            view.setTerrain(row, col, getGameModel().getTileTerrain(row, col));
             if (col == GameMap.MAPWIDTH - 1) {
                 row++;
                 col = -1;
             }
         }
-        players = gameModel.getPlayers();
+        players = getGameModel().getPlayers();
         view.setPlayerText(String.format("%s : $%d", players.get(playerNum),
                 players.get(playerNum).getMoney()));
     }

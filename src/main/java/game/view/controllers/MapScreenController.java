@@ -21,6 +21,7 @@ import javafx.scene.layout.StackPane;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * This controller handles the information on the Game Map
@@ -32,9 +33,9 @@ public class MapScreenController implements IMapScreen {
     // GameScreen instance variables
 //    private Engine gameEngine;
     //This map will match the type of tiles to an image that corresponds to it
-    MapSceenLogic listener;
+    private MapSceenLogic listener;
     private TileSelected lastClick;
-    HashMap<String, Image> tileArt = new HashMap<>();
+    private Map<String, Image> tileArt = new HashMap<>();
 
     // FXML Elements
     @FXML

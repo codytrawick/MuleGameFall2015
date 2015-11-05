@@ -12,7 +12,7 @@ import game.model.IModel;
  */
 public class StoreLogic extends GameLogic {
 
-    IStoreScreen storeView;
+    private IStoreScreen storeView;
 
     public StoreLogic(IStoreScreen storeView, IModel imodel) {
         super(imodel);
@@ -22,13 +22,13 @@ public class StoreLogic extends GameLogic {
     }
 
     public void passButton() {
-        gameEngine.setCurrentGameLogic(Mule.MAP2SCREEN);
+        getGameEngine().setCurrentGameLogic(Mule.MAP2SCREEN);
     }
 
     public void primeScreen() {
-        storeView.setStoreAmounts(gameModel.getStoreValues());
-        storeView.setStorePrices(gameModel.getStorePrices());
-        storeView.setPlayerAmounts(gameModel.getCurPlayerResources());
+        storeView.setStoreAmounts(getGameModel().getStoreValues());
+        storeView.setStorePrices(getGameModel().getStorePrices());
+        storeView.setPlayerAmounts(getGameModel().getCurPlayerResources());
         storeView.initializeScreen();
     }
 
@@ -37,11 +37,11 @@ public class StoreLogic extends GameLogic {
 
         BuySellAction action = storeView.getBuySellAction();
         if (action != null) {
-            gameModel.performBuySellAction(action);
+            getGameModel().performBuySellAction(action);
         }
 
-        storeView.setPlayerAmounts(gameModel.getCurPlayerResources());
-        storeView.setStoreAmounts(gameModel.getStoreValues());
+        storeView.setPlayerAmounts(getGameModel().getCurPlayerResources());
+        storeView.setStoreAmounts(getGameModel().getStoreValues());
     }
 
 

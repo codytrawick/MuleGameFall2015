@@ -4,8 +4,6 @@ import game.core.GameLogic;
 import game.core.Mule;
 import game.model.IModel;
 import game.view.interfaces.ITurnStart;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
 /**
  * This controls the logic for a round
@@ -15,28 +13,24 @@ import javafx.scene.control.Button;
  */
 public class RoundLogic extends GameLogic {
 
-    private int roundNum;
-    private int turnNumber;
     private ITurnStart view;
-    @FXML
-    private Button saveButton;
 
 //    public RoundLogic(Engine gameEngine, int roundNum) {
 //        this.gameEngine = gameEngine;
 //        this.roundNum = roundNum;
 //    }
 
-    public RoundLogic(ITurnStart configView, IModel gameModel) {
-        super(gameModel);
+    public RoundLogic(ITurnStart configView, IModel model) {
+        super(model);
         this.view = configView;
 
         this.view.setGameLogic(this);
     }
 
     public void viewUpdated() {
-        gameEngine.startMapTimer(gameModel.currentPlayerTime());
-        gameModel.startTurn(gameModel.currentPlayerTime());
-        gameEngine.setCurrentGameLogic(Mule.MAP2SCREEN);
+        getGameEngine().startMapTimer(getGameModel().currentPlayerTime());
+        getGameModel().startTurn(getGameModel().currentPlayerTime());
+        getGameEngine().setCurrentGameLogic(Mule.MAP2SCREEN);
     }
 
     public void passButton() {
@@ -44,28 +38,17 @@ public class RoundLogic extends GameLogic {
     }
 
     public void primeScreen() {
-//        if (gameModel.getCurrentRound() == 0) {
-//            gameModel.createRound(1);
-//            roundNum++;
-//        } else if (gameModel.getCurrentPlayerNumber() + 1 == gameModel.getPlayerNumber()) {
-//            gameModel.resolveRound();
-//            if (gameModel.getCurrentRound() < 12) {
-//                gameModel.createRound(++roundNum);
-//            }
-//        } else {
-//            gameModel.nextPlayer();
-//        }
-        view.setSaveButton(gameModel.getCurrentPlayerNumber() != 0);
+        view.setSaveButton(getGameModel().getCurrentPlayerNumber() != 0);
 
-        view.setRoundText(String.format("Round #%d", gameModel.getCurrentRound()));
-        view.setPlayerName(String.format("%s's Turn", gameModel.currentPlayer()));
-        view.setRandomEventText(gameModel.performRandomEvent());
+        view.setRoundText(String.format("Round #%d", getGameModel().getCurrentRound()));
+        view.setPlayerName(String.format("%s's Turn", getGameModel().currentPlayer()));
+        view.setRandomEventText(getGameModel().performRandomEvent());
 
 
     }
 
     public void saveGame() {
-        gameEngine.saveGame();
+        getGameEngine().saveGame();
     }
 
 }

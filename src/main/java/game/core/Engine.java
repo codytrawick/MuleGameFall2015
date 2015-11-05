@@ -15,8 +15,6 @@ import javafx.util.Duration;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
-import java.util.logging.Logger;
 
 /**
  * This class represents our Game Engine. The Game Engine manages screens in the

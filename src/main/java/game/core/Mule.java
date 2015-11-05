@@ -49,7 +49,7 @@ public class Mule extends Application {
     public static final String STORE_SCREEN = "Store";
     public static final String STORE_SCREEN_FXML = "/fxml/storeScreen.fxml";
 
-    Engine gameEngine = new Engine();
+    private Engine gameEngine = new Engine();
 
     /**
      * Main method for our game. This is the main class in the jar file

@@ -21,13 +21,13 @@ public class PlayerCreationLogic extends GameLogic {
     }
 
     public void passButton() {
-        gameEngine.setCurrentGameLogic(Mule.WELCOME_PAGE);
+        getGameEngine().setCurrentGameLogic(Mule.WELCOME_PAGE);
     }
 
     public void viewUpdated() {
-        gameModel.createNewPlayer(playerView.getPlayerName(), playerView.getPlayerColor(), playerView.getPlayerRace());
-        if (++currentPlayerNum == gameModel.getPlayerNumber()) {
-            gameEngine.setCurrentGameLogic(Mule.LAND_SELECTION);
+        getGameModel().createNewPlayer(playerView.getPlayerName(), playerView.getPlayerColor(), playerView.getPlayerRace());
+        if (++currentPlayerNum == getGameModel().getPlayerNumber()) {
+            getGameEngine().setCurrentGameLogic(Mule.LAND_SELECTION);
         }
     }
 

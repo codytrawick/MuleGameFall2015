@@ -14,7 +14,7 @@ import java.util.List;
 
 public class PlayerCreationController implements IPlayerConfiguration {
 
-    Engine gameEngine;
+    private Engine gameEngine;
     private PlayerCreationLogic listener;
 
     @FXML

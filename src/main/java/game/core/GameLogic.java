@@ -9,8 +9,8 @@ import game.model.IModel;
  * @version 1.0
  */
 public abstract class GameLogic {
-    protected Engine gameEngine;
-    protected IModel gameModel;
+    private Engine gameEngine;
+    private IModel gameModel;
 
     public GameLogic(IModel gameModel) {
         this.gameModel = gameModel;
@@ -21,6 +21,13 @@ public abstract class GameLogic {
 
     public abstract void passButton();
 
+    protected Engine getGameEngine() {
+        return gameEngine;
+    }
+
+    protected IModel getGameModel() {
+        return gameModel;
+    }
 
     public void setEngine(Engine parent) {
         gameEngine = parent;

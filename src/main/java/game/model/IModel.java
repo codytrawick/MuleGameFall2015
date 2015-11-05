@@ -1,12 +1,10 @@
 package game.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Cody on 9/29/2015.
+ * Created by The SpecialFX on 9/29/2015.
  */
 public interface IModel {
     int getPlayerNumber();

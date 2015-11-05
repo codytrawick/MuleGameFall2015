@@ -26,7 +26,7 @@ import java.util.Map;
 public class LandSelectionController implements ILandSelection {
 
     //This map will match the type of tiles to an image that corresponds to it
-    Map<String, Image> tileArt = new HashMap<>();
+    private Map<String, Image> tileArt = new HashMap<>();
     private TileSelected lastClick;
     private LandSelection listener;
 

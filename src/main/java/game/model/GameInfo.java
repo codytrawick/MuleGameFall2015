@@ -37,8 +37,8 @@ public class GameInfo implements IModel, Serializable {
         return round.getCurrentPlayerNumber();
     }
 
-    public void setPlayerNumber(int numPlayers) {
-        this.numPlayers = numPlayers;
+    public void setPlayerNumber(int newNumPlayers) {
+        this.numPlayers = newNumPlayers;
         playerList = new ArrayList<>(4); //Number of players
     }
 
@@ -52,13 +52,13 @@ public class GameInfo implements IModel, Serializable {
         return output;
     }
 
-    public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
+    public void setDifficulty(String newDifficulty) {
+        this.difficulty = newDifficulty;
         store = new Store(difficulty);
     }
 
-    public void setMapType(String mapType) {
-        this.mapType = mapType;
+    public void setMapType(String newMapType) {
+        this.mapType = newMapType;
         this.myGameMap = new GameMap(mapType);
     }
 

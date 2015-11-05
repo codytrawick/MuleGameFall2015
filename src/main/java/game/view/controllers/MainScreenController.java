@@ -11,8 +11,8 @@ import javafx.fxml.FXML;
 
 public class MainScreenController implements IMainScreen {
     //GameScreen instance variables
-    Engine gameEngine;
-    MainScreenLogic logic;
+    private Engine gameEngine;
+    private MainScreenLogic logic;
 
     //FXML Elements
 

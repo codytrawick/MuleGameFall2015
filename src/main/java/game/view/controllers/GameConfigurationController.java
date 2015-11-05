@@ -4,7 +4,6 @@ package game.view.controllers;
 import game.core.Presenters.ConfigurationLogic;
 import game.core.GameLogic;
 import game.core.Engine;
-import game.core.Mule;
 import game.view.interfaces.IGameConfiguration;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -26,15 +25,14 @@ import javafx.scene.control.ToggleGroup;
 public class GameConfigurationController implements IGameConfiguration {
 
     //GameScreen instance variables
-    Engine gameEngine;
-    ConfigurationLogic listener;
+    private ConfigurationLogic listener;
 
     //FXML Elements
     @FXML
     private ToggleGroup difficultyLevel, mapType;
 
     @FXML
-    private Button confirmButton, quitButton;
+    private Button confirmButton;
 
     @FXML
     private Slider playerNum;
@@ -92,9 +90,11 @@ public class GameConfigurationController implements IGameConfiguration {
         listener = (ConfigurationLogic) presenter;
     }
 
-    public void setEngine(Engine parent) {
-        gameEngine = parent;
-    }
+    /*
+     public void setEngine(Engine parent) {
+     gameEngine = parent;
+     }
+     */
 
     public String getDifficulty() {
         return ((RadioButton) difficultyLevel.getSelectedToggle()).getText();
