@@ -10,7 +10,9 @@ import javafx.scene.control.Label;
 
 public class TurnStartController implements ITurnStart {
 
+    @FXML
     private Button saveButton;
+
     private RoundLogic listener;
 
     @FXML
