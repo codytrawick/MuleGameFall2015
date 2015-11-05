@@ -67,8 +67,11 @@ public class GameConfigurationController implements IGameConfiguration {
      */
     @FXML
     void initialize() {
-        playerNum.valueProperty().addListener((observable, oldValue, newValue) -> {
-            playerNum.setValue((int) (newValue.doubleValue() + 0.5));
+        playerNum.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                playerNum.setValue((int) (newValue.doubleValue() + 0.5));
+            }
         });
 
     }

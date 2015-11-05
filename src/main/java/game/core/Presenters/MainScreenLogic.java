@@ -5,6 +5,7 @@ import game.core.GameLogic;
 import game.core.Mule;
 import game.model.IModel;
 import game.view.interfaces.IMainScreen;
+import javafx.application.Platform;
 
 /**
  * This class is a Presenter for the Main Screen
@@ -27,7 +28,7 @@ public class MainScreenLogic extends GameLogic {
     }
 
     public void passButton() {
-        System.exit(0);
+        Platform.exit();
     }
 
     public void viewUpdated() {

@@ -4,6 +4,7 @@ import game.core.GameLogic;
 import game.core.Engine;
 import game.core.Presenters.MainScreenLogic;
 import game.view.interfaces.IMainScreen;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -35,7 +36,7 @@ public class MainScreenController implements IMainScreen {
      */
     @FXML
     public void quitGame(ActionEvent event) {
-        System.exit(0);
+        Platform.exit();
     }
 
     //GameScreen methods

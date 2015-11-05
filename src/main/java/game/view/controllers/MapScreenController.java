@@ -128,9 +128,12 @@ public class MapScreenController implements IMapScreen {
             moneyLabel.setText("");
         }
 
-        timeRemaining.textProperty().addListener((ov, t, t1) -> {
-            if (Integer.parseInt(timeRemaining.getText()) == 0) {
-                listener.timeExpired();
+        timeRemaining.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                if (Integer.parseInt(timeRemaining.getText()) == 0) {
+                    listener.timeExpired();
+                }
             }
         });
     }
