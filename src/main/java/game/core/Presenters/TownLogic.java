@@ -12,13 +12,15 @@ import java.util.Random;
  * This class is the Presenter for the Town screen
  * @author The SpeicalFX
  */
-public class TownLogic extends GameLogic {
+public final class TownLogic extends GameLogic {
 
     private ITownScreen townView;
 
-    public TownLogic(ITownScreen townView, IModel model) {
+    public static final int MAXROUNDBONUS = 200;
+
+    public TownLogic(ITownScreen newTownView, IModel model) {
         super(model);
-        this.townView = townView;
+        this.townView = newTownView;
 
         this.townView.setGameLogic(this);
     }
@@ -35,8 +37,8 @@ public class TownLogic extends GameLogic {
         if (townView.getTargetLocation().equals("Pub")) {
             int roundNumber = getGameModel().getCurrentRound();
             int roundBonus = (15 * roundNumber + 50);
-            if (roundBonus > 200) {
-                roundBonus = 200;
+            if (roundBonus > MAXROUNDBONUS) {
+                roundBonus = MAXROUNDBONUS;
             }
 
             Random rand = new Random();

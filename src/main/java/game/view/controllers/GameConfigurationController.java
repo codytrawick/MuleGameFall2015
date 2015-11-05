@@ -3,7 +3,6 @@ package game.view.controllers;
 
 import game.core.Presenters.ConfigurationLogic;
 import game.core.GameLogic;
-import game.core.Engine;
 import game.view.interfaces.IGameConfiguration;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,7 +21,7 @@ import javafx.scene.control.ToggleGroup;
  * @author The SpecialFX
  * @version 1.0
  */
-public class GameConfigurationController implements IGameConfiguration {
+public final class GameConfigurationController implements IGameConfiguration {
 
     //GameScreen instance variables
     private ConfigurationLogic listener;

@@ -17,7 +17,7 @@ import java.util.List;
  * This class is a Presenter for the Land Selection Screen
  * @author The SpecialFX
  */
-public class LandSelection extends GameLogic {
+public final class LandSelection extends GameLogic {
 
     private List<Player> players ;
     private int roundNum = 0;
@@ -33,9 +33,9 @@ public class LandSelection extends GameLogic {
 //        players = gameEngine.getGame().getPlayers();
 //    }
 
-    public LandSelection(ILandSelection view, IModel model) {
+    public LandSelection(ILandSelection newView, IModel model) {
         super(model);
-        this.view = view;
+        this.view = newView;
 
         this.view.setGameLogic(this);
 
@@ -83,8 +83,8 @@ public class LandSelection extends GameLogic {
 
     }
 
-    public void setView(GameScreen view) {
-        this.view = (LandSelectionController) view;
+    public void setView(GameScreen newView) {
+        this.view = (LandSelectionController) newView;
     }
 
     private void endLandSelectionPhase() {

@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by Cody on 10/13/2015.
  */
-public class Town extends Tile {
+public final class Town extends Tile {
     private static Map<String, Integer> production = new HashMap<>();
     static {
         production.put("Food", 0);

@@ -2,6 +2,7 @@ package game.view.controllers;
 
 import game.core.GameLogic;
 import game.core.Presenters.MapSceenLogic;
+import game.model.GameMap;
 import game.model.Player;
 import game.view.interfaces.IMapScreen;
 import game.view.interfaces.TileSelected;
@@ -28,7 +29,7 @@ import java.util.Map;
  * It will gather information from the model to skin the tiles
  * and provide information to the presenter about what tile was clicked.
  */
-public class MapScreenController implements IMapScreen {
+public final class MapScreenController implements IMapScreen {
 
     // GameScreen instance variables
 //    private Engine gameEngine;
@@ -152,7 +153,7 @@ public class MapScreenController implements IMapScreen {
     public void addTileElement(String type, String color, int row, int column) {
         if (type.equals("Owner")) {
                     ((StackPane) ((Button)
-                            tiles.getChildren().get(row * 9 + column)).getGraphic())
+                            tiles.getChildren().get(row * GameMap.MAPWIDTH + column)).getGraphic())
                     .getChildren().add(new ImageView(tileArt.get(color)));
         }
     }
@@ -200,7 +201,7 @@ public class MapScreenController implements IMapScreen {
     }
 
     public void setTile(String terrain, String owner, String mule, int row, int column) {
-        Button target = (Button) tiles.getChildren().get(row * 9 + column);
+        Button target = (Button) tiles.getChildren().get(row * GameMap.MAPWIDTH + column);
         StackPane buttonGraphic = (StackPane) target.getGraphic();
         ((ImageView) buttonGraphic.getChildren().get(0)).setImage(tileArt.get(terrain));
         if (!owner.equals("None")) {

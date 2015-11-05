@@ -23,7 +23,7 @@ import java.util.Map;
  * It will gather information from the model to skin the tiles
  * and provide information to the presenter about what tile was clicked.
  */
-public class LandSelectionController implements ILandSelection {
+public final class LandSelectionController implements ILandSelection {
 
     //This map will match the type of tiles to an image that corresponds to it
     private Map<String, Image> tileArt = new HashMap<>();

@@ -7,7 +7,7 @@ import java.util.Map;
  * This class represents a river tile
  * @author The SpecialFX
  */
-public class River extends Tile {
+public final class River extends Tile {
     private static Map<String, Integer> production = new HashMap<>();
     static {
         production.put("Food", 4);

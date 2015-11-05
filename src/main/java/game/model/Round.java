@@ -16,14 +16,14 @@ import java.util.*;
  * This class represents a round
  * @author The SpecialFX
  */
-public class Round implements Serializable {
+public final class Round implements Serializable {
     private Player[] orderedPlayers;
     private int currentPlayer;
     private int roundNumber;
     private Timeline timer;
 
-    public Round(int roundNumber, List<Player> players) {
-        this.roundNumber = roundNumber;
+    public Round(int newRoundNumber, List<Player> players) {
+        this.roundNumber = newRoundNumber;
         orderedPlayers = new Player[players.size()];
         players.sort(new Comparator<Player>() {
             @Override

@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by Andrew on 10/7/2015.
  */
-public class Store implements Serializable {
+public final class Store implements Serializable {
 
     private int muleStock;
     private int foodStock;

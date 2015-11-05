@@ -12,8 +12,8 @@ public abstract class GameLogic {
     private Engine gameEngine;
     private IModel gameModel;
 
-    public GameLogic(IModel gameModel) {
-        this.gameModel = gameModel;
+    public GameLogic(IModel newGameModel) {
+        this.gameModel = newGameModel;
 
     }
 

@@ -15,7 +15,7 @@ import java.util.Map;
  * @author The SpecialFX
  * @version 1.0
  */
-public class Player implements Serializable {
+public final class Player implements Serializable {
 
     private String name;
     private String color;

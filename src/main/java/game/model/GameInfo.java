@@ -13,7 +13,7 @@ import java.util.Map;
  * @author The SpecialFX
  * @version 1.0
  */
-public class GameInfo implements IModel, Serializable {
+public final class GameInfo implements IModel, Serializable {
 
     private int numPlayers;
     private List<Player> playerList;
@@ -39,7 +39,7 @@ public class GameInfo implements IModel, Serializable {
 
     public void setPlayerNumber(int newNumPlayers) {
         this.numPlayers = newNumPlayers;
-        playerList = new ArrayList<>(4); //Number of players
+        playerList = new ArrayList<>(); //Number of players
     }
 
     public GameMap getMyGameMap() {

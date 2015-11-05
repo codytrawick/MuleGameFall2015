@@ -24,7 +24,7 @@ import java.util.Map;
  * @author The SpecialFX
  * @version 1.0
  */
-public class Engine extends StackPane {
+public final class Engine extends StackPane {
     //The game Engine has a single game reference
     private IModel game = new GameInfo();
     private GameLogic currentGameLogic;

@@ -31,7 +31,7 @@ import javafx.stage.Stage;
  * @author The SpecialFX
  * @version 1.0
  */
-public class Mule extends Application {
+public final class Mule extends Application {
 
     //GameScreen names. Used to refer to other game screens
     public static final String WELCOME_PAGE = "Start";

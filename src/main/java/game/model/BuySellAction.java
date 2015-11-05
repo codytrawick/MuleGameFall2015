@@ -3,7 +3,7 @@ package game.model;
 /**
  * Created by matthew38 on 10/7/15.
  */
-public class BuySellAction {
+public final class BuySellAction {
     private String resourceType;
     private boolean buy;
 

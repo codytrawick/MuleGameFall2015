@@ -12,9 +12,9 @@ import javafx.scene.control.TextField;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerCreationController implements IPlayerConfiguration {
+public final class PlayerCreationController implements IPlayerConfiguration {
 
-    private Engine gameEngine;
+    
     private PlayerCreationLogic listener;
 
     @FXML
@@ -88,9 +88,9 @@ public class PlayerCreationController implements IPlayerConfiguration {
         listener.passButton();
     }
 
-    public void setEngine(Engine parent) {
-        gameEngine = parent;
-    }
+//    public void setEngine(Engine parent) {
+//        gameEngine = parent;
+//    }
 
     public void initializeScreen() {
         colorButtons.add(redColor);

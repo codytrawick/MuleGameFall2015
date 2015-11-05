@@ -1,7 +1,6 @@
 package game.view.controllers;
 
 import game.core.GameLogic;
-import game.core.Engine;
 import game.core.Presenters.MainScreenLogic;
 import game.view.interfaces.IMainScreen;
 import javafx.application.Platform;
@@ -9,9 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 
-public class MainScreenController implements IMainScreen {
+public final class MainScreenController implements IMainScreen {
     //GameScreen instance variables
-    private Engine gameEngine;
     private MainScreenLogic logic;
 
     //FXML Elements
@@ -46,9 +44,9 @@ public class MainScreenController implements IMainScreen {
         //Nothing to initialize
     }
 
-    public void setEngine(Engine parent) {
-        gameEngine = parent;
-    }
+//    public void setEngine(Engine parent) {
+//        gameEngine = parent;
+//    }
 
     public void setGameLogic(GameLogic parent) {
         logic = (MainScreenLogic) parent;

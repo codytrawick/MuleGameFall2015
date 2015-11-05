@@ -8,7 +8,7 @@ import game.view.interfaces.IGameConfiguration;
 /**
  * @author The SpecialFX
  */
-public class ConfigurationLogic extends GameLogic {
+public final class ConfigurationLogic extends GameLogic {
 
     private IGameConfiguration configView;
 

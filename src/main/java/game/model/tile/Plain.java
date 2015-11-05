@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by Cody on 10/13/2015.
  */
-public class Plain extends Tile {
+public final class Plain extends Tile {
     private static Map<String, Integer> production = new HashMap<>();
     static {
         production.put("Food", 2);

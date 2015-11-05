@@ -11,7 +11,7 @@ import game.view.interfaces.ITurnStart;
  * @author The SpecialFX
  * @version 1.0
  */
-public class RoundLogic extends GameLogic {
+public final class RoundLogic extends GameLogic {
 
     private ITurnStart view;
 

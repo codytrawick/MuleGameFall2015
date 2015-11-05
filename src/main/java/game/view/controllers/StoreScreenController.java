@@ -14,7 +14,7 @@ import javafx.scene.control.ToggleGroup;
 import java.util.Map;
 
 
-public class StoreScreenController implements IStoreScreen {
+public final class StoreScreenController implements IStoreScreen {
 
     private GameLogic listener;
     private BuySellAction action;

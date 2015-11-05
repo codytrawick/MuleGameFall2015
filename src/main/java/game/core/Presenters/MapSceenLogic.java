@@ -2,6 +2,7 @@ package game.core.Presenters;
 
 import game.core.GameLogic;
 import game.core.Mule;
+import game.model.GameMap;
 import game.model.IModel;
 import game.view.interfaces.IMapScreen;
 import game.view.interfaces.TileSelected;
@@ -11,13 +12,13 @@ import javafx.beans.property.IntegerProperty;
  * This class is the presenter for the  Map Screen
  * @author The SpecialFX
  */
-public class MapSceenLogic extends GameLogic {
+public final class MapSceenLogic extends GameLogic {
 
     private IMapScreen mapView;
 
-    public MapSceenLogic(IMapScreen mapView, IModel model) {
+    public MapSceenLogic(IMapScreen newMapView, IModel model) {
         super(model);
-        this.mapView = mapView;
+        this.mapView = newMapView;
 
         this.mapView.setGameLogic(this);
     }
@@ -27,11 +28,11 @@ public class MapSceenLogic extends GameLogic {
     }
 
     public void primeScreen() {
-        for (int row = 0, col = 0; row < 5; col++) {
+        for (int row = 0, col = 0; row < GameMap.MAPHEIGHT; col++) {
             mapView.setTile(getGameModel().getTileTerrain(row, col),
                     getGameModel().getTileOwner(row, col),
                     getGameModel().getTileMule(row, col), row, col);
-            if (col == 8) {
+            if (col == GameMap.MAPWIDTH - 1) {
                 row++;
                 col = -1;
             }
@@ -45,7 +46,7 @@ public class MapSceenLogic extends GameLogic {
 
     public void viewUpdated() {
         TileSelected playerClick = mapView.lastTileClicked();
-        if (playerClick.getX() == 2 && playerClick.getY() == 4) {
+        if (playerClick.getX() == 2 && playerClick.getY() == 4) { //Town Location
             getGameEngine().setCurrentGameLogic(Mule.TOWN_SCREEN);
         } else {
             getGameModel().placeMule(playerClick.getX(), playerClick.getY());

@@ -9,13 +9,13 @@ import game.view.interfaces.IPlayerConfiguration;
  * This class is the presenter for the Player Creation Screen
  * @author The SpecialFX
  */
-public class PlayerCreationLogic extends GameLogic {
+public final class PlayerCreationLogic extends GameLogic {
     private IPlayerConfiguration playerView;
     private int currentPlayerNum = 0;
 
-    public PlayerCreationLogic(IPlayerConfiguration playerView, IModel game) {
+    public PlayerCreationLogic(IPlayerConfiguration newPlayerView, IModel game) {
         super(game);
-        this.playerView = playerView;
+        this.playerView = newPlayerView;
 
         this.playerView.setGameLogic(this);
     }

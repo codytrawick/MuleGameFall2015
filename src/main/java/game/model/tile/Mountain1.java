@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @author The SpecialFX
  */
-public class Mountain1 extends Tile {
+public final class Mountain1 extends Tile {
     private static Map<String, Integer> production = new HashMap<>();
     static {
         production.put("Food", 1);

@@ -10,13 +10,13 @@ import game.model.IModel;
  * This class is the Presenter for the Store Screen
  * @author The SpecialFX
  */
-public class StoreLogic extends GameLogic {
+public final class StoreLogic extends GameLogic {
 
     private IStoreScreen storeView;
 
-    public StoreLogic(IStoreScreen storeView, IModel imodel) {
+    public StoreLogic(IStoreScreen newStoreView, IModel imodel) {
         super(imodel);
-        this.storeView = storeView;
+        this.storeView = newStoreView;
 
         this.storeView.setGameLogic(this);
     }

@@ -10,13 +10,13 @@ import javafx.application.Platform;
  * This class is a Presenter for the Main Screen
  * @author The SpecialFX
  */
-public class MainScreenLogic extends GameLogic {
+public final class MainScreenLogic extends GameLogic {
 
     private IMainScreen mainView;
 
-    public MainScreenLogic(IMainScreen mainView, IModel model) {
+    public MainScreenLogic(IMainScreen newMainView, IModel model) {
         super(model);
-        this.mainView = mainView;
+        this.mainView = newMainView;
 
         this.mainView.setGameLogic(this);
 

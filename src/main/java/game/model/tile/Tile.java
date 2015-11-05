@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Created by temp on 9/21/2015.
  */
-public class Tile implements Serializable {
+public abstract class Tile implements Serializable {
 
     private String prodType;
     private String muleType = "";
