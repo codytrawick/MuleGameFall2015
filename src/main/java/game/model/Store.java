@@ -34,11 +34,6 @@ public final class Store implements Serializable {
             foodStock = 16;
             energyStock = 16;
             oreStock = 0;
-        } else if (difficulty.equals("Standard")) {
-            muleStock = 14;
-            foodStock = 8;
-            energyStock = 8;
-            oreStock = 8;
         } else {
             muleStock = 14;
             foodStock = 8;

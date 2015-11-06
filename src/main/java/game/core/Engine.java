@@ -131,7 +131,11 @@ public final class Engine extends StackPane {
             setGame((GameInfo) inputStream.readObject());
             inputStream.close();
             return true;
-        } catch (Exception e) {
+        } catch (IOException e) {
+            setGame(new GameInfo());
+            return false;
+        } catch (ClassNotFoundException e) {
+            setGame(new GameInfo());
             return false;
         }
     }

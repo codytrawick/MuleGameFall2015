@@ -17,29 +17,29 @@ public abstract class GameLogic {
 
     }
 
+    public final void setEngine(Engine parent) {
+        gameEngine = parent;
+    }
+
+    public final void updateModel(IModel newGameModel) {
+        gameModel = newGameModel;
+    }
+
+    public final void setModel(IModel newModel) {
+        gameModel = newModel;
+    }
+
+    protected final IModel getGameModel() {
+        return gameModel;
+    }
+
+    protected final Engine getGameEngine() {
+        return gameEngine;
+    }
+
     public abstract void viewUpdated();
 
     public abstract void passButton();
 
-    protected Engine getGameEngine() {
-        return gameEngine;
-    }
-
-    protected IModel getGameModel() {
-        return gameModel;
-    }
-
-    public void setEngine(Engine parent) {
-        gameEngine = parent;
-    }
-
-    public void updateModel(IModel newGameModel) {
-        gameModel = newGameModel;
-    }
-
     public abstract void primeScreen();
-
-    public void setModel(IModel newModel) {
-        gameModel = newModel;
-    }
 }
