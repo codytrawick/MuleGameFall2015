@@ -103,7 +103,7 @@ public final class MapScreenController implements IMapScreen {
         tileArt.put("Food", new Image("/default/Food.png"));
         tileArt.put("Ore", new Image("/default/Ore.png"));
 
-        for (int index = 0; index < 45; index++) {
+        for (int index = 0; index < tiles.getChildren().size(); index++) {
             ((Button) tiles.getChildren().get(index)).setPadding(Insets.EMPTY);
             ((Button) tiles.getChildren().get(index)).setGraphic(new StackPane(new ImageView(new Image("BlankTile.jpg"))));
         }
