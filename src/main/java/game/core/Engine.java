@@ -95,12 +95,12 @@ public final class Engine extends StackPane {
                 new KeyFrame(Duration.seconds(time + 1),
                         new KeyValue(timeSeconds, 0)));
         timeline.playFromStart();
-        ((MapSceenLogic) logic.get(Mule.MAP2SCREEN)).timerStart(timeSeconds);
+        ((MapScreenLogic) logic.get(Mule.MAP2SCREEN)).timerStart(timeSeconds);
         ((TownLogic) logic.get(Mule.TOWN_SCREEN)).timerStart(timeSeconds);
     }
 
     public int turnTimeLeft() {
-        return ((MapSceenLogic) logic.get(Mule.MAP2SCREEN)).getTimeLeft();
+        return ((MapScreenLogic) logic.get(Mule.MAP2SCREEN)).getTimeLeft();
     }
 
     public void setCurrentGameLogic(String newLogic) {

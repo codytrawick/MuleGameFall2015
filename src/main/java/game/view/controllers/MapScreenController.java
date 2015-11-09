@@ -1,7 +1,7 @@
 package game.view.controllers;
 
 import game.core.GameLogic;
-import game.core.Presenters.MapSceenLogic;
+import game.core.Presenters.MapScreenLogic;
 import game.model.GameMap;
 import game.model.Player;
 import game.view.interfaces.IMapScreen;
@@ -34,7 +34,7 @@ public final class MapScreenController implements IMapScreen {
     // GameScreen instance variables
 //    private Engine gameEngine;
     //This map will match the type of tiles to an image that corresponds to it
-    private MapSceenLogic listener;
+    private MapScreenLogic listener;
     private TileSelected lastClick;
     private Map<String, Image> tileArt = new HashMap<>();
 
@@ -193,7 +193,7 @@ public final class MapScreenController implements IMapScreen {
 //    }
 
     public void setGameLogic(GameLogic parent) {
-        listener = (MapSceenLogic) parent;
+        listener = (MapScreenLogic) parent;
     }
 
     public TileSelected lastTileClicked() {

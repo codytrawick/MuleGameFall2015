@@ -14,7 +14,7 @@ public final class BuySellAction {
 
     /**
      * Performs the action defined by this class's state on the given player.  Returns true if the action executed
-     * sucessfully: the player had more than 1 unit of the resource (if selling) or enough money to buy 1 resource
+     * successfully: the player had more than 1 unit of the resource (if selling) or enough money to buy 1 resource
      * (if buying)
      * @return
      *

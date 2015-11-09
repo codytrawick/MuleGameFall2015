@@ -3,7 +3,7 @@ package game.core;
 import game.core.Presenters.ConfigurationLogic;
 import game.core.Presenters.LandSelection;
 import game.core.Presenters.MainScreenLogic;
-import game.core.Presenters.MapSceenLogic;
+import game.core.Presenters.MapScreenLogic;
 import game.core.Presenters.PlayerCreationLogic;
 import game.core.Presenters.RoundLogic;
 import game.core.Presenters.StoreLogic;
@@ -81,7 +81,7 @@ public final class Mule extends Application {
                 (ILandSelection) loadScreen(LAND_SELECTION,
                         LAND_SELECTION_FXML), gameEngine.getGame()));
 
-        gameEngine.addGameLogic(MAP2SCREEN, new MapSceenLogic((IMapScreen)
+        gameEngine.addGameLogic(MAP2SCREEN, new MapScreenLogic((IMapScreen)
                 loadScreen(MAP2SCREEN, MAP2FXML), gameEngine.getGame()));
 
         gameEngine.addGameLogic(TOWN_SCREEN, new TownLogic((ITownScreen)

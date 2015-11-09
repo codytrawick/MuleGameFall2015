@@ -12,11 +12,11 @@ import javafx.beans.property.IntegerProperty;
  * This class is the presenter for the  Map Screen
  * @author The SpecialFX
  */
-public final class MapSceenLogic extends GameLogic {
+public final class MapScreenLogic extends GameLogic {
 
     private IMapScreen mapView;
 
-    public MapSceenLogic(IMapScreen newMapView, IModel model) {
+    public MapScreenLogic(IMapScreen newMapView, IModel model) {
         super(model);
         this.mapView = newMapView;
 
