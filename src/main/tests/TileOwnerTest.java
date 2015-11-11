@@ -1,6 +1,3 @@
-package tests;
-
-
 import game.model.GameInfo;
 import game.model.GameMap;
 import game.model.Player;
