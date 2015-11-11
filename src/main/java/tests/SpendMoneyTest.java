@@ -1,4 +1,3 @@
-package tests;
 
 import game.model.GameInfo;
 import game.model.Player;

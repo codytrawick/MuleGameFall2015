@@ -112,7 +112,7 @@ public final class GameInfo implements IModel, Serializable {
     }
 
     public void nextPlayer() {
-        if (round.isOver()) { //&& round.getNumber() < 12
+        if (round.isOver() && round.getNumber() < 12) { //&& round.getNumber() < 12
             resolveRound();
             createRound(round.getNumber() + 1);
         } else {
