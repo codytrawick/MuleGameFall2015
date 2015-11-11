@@ -15,7 +15,8 @@ import static org.junit.Assert.assertFalse;
 /**
  * Jarred Aultman M10 JUnit Test
  *
- * Testing to see if setTileOwner properly assigns ownership to corresponding player.
+ * Testing to see if setTileOwner properly assigns ownership to corresponding
+ * player.
  */
 public class TileOwnerTest {
 
@@ -48,7 +49,14 @@ public class TileOwnerTest {
     }
 
     @Test
-    public void testTester1Ownership(){
+    public void testNoTileOwner() {
+        assertFalse(ownedTile1.isOwned());
+        assertFalse(ownedTile2.isOwned());
+        assertFalse(ownedTile3.isOwned());
+    }
+
+    @Test
+    public void testTester1Ownership() {
         assertFalse("", ownedTile1.isOwned());
         tester1.purchaseTile(ownedTile1);
         ownedTile1.setOwner(tester1);
@@ -67,7 +75,7 @@ public class TileOwnerTest {
     }
 
     @Test
-    public void testTester2Ownership(){
+    public void testTester2Ownership() {
         assertFalse("", ownedTile2.isOwned());
         tester2.purchaseTile(ownedTile2);
         ownedTile2.setOwner(tester2);
@@ -85,7 +93,7 @@ public class TileOwnerTest {
     }
 
     @Test
-    public void testTester3Ownership(){
+    public void testTester3Ownership() {
         assertFalse("", ownedTile3.isOwned());
         tester3.purchaseTile(ownedTile3);
         ownedTile3.setOwner(tester3);
@@ -101,5 +109,4 @@ public class TileOwnerTest {
         assertTrue(ownedTile3.isOwned());
         assertEquals("Yellow", ownedTile3.getOwner());
     }
-
 }
